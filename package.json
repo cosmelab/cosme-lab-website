@@ -1,0 +1,43 @@
+{
+  "name": "cosme-lab-website",
+  "version": "1.0.0",
+  "description": "Vector Biology & Mosquito Genomics Lab Website - UC Riverside",
+  "scripts": {
+    "dev": "hugo server --buildDrafts --buildFuture",
+    "build": "hugo --minify --gc",
+    "preview": "hugo server --environment production",
+    "clean": "rm -rf public resources",
+    "tailwind:watch": "tailwindcss -i ./assets/css/input.css -o ./assets/css/style.css --watch",
+    "tailwind:build": "tailwindcss -i ./assets/css/input.css -o ./assets/css/style.css --minify"
+  },
+  "keywords": [
+    "hugo",
+    "academic-website",
+    "vector-biology",
+    "mosquito-genomics",
+    "ucr",
+    "dracula-theme"
+  ],
+  "author": {
+    "name": "Luciano Cosme",
+    "email": "lcosme@ucr.edu",
+    "url": "https://github.com/cosmelab"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cosmelab/cosme-lab-website.git"
+  },
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.15",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}

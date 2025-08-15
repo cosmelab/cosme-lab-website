@@ -1,0 +1,244 @@
+/* 
+ * Grants Page Specific Styles
+ * Ensures consistency with News and Publications pages
+ */
+
+/* Learn More Button Styles - Centered */
+.grants-header + .active-grants .learn-more-btn {
+    background: linear-gradient(135deg, #44475a, #282a36) !important;
+    padding: 0 !important;
+    color: var(--purple) !important;
+    border: 1px solid rgba(189, 147, 249, 0.3) !important;
+    border-radius: 6px !important;
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.4rem !important;
+    text-decoration: none !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3),
+                0 1px 3px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+    overflow: hidden !important;
+    outline: none !important;
+    font-family: inherit !important;
+    height: 32px !important;
+    width: 140px !important;
+    position: relative !important;
+    margin: 1.5rem auto 0 auto !important;
+}
+
+/* Button shine effect */
+.grants-header + .active-grants .learn-more-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+    z-index: 1;
+}
+
+.grants-header + .active-grants .learn-more-btn:hover::before {
+    left: 100%;
+}
+
+/* Button hover state */
+.grants-header + .active-grants .learn-more-btn:hover {
+    background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9)) !important;
+    color: white !important;
+    box-shadow: 0 0 15px rgba(189, 147, 249, 0.5),
+                0 6px 8px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    transform: translateY(-2px) !important;
+    text-decoration: none !important;
+}
+
+.grants-header + .active-grants .learn-more-btn:active {
+    transform: scale(0.98) !important;
+}
+
+/* Mosquito emoji styling in button */
+.grants-header + .active-grants .learn-more-btn .mosquito-emoji {
+    display: inline-block;
+    font-size: 1.1em;
+    filter: hue-rotate(250deg) saturate(1.5);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.grants-header + .active-grants .learn-more-btn:hover .mosquito-emoji {
+    filter: hue-rotate(0deg) saturate(1);
+    transform: rotate(360deg);
+}
+
+/* Color consistency for grant cards */
+.grant-item h3,
+.active-grants h2 {
+    color: var(--purple) !important;
+}
+
+.grant-item h3 em {
+    color: var(--purple) !important;
+    font-style: italic;
+}
+
+.grant-item h4 {
+    color: var(--purple) !important;
+}
+
+.grant-item h4 em {
+    color: var(--purple) !important;
+    font-style: italic;
+}
+
+.grant-item p,
+.grant-item li,
+.grant-meta span {
+    color: var(--cyan) !important;
+}
+
+.grant-item p em,
+.grant-item li em {
+    color: inherit !important;
+    font-style: italic;
+}
+
+.grant-item strong {
+    color: var(--purple) !important;
+}
+
+/* Ensure grant cards have proper animation */
+.grant-item.fade-in {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.grant-item.fade-in:nth-child(1) { animation-delay: 0.1s; }
+.grant-item.fade-in:nth-child(2) { animation-delay: 0.2s; }
+.grant-item.fade-in:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Impact stats styling */
+.impact-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.impact-item {
+    text-align: center;
+}
+
+.impact-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--purple) !important;
+    text-shadow: 0 0 10px rgba(189, 147, 249, 0.3);
+}
+
+.impact-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--cyan) !important;
+    margin-top: 0.5rem;
+}
+
+/* Modal styles for consistency */
+#grantModal .modal-body h3,
+#grantModal .modal-body h4 {
+    color: var(--purple) !important;
+}
+
+#grantModal .modal-body em {
+    color: inherit !important;
+    font-style: italic;
+}
+
+/* Dracula card hover effect matching other pages */
+.grant-item.dracula-card {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(189, 147, 249, 0.2);
+}
+
+.grant-item.dracula-card:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 0 30px rgba(189, 147, 249, 0.4),
+                0 0 40px rgba(139, 233, 253, 0.2);
+    border-color: rgba(189, 147, 249, 0.5);
+    background: rgba(36, 40, 59, 0.85);
+}
+
+/* Featured grant special styling */
+.grant-item.featured {
+    border: 2px solid rgba(189, 147, 249, 0.3);
+    /* Inherits solid background from .dracula-card - no transparency */
+}
+
+.grant-item.featured:hover {
+    border-color: var(--purple);
+    box-shadow: 0 0 30px rgba(189, 147, 249, 0.8),
+                0 0 40px rgba(189, 147, 249, 0.6),
+                0 0 50px rgba(139, 233, 253, 0.3);
+}
+
+/* Grant status badge */
+.grant-status.active {
+    background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.8));
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px rgba(189, 147, 249, 0.4);
+}
+
+/* Fix funding logo size */
+.funding-logo-top {
+    height: 40px !important;
+    display: flex;
+    align-items: center;
+}
+
+.funding-logo-top img {
+    height: 100%;
+    max-height: 40px !important;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0.9);
+}
+
+/* Ensure proper spacing */
+.active-grants {
+    padding-bottom: 4rem;
+}
+
+.grant-item {
+    margin-bottom: 2rem;
+}
+
+.grant-item:last-child {
+    margin-bottom: 0;
+}

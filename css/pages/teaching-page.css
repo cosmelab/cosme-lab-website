@@ -1,0 +1,635 @@
+/* 
+ * Teaching Page Specific Styles
+ * Ensures consistency with other pages
+ */
+
+/* Filter Buttons - Base Style */
+.filter-btn {
+    padding: 0.4rem 1rem;
+    background: linear-gradient(135deg, #44475a, #282a36);
+    color: var(--purple);
+    border: 1px solid rgba(189, 147, 249, 0.3);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 600;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3),
+                0 1px 3px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+    height: 32px;
+    min-width: 140px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.filter-btn:hover::before {
+    left: 100%;
+}
+
+.filter-btn:hover {
+    background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9));
+    color: white;
+    box-shadow: 0 0 15px rgba(189, 147, 249, 0.5),
+                0 6px 8px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.filter-btn:active {
+    transform: scale(0.98);
+}
+
+/* Filter buttons matching publications page active style */
+.filter-btn.active {
+    background: linear-gradient(135deg, #44475a, #282a36) !important;
+    border-color: rgba(189, 147, 249, 0.5) !important;
+    color: var(--purple) !important;
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 0 30px rgba(189, 147, 249, 0.4),
+                0 4px 6px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+    position: relative;
+}
+
+/* Add extra padding for buttons with emoji */
+.filter-btn.active:not([data-filter="all"]) {
+    padding-right: 2.5rem !important;
+}
+
+/* Add rotating icon to active filter - but not for "All Courses" */
+.filter-btn.active:not([data-filter="all"])::after {
+    content: '🎓';
+    position: absolute;
+    right: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    animation: spin 2s linear infinite;
+    filter: hue-rotate(250deg) saturate(1.5);
+}
+
+@keyframes spin {
+    from {
+        transform: translateY(-50%) rotate(0deg);
+    }
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
+
+/* Active filter hover state */
+.filter-btn.active:hover {
+    background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9)) !important;
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(189, 147, 249, 0.7),
+                0 0 35px rgba(189, 147, 249, 0.5),
+                0 6px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+.filter-btn.active:hover::after {
+    filter: none;
+    animation-duration: 0.5s;
+}
+
+/* Fix spacing before footer */
+.mentorship-section {
+    padding-bottom: 4rem !important;
+    margin-bottom: 2rem !important;
+}
+
+/* Ensure consistent color scheme */
+.course-item h3,
+.training-item h4,
+.mentorship-card h3,
+.student-feedback h2,
+.student-feedback h3,
+.professional-development h2,
+.professional-development h3,
+.teaching-philosophy h2,
+.courses-section h2,
+.training-section h2,
+.mentorship-section h2 {
+    color: var(--purple) !important;
+}
+
+.course-item p,
+.course-details p,
+.training-item p,
+.mentorship-card p,
+.philosophy-content p,
+.philosophy-content li,
+.current-students li,
+.development-content p,
+.eval-subtitle {
+    color: var(--cyan) !important;
+}
+
+.course-item strong,
+.mentorship-card strong {
+    color: var(--purple) !important;
+}
+
+/* Course status badges matching button style */
+.course-status {
+    padding: 0.4rem 1rem;
+    background: linear-gradient(135deg, #44475a, #282a36) !important;
+    color: var(--purple) !important;
+    border: 1px solid rgba(189, 147, 249, 0.3) !important;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3),
+                0 1px 3px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+    height: 32px;
+    min-width: 100px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.course-status::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+    z-index: 1;
+}
+
+.course-status:hover::before {
+    left: 100%;
+}
+
+.course-status:hover {
+    background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9)) !important;
+    color: white !important;
+    box-shadow: 0 0 15px rgba(189, 147, 249, 0.5),
+                0 6px 8px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    transform: translateY(-2px);
+}
+
+.course-status:active {
+    transform: scale(0.98);
+}
+
+/* Student Evaluations Card */
+.evaluation-card {
+    background: var(--bg-light);
+    border: 1px solid rgba(189, 147, 249, 0.2);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.evaluation-card.dracula-card:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 0 30px rgba(189, 147, 249, 0.4),
+                0 0 40px rgba(139, 233, 253, 0.2);
+    border-color: rgba(189, 147, 249, 0.5);
+    background: rgba(36, 40, 59, 0.85);
+}
+
+.evaluation-card h3 {
+    color: var(--purple) !important;
+    margin-bottom: 0.5rem;
+}
+
+.eval-note {
+    color: var(--cyan) !important;
+    font-style: italic;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.eval-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.eval-stat {
+    text-align: center;
+}
+
+.eval-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--purple) !important;
+    text-shadow: 0 0 10px rgba(189, 147, 249, 0.3);
+    margin-bottom: 0.5rem;
+}
+
+.eval-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--cyan) !important;
+    opacity: 0.9;
+}
+
+/* Course cards with consistent dracula theme */
+.courses-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem; /* ~1cm spacing between cards */
+}
+
+.course-item.dracula-card {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(189, 147, 249, 0.2);
+    margin-bottom: 0; /* Remove default margin since we're using gap */
+}
+
+.course-item.dracula-card:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 0 30px rgba(189, 147, 249, 0.4),
+                0 0 40px rgba(139, 233, 253, 0.2);
+    border-color: rgba(189, 147, 249, 0.5);
+    background: rgba(36, 40, 59, 0.85);
+}
+
+/* Philosophy Card */
+.philosophy-card {
+    background: var(--bg-light);
+    border: 1px solid rgba(189, 147, 249, 0.2);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.philosophy-card.dracula-card:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 0 30px rgba(189, 147, 249, 0.4),
+                0 0 40px rgba(139, 233, 253, 0.2);
+    border-color: rgba(189, 147, 249, 0.5);
+    background: rgba(36, 40, 59, 0.85);
+}
+
+.philosophy-card h4 {
+    color: var(--purple) !important;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Philosophy quote styling with animations */
+.philosophy-quote {
+    background: var(--bg-light);
+    border: 1px solid rgba(189, 147, 249, 0.2);
+    padding: 1rem 1.5rem;
+    margin: 0 0 1.5rem 0;
+    font-style: normal;
+    color: var(--cyan) !important;
+    font-size: 1rem;
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    text-align: center;
+}
+
+.philosophy-quote::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+    pointer-events: none;
+}
+
+.philosophy-quote:hover::before {
+    left: 100%;
+}
+
+.philosophy-quote:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 0 30px rgba(189, 147, 249, 0.4),
+                0 0 40px rgba(139, 233, 253, 0.2);
+    border-color: rgba(189, 147, 249, 0.5);
+    background: rgba(36, 40, 59, 0.85);
+}
+
+.philosophy-quote cite {
+    display: block;
+    margin-top: 0.5rem;
+    font-style: normal;
+    font-size: 0.85rem;
+    color: var(--purple) !important;
+    text-align: right;
+}
+
+.philosophy-card ul li strong {
+    color: var(--purple) !important;
+}
+
+.philosophy-impact {
+    background: var(--bg-light);
+    border: 1px solid rgba(189, 147, 249, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    font-style: normal;
+    color: var(--cyan) !important;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.philosophy-impact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+    pointer-events: none;
+}
+
+.philosophy-impact:hover::before {
+    left: 100%;
+}
+
+.philosophy-impact:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 0 30px rgba(189, 147, 249, 0.4),
+                0 0 40px rgba(139, 233, 253, 0.2);
+    border-color: rgba(189, 147, 249, 0.5);
+    background: rgba(36, 40, 59, 0.85);
+}
+
+/* Training items */
+.training-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.training-item.dracula-card {
+    background: var(--bg-light);
+    border: 1px solid rgba(189, 147, 249, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+}
+
+.training-item h4 {
+    text-align: center;
+    margin: 1rem 0;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--purple) !important;
+}
+
+.training-item p {
+    text-align: center;
+    line-height: 1.6;
+    min-height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.training-item.dracula-card:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 0 30px rgba(189, 147, 249, 0.4),
+                0 0 40px rgba(139, 233, 253, 0.2);
+    border-color: rgba(189, 147, 249, 0.5);
+    background: rgba(36, 40, 59, 0.85);
+}
+
+.training-icon {
+    font-size: 2rem;
+    color: var(--purple) !important;
+    margin-bottom: 1rem;
+}
+
+.training-icon i {
+    transition: color 0.3s ease;
+}
+
+.training-item:hover .training-icon i {
+    text-shadow: 0 0 20px rgba(189, 147, 249, 0.6);
+}
+
+/* Mentorship items - matching training cards */
+.mentorship-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.mentorship-item.dracula-card {
+    background: var(--bg-light);
+    border: 1px solid rgba(189, 147, 249, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+}
+
+.mentorship-item h4 {
+    text-align: center;
+    margin: 1rem 0;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--purple) !important;
+}
+
+.mentorship-item p {
+    text-align: center;
+    line-height: 1.6;
+    min-height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cyan) !important;
+}
+
+.mentorship-item.dracula-card:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 0 30px rgba(189, 147, 249, 0.4),
+                0 0 40px rgba(139, 233, 253, 0.2);
+    border-color: rgba(189, 147, 249, 0.5);
+    background: rgba(36, 40, 59, 0.85);
+}
+
+.mentorship-icon {
+    font-size: 2rem;
+    color: var(--purple) !important;
+    margin-bottom: 1rem;
+}
+
+.mentorship-icon i {
+    transition: color 0.3s ease;
+}
+
+.mentorship-item:hover .mentorship-icon i {
+    text-shadow: 0 0 20px rgba(189, 147, 249, 0.6);
+}
+
+/* Achievement card */
+.achievement-card {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    background: var(--bg-light);
+    border: 1px solid rgba(189, 147, 249, 0.2);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.achievement-card.dracula-card:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 0 30px rgba(189, 147, 249, 0.4),
+                0 0 40px rgba(139, 233, 253, 0.2);
+    border-color: rgba(189, 147, 249, 0.5);
+    background: rgba(36, 40, 59, 0.85);
+}
+
+.achievement-icon {
+    font-size: 3rem;
+    color: var(--purple) !important;
+    flex-shrink: 0;
+}
+
+.achievement-content h3 {
+    color: var(--purple) !important;
+    margin-bottom: 0.5rem;
+}
+
+.achievement-content p {
+    color: var(--cyan) !important;
+    margin-bottom: 1rem;
+}
+
+.achievement-meta {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.achievement-meta span {
+    color: var(--cyan) !important;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.achievement-meta i {
+    margin-right: 0.5rem;
+    color: var(--purple) !important;
+}
+
+/* Course content links */
+.course-content a {
+    color: var(--purple) !important;
+    text-decoration: none;
+    border-bottom: 1px dotted var(--purple);
+    transition: all 0.3s ease;
+}
+
+.course-content a:hover {
+    color: var(--cyan) !important;
+    border-bottom-color: var(--cyan);
+    text-shadow: 0 0 10px rgba(189, 147, 249, 0.3);
+}
+
+/* Course note as nested card */
+.course-note {
+    background: rgba(189, 147, 249, 0.05);
+    border: 1px solid rgba(189, 147, 249, 0.15);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.course-note::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(189, 147, 249, 0.03), transparent);
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.course-note:hover {
+    background: rgba(189, 147, 249, 0.08);
+    border-color: rgba(189, 147, 249, 0.25);
+    box-shadow: 0 0 15px rgba(189, 147, 249, 0.2);
+}
+
+.course-note p {
+    color: var(--cyan) !important;
+    opacity: 0.95;
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.course-note em {
+    color: inherit !important;
+    font-style: italic;
+}

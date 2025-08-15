@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Cosme Lab | UC Riverside</title>
+    <meta name="description" content="Contact the Cosme Lab at UC Riverside for research collaborations and inquiries.">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components/purple-glow.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Contact Page Specific Styles */
+        .contact-container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 2rem;
+        }
+
+        /* Two column layout for contact info and map */
+        .contact-top-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-card, .map-card {
+            background: var(--bg-light);
+            border: 1px solid rgba(189, 147, 249, 0.2);
+            border-radius: 12px;
+            padding: 3rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-card {
+            text-align: center;
+        }
+
+        .contact-card:hover, .map-card:hover {
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                        0 0 30px rgba(189, 147, 249, 0.4),
+                        0 0 40px rgba(139, 233, 253, 0.2);
+            border-color: rgba(189, 147, 249, 0.5);
+            background: rgba(36, 40, 59, 0.85);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            color: var(--purple);
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover .contact-icon {
+            transform: scale(1.1) rotate(5deg);
+            text-shadow: 0 0 20px rgba(189, 147, 249, 0.8);
+        }
+
+        .contact-title {
+            color: var(--purple);
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(189, 147, 249, 0.3);
+        }
+
+        .address-block {
+            color: var(--cyan);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .address-block strong {
+            color: #a0f0ff;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Map Container */
+        .map-container {
+            width: 100%;
+            height: 100%;
+            min-height: 350px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Email Button - matching Send Message button style */
+        .email-button {
+            background: linear-gradient(135deg, #44475a, #282a36) !important;
+            padding: 0.6rem 1.5rem !important;
+            color: var(--purple) !important;
+            border: 1px solid rgba(189, 147, 249, 0.3) !important;
+            border-radius: 6px !important;
+            font-size: 0.9rem !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.8px !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 0.6rem !important;
+            text-decoration: none !important;
+            box-sizing: border-box !important;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3),
+                        0 1px 3px rgba(0, 0, 0, 0.2),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+            overflow: hidden !important;
+            outline: none !important;
+            font-family: inherit !important;
+            width: fit-content;
+            min-width: 150px !important;
+            max-width: 180px !important;
+            position: relative;
+            margin: 1rem auto 0;
+        }
+
+        .email-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+            z-index: -1;
+        }
+
+        .email-button:hover::before {
+            left: 100%;
+        }
+
+        .email-button:hover {
+            background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9)) !important;
+            color: white !important;
+            box-shadow: 0 0 15px rgba(189, 147, 249, 0.5),
+                        0 6px 8px rgba(0, 0, 0, 0.4),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+            transform: translateY(-2px) !important;
+            text-decoration: none !important;
+        }
+
+        .email-button:active {
+            transform: scale(0.98) !important;
+        }
+
+        .email-button i {
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .email-button:hover i {
+            transform: rotate(360deg);
+        }
+
+        /* Contact Form Section */
+        .form-container {
+            background: var(--bg-light);
+            border: 1px solid rgba(189, 147, 249, 0.2);
+            border-radius: 12px;
+            padding: 3rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-container:hover {
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                        0 0 30px rgba(189, 147, 249, 0.4),
+                        0 0 40px rgba(139, 233, 253, 0.2);
+            border-color: rgba(189, 147, 249, 0.5);
+            background: rgba(36, 40, 59, 0.85);
+        }
+
+
+        .form-intro {
+            color: var(--cyan);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        /* Modern Form Styling */
+        .modern-contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 0.5rem;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid rgba(189, 147, 249, 0.3);
+            color: var(--fg-light);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group label {
+            position: absolute;
+            top: 1rem;
+            left: 0.5rem;
+            color: var(--fg-dark);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus,
+        .form-group input:not(:placeholder-shown),
+        .form-group select:not([value=""]),
+        .form-group textarea:not(:placeholder-shown) {
+            outline: none;
+            border-bottom-color: var(--purple);
+        }
+
+        .form-group input:focus ~ label,
+        .form-group select:focus ~ label,
+        .form-group textarea:focus ~ label,
+        .form-group input:not(:placeholder-shown) ~ label,
+        .form-group select:not([value=""]) ~ label,
+        .form-group textarea:not(:placeholder-shown) ~ label {
+            top: -0.5rem;
+            font-size: 0.85rem;
+            color: var(--purple);
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .form-group select option {
+            background: var(--bg-dark);
+            color: var(--fg-light);
+        }
+
+        .form-underline {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--purple);
+            transition: width 0.3s ease;
+        }
+
+        .form-group input:focus ~ .form-underline,
+        .form-group select:focus ~ .form-underline,
+        .form-group textarea:focus ~ .form-underline {
+            width: 100%;
+        }
+
+        /* Submit Button */
+        .btn-submit {
+            background: linear-gradient(135deg, #44475a, #282a36) !important;
+            padding: 0.6rem 1.5rem !important;
+            color: var(--purple) !important;
+            border: 1px solid rgba(189, 147, 249, 0.3) !important;
+            border-radius: 6px !important;
+            font-size: 0.9rem !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.8px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 0.6rem !important;
+            text-decoration: none !important;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3),
+                        0 1px 3px rgba(0, 0, 0, 0.2),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+            overflow: hidden !important;
+            outline: none !important;
+            font-family: inherit !important;
+            min-width: 180px !important;
+            position: relative;
+            margin: 2rem auto 0;
+            width: fit-content;
+        }
+
+        .btn-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+            z-index: -1;
+        }
+
+        .btn-submit:hover::before {
+            left: 100%;
+        }
+
+        .btn-submit:hover {
+            background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9)) !important;
+            color: white !important;
+            box-shadow: 0 0 15px rgba(189, 147, 249, 0.5),
+                        0 6px 8px rgba(0, 0, 0, 0.4),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+            transform: translateY(-2px) !important;
+        }
+
+        .btn-submit:active {
+            transform: scale(0.98) !important;
+        }
+
+        .btn-submit i {
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+            margin-right: 0.4rem;
+        }
+
+        .btn-submit:hover i {
+            transform: rotate(360deg);
+        }
+
+        /* Form Status Messages */
+        .form-status {
+            margin: 1rem 0;
+            padding: 1rem;
+            border-radius: 6px;
+            text-align: center;
+            display: none;
+        }
+
+        .form-status.success {
+            background: rgba(80, 250, 123, 0.1);
+            color: var(--green);
+            border: 1px solid var(--green);
+            display: block;
+        }
+
+        .form-status.error {
+            background: rgba(255, 85, 85, 0.1);
+            color: var(--red);
+            border: 1px solid var(--red);
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contact-container {
+                padding: 1rem;
+                margin: 2rem auto;
+            }
+
+            .contact-top-section {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-card, .map-card {
+                padding: 2rem 1.5rem;
+                min-height: 300px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .contact-title {
+                font-size: 1.5rem;
+            }
+
+            .address-block {
+                font-size: 1rem;
+            }
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R6YGBLPHSH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-R6YGBLPHSH");
+    </script></head>
+<body style="background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), url('assets/images/page_backgrounds/contact_page.png') center/cover fixed;">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <span>Cosme Lab</span>
+                </a>
+                <span class="since-date">Established on July 1st, 2024</span>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="grants.html">Grants</a></li>
+                <li><a href="teaching.html">Teaching</a></li>
+                <li><a href="service.html">Service</a></li>
+                <li><a href="join.html">Join Us</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header contact-header" style="background: linear-gradient(rgba(40, 42, 54, 0.9), rgba(40, 42, 54, 0.85)), url('assets/images/headers/contact_header.png') center/cover !important; background-attachment: fixed;">
+        <style>.contact-header::before { display: none !important; }</style>
+        <div class="container">
+            <h1>Contact</h1>
+            <p class="lead">Let's collaborate and advance vector biology together</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <h2 style="color: var(--purple); font-size: 2rem; text-align: center; margin-bottom: 2rem; text-shadow: 0 2px 10px rgba(189, 147, 249, 0.3);">Visit Our Lab</h2>
+            
+            <!-- Contact Info and Map Side by Side -->
+            <div class="contact-top-section">
+                <!-- Contact Info Card -->
+                <div class="contact-card dracula-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    
+                    <div class="address-block">
+                        <strong>Cosme Lab</strong>
+                        165 Citrus Drive, Room 326<br>
+                        University of California, Riverside<br>
+                        Riverside, CA 92521
+                    </div>
+                    
+                    <a href="mailto:cosmelab.ucr@gmail.com" class="email-button">
+                        <i class="fas fa-envelope"></i>
+                        Contact Us
+                    </a>
+                </div>
+
+                <!-- Map Card -->
+                <div class="map-card dracula-card">
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3307.5685434177!2d-117.32844!3d33.973661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dcae47e8b1c6f5%3A0x1f4c3b5f3e3f3e3f!2sEntomology%20Building%2C%20Riverside%2C%20CA%2092521!5e0!3m2!1sen!2sus!4v1234567890" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <h2 style="color: var(--purple); font-size: 2rem; text-align: center; margin-top: 3rem; margin-bottom: 2rem; text-shadow: 0 2px 10px rgba(189, 147, 249, 0.3);">Send a Message</h2>
+            <div class="form-container dracula-card">
+                <p class="form-intro">Have a question? Interested in joining the lab? Want to collaborate? We'd love to hear from you!</p>
+                
+                <form id="contact-form" action="https://formspree.io/f/xkgzvqgd" method="POST" class="modern-contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required placeholder=" ">
+                            <label for="name">Your Name *</label>
+                            <span class="form-underline"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required placeholder=" ">
+                            <label for="email">Your Email *</label>
+                            <span class="form-underline"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" required placeholder=" ">
+                            <label for="subject">Subject *</label>
+                            <span class="form-underline"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <select id="inquiry-type" name="inquiry_type" required>
+                                <option value="">Select Inquiry Type *</option>
+                                <option value="research">Research Collaboration</option>
+                                <option value="graduate">Graduate Studies</option>
+                                <option value="undergraduate">Undergraduate Research</option>
+                                <option value="postdoc">Postdoc Position</option>
+                                <option value="general">General Inquiry</option>
+                            </select>
+                            <span class="form-underline"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <textarea id="message" name="message" rows="6" required placeholder=" "></textarea>
+                        <label for="message">Your Message *</label>
+                        <span class="form-underline"></span>
+                    </div>
+                    
+                    <!-- Honeypot field for spam protection -->
+                    <input type="text" name="_gotcha" style="display:none">
+                    
+                    <!-- Success/Error messages -->
+                    <div id="form-status" class="form-status"></div>
+                    
+                    <button type="submit" class="btn-submit">
+                        <span class="btn-text">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </span>
+                        <span class="btn-loading" style="display:none;">
+                            <i class="fas fa-spinner fa-spin"></i> Sending...
+                        </span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Cosme Lab</h4>
+                    <p>Department of Entomology<br>
+                    University of California, Riverside<br>
+                    165 Citrus Drive<br>
+                    Entomology Bldg, Room 326<br>
+                    Riverside, CA 92521</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://orcid.org/0000-0003-4058-3274" target="_blank" title="ORCID">
+                            <i class="fab fa-orcid"></i>
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=xcoJXuUAAAAJ" target="_blank" title="Google Scholar">
+                            <i class="fas fa-graduation-cap"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/luciano-cosme-49a51691/" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/cosmelab" target="_blank" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:luciano.cosme@ucr.edu" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                    <div class="logo-links" style="display: flex; gap: 1rem; margin-top: 1.5rem; justify-content: center;">
+                        <a href="https://www.ucr.edu" target="_blank" class="logo-link">
+                            <img src="assets/images/Campus_Brand_Toolkit/Monogram/UCR_Monogram_PNG/UCR_Icon_WhtBG.png" alt="UCR" style="height: 35px;">
+                        </a>
+                        <a href="https://entomology.ucr.edu/" target="_blank" class="logo-link">
+                            <img src="assets/images/logos/UCR_entomology_logo.png" alt="UCR Department of Entomology" style="height: 35px;">
+                        </a>
+                    </div>
+                    <!-- Visitor Counter -->
+                    <div id="visitor-counter-footer" style="text-align: center; margin-top: 1rem;"></div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cosme Lab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    
+    <!-- Visitor Counter Widget -->
+    <link rel="stylesheet" href="css/components/visitor-widget.css">
+    <script src="js/visitor-counter.js"></script>
+
+    <script>
+        // Contact Form Handler
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+        const btnText = document.querySelector('.btn-text');
+        const btnLoading = document.querySelector('.btn-loading');
+        
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Show loading state
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'inline-block';
+            formStatus.className = 'form-status';
+            formStatus.textContent = '';
+            
+            // Collect form data
+            const formData = new FormData(contactForm);
+            
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Success
+                    formStatus.className = 'form-status success';
+                    formStatus.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully.';
+                    contactForm.reset();
+                } else {
+                    // Error
+                    formStatus.className = 'form-status error';
+                    formStatus.innerHTML = '<i class="fas fa-exclamation-circle"></i> Oops! There was a problem. Please try again.';
+                }
+            } catch (error) {
+                // Network error
+                formStatus.className = 'form-status error';
+                formStatus.innerHTML = '<i class="fas fa-exclamation-circle"></i> Network error. Please check your connection.';
+            }
+            
+            // Reset button state
+            btnText.style.display = 'inline-block';
+            btnLoading.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

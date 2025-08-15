@@ -1,0 +1,519 @@
+/* 
+ * Team Page - Vertical Card Styles with Oval Photos
+ * Narrow rectangular cards with purple glow effect on hover
+ */
+
+/* Team Section Layout */
+.unified-team {
+  padding: 3rem 0;
+}
+
+.team-category {
+  margin-bottom: 4rem;
+}
+
+.team-category-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+  gap: 2rem;
+}
+
+.title-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(189, 147, 249, 0.3), transparent);
+  max-width: 200px;
+}
+
+/* Enhanced glowing lines for PI section */
+.pi-section .title-line {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(189, 147, 249, 0.8), transparent);
+  box-shadow: 0 0 10px rgba(189, 147, 249, 0.6),
+              0 0 20px rgba(189, 147, 249, 0.4);
+}
+
+.title-text {
+  color: var(--purple);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 0 0 15px rgba(189, 147, 249, 0.6),
+               0 0 25px rgba(189, 147, 249, 0.4),
+               0 0 35px rgba(189, 147, 249, 0.2);
+}
+
+/* Special enhanced glow for PI title */
+.pi-section .title-text {
+  color: var(--purple);
+  text-shadow: 0 0 20px rgba(189, 147, 249, 0.8),
+               0 0 35px rgba(189, 147, 249, 0.6),
+               0 0 50px rgba(189, 147, 249, 0.4),
+               0 0 70px rgba(189, 147, 249, 0.2);
+}
+
+.member-category {
+  margin-bottom: 3rem;
+}
+
+.member-category h3 {
+  text-align: center;
+  color: var(--cyan);
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+  text-shadow: 0 1px 5px rgba(139, 233, 253, 0.2);
+}
+
+/* Grid Layouts */
+.members-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* PI gets single centered card */
+.pi-grid {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+/* Staff - 2 cards side by side */
+.staff-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  max-width: 600px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+/* Undergrads - 3 cards side by side */
+.members-grid:has(.member-card:nth-child(3)) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  max-width: 900px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+/* Vertical Member Cards */
+.member-card {
+  background: var(--bg-light);
+  border: 1px solid rgba(189, 147, 249, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 100%;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+  /* Match home page card initial state exactly */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Photo Placeholder - Perfect circle/oval with default subtle purple */
+.member-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;  /* Perfect circle */
+  background: linear-gradient(135deg, rgba(189, 147, 249, 0.2), rgba(139, 233, 253, 0.1));
+  border: 1px solid rgba(189, 147, 249, 0.3);  /* Default purple border */
+  margin-bottom: 0.8rem;  /* Reduced margin to bring text closer */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);  /* Smooth elastic easing */
+  position: relative;
+  /* Subtle default glow */
+  box-shadow: 0 0 8px rgba(189, 147, 249, 0.2),
+              0 2px 8px rgba(0, 0, 0, 0.2);
+  transform-origin: center center;
+}
+
+/* Individual member FULL colored glows - always visible at 100% */
+/* PI - Full purple glow (same intensity as others) */
+.member-card[data-member="luciano"] .member-photo {
+  border-color: rgba(189, 147, 249, 0.8) !important;
+  box-shadow: 0 0 15px rgba(189, 147, 249, 0.6),
+              0 0 25px rgba(189, 147, 249, 0.4),
+              0 4px 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Andre - Full cyan glow */
+.member-card[data-member="andre"] .member-photo {
+  border-color: rgba(188, 232, 255, 0.8);
+  box-shadow: 0 0 15px rgba(188, 232, 255, 0.6),
+              0 0 25px rgba(188, 232, 255, 0.4),
+              0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Gustavo - Full light red glow #FF7373 */
+.member-card[data-member="gustavo"] .member-photo {
+  border-color: rgba(255, 115, 115, 0.8);
+  box-shadow: 0 0 15px rgba(255, 115, 115, 0.6),
+              0 0 25px rgba(255, 115, 115, 0.4),
+              0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Dylan - Full light green glow #CBFFA5 */
+.member-card[data-member="dylan"] .member-photo {
+  border-color: rgba(203, 255, 165, 0.8);
+  box-shadow: 0 0 15px rgba(203, 255, 165, 0.6),
+              0 0 25px rgba(203, 255, 165, 0.4),
+              0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Bryan - Full golden orange glow #FFC567 */
+.member-card[data-member="bryan"] .member-photo {
+  border-color: rgba(255, 197, 103, 0.8);
+  box-shadow: 0 0 15px rgba(255, 197, 103, 0.6),
+              0 0 25px rgba(255, 197, 103, 0.4),
+              0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Laksh - Full soft blue glow #9EB0FF */
+.member-card[data-member="laksh"] .member-photo {
+  border-color: rgba(158, 176, 255, 0.8);
+  box-shadow: 0 0 15px rgba(158, 176, 255, 0.6),
+              0 0 25px rgba(158, 176, 255, 0.4),
+              0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Photo styling */
+.member-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Member Info - Tighter spacing and better alignment */
+.member-card h4 {
+  color: var(--purple);
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin: 0.5rem 0 0.4rem 0;  /* Reduced spacing */
+  text-shadow: 0 1px 5px rgba(189, 147, 249, 0.2);
+  text-align: center;
+  width: 100%;
+  line-height: 1.2;
+}
+
+/* Position as styled button */
+.member-position {
+  background: linear-gradient(135deg, #44475a, #282a36);
+  padding: 0.25rem 0.7rem;  /* Slightly smaller padding */
+  color: var(--purple);
+  border: 1px solid rgba(189, 147, 249, 0.3);
+  border-radius: 6px;
+  font-size: 0.6rem;  /* Slightly smaller */
+  font-weight: 600;
+  cursor: default;
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  margin: 0 0 0.5rem 0;  /* Reduced bottom margin */
+  font-style: normal;
+  position: relative;
+  overflow: hidden;
+  transform-origin: center center;
+  line-height: 1.2;
+}
+
+/* Shimmer effect for position button */
+.member-position::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+  z-index: 1;
+}
+
+.member-card:hover .member-position::before {
+  left: 100%;
+}
+
+.member-dates {
+  color: var(--comment);
+  font-size: 0.8rem;  /* Slightly smaller */
+  margin: 0 0 0.6rem 0;  /* Reduced spacing */
+  text-align: center;
+  width: 100%;
+  line-height: 1.2;
+}
+
+.member-dates i {
+  margin-right: 0.25rem;
+  color: rgba(189, 147, 249, 0.6);
+  font-size: 0.75rem;
+}
+
+.member-project {
+  color: var(--foreground);
+  font-size: 0.82rem;  /* Slightly smaller for better fit */
+  line-height: 1.35;  /* Tighter line height */
+  margin-top: auto;
+  opacity: 0.9;
+  text-align: center;
+  width: 100%;
+  padding: 0 0.3rem;  /* Less padding */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;  /* Ensures consistent height */
+}
+
+/* Hover Effect - Match home page cards exactly */
+.member-card:hover {
+  transform: translateY(-3px) scale(1.01);
+  /* Exact same glow as home page cards */
+  box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+              0 0 30px rgba(189, 147, 249, 0.4),
+              0 0 40px rgba(139, 233, 253, 0.2);
+  border-color: rgba(189, 147, 249, 0.5);
+  background: rgba(36, 40, 59, 0.85);
+}
+
+/* Photo sophisticated pop-out effect on hover - default (for any new members) */
+.member-card:hover .member-photo {
+  /* Transform applies to all */
+  transform: scale(1.12) translateY(-4px) translateZ(0);
+  z-index: 10;
+}
+
+/* Enhanced hover states - intensified colors */
+/* PI - Enhanced purple glow (uniform with others) */
+.member-card[data-member="luciano"]:hover .member-photo {
+  border-color: var(--purple) !important;
+  box-shadow: 0 0 30px rgba(189, 147, 249, 1),
+              0 0 50px rgba(189, 147, 249, 0.7),
+              0 0 70px rgba(189, 147, 249, 0.4),
+              0 6px 20px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Andre - Enhanced cyan glow */
+.member-card[data-member="andre"]:hover .member-photo {
+  border-color: #BCE8FF !important;
+  box-shadow: 0 0 25px rgba(188, 232, 255, 0.8),
+              0 0 40px rgba(188, 232, 255, 0.5),
+              0 6px 20px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Gustavo - Enhanced light red glow #FF7373 */
+.member-card[data-member="gustavo"]:hover .member-photo {
+  border-color: #FF7373 !important;
+  box-shadow: 0 0 30px rgba(255, 115, 115, 1),
+              0 0 50px rgba(255, 115, 115, 0.7),
+              0 0 70px rgba(255, 115, 115, 0.4),
+              0 6px 20px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Dylan - Enhanced light green glow #CBFFA5 */
+.member-card[data-member="dylan"]:hover .member-photo {
+  border-color: #CBFFA5 !important;
+  box-shadow: 0 0 30px rgba(203, 255, 165, 1),
+              0 0 50px rgba(203, 255, 165, 0.7),
+              0 0 70px rgba(203, 255, 165, 0.4),
+              0 6px 20px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Bryan - Enhanced golden orange glow #FFC567 */
+.member-card[data-member="bryan"]:hover .member-photo {
+  border-color: #FFC567 !important;
+  box-shadow: 0 0 30px rgba(255, 197, 103, 1),
+              0 0 50px rgba(255, 197, 103, 0.7),
+              0 0 70px rgba(255, 197, 103, 0.4),
+              0 6px 20px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Laksh - Enhanced soft blue glow #9EB0FF */
+.member-card[data-member="laksh"]:hover .member-photo {
+  border-color: #9EB0FF !important;
+  box-shadow: 0 0 30px rgba(158, 176, 255, 1),
+              0 0 50px rgba(158, 176, 255, 0.7),
+              0 0 70px rgba(158, 176, 255, 0.4),
+              0 6px 20px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Position button sophisticated pop effect on hover */
+.member-card:hover .member-position {
+  background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9));
+  color: white;
+  box-shadow: 0 0 10px rgba(189, 147, 249, 0.4),
+              0 4px 8px rgba(0, 0, 0, 0.25);
+  /* Soft pop-out effect */
+  transform: scale(1.08) translateY(-1px);
+  z-index: 5;
+}
+
+/* PI Special Styling - subtle difference only */
+.pi-member-card {
+  /* Same background as other dracula-cards - no transparency */
+  /* Inherits from .dracula-card - no override needed */
+}
+
+/* PI card hover - exactly the same as other cards */
+.pi-member-card:hover {
+  /* Identical to other member cards */
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+              0 0 30px rgba(189, 147, 249, 0.4),
+              0 0 40px rgba(139, 233, 253, 0.2);
+  border-color: rgba(189, 147, 249, 0.5);
+  background: rgba(36, 40, 59, 0.85);
+}
+
+/* Override main.css PI-specific styles - ensure PI has same glow as defined above */
+.pi-grid .member-card .member-photo {
+  /* This was blocking the glow! Remove the override */
+}
+
+/* Let the PI use the styles defined above in the individual member section */
+
+.pi-grid .member-card .member-position {
+  /* Same as regular position buttons, no special treatment */
+  background: linear-gradient(135deg, #44475a, #282a36) !important;
+  border: 1px solid rgba(189, 147, 249, 0.3) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  transform-origin: center center !important;
+}
+
+.pi-grid .member-card .member-position:hover,
+.pi-member-card:hover .member-position {
+  /* Same sophisticated pop as other position buttons */
+  background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9)) !important;
+  color: white !important;
+  box-shadow: 0 0 10px rgba(189, 147, 249, 0.4),
+              0 4px 8px rgba(0, 0, 0, 0.25) !important;
+  transform: scale(1.08) translateY(-1px) !important;
+  z-index: 5 !important;
+}
+
+
+/* Animation */
+.fade-in {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Team page buttons - matching site style */
+.team-page-button {
+  background: linear-gradient(135deg, #44475a, #282a36) !important;
+  padding: 0.4rem 1rem !important;
+  color: var(--purple) !important;
+  border: 1px solid rgba(189, 147, 249, 0.3) !important;
+  border-radius: 6px !important;
+  font-size: 0.7rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.8px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.4rem !important;
+  text-decoration: none !important;
+  box-sizing: border-box !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3),
+              0 1px 3px rgba(0, 0, 0, 0.2),
+              inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  overflow: hidden !important;
+  position: relative !important;
+  outline: none !important;
+  font-family: inherit !important;
+  height: 32px !important;
+  min-width: 140px !important;
+}
+
+.team-page-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+  z-index: 1;
+}
+
+.team-page-button:hover::before {
+  left: 100%;
+}
+
+.team-page-button:hover {
+  background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9)) !important;
+  color: white !important;
+  box-shadow: 0 0 15px rgba(189, 147, 249, 0.5),
+              0 6px 8px rgba(0, 0, 0, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  transform: translateY(-2px) !important;
+  text-decoration: none !important;
+}
+
+.team-page-button:active {
+  transform: scale(0.98) !important;
+}
+
+.team-page-button .mosquito-emoji {
+  display: inline-block;
+  font-size: 1.1em;
+  filter: hue-rotate(250deg) saturate(1.5);
+  transition: all 0.3s ease;
+  vertical-align: middle;
+  position: relative;
+  z-index: 2;
+  margin-right: 0.15cm;
+  margin-left: -0.05cm;
+  pointer-events: none;
+}
+
+.team-page-button:hover .mosquito-emoji {
+  filter: hue-rotate(0deg) saturate(1);
+  transform: rotate(360deg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .staff-grid,
+  .members-grid:has(.member-card:nth-child(3)) {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+  }
+  
+  .member-card {
+    min-height: 280px;
+  }
+}

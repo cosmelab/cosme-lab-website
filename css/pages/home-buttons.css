@@ -1,0 +1,82 @@
+/* 
+ * Home Page - Button Styles matching Publications Page
+ * Makes "View All Projects" and "Learn more" buttons match publication page style
+ */
+
+/* Override the default button styles for home page specific buttons */
+.home-page-button {
+  background: linear-gradient(135deg, #44475a, #282a36) !important;
+  padding: 0.4rem 1rem !important;
+  color: var(--purple) !important;
+  border: 1px solid rgba(189, 147, 249, 0.3) !important;
+  border-radius: 6px !important;
+  font-size: 0.7rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.8px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.4rem !important;
+  text-decoration: none !important;
+  box-sizing: border-box !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3),
+              0 1px 3px rgba(0, 0, 0, 0.2),
+              inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  overflow: hidden !important;
+  position: relative !important;
+  outline: none !important;
+  font-family: inherit !important;
+  height: 32px !important;
+  min-width: 140px !important;
+}
+
+.home-page-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+  z-index: -1;
+}
+
+.home-page-button:hover::before {
+  left: 100%;
+}
+
+.home-page-button:hover {
+  background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9)) !important;
+  color: white !important;
+  box-shadow: 0 0 15px rgba(189, 147, 249, 0.5),
+              0 6px 8px rgba(0, 0, 0, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  transform: translateY(-2px) !important;
+  text-decoration: none !important;
+}
+
+.home-page-button:active {
+  transform: scale(0.98) !important;
+}
+
+.home-page-button .mosquito-emoji {
+  display: inline-block;
+  font-size: 1.1em;
+  filter: hue-rotate(250deg) saturate(1.5);
+  transition: all 0.3s ease;
+  vertical-align: middle;
+  position: relative;
+  z-index: 1;
+  margin-right: 0.15cm;
+  margin-left: -0.05cm;
+  pointer-events: none;
+}
+
+.home-page-button:hover .mosquito-emoji {
+  filter: hue-rotate(0deg) saturate(1);
+  transform: rotate(360deg);
+}

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - Cosme Lab | UC Riverside</title>
+    <meta name="description" content="Research areas of the Cosme Lab including insecticide resistance evolution, photoperiodic diapause, and mosquito population genomics.">
+    <link rel="stylesheet" href="css/main.css?v=2">
+    <link rel="stylesheet" href="css/components/purple-glow.css">
+    <link rel="stylesheet" href="css/components/modals.css">
+    <link rel="stylesheet" href="css/pages/research-buttons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R6YGBLPHSH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-R6YGBLPHSH");
+    </script></head>
+<body style="background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), url('assets/images/page_backgrounds/research_page.png') center/cover fixed;">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <span>Cosme Lab</span>
+                </a>
+                <span class="since-date">Established on July 1st, 2024</span>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html" class="active">Research</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="grants.html">Grants</a></li>
+                <li><a href="teaching.html">Teaching</a></li>
+                <li><a href="service.html">Service</a></li>
+                <li><a href="join.html">Join Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header research-header" style="background: linear-gradient(rgba(40, 42, 54, 0.9), rgba(40, 42, 54, 0.85)), url('assets/images/headers/research_header.png') center/cover !important; background-attachment: fixed;">
+        <style>.research-header::before { display: none !important; }</style>
+        <div class="container">
+            <h1>Our Research</h1>
+            <p class="lead">Combining genomics, evolution, and computational biology to understand mosquito adaptation, with emphasis on insecticide resistance evolution and climate adaptation mechanisms.</p>
+        </div>
+    </section>
+
+    <!-- Research Areas -->
+    <section class="research-areas">
+        <div class="container">
+            <h2>Major Research Areas</h2>
+            
+            <!-- Vector Competence -->
+            <div class="research-area dracula-card" id="competence">
+                <div class="area-content">
+                    <div class="area-text">
+                        <h3><i class="fas fa-viruses"></i> Vector Competence for Dengue Transmission</h3>
+                        <p>Natural variation in dengue transmission ability across mosquito populations offers opportunities for genetic control strategies.</p>
+                        
+                        <h4>Key Findings:</h4>
+                        <ul>
+                            <li>60% of Ugandan mosquitoes are naturally resistant to dengue</li>
+                            <li>Brazilian populations show 32-47% susceptibility</li>
+                            <li>Distinct midgut and salivary gland infection barriers identified</li>
+                        </ul>
+                        
+                        
+                        <div style="margin-top: auto; padding-top: 1.5rem;">
+                            <h4>Current Approach (<a href="grants.html#regents-2025" style="color: var(--purple);">Regents Fellowship</a>):</h4>
+                            <p>Single-cell RNA-seq on phenotyped females reveals cellular mechanisms of resistance. Partnering with California MVCDs for population sampling, combining linked-read sequencing with single-cell transcriptomics.</p>
+                            
+                            <div class="research-links">
+                                <span class="learn-more-btn" style="cursor: default; opacity: 0.7; pointer-events: none;">
+                                    <i class="fas fa-file-alt"></i> Manuscript in preparation
+                                </span>
+                                <button class="learn-more-btn" data-research-id="vector-competence">
+                                    <span class="mosquito-emoji">🦟</span> Learn more
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="area-image desktop-only" style="display: flex; flex-direction: column; justify-content: center;">
+                        <img src="assets/images/research_figures/vector_competence.png" alt="Dengue infection outcomes in different mosquito populations">
+                        <p class="figure-caption">Population-level variation in dengue virus susceptibility across three <em>Aedes aegypti</em> populations.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Insecticide Resistance -->
+            <div class="research-area dracula-card" id="resistance">
+                <div class="area-content">
+                    <div class="area-text">
+                        <h3><i class="fas fa-shield-virus"></i> Evolution of Insecticide Resistance</h3>
+                        <p>We study the genomic basis of insecticide resistance in <em>Aedes aegypti</em> populations worldwide. Our research has revealed independent origins of knockdown resistance (<em>kdr</em>) mutations and identified novel loci associated with pyrethroid resistance through genome-wide association studies.</p>
+                        
+                        <h4>Key Findings:</h4>
+                        <ul>
+                            <li>Independent evolution of F1534C <em>kdr</em> mutation in global populations</li>
+                            <li>Discovery of new resistance-associated loci through GWAS</li>
+                            <li>Development of the Aealbo-chip for population genomics</li>
+                        </ul>
+                    </div>
+                    <div class="area-image">
+                        <img src="assets/images/research_figures/cosme_et_al_2024_polar_histogram.png" alt="Frequencies of haplotypes with or without non-synonymous substitutions in IIS6 and IIIS6 NaV segments">
+                        <p class="figure-caption">Global distribution of knockdown resistance mutations in <em>Aedes aegypti</em> populations. <a href="https://doi.org/10.1371/journal.pntd.0008219.g004" target="_blank">View in publication</a></p>
+                    </div>
+                </div>
+                <div class="research-links-bottom">
+                    <a href="https://doi.org/10.1371/journal.pntd.0008219" target="_blank" class="learn-more-btn">
+                        <i class="fas fa-external-link-alt"></i> Cosme et al. 2020
+                    </a>
+                    <a href="https://doi.org/10.3389/fgene.2022.867231" target="_blank" class="learn-more-btn">
+                        <i class="fas fa-external-link-alt"></i> Cosme et al. 2022
+                    </a>
+                    <a href="https://doi.org/10.1038/s41598-025-08989-x" target="_blank" class="learn-more-btn">
+                        <i class="fas fa-external-link-alt"></i> Nascimento et al. 2025
+                    </a>
+                    <button class="learn-more-btn" data-research-id="resistance-evolution">
+                        <span class="mosquito-emoji">🦟</span> Learn more
+                    </button>
+                </div>
+            </div>
+
+            <!-- Photoperiodic Diapause -->
+            <div class="research-area dracula-card" id="diapause">
+                <div class="area-content reverse">
+                    <div class="area-text">
+                        <h3><i class="fas fa-snowflake"></i> Photoperiodic Diapause Evolution</h3>
+                        <p>First GWAS revealing how invasive <em>Aedes albopictus</em> rapidly evolved cold tolerance within ~30 years of North American invasion.</p>
+                        
+                        <h4>Key Findings:</h4>
+                        <ul>
+                            <li>5 SNPs on chromosome 1 control diapause entry</li>
+                            <li>Max-like protein X (MLX), part of bHLH transcription factor complexes</li>
+                            <li>Cytochrome P450s regulate metabolic shutdown</li>
+                            <li>Homeobox and Rab11 genes arrest development</li>
+                        </ul>
+                        
+                        <h4>Methods & Future:</h4>
+                        <p>Common garden GWAS with Florida lab strain under 8L:16D vs 16L:8D photoperiods. Used Aealbo-chip to overcome 70% repetitive genome. Now implementing linked-read sequencing for 3-5× power increase with wild populations from diverse climates.</p>
+                        
+                        
+                        <div class="research-links">
+                            <span class="learn-more-btn" style="cursor: default; opacity: 0.7; pointer-events: none;">
+                                <i class="fas fa-file-alt"></i> Manuscript in revision
+                            </span>
+                            <button class="learn-more-btn" data-research-id="diapause-evolution">
+                                <span class="mosquito-emoji">🦟</span> Learn more
+                            </button>
+                        </div>
+                    </div>
+                    <div class="area-image">
+                        <img src="assets/images/research_figures/cosme_et_al_2025_placement_gwas_samples.png" alt="Phylogenetic placement of GWAS samples for diapause evolution">
+                        <p class="figure-caption">(A) Geographic distribution of genetic groups of <em>Aedes albopictus</em> across Asia. (B) Phylogenetic tree showing diapause and non-diapause populations</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Population Genomics -->
+            <div class="research-area dracula-card" id="genomics">
+                <div class="area-content">
+                    <div class="area-text">
+                        <h3><i class="fas fa-dna"></i> Global Population Genomics</h3>
+                        <p>Understanding how mosquitoes spread globally and evolve is crucial for predicting and preventing disease outbreaks. I contributed to two recent large-scale genomic studies revealing the complex evolutionary histories and invasion patterns of disease vectors worldwide.</p>
+                        
+                        <h4>Crawford et al. (2025) <span class="journal-name">Science</span> - Global <em>Aedes aegypti</em> Evolution:</h4>
+                        <p>A landmark 8-year study led by Dr. Jacob Crawford (Verily/Alphabet) sequenced 1,206 <em>Aedes aegypti</em> genomes, revealing:</p>
+                        <ul>
+                            <li><strong>Unexpected origin:</strong> The invasive mosquito form evolved in the Americas, not Africa as long believed</li>
+                            <li><strong>Human history shaped mosquito evolution:</strong> The Atlantic Slave Trade inadvertently created today's most efficient dengue vector</li>
+                            <li><strong>Four evolutionary eras identified:</strong> From African forest mosquito to global urban pest</li>
+                            <li><strong>Resistance patterns revealed:</strong> Contemporary mosquitoes returning to Africa carry insecticide resistance genes</li>
+                            <li><strong>Ongoing admixture:</strong> Secondary contact zones in South America show active mixing between ancestral and invasive forms</li>
+                        </ul>
+                        
+                        
+                        <h4>Corley et al. (2025) <span class="journal-name">Ecology and Evolution</span> - European <em>Aedes albopictus</em> Invasion:</h4>
+                        <p>Dr. Margaret K. Corley from Yale University led a comprehensive study of <em>Aedes albopictus</em> invasion across Europe, discovering:</p>
+                        <ul>
+                            <li><strong>Multiple invasions:</strong> At least three independent introduction events shaped European populations</li>
+                            <li><strong>Rapid cold adaptation:</strong> Selection signatures in genes for cold tolerance and photoperiod response</li>
+                            <li><strong>Geographic barriers:</strong> The Alps limit gene flow between Mediterranean and continental populations</li>
+                            <li><strong>Early resistance evolution:</strong> Low-frequency kdr mutations detected in Italian and French populations</li>
+                        </ul>
+                        
+                        
+                        <div style="margin-top: auto; padding-top: 1.5rem; text-align: center;">
+                            <div class="research-links" style="justify-content: center;">
+                                <a href="https://doi.org/10.1101/2024.07.23.604830" target="_blank" class="learn-more-btn">
+                                    <i class="fas fa-external-link-alt"></i> Crawford et al. 2025
+                                </a>
+                                <a href="https://doi.org/10.1002/ece3.71009" target="_blank" class="learn-more-btn">
+                                    <i class="fas fa-external-link-alt"></i> Corley et al. 2025
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="area-image">
+                        <div class="genomics-figures">
+                            <div class="figure-item">
+                                <img src="assets/images/research_figures/Crawford_et_al_2025_Admixture_tracts.png" alt="Admixture tracts from secondary contact in Brazilian Aedes aegypti">
+                                <p class="figure-caption">Admixture tract analysis revealing secondary contact between ancestral and invasive <em>Aedes aegypti</em>. <a href="https://doi.org/10.1101/2024.07.23.604830" target="_blank">View in publication</a></p>
+                            </div>
+                            <div class="figure-item">
+                                <img src="assets/images/research_figures/corley_et_all_2025_ancestry.jpg" alt="Ancestry analysis of European Aedes albopictus populations">
+                                <p class="figure-caption">Multiple independent invasions of <em>Aedes albopictus</em> across Europe. <a href="https://doi.org/10.1002/ece3.71009" target="_blank">View in publication</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Techniques Section -->
+    <section class="techniques">
+        <div class="container">
+            <h2>Methods & Approaches</h2>
+            <div class="technique-grid">
+                <div class="technique-card dracula-card">
+                    <i class="fas fa-link"></i>
+                    <h4>Linked-Read Sequencing</h4>
+                    <p>Validating cost-effective methods for phased haplotypes and long-range genomic information</p>
+                    <div class="technique-doi">
+                        <!-- Space reserved for alignment -->
+                    </div>
+                </div>
+                <div class="technique-card dracula-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>GWAS & QTL Mapping</h4>
+                    <p>Leveraging phased haplotype data from linked-reads for enhanced statistical power to detect genetic associations with adaptive traits</p>
+                    <div class="technique-doi">
+                        <!-- Space reserved for alignment -->
+                    </div>
+                </div>
+                <div class="technique-card dracula-card">
+                    <i class="fas fa-code-branch"></i>
+                    <h4>Phylogenomics</h4>
+                    <p>Reconstructing evolutionary relationships and population history</p>
+                    <div class="technique-doi">
+                        <!-- Space reserved for alignment -->
+                    </div>
+                </div>
+                <div class="technique-card dracula-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h4>Bioinformatics</h4>
+                    <p>Custom pipelines for genomic data analysis and visualization</p>
+                    <div class="technique-doi">
+                        <!-- Space reserved for alignment -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collaborations -->
+    <section class="collaborations">
+        <div class="container">
+            <h2>Current Collaborations</h2>
+            
+            <div class="research-area dracula-card" style="text-align: center;">
+                <div class="area-content" style="display: block; text-align: center;">
+                    <div style="width: 100%; text-align: center;">
+                        <p style="text-align: center; margin-bottom: 2rem;">We have collaborations with four labs and PacVec:</p>
+                        <div class="collab-logos-clean">
+                            <a href="https://armbruster.georgetown.domains/" target="_blank" class="collab-link">
+                                <img src="assets/images/logos/georgetown_university_logo.png" alt="Georgetown University" style="filter: brightness(1.2) contrast(1.1);">
+                                <span>Armbruster Lab<br>Georgetown University</span>
+                            </a>
+                            <a href="https://caccone.yale.edu" target="_blank" class="collab-link">
+                                <img src="assets/images/logos/yale_logo.png" alt="Yale University" style="filter: brightness(1.2) contrast(1.1);">
+                                <span>Caccone Lab<br>Yale University</span>
+                            </a>
+                            <a href="https://www.ento.vt.edu/people/Faculty0/Sharakhova.html" target="_blank" class="collab-link">
+                                <img src="assets/images/logos/vt_logo.png" alt="Virginia Tech">
+                                <span>Sharakhova Lab<br>Virginia Tech</span>
+                            </a>
+                            <a href="https://www.ioc.fiocruz.br/en/lbcviv" target="_blank" class="collab-link">
+                                <img src="assets/images/logos/fiocruz_logo.png" alt="Fiocruz Brazil">
+                                <span>Martins Lab - LBCVIV<br>Fiocruz Brazil</span>
+                            </a>
+                            <a href="https://pacvec.us/" target="_blank" class="collab-link">
+                                <img src="assets/images/logos/pacvect_logo.png" alt="PacVec">
+                                <span>PacVec</span>
+                            </a>
+                        </div>
+                        
+                        <p style="margin-top: 3rem; text-align: center;">We also collaborate locally with two MVCDs and Sheng's Lab:</p>
+                        <div class="collab-logos-clean">
+                            <a href="https://www.sgvmosquito.org/" target="_blank" class="collab-link">
+                                <img src="assets/images/mosquito_vector_control_districts/SGVMVCD logo RGB mission web.png" alt="San Gabriel Valley MVCD">
+                                <span>San Gabriel Valley<br>Mosquito & Vector Control</span>
+                            </a>
+                            <a href="https://www.northwestmvcd.org/" target="_blank" class="collab-link">
+                                <img src="assets/images/mosquito_vector_control_districts/northwest_mvcd_logo.png" alt="Northwest MVCD">
+                                <span>Northwest Mosquito<br>& Vector Control</span>
+                            </a>
+                            <a href="https://rams.engr.ucr.edu/" target="_blank" class="collab-link">
+                                <img src="assets/images/research_figures/UCR_RaMS_logo.png" alt="UCR RaMS Lab">
+                                <span>Sheng Lab<br>RaMS Lab @ UCR</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Cosme Lab</h4>
+                    <p>Department of Entomology<br>
+                    University of California, Riverside<br>
+                    165 Citrus Drive<br>
+                    Entomology Bldg, Room 326<br>
+                    Riverside, CA 92521</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://orcid.org/0000-0003-4058-3274" target="_blank" title="ORCID">
+                            <i class="fab fa-orcid"></i>
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=xcoJXuUAAAAJ" target="_blank" title="Google Scholar">
+                            <i class="fas fa-graduation-cap"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/luciano-cosme-49a51691/" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/cosmelab" target="_blank" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:luciano.cosme@ucr.edu" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                    <div class="logo-links" style="display: flex; gap: 1rem; margin-top: 1.5rem; justify-content: center;">
+                        <a href="https://www.ucr.edu" target="_blank" class="logo-link">
+                            <img src="assets/images/Campus_Brand_Toolkit/Monogram/UCR_Monogram_PNG/UCR_Icon_WhtBG.png" alt="UCR" style="height: 35px;">
+                        </a>
+                        <a href="https://entomology.ucr.edu/" target="_blank" class="logo-link">
+                            <img src="assets/images/logos/UCR_entomology_logo.png" alt="UCR Department of Entomology" style="height: 35px;">
+                        </a>
+                    </div>
+                    <!-- Visitor Counter -->
+                    <div id="visitor-counter-footer" style="text-align: center; margin-top: 1rem;"></div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cosme Lab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="js/main.js"></script>
+    
+    <!-- Visitor Counter Widget -->
+    <link rel="stylesheet" href="css/components/visitor-widget.css">
+    <script src="js/visitor-counter.js"></script>
+    
+    <script>
+        // Research summaries data
+        const researchSummaries = {
+            'vector-competence': {
+                title: 'Single-Cell Genomics of Dengue Resistance',
+                content: `
+                    <h3>Cellular Mechanisms of Vector Competence</h3>
+                    <p>Natural variation in dengue transmission ability across mosquito populations offers a unique opportunity to understand and potentially manipulate vector competence.</p>
+                    
+                    <h4>Single-Cell RNA-seq</h4>
+                    <p>We aim to understand dengue resistance at cellular resolution:</p>
+                    <ul>
+                        <li>Phenotype individual female mosquitoes for dengue susceptibility</li>
+                        <li>Dissect midgut tissues from mosquitoes with known infection outcomes</li>
+                        <li>Perform single-cell RNA-seq to identify cell types and transcriptional states</li>
+                        <li>Compare resistant vs. susceptible mosquito cellular landscapes</li>
+                        <li>Map resistance mechanisms to specific midgut cell populations</li>
+                    </ul>
+                    
+                    <h4>Integration with Population Genomics</h4>
+                    <p>Combining cellular and genomic approaches:</p>
+                    <ul>
+                        <li>Linked-read sequencing provides phased haplotypes from the same individuals</li>
+                        <li>GWAS identifies genetic variants associated with resistance phenotypes</li>
+                        <li>Single-cell data reveals which cell types express resistance genes</li>
+                        <li>California mosquito collections from MVCDs provide real-world populations</li>
+                    </ul>
+                    
+                    <p class="impact-statement">This integrated approach - from genes to cells to populations - will reveal targetable pathways for reducing mosquito vector competence.</p>
+                `
+            },
+            'resistance-evolution': {
+                title: 'Evolution of Insecticide Resistance - Key Publications',
+                content: `
+                    <h3>Understanding How Mosquitoes Evolve Resistance</h3>
+                    <p>Our research reveals the complex evolutionary patterns of insecticide resistance in global mosquito populations through two complementary studies:</p>
+                    
+                    <h4>Cosme et al. (2020) PLOS NTD - Multiple Independent Origins of <em>kdr</em></h4>
+                    <p><strong>Breakthrough:</strong> Demonstrated that the F1534C knockdown resistance (<em>kdr</em>) mutation evolved independently at least twice in global <em>Aedes aegypti</em> populations.</p>
+                    <ul>
+                        <li>Analyzed <em>kdr</em> mutations in mosquito populations from Africa, Asia, and the Americas</li>
+                        <li>Found the highest genetic diversity in African populations (origin of species)</li>
+                        <li>Mapped distinct geographic patterns: 1011M and 1016I in Americas/Africa, 989P+1016G in Asia</li>
+                        <li>Temporal analysis in Brazil (2001-2015) showed a rapid increase in resistance allele frequencies</li>
+                        <li>Identified two independent evolutionary origins of the F1534C mutation through haplotype phasing</li>
+                    </ul>
+                    
+                    <h4>Cosme et al. (2022) Frontiers in Genetics - GWAS for Pyrethroid Resistance</h4>
+                    <p><strong>Innovation:</strong> First genome-wide association study identifying novel genetic loci associated with deltamethrin resistance in <em>Aedes aegypti</em>.</p>
+                    <ul>
+                        <li>Analyzed resistant and susceptible populations from Brazil using high-density SNP markers</li>
+                        <li>Identified multiple genomic regions under selection beyond known resistance genes</li>
+                        <li>Linkage analysis indicated possible assortative mating, with wild-type females rejecting resistant males, which was observed in two populations independently</li>
+                        <li>Discovered candidate genes involved in metabolic resistance pathways</li>
+                        <li>Revealed the polygenic nature of pyrethroid resistance evolution</li>
+                        <li>Provided new molecular markers for resistance surveillance</li>
+                    </ul>
+                    
+                    <h4>Nascimento et al. (2025) Scientific Reports - Voltage-Gated Sodium Channel Diversity in Brazil</h4>
+                    <p><strong>Key Finding:</strong> First nationwide assessment of NaV gene diversity in Brazilian <em>Aedes albopictus</em> populations reveals high genetic variation but absence of <em>kdr</em> mutations.</p>
+                    <ul>
+                        <li>Analyzed 998 mosquitoes from 46 Brazilian cities using pooled next-generation sequencing</li>
+                        <li>Identified 20 IIS6 and 24 IIIS6 haplotypes in the voltage-gated sodium channel gene</li>
+                        <li>Despite documented pyrethroid use, no classical <em>kdr</em> mutations were detected</li>
+                        <li>Some haplotypes showed regional specificity, suggesting multiple independent introductions</li>
+                        <li>High standing genetic variation provides substrate for potential resistance evolution</li>
+                        <li>Established critical baseline for monitoring future resistance emergence</li>
+                    </ul>
+                    
+                    <h4>Public Health Impact</h4>
+                    <p>These three studies reveal the complex landscape of insecticide resistance evolution. While <em>Aedes aegypti</em> shows widespread <em>kdr</em> mutations globally (Cosme et al. 2020) and polygenic resistance mechanisms (Cosme et al. 2022), <em>Aedes albopictus</em> in Brazil maintains susceptibility despite selection pressure (Nascimento et al. 2025). This differential resistance evolution between species highlights the need for species-specific surveillance and management strategies. The high genetic diversity in Brazilian <em>Ae. albopictus</em> suggests resistance could evolve rapidly if selection pressure intensifies, making continuous monitoring essential.</p>
+                `
+            },
+            'diapause-evolution': {
+                title: 'Evolution of Photoperiodic Diapause - Rapid Climate Adaptation',
+                content: `
+                    <h3>How Tropical Mosquitoes Evolve to Survive Winter</h3>
+                    <p>Our research reveals the genetic architecture underlying rapid evolution of photoperiodic diapause in <em>Aedes albopictus</em> during its invasion of North America, providing insights into how invasive species adapt to new climates.</p>
+                    
+                    <h4>Cosme et al. (in revision) - GWAS of Diapause Evolution</h4>
+                    <p><strong>Key Discovery:</strong> First genome-wide association study identifying genetic variants associated with the rapid evolution of photoperiodic diapause in invasive Asian tiger mosquitoes.</p>
+                    
+                    <h4>Major Findings:</h4>
+                    <ul>
+                        <li><strong>Rapid adaptation timeline:</strong> Diapause evolved within ~30 years of North American invasion</li>
+                        <li><strong>Five significant SNPs identified:</strong> All located on chromosome 1, suggesting a major effect locus</li>
+                        <li><strong>Circadian clock involvement:</strong> Max-like protein X gene implicated in photoperiod sensing</li>
+                        <li><strong>Metabolic regulation:</strong> Cytochrome P450 genes show selection signatures</li>
+                        <li><strong>Developmental arrest mechanisms:</strong> Homeobox and Rab11 genes control diapause entry</li>
+                    </ul>
+                    
+                    <h4>Evolutionary Insights:</h4>
+                    <ul>
+                        <li>Multiple US populations evolved diapause independently, showing convergent evolution</li>
+                        <li>Selection acted on standing genetic variation from native Asian populations</li>
+                        <li>Gene flow from temperate Asian sources accelerated adaptation</li>
+                        <li>Trade-offs between diapause timing and development speed shape local adaptation</li>
+                    </ul>
+                    
+                    <h4>Climate Change Implications</h4>
+                    <p>This work demonstrates how quickly mosquitoes can adapt to new climates, expanding potential disease transmission zones. Understanding the genetic basis of cold tolerance helps predict future range expansions and informs climate-based risk models for vector-borne diseases.</p>
+                    
+                    <h4>Methodological Evolution</h4>
+                    <p>Our initial GWAS used a common garden design with a lab-maintained Florida population reared under controlled photoperiod treatments (8L:16D diapause vs 16L:8D non-diapause). We employed the Aealbo-chip to overcome the species' ~70% repetitive genome. Now we're implementing linked-read sequencing (<a href="https://doi.org/10.1073/pnas.2015005118" target="_blank" class="pub-link-inline"><i class="fas fa-external-link-alt"></i> Meier et al. 2021</a>) with wild-caught samples from multiple climate zones. This approach provides phased haplotypes for superior imputation and rare variant detection, potentially increasing our statistical power 3-5 fold over unphased SNP data while capturing real-world selection signatures.</p>
+                `
+            }
+        };
+
+        // Reuse modal structure for research summaries
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create modal if it doesn't exist
+            if (!document.getElementById('researchModal')) {
+                const modalHTML = `
+                    <div id="researchModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <div class="modal-header">
+                                <h2 id="modalTitle">Research Summary</h2>
+                            </div>
+                            <div class="modal-body" id="modalBody">
+                                <!-- Content will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.body.insertAdjacentHTML('beforeend', modalHTML);
+            }
+
+            const modal = document.getElementById('researchModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBody = document.getElementById('modalBody');
+            const closeBtn = document.getElementsByClassName('close')[0];
+
+            function openModal(id) {
+                const summary = researchSummaries[id];
+                if (summary) {
+                    modalTitle.innerHTML = summary.title;
+                    modalBody.innerHTML = summary.content;
+                    modal.style.display = 'block';
+                }
+            }
+
+            if (closeBtn) {
+                closeBtn.onclick = function() {
+                    modal.style.display = 'none';
+                }
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+
+            // Add event listeners to all learn more buttons
+            document.querySelectorAll('.learn-more-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const researchId = btn.getAttribute('data-research-id');
+                    if (researchId) {
+                        e.preventDefault();
+                        openModal(researchId);
+                    }
+                    // If no data-research-id, it's an external link - let it work normally
+                });
+            });
+        });
+    </script>
+</body>
+</html>

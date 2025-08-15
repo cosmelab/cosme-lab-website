@@ -1,0 +1,125 @@
+/* 
+ * Research Page - Button Styles matching Publications Page
+ * Dark gradient background, sliding shimmer effect, rotating mosquito emoji, purple glow on hover
+ */
+
+/* Override the default learn-more-btn styles for research page */
+.learn-more-btn {
+  background: linear-gradient(135deg, #44475a, #282a36) !important;
+  padding: 0.4rem 1rem !important;
+  color: var(--purple) !important;
+  border: 1px solid rgba(189, 147, 249, 0.3) !important;
+  border-radius: 6px !important;
+  font-size: 0.7rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.8px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.4rem !important;
+  text-decoration: none !important;
+  box-sizing: border-box !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3),
+              0 1px 3px rgba(0, 0, 0, 0.2),
+              inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  overflow: hidden !important;
+  position: relative !important;
+  outline: none !important;
+  font-family: inherit !important;
+  height: 32px !important;
+  min-width: 140px !important;
+}
+
+/* Shimmer effect */
+.learn-more-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+  z-index: 1;
+}
+
+.learn-more-btn:hover::before {
+  left: 100%;
+}
+
+/* Hover state with purple glow */
+.learn-more-btn:hover {
+  background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9)) !important;
+  color: white !important;
+  box-shadow: 0 0 15px rgba(189, 147, 249, 0.5),
+              0 6px 8px rgba(0, 0, 0, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  transform: translateY(-2px) !important;
+  text-decoration: none !important;
+}
+
+/* Active state */
+.learn-more-btn:active {
+  transform: scale(0.98) !important;
+}
+
+/* Mosquito emoji styling */
+.learn-more-btn .mosquito-emoji {
+  display: inline-block;
+  font-size: 1.1em;
+  filter: hue-rotate(250deg) saturate(1.5);
+  transition: all 0.3s ease;
+  vertical-align: middle;
+  position: relative;
+  z-index: 2;
+  margin-right: 0.15cm;
+  margin-left: -0.05cm;
+  pointer-events: none;
+}
+
+/* Rotate mosquito on hover */
+.learn-more-btn:hover .mosquito-emoji {
+  filter: hue-rotate(0deg) saturate(1);
+  transform: rotate(360deg);
+}
+
+/* Keep Font Awesome icons consistent */
+.learn-more-btn i.fas,
+.learn-more-btn i.far,
+.learn-more-btn i.fab {
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.learn-more-btn:hover i.fas,
+.learn-more-btn:hover i.far,
+.learn-more-btn:hover i.fab {
+  transform: rotate(360deg);
+}
+
+/* Disabled state for "Manuscript in preparation" buttons */
+.learn-more-btn[style*="cursor: default"] {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+}
+
+.learn-more-btn[style*="cursor: default"]:hover {
+  background: linear-gradient(135deg, #44475a, #282a36) !important;
+  transform: none !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3),
+              0 1px 3px rgba(0, 0, 0, 0.2),
+              inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Ensure button and link versions behave the same */
+button.learn-more-btn,
+a.learn-more-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}

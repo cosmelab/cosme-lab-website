@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News - Cosme Lab | UC Riverside</title>
+    <meta name="description" content="Latest news and announcements from the Cosme Lab at UC Riverside.">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components/purple-glow.css">
+    <link rel="stylesheet" href="css/components/modals.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* News card styling with consistent colors */
+        .news-card {
+            position: relative;
+            padding: 1.5rem 2rem 3rem 2rem; /* Added left/right padding, space for button */
+            background: var(--bg-light);
+            border: 1px solid rgba(189, 147, 249, 0.2);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .news-card:hover {
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                        0 0 30px rgba(189, 147, 249, 0.4),
+                        0 0 40px rgba(139, 233, 253, 0.2);
+            border-color: rgba(189, 147, 249, 0.5);
+            background: rgba(36, 40, 59, 0.85);
+        }
+        
+        .news-card h3 {
+            color: var(--purple) !important;
+        }
+        
+        .news-card p,
+        .news-card li {
+            color: var(--cyan) !important;
+        }
+        
+        .news-card strong {
+            color: var(--purple) !important;
+        }
+        
+        /* Button styles matching other pages */
+        .learn-more-btn,
+        .lab-button {
+            background: linear-gradient(135deg, #44475a, #282a36) !important;
+            padding: 0.4rem 1rem !important;
+            color: var(--purple) !important;
+            border: 1px solid rgba(189, 147, 249, 0.3) !important;
+            border-radius: 6px !important;
+            font-size: 0.7rem !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.8px !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 0.4rem !important;
+            text-decoration: none !important;
+            box-sizing: border-box !important;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3),
+                        0 1px 3px rgba(0, 0, 0, 0.2),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+            overflow: hidden !important;
+            outline: none !important;
+            font-family: inherit !important;
+            height: 32px !important;
+            min-width: 140px !important;
+            position: relative !important;
+            margin: 0.5rem 0.25rem !important;
+        }
+
+        .learn-more-btn::before,
+        .lab-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+            z-index: -1;
+        }
+
+        .learn-more-btn:hover::before,
+        .lab-button:hover::before {
+            left: 100%;
+        }
+
+        .learn-more-btn:hover,
+        .lab-button:hover {
+            background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9)) !important;
+            color: white !important;
+            box-shadow: 0 0 15px rgba(189, 147, 249, 0.5),
+                        0 6px 8px rgba(0, 0, 0, 0.4),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+            transform: translateY(-2px) !important;
+            text-decoration: none !important;
+        }
+
+        .learn-more-btn:active,
+        .lab-button:active {
+            transform: scale(0.98) !important;
+        }
+
+        /* Mosquito emoji styling */
+        .learn-more-btn .mosquito-emoji {
+            display: inline-block;
+            font-size: 1.1em;
+            filter: hue-rotate(250deg) saturate(1.5);
+            transition: all 0.3s ease;
+            vertical-align: middle;
+            position: relative;
+            z-index: 1;
+            margin-right: 0.15cm;
+            margin-left: -0.05cm;
+            pointer-events: none;
+        }
+
+        .learn-more-btn:hover .mosquito-emoji {
+            filter: hue-rotate(0deg) saturate(1);
+            transform: rotate(360deg);
+        }
+        
+        /* Fix spacing before footer */
+        .news-section {
+            padding-bottom: 4rem !important;
+        }
+        
+        /* Mobile responsive layout */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px !important;
+                width: 100% !important;
+            }
+            
+            .news-timeline {
+                padding: 20px 0 !important;
+                margin: 0 !important;
+                max-width: 100% !important;
+            }
+            
+            .news-item-row {
+                flex-direction: column !important;
+                gap: 0.5rem !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            
+            .news-date-column {
+                width: 100% !important;
+                text-align: center !important;
+                padding-top: 0 !important;
+                margin-bottom: 0.5rem !important;
+            }
+            
+            .news-card {
+                width: 100% !important;
+                padding: 1.5rem 1rem !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+            
+            .news-card h3 {
+                font-size: 1.2rem !important;
+                margin-bottom: 1rem !important;
+                text-align: center !important;
+            }
+            
+            .news-card p {
+                font-size: 0.95rem !important;
+                line-height: 1.6 !important;
+                margin-bottom: 1rem !important;
+                padding: 0 !important;
+                text-align: center !important;
+                width: 100% !important;
+            }
+            
+            .grant-item {
+                padding: 0 !important;
+                width: 100% !important;
+            }
+            
+            .grant-text {
+                font-size: 0.95rem !important;
+                line-height: 1.6 !important;
+                padding: 0 !important;
+                width: 100% !important;
+                text-align: center !important;
+            }
+            
+            .learn-more-btn {
+                margin-top: 0.75rem !important;
+                display: inline-block !important;
+            }
+        }
+        
+        /* Center all news card content */
+        .news-card {
+            text-align: center !important;
+        }
+        
+        .news-card h3 {
+            text-align: center !important;
+            margin-bottom: 1rem !important;
+        }
+        
+        .news-card p {
+            text-align: center !important;
+            margin-bottom: 1rem !important;
+        }
+        
+        .grant-list {
+            padding: 0 !important;
+            text-align: center !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .grant-item {
+            margin-bottom: 1.5rem !important;
+            padding: 2rem !important;
+            text-align: center !important;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(68, 71, 90, 0.2);
+            border-radius: 8px;
+            border: 1px solid rgba(139, 233, 253, 0.1);
+            transition: all 0.3s ease;
+            min-height: 180px;
+            position: relative;
+        }
+        
+        .grant-item:hover {
+            background: rgba(68, 71, 90, 0.4);
+            border-color: rgba(139, 233, 253, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .grant-text {
+            margin-bottom: 1.5rem !important;
+            display: block !important;
+            line-height: 1.6 !important;
+            text-align: center !important;
+            width: 100%;
+            padding: 0 1rem;
+        }
+        
+        .grant-text strong {
+            color: var(--cyan) !important;
+            font-weight: bold !important;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .grant-item .learn-more-btn {
+            margin: auto auto 0 auto !important;
+            position: relative;
+            bottom: 0;
+        }
+        
+        /* News item row layout */
+        .news-item-row {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+        }
+        
+        .news-date-column {
+            flex-shrink: 0;
+            padding-top: 1.5rem;
+            min-width: 120px;
+            text-align: right;
+            padding-right: 2rem;
+        }
+        
+        .news-month {
+            color: var(--purple);
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .news-card {
+            flex: 1;
+        }
+        
+        .news-year-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .news-year-label {
+            color: var(--purple);
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(189, 147, 249, 0.3);
+        }
+        
+        .news-year-section:not(:first-child) .news-year-header {
+            margin-top: 3rem;
+        }
+        
+        /* Grant list styling */
+        .grant-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .grant-list li {
+            position: relative;
+            padding-bottom: 1.5rem;
+            margin-bottom: 1rem;
+            min-height: 50px; /* Ensure minimum height for button placement */
+        }
+        
+        .grant-text {
+            padding-right: 160px; /* Space for button */
+        }
+        
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R6YGBLPHSH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-R6YGBLPHSH");
+    </script></head>
+<body style="background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), url('assets/images/page_backgrounds/news_page.png') center/cover fixed;">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <span>Cosme Lab</span>
+                </a>
+                <span class="since-date">Established on July 1st, 2024</span>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="news.html" class="active">News</a></li>
+                <li><a href="grants.html">Grants</a></li>
+                <li><a href="teaching.html">Teaching</a></li>
+                <li><a href="service.html">Service</a></li>
+                <li><a href="join.html">Join Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header news-header" style="background: linear-gradient(rgba(40, 42, 54, 0.9), rgba(40, 42, 54, 0.85)), url('assets/images/headers/news_header.png') center/cover !important; background-attachment: fixed;">
+        <style>.news-header::before, .news-header::after { display: none !important; }</style>
+        <div class="container">
+            <h1>Lab News</h1>
+            <p class="lead">Recent updates and announcements from the Cosme Lab</p>
+        </div>
+    </section>
+
+    <!-- News Items -->
+    <section class="news-section">
+        <div class="container">
+            <div class="news-timeline">
+                
+                <!-- 2025 News Items -->
+                <div class="news-year-section">
+                    <div class="news-year-header">
+                        <span class="news-year-label">2025</span>
+                    </div>
+                    <div class="news-year-content">
+                        
+                        <!-- July 2025 Grants -->
+                        <div class="news-item-row">
+                            <div class="news-date-column">
+                                <span class="news-month">JULY</span>
+                            </div>
+                            <div class="news-card">
+                                <h3>New Grants Awarded</h3>
+                                <div class="grant-list">
+                                    <div class="grant-item">
+                                        <div class="grant-text">
+                                            <strong>CNAS Delfino Agriculture Innovation Grant</strong><br>
+                                            Supporting our work on sustainable protein production through automated insect farming
+                                        </div>
+                                        <button class="learn-more-btn" data-grant-id="delfino">
+                                            <span class="mosquito-emoji">🦟</span> Learn More
+                                        </button>
+                                    </div>
+                                    <div class="grant-item">
+                                        <div class="grant-text">
+                                            <strong>Pacific Vector Control Association Grant</strong><br>
+                                            Advancing our mosquito genomics research and resistance surveillance
+                                        </div>
+                                        <button class="learn-more-btn" data-grant-id="pacvec">
+                                            <span class="mosquito-emoji">🦟</span> Learn More
+                                        </button>
+                                    </div>
+                                    <div class="grant-item">
+                                        <div class="grant-text">
+                                            <strong>Faculty Reagents Grant</strong><br>
+                                            Essential support for lab operations and single-cell sequencing
+                                        </div>
+                                        <button class="learn-more-btn" data-grant-id="reagents">
+                                            <span class="mosquito-emoji">🦟</span> Learn More
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Science Paper - July 2025 -->
+                        <div class="news-item-row">
+                            <div class="news-date-column">
+                                <span class="news-month">JULY</span>
+                            </div>
+                            <div class="news-card">
+                                <h3>Major Collaborative Study Accepted in Science</h3>
+                                <p>An 8-year international collaboration led by Dr. Jacob Crawford (Verily/Alphabet) analyzing 1,206 <em>Aedes aegypti</em> genomes has been accepted in <em>Science</em>. This massive effort involving 40+ researchers from 19 institutions worldwide reveals how the Atlantic Slave Trade shaped modern mosquito populations. The Cosme Lab contributed samples and analyses to this landmark community effort.</p>
+                                <div style="text-align: center; margin-top: 1rem;">
+                                    <button class="learn-more-btn" data-pub-id="crawford2025">
+                                        <span class="mosquito-emoji">🦟</span> Learn More
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- R21/R03 - February 2025 -->
+                        <div class="news-item-row">
+                            <div class="news-date-column">
+                                <span class="news-month">FEB</span>
+                            </div>
+                            <div class="news-card">
+                                <h3>NIH R03 Grant Submission</h3>
+                                <p>Submitted proposal investigating malathion resistance mechanisms in mosquito populations using genome-wide association studies.</p>
+                                <div style="text-align: center; margin-top: 1rem;">
+                                    <button class="learn-more-btn" data-grant-id="nih-r03">
+                                        <span class="mosquito-emoji">🦟</span> Learn More
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2024 News Items -->
+                <div class="news-year-section">
+                    <div class="news-year-header">
+                        <span class="news-year-label">2024</span>
+                    </div>
+                    <div class="news-year-content">
+                        
+                        <!-- NSF-STC - August 2024 -->
+                        <div class="news-item-row">
+                            <div class="news-date-column">
+                                <span class="news-month">AUG</span>
+                            </div>
+                            <div class="news-card">
+                                <h3>NSF Science and Technology Center Internal Competition</h3>
+                                <p>Participated in UCR's internal competition for the NSF Science and Technology Centers program, proposing the UCR Center for Arbovirus Research. Although not selected to advance, the proposal development strengthened multi-disciplinary collaborations in vector biology research.</p>
+                                <div style="text-align: center; margin-top: 1rem;">
+                                    <button class="learn-more-btn" data-grant-id="nsf-stc">
+                                        <span class="mosquito-emoji">🦟</span> Learn More
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Lab Launch - July 2024 -->
+                        <div class="news-item-row">
+                            <div class="news-date-column">
+                                <span class="news-month">JULY</span>
+                            </div>
+                            <div class="news-card">
+                                <h3>Cosme Lab Opens at UC Riverside</h3>
+                                <p>Dr. Luciano V. Cosme joins the Department of Entomology at UC Riverside as Assistant Professor. The lab focuses on mosquito genomics, insecticide resistance, and developing sustainable approaches to vector control.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Cosme Lab</h4>
+                    <p>Department of Entomology<br>
+                    University of California, Riverside<br>
+                    165 Citrus Drive<br>
+                    Entomology Bldg, Room 326<br>
+                    Riverside, CA 92521</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://orcid.org/0000-0003-4058-3274" target="_blank" title="ORCID">
+                            <i class="fab fa-orcid"></i>
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=xcoJXuUAAAAJ" target="_blank" title="Google Scholar">
+                            <i class="fas fa-graduation-cap"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/luciano-cosme-49a51691/" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/cosmelab" target="_blank" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:luciano.cosme@ucr.edu" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                    <div class="logo-links" style="display: flex; gap: 1rem; margin-top: 1.5rem; justify-content: center;">
+                        <a href="https://www.ucr.edu" target="_blank" class="logo-link">
+                            <img src="assets/images/Campus_Brand_Toolkit/Monogram/UCR_Monogram_PNG/UCR_Icon_WhtBG.png" alt="UCR" style="height: 35px;">
+                        </a>
+                        <a href="https://entomology.ucr.edu/" target="_blank" class="logo-link">
+                            <img src="assets/images/logos/UCR_entomology_logo.png" alt="UCR Department of Entomology" style="height: 35px;">
+                        </a>
+                    </div>
+                    <!-- Visitor Counter -->
+                    <div id="visitor-counter-footer" style="text-align: center; margin-top: 1rem;"></div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cosme Lab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    
+    <!-- Visitor Counter Widget -->
+    <link rel="stylesheet" href="css/components/visitor-widget.css">
+    <script src="js/visitor-counter.js"></script>
+    <script>
+        // Grant summaries data
+        const grantSummaries = {
+            'delfino': {
+                title: 'CNAS Delfino Agriculture Innovation Grant',
+                content: `
+                    <h3>Feeding the Future: Robotics-Driven Vertical Insect Farming</h3>
+                    <p><strong>Amount:</strong> $30,000<br>
+                    <strong>Period:</strong> July 2025 - July 2026<br>
+                    <strong>Co-PI:</strong> Dr. Jun Sheng (Mechanical Engineering)
+                    <div class="modal-co-pi-links">
+                        <a href="https://rams.engr.ucr.edu/jun-sheng-profile" target="_blank" class="lab-button">
+                            <i class="fas fa-flask"></i> Lab
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=MgfnfIMAAAAJ&hl=en" target="_blank" title="Google Scholar">
+                            <i class="fas fa-graduation-cap"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/junsheng-gt/" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div></p>
+                    
+                    <h4>Project Overview</h4>
+                    <p>This interdisciplinary project brings together entomology, robotics, and AI to address sustainable protein production challenges. The robotic system automates the most labor-intensive aspects of mealworm farming, including tray handling, daily feeding, and harvesting. We will develop the prototype in the <i class="fas fa-building"></i> <a href="https://cisr.ucr.edu/facilities/insectary_and_quarantine_facility" target="_blank">UCR Quarantine Facility</a>. At the same time, specialized staff manage the nursery, feed optimization, and downstream processing into protein flour suitable for various animal feeds, from chickens to pet food and treats.</p>
+                    
+                    <h4>Three-Phase Implementation</h4>
+                    <p>The project will proceed in three phases: first focusing on automated larvae rearing with robotic tray handling and feeding systems, then optimizing feed supply chains and automated distribution, and finally integrating processing steps, including blanching, drying, and flour production.</p>
+                    
+                    <h4>Technical Approach</h4>
+                    <ul>
+                        <li>Precision gantry robots with dual auger heads for automated feeding and harvesting</li>
+                        <li>Computer vision system to count larvae delivery for consistent stocking density</li>
+                        <li>Integrated environmental monitoring (temperature, humidity, CO₂)</li>
+                        <li>Target: 1,733g protein per m² per year (~3,400× gain over beef land-use efficiency)</li>
+                    </ul>
+                    
+                    <h4>Sustainability Impact vs Beef Production</h4>
+                    <ul>
+                        <li>Mealworms convert feed to biomass at a 2:1 ratio (vs 8:1 for beef)</li>
+                        <li>Require 99% less water per gram of protein</li>
+                        <li>Need 3,400× less land for equivalent protein production</li>
+                        <li>Emit <1% of greenhouse gases compared to ruminant livestock</li>
+                        <li>80% automation of labor-intensive rearing tasks</li>
+                    </ul>
+                    
+                    <h4>Future Projects Leveraging the Outcomes of the Project</h4>
+                    <p>Like modern animal breeding programs, we'll be able to rapidly select mealworm strains with higher yield, better adaptation to robotic handling, and improved feed conversion rates.</p>
+                    
+                    <p>We are validating the linked-read technology described by <a href="https://doi.org/10.1073/pnas.2015005118" target="_blank" class="pub-link-inline">
+                        <i class="fas fa-external-link-alt"></i> DOI: Meier et al. 2021
+                    </a> for mosquito genomics, and we are also exploring its application in the mealworm breeding program. First, to create a precise genetic map, taking advantage of the excellent genomic resources available for mealworms (<a href="https://doi.org/10.12688/wellcomeopenres.22863.1" target="_blank" class="pub-link-inline">
+                        <i class="fas fa-external-link-alt"></i> DOI: Rosemary et al. 2024
+                    </a>, <a href="https://doi.org/10.12688/openreseurope.13987.3" target="_blank" class="pub-link-inline">
+                        <i class="fas fa-external-link-alt"></i> DOI: Fadda et al. 2022
+                    </a>). The potential of using selection to improve biomass productivity in mealworms shows promising results (<a href="https://doi.org/10.1093/jisesa/iey110" target="_blank" class="pub-link-inline">
+                        <i class="fas fa-external-link-alt"></i> DOI: Morales-Ramos et al. 2019
+                    </a> - 66% increase in pupal body weight after eight years of selection, <a href="https://doi.org/10.1016/j.aspen.2022.101978" target="_blank" class="pub-link-inline">
+                        <i class="fas fa-external-link-alt"></i> DOI: Song et al. 2024
+                    </a> documented fixation of larval color morph via selective breeding, and <a href="https://doi.org/10.1016/j.animal.2024.101197" target="_blank" class="pub-link-inline">
+                        <i class="fas fa-external-link-alt"></i> DOI: Sellem et al. 2024
+                    </a> and <a href="https://doi.org/10.1016/j.animal.2025.101475" target="_blank" class="pub-link-inline">
+                        <i class="fas fa-external-link-alt"></i> DOI: Hansen et al. 2025
+                    </a> provide updated genetic parameter estimates (heritabilities) for growth and development traits, reinforcing that those traits have sufficient genetic variance to respond to selection.</p>
+                    
+                    <p>This integration of robotics and genomics creates ideal conditions for accelerated genetic improvement, potentially achieving 10-20x faster strain optimization compared to traditional breeding approaches. We can also leverage the data generated from the seed grant to seek other funding sources.</p>
+                `
+            },
+            'pacvec': {
+                title: 'Pacific Vector Control Association Training Grant',
+                content: `
+                    <h3>Training the Next Generation in Mosquito Genomics</h3>
+                    <p><strong>Amount:</strong> $25,000<br>
+                    <strong>Period:</strong> July 2025 - June 2026<br>
+                    <strong>Status:</strong> Funded</p>
+                    
+                    <h4>Project Goals</h4>
+                    <p>This training grant supports two UCR undergraduate students entering their senior year as they learn cutting-edge mosquito surveillance and genomics techniques. Students are mastering the complete workflow from field collection to genomic analysis of <em>Aedes aegypti</em> populations.</p>
+                    
+                    <h4>Training Components Completed</h4>
+                    <ul>
+                        <li>HMW-DNA extractions for long-read sequencing</li>
+                        <li>UCR HPC (High Performance Computing) cluster usage</li>
+                        <li>Pulling data from NCBI SRA archives</li>
+                        <li>Replicating quality control pipelines from the 1,206 genomes study (<a href="https://doi.org/10.1101/2024.07.23.604830" target="_blank" class="pub-link-inline">
+                            <i class="fas fa-external-link-alt"></i> DOI: Crawford et al. 2025
+                        </a>, accepted in <em>Science</em>)</li>
+                    </ul>
+                    
+                    <h4>Ongoing Training Activities</h4>
+                    <ul>
+                        <li>Setting up ovitraps for <em>Aedes aegypti</em> surveillance</li>
+                        <li>Morphological species identification</li>
+                        <li>PCR amplification of mitochondrial genes</li>
+                        <li>Sanger sequencing and data quality control</li>
+                        <li>Sequence alignments and phylogenomic placement using IQ-TREE</li>
+                        <li>Sequencing library preparation (starting soon)</li>
+                    </ul>
+                    
+                    <h4>Collaborating Partners</h4>
+                    <div class="collab-logos">
+                        <a href="https://www.sgvmosquito.org/" target="_blank">
+                            <img src="assets/images/mosquito_vector_control_districts/SGVMVCD logo RGB mission web.png" alt="San Gabriel Valley Mosquito & Vector Control District" style="height: 60px; margin: 10px;">
+                        </a>
+                        <a href="https://www.northwestmvcd.org/" target="_blank">
+                            <img src="assets/images/mosquito_vector_control_districts/northwest_mvcd_logo.png" alt="Northwest Mosquito & Vector Control District" style="height: 60px; margin: 10px;">
+                        </a>
+                    </div>
+                `
+            },
+            'reagents': {
+                title: 'UCR Regents Faculty Fellowship',
+                content: `
+                    <h3>Single-Cell Sequencing of Dengue Resistance</h3>
+                    <p><strong>Amount:</strong> $6,300<br>
+                    <strong>Period:</strong> 2025-2026<br>
+                    <strong>Status:</strong> Funded</p>
+                    
+                    <h4>Research Focus</h4>
+                    <p>Using single-cell RNA sequencing to understand cellular mechanisms of dengue virus resistance in <em>Aedes aegypti</em> midgut cells.</p>
+                    
+                    <h4>Key Objectives</h4>
+                    <ul>
+                        <li>Identify cell types involved in dengue resistance</li>
+                        <li>Characterize gene expression profiles in resistant vs susceptible mosquitoes</li>
+                        <li>Develop cellular markers for resistance screening</li>
+                    </ul>
+                `
+            },
+            'nsf-stc': {
+                title: 'NSF Science and Technology Centers - Internal UCR Competition',
+                content: `
+                    <h3>UCR Center for Arbovirus Research (UCR CAR)</h3>
+                    <p><strong>Amount Requested:</strong> $27.5 million<br>
+                    <strong>Period:</strong> Would have been 2026-2031<br>
+                    <strong>Role:</strong> Co-Investigator<br>
+                    <strong>Status:</strong> Not selected in UCR internal competition</p>
+                    
+                    <h4>Proposed Center Mission</h4>
+                    <p>The proposal aimed to establish a globally recognized center for integrative research on arbovirus-vector interactions across human, animal, and plant health sectors.</p>
+                    
+                    <h4>Proposed Research Objectives</h4>
+                    <ul>
+                        <li>Advanced genomic surveillance of vector populations</li>
+                        <li>GWAS and functional genomics (CRISPR-Cas9) for virus transmission genes</li>
+                        <li>Machine learning approaches for vector competence assessment</li>
+                        <li>Integrated resistance management strategies</li>
+                    </ul>
+                    
+                    <h4>Outcome</h4>
+                    <p>While not selected to advance to NSF, the proposal development process established valuable collaborations between virology, entomology, plant pathology, veterinary science, ecology, bioinformatics, and public health experts at UCR.</p>
+                `
+            },
+            'nih-r03': {
+                title: 'NIH R03 Grant Proposal',
+                content: `
+                    <h3>Malathion Resistance GWAS in <em>Aedes aegypti</em></h3>
+                    <p><strong>Amount Requested:</strong> $275,000<br>
+                    <strong>Period:</strong> 2024-2026<br>
+                    <strong>Status:</strong> Not Funded</p>
+                    
+                    <h4>Research Aims</h4>
+                    <p>Proposed to identify genetic variants associated with malathion resistance using genome-wide association studies in Brazilian <em>Aedes aegypti</em> populations.</p>
+                    
+                    <h4>Proposed Approach</h4>
+                    <ul>
+                        <li>Sample resistant and susceptible populations from multiple Brazilian cities</li>
+                        <li>Whole-genome sequencing of 500+ mosquitoes</li>
+                        <li>GWAS to identify resistance-associated loci</li>
+                        <li>Functional validation of candidate genes</li>
+                    </ul>
+                    
+                    <h4>Current Direction</h4>
+                    <p>Now validating the haplotagging method from <a href="https://doi.org/10.1073/pnas.2015005118" target="_blank" class="pub-link-inline"><i class="fas fa-external-link-alt"></i> DOI: Meier et al. 2021</a> with promising results before resubmission.</p>
+                `
+            }
+        };
+
+        // Publication summaries for the news page
+        const publicationSummaries = {
+            'crawford2025': {
+                title: 'Global Collaborative Study: 1,206 <em>Aedes aegypti</em> Genomes',
+                content: `
+                    <h3>An 8-Year International Collaboration</h3>
+                    <p>Led by Dr. Jacob Crawford (Verily/Alphabet), this landmark study brought together 40+ researchers from 19 institutions across 15+ countries to sequence and analyze 1,206 <em>Aedes aegypti</em> genomes.</p>
+                    
+                    <h4>Key Findings from the Collaborative Effort</h4>
+                    <ul>
+                        <li><strong>Unexpected origin:</strong> The invasive mosquito form evolved in the Americas, not Africa</li>
+                        <li><strong>Historical impact:</strong> The Atlantic Slave Trade inadvertently shaped modern disease transmission</li>
+                        <li><strong>Four evolutionary eras:</strong> From African forest mosquito to global urban pest</li>
+                        <li><strong>Contemporary patterns:</strong> Back-to-Africa migration carrying insecticide resistance genes</li>
+                    </ul>
+                    
+                    <h4>Community Achievement</h4>
+                    <p>This study represents years of sample collection, sequencing, and analysis by mosquito researchers worldwide to understand global mosquito evolution and inform disease control strategies.</p>
+                `
+            }
+        };
+
+        // Reuse modal from publications page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create modal if it doesn't exist
+            if (!document.getElementById('grantModal')) {
+                const modalHTML = `
+                    <div id="grantModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">×</span>
+                            <div class="modal-header">
+                                <h2 id="modalTitle"></h2>
+                            </div>
+                            <div class="modal-body" id="modalBody">
+                                <!-- Content will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.body.insertAdjacentHTML('beforeend', modalHTML);
+            }
+
+            const modal = document.getElementById('grantModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBody = document.getElementById('modalBody');
+            let closeBtn = document.getElementsByClassName('close')[0];
+
+            function openModal(id, type) {
+                const summaries = type === 'grant' ? grantSummaries : publicationSummaries;
+                const summary = summaries[id];
+                if (summary) {
+                    modalTitle.innerHTML = summary.title;
+                    modalBody.innerHTML = summary.content;
+                    modal.style.display = 'block';
+                }
+            }
+
+            // Re-query after modal creation
+            closeBtn = document.getElementsByClassName('close')[0];
+            if (closeBtn) {
+                closeBtn.onclick = function() {
+                    modal.style.display = 'none';
+                }
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+
+            // Add event listeners to all learn more buttons
+            document.querySelectorAll('.learn-more-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const grantId = btn.getAttribute('data-grant-id');
+                    const pubId = btn.getAttribute('data-pub-id');
+                    if (grantId) {
+                        openModal(grantId, 'grant');
+                    } else if (pubId) {
+                        openModal(pubId, 'publication');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

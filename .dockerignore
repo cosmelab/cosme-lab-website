@@ -1,0 +1,88 @@
+# Git files
+.git/
+.gitignore
+.gitattributes
+
+# GitHub
+.github/
+*.md
+LICENSE
+README.md
+
+# Docker files
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Development container
+.devcontainer/
+
+# Node modules (will be installed fresh in container)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+temp/
+cache/
+*.cache
+
+# Backup and unused files
+backup/
+unused/
+*.backup
+*.bak
+*.old
+
+# PDFs and large assets (not needed for running the site)
+assets/pdfs/
+*.pdf
+
+# Test files
+test-*.html
+*-test.html
+*.draft.html
+
+# Build artifacts
+dist/
+build/
+
+# Environment files
+.env
+.env.*
+
+# Logs
+logs/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+.Python
+venv/
+.venv
+
+# Archives
+*.zip
+*.tar.gz
+*.rar

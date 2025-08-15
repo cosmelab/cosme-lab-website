@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cosme-lab-website
+    ports:
+      - "8080:8080"
+    volumes:
+      # Mount current directory for live reload
+      - .:/app
+      # Exclude node_modules to prevent conflicts
+      - /app/node_modules
+      # Exclude unused directory
+      - /app/unused
+    environment:
+      - NODE_ENV=development
+      - TZ=America/Los_Angeles
+    restart: unless-stopped
+    # Keep container running for development
+    tty: true
+    stdin_open: true
+    # Health check for live-server
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080", "||", "exit", "1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    # Resource limits (lightweight for static site)
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '1.0'
+        reservations:
+          memory: 128M
+          cpus: '0.25'
+
+volumes:
+  node_modules:
+    driver: local

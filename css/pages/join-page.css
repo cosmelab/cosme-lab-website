@@ -1,0 +1,544 @@
+/* 
+ * Join Us Page Specific Styles
+ * Ensuring consistency with other pages
+ */
+
+/* Currently Recruiting button - matching other buttons */
+.position-recruiting {
+    background: linear-gradient(135deg, #44475a, #282a36) !important;
+    padding: 0.4rem 1rem !important;
+    color: var(--purple) !important;
+    border: 1px solid rgba(189, 147, 249, 0.3) !important;
+    border-radius: 6px !important;
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.4rem !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3),
+                0 1px 3px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+    overflow: hidden !important;
+    position: relative !important;
+    height: 32px !important;
+    min-width: 140px !important;
+    pointer-events: auto !important;
+}
+
+.position-recruiting::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+    z-index: 1;
+}
+
+.position-recruiting:hover::before {
+    left: 100%;
+}
+
+.position-recruiting:hover {
+    background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9)) !important;
+    color: white !important;
+    box-shadow: 0 0 15px rgba(189, 147, 249, 0.5),
+                0 6px 8px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    transform: translateY(-2px) !important;
+}
+
+.position-recruiting i {
+    color: inherit !important;
+    z-index: 2;
+    position: relative;
+}
+
+/* Contact Us and Email Us buttons */
+.opportunity-card .learn-more-btn {
+    background: linear-gradient(135deg, #44475a, #282a36) !important;
+    padding: 0.4rem 1rem !important;
+    color: var(--purple) !important;
+    border: 1px solid rgba(189, 147, 249, 0.3) !important;
+    border-radius: 6px !important;
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.4rem !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3),
+                0 1px 3px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+    overflow: hidden !important;
+    position: relative !important;
+    height: 32px !important;
+    min-width: 140px !important;
+    margin: 1.5rem auto 0 auto !important;
+    width: fit-content !important;
+}
+
+.opportunity-card .learn-more-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+    z-index: 1;
+}
+
+.opportunity-card .learn-more-btn:hover::before {
+    left: 100%;
+}
+
+.opportunity-card .learn-more-btn:hover {
+    background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9)) !important;
+    color: white !important;
+    box-shadow: 0 0 15px rgba(189, 147, 249, 0.5),
+                0 6px 8px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    transform: translateY(-2px) !important;
+}
+
+.opportunity-card .learn-more-btn i {
+    z-index: 2;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+/* Add rotation animation to button icons on hover */
+.opportunity-card .learn-more-btn:hover i {
+    transform: rotate(360deg);
+}
+
+/* Ensure all dracula cards have consistent styling */
+.research-area-item.dracula-card,
+.opportunity-card.dracula-card,
+.offer-item.dracula-card,
+.tech-card.dracula-card,
+.position-card.dracula-card {
+    background: var(--bg-light);
+    border: 1px solid rgba(189, 147, 249, 0.2);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.research-area-item.dracula-card:hover,
+.opportunity-card.dracula-card:hover,
+.offer-item.dracula-card:hover,
+.tech-card.dracula-card:hover,
+.position-card.dracula-card:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 0 30px rgba(189, 147, 249, 0.4),
+                0 0 40px rgba(139, 233, 253, 0.2);
+    border-color: rgba(189, 147, 249, 0.5);
+    background: rgba(36, 40, 59, 0.85);
+}
+
+/* Research area items - smaller cards */
+.research-area-item {
+    padding: 1.2rem;
+    text-align: center;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.research-area-item i {
+    font-size: 1.8rem;
+    color: var(--purple) !important;
+    margin-bottom: 0.8rem;
+}
+
+.research-area-item h4 {
+    color: var(--purple) !important;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.research-area-item p {
+    color: var(--cyan) !important;
+    font-size: 0.8rem;
+    line-height: 1.3;
+}
+
+/* Opportunity cards */
+.opportunity-card {
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 400px;
+}
+
+.opportunity-card .card-icon {
+    font-size: 2.5rem;
+    color: var(--purple) !important;
+    margin-bottom: 1rem;
+}
+
+.opportunity-card h3 {
+    color: var(--purple) !important;
+    margin-bottom: 1rem;
+}
+
+.opportunity-card p {
+    color: var(--cyan) !important;
+    margin-bottom: 1rem;
+}
+
+.opportunities-list,
+.requirements-list {
+    margin: 1.5rem 0;
+}
+
+.opp-item,
+.req-item {
+    color: var(--cyan) !important;
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.opp-item i,
+.req-item i {
+    color: var(--purple) !important;
+    width: 20px;
+}
+
+.commitment-note,
+.application-note {
+    color: var(--cyan) !important;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(189, 147, 249, 0.2);
+}
+
+.commitment-note i,
+.application-note i {
+    color: var(--purple) !important;
+    margin-right: 0.5rem;
+}
+
+/* Offer items */
+.offer-item {
+    padding: 2rem;
+    text-align: center;
+    min-height: 200px;
+}
+
+.offer-icon {
+    font-size: 2rem;
+    color: var(--purple) !important;
+    margin-bottom: 1rem;
+}
+
+.offer-item h4 {
+    color: var(--purple) !important;
+    margin-bottom: 0.5rem;
+}
+
+.offer-item p {
+    color: var(--cyan) !important;
+    font-size: 0.9rem;
+}
+
+/* Tech card */
+.tech-card {
+    padding: 2rem;
+}
+
+.tech-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.tech-header h3 {
+    color: var(--purple) !important;
+    margin: 0;
+}
+
+.tech-header h3 i {
+    margin-right: 0.5rem;
+}
+
+.tech-status {
+    background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.8));
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.tech-content p {
+    color: var(--cyan) !important;
+    margin-bottom: 1.5rem;
+}
+
+.tech-link {
+    color: var(--purple) !important;
+    text-decoration: none;
+    border-bottom: 1px dotted var(--purple);
+    transition: all 0.3s ease;
+}
+
+.tech-link:hover {
+    color: var(--cyan) !important;
+    border-bottom-color: var(--cyan);
+    text-shadow: 0 0 10px rgba(189, 147, 249, 0.3);
+}
+
+.tech-goals h4 {
+    color: var(--purple) !important;
+    margin-bottom: 1.5rem;
+}
+
+.goal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.goal-item {
+    text-align: center;
+}
+
+.goal-item i {
+    font-size: 2rem;
+    color: var(--purple) !important;
+    margin-bottom: 0.5rem;
+}
+
+.goal-item h5 {
+    color: var(--purple) !important;
+    margin-bottom: 0.5rem;
+}
+
+.goal-item p {
+    color: var(--cyan) !important;
+    font-size: 0.85rem;
+}
+
+.impact-statement {
+    background: rgba(189, 147, 249, 0.05);
+    border: 1px solid rgba(189, 147, 249, 0.15);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    color: var(--cyan) !important;
+    font-style: italic;
+}
+
+/* PhD Position card - matching opportunity card style */
+.phd-position-card {
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    background: var(--bg-light);
+    border: 1px solid rgba(189, 147, 249, 0.2);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.phd-position-card:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 0 30px rgba(189, 147, 249, 0.4),
+                0 0 40px rgba(139, 233, 253, 0.2);
+    border-color: rgba(189, 147, 249, 0.5);
+    background: rgba(36, 40, 59, 0.85);
+}
+
+.phd-position-card .card-icon {
+    font-size: 2.5rem;
+    color: var(--purple) !important;
+    margin-bottom: 1rem;
+}
+
+.phd-position-card h3 {
+    color: var(--purple) !important;
+    margin-bottom: 1rem;
+}
+
+.phd-position-card p {
+    color: var(--cyan) !important;
+    margin-bottom: 1.5rem;
+}
+
+/* Research section */
+.research-section {
+    margin: 2rem 0;
+}
+
+.research-section h3 {
+    color: var(--purple) !important;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Application card */
+.application-card {
+    padding: 2rem;
+    background: var(--bg-light);
+    border: 1px solid rgba(189, 147, 249, 0.2);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.application-card:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 0 30px rgba(189, 147, 249, 0.4),
+                0 0 40px rgba(139, 233, 253, 0.2);
+    border-color: rgba(189, 147, 249, 0.5);
+    background: rgba(36, 40, 59, 0.85);
+}
+
+.application-card h3 {
+    color: var(--purple) !important;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.application-card h3 i {
+    margin-right: 0.5rem;
+}
+
+
+.deadline-notice {
+    background: rgba(189, 147, 249, 0.05);
+    border: 1px solid rgba(189, 147, 249, 0.15);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    color: var(--cyan) !important;
+}
+
+.deadline-notice strong {
+    color: var(--purple) !important;
+}
+
+.deadline-notice i {
+    color: var(--purple) !important;
+    margin-right: 0.5rem;
+}
+
+.application-process p {
+    color: var(--cyan) !important;
+    margin-bottom: 1rem;
+}
+
+.application-process p strong {
+    color: var(--purple) !important;
+}
+
+.process-steps {
+    margin-left: 2rem;
+    color: var(--cyan) !important;
+}
+
+.process-steps li {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.process-steps strong {
+    color: var(--purple) !important;
+}
+
+.process-steps a {
+    color: var(--purple) !important;
+    text-decoration: none;
+    border-bottom: 1px dotted var(--purple);
+    transition: all 0.3s ease;
+}
+
+.process-steps a:hover {
+    color: var(--cyan) !important;
+    border-bottom-color: var(--cyan);
+    text-shadow: 0 0 10px rgba(189, 147, 249, 0.3);
+}
+
+/* Ensure consistent headings */
+.graduate-opportunities h2,
+.other-opportunities h2,
+.what-we-offer h2,
+.technology-section h2 {
+    color: var(--purple) !important;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* Page sections padding */
+.graduate-opportunities,
+.other-opportunities,
+.what-we-offer,
+.technology-section {
+    padding: 3rem 0;
+}
+
+/* Grid layouts */
+.research-areas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2rem auto;
+    max-width: 100%;
+}
+
+/* Responsive - stack on smaller screens */
+@media (max-width: 992px) {
+    .research-areas-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .research-areas-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.opportunity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.offer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}

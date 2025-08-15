@@ -1,0 +1,28 @@
+{
+  "name": "Cosme Lab Website",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "ritwickdey.LiveServer",
+        "ecmel.vscode-html-css",
+        "formulahendry.auto-rename-tag"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "liveServer.settings.donotShowInfoMsg": true
+      }
+    }
+  },
+  "postCreateCommand": "npm install -g live-server",
+  "forwardPorts": [8080],
+  "remoteUser": "vscode"
+}

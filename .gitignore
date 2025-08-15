@@ -1,0 +1,109 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencies
+node_modules/
+bower_components/
+
+# Build outputs
+dist/
+build/
+*.min.js
+*.min.css
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+tmp/
+temp/
+cache/
+
+# Backup files
+*.backup
+*.bak
+*.old
+*~
+backup/
+
+# The unused directory (for local cleanup)
+unused/
+
+# Sensitive data
+*.pem
+*.key
+*.cert
+*.crt
+secrets/
+credentials/
+
+# Local development
+.sass-cache/
+*.css.map
+*.js.map
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv
+
+# Package files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Database
+*.sql
+*.sqlite
+*.db
+
+# Office temp files
+~$*
+
+# Custom - project specific
+/assets/pdfs/
+test-*.html
+*-test.html
+*.draft.html
