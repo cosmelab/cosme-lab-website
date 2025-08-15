@@ -3545,11 +3545,12 @@ body:has(.contact-header) {
   
   /* Footer background adjustment for mobile */
   .site-footer {
-    background-size: cover !important;
-    background-position: center center !important;
+    background-size: contain !important;
+    background-position: center bottom !important;
     background-repeat: no-repeat !important;
     min-height: auto !important;
     background-attachment: scroll !important;
+    background-color: #1a1b26 !important;
   }
   
   /* Modal mobile styles */
@@ -3560,17 +3561,17 @@ body:has(.contact-header) {
   }
   
   .modal-header {
-    padding: 10px 15px 8px 15px !important;
+    padding: 6px 10px 5px 10px !important;
   }
   
   .modal-header h2,
   #modalTitle {
-    font-size: 0.75rem !important;
-    line-height: 1.1 !important;
-    padding: 0 0.3rem !important;
+    font-size: 0.65rem !important;
+    line-height: 1 !important;
+    padding: 0 !important;
     word-wrap: break-word !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.5px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.3px !important;
   }
   
   .modal-body {
@@ -3613,10 +3614,11 @@ body:has(.contact-header) {
   body:has(.service-header),
   body:has(.join-header),
   body:has(.contact-header) {
-    background-size: cover !important;
-    background-position: center center !important;
+    background-size: contain !important;
+    background-position: center top !important;
     background-repeat: no-repeat !important;
     background-attachment: scroll !important;
+    background-color: #1a1b26 !important;
   }
   
   /* Add a darker overlay on mobile for better text readability */
