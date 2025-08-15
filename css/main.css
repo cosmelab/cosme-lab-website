@@ -2070,7 +2070,7 @@ em {
   gap: 1.5rem;
   justify-content: center;
   margin: 2rem auto;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
 }
 
@@ -3545,7 +3545,7 @@ body:has(.contact-header) {
   
   /* Footer background adjustment for mobile */
   .site-footer {
-    background-size: 180% auto !important;
+    background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
     min-height: auto !important;
@@ -3613,10 +3613,10 @@ body:has(.contact-header) {
   body:has(.service-header),
   body:has(.join-header),
   body:has(.contact-header) {
-    background-size: 200% auto !important;
+    background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
-    background-attachment: fixed !important;
+    background-attachment: scroll !important;
   }
   
   /* Add a darker overlay on mobile for better text readability */
@@ -3642,17 +3642,18 @@ body:has(.contact-header) {
   /* Containerized Workflows buttons - same width on mobile */
   .open-science-links {
     flex-direction: column !important;
-    flex-wrap: wrap !important;
+    flex-wrap: nowrap !important;
     align-items: center !important;
     gap: 1rem !important;
     width: 100% !important;
   }
   
   .open-science-links .open-link {
-    width: 220px !important;
-    max-width: 220px !important;
-    min-width: 220px !important;
+    width: 90% !important;
+    max-width: 280px !important;
+    min-width: unset !important;
     flex: none !important;
+    white-space: normal !important;
   }
   
   /* ONLY on mobile - Show mobile images, hide desktop images */
