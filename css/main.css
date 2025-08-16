@@ -2151,6 +2151,12 @@ body {
   background-color: #282a36; /* Dracula background as fallback */
 }
 
+/* Home page background */
+body.home-page {
+  background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
+              url('../assets/images/page_backgrounds/home_page.png') center/cover fixed !important;
+}
+
 /* Research page background */
 body:has(.research-header) {
   background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), url('../assets/images/page_backgrounds/research_page.png') center/cover fixed !important;
@@ -2418,14 +2424,22 @@ body:has(.contact-header) {
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
-    animation: subtle-zoom 20s ease-in-out infinite alternate !important;
-    transform: scale(1) !important;
     opacity: 0.5 !important;
+    animation: mobile-zoom 10s ease-in-out infinite alternate !important;
+  }
+  
+  @keyframes mobile-zoom {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.15);
+    }
   }
   
   .hero {
-    min-height: 100vh;
-    padding: 3rem 1rem;
+    min-height: 60vh;
+    padding: 2rem 1rem;
     display: flex;
     align-items: center;
     overflow: hidden !important;
@@ -2465,10 +2479,12 @@ body:has(.contact-header) {
     right: 10%;
   }
   
+  
+  /* Disable the problematic hero::after */
   .hero::after {
-    width: 150%;
-    height: 150%;
+    display: none !important;
   }
+  
   
   .nav-menu {
     position: fixed;
@@ -3545,12 +3561,9 @@ body:has(.contact-header) {
   
   /* Footer background adjustment for mobile */
   .site-footer {
-    background-size: contain !important;
-    background-position: center bottom !important;
-    background-repeat: no-repeat !important;
-    min-height: auto !important;
+    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.65)), url('../assets/images/headers/mobile/footer.png') center/cover !important;
     background-attachment: scroll !important;
-    background-color: #1a1b26 !important;
+    min-height: auto !important;
   }
   
   /* Modal mobile styles */
@@ -3604,21 +3617,55 @@ body:has(.contact-header) {
     line-height: 1.5 !important;
   }
   
-  /* Mobile background image adjustments for all pages */
-  body:has(.research-header),
-  body:has(.team-header),
-  body:has(.publications-header),
-  body:has(.news-header),
-  body:has(.grants-header),
-  body:has(.teaching-header),
-  body:has(.service-header),
-  body:has(.join-header),
+  /* Mobile background images - use mobile-specific versions */
+  body.home-page {
+    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
+                url('../assets/images/page_backgrounds/mobile/home_page.png') center/cover scroll !important;
+  }
+  
+  body:has(.research-header) {
+    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
+                url('../assets/images/page_backgrounds/mobile/research_page.png') center/cover scroll !important;
+  }
+  
+  body:has(.team-header) {
+    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
+                url('../assets/images/page_backgrounds/mobile/team_page.png') center/cover scroll !important;
+  }
+  
+  body:has(.publications-header) {
+    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
+                url('../assets/images/page_backgrounds/mobile/publications_page.png') center/cover scroll !important;
+  }
+  
+  body:has(.news-header) {
+    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
+                url('../assets/images/page_backgrounds/mobile/news_page.png') center/cover scroll !important;
+  }
+  
+  body:has(.grants-header) {
+    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
+                url('../assets/images/page_backgrounds/mobile/grants_page.png') center/cover scroll !important;
+  }
+  
+  body:has(.teaching-header) {
+    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
+                url('../assets/images/page_backgrounds/mobile/teaching_page.png') center/cover scroll !important;
+  }
+  
+  body:has(.service-header) {
+    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
+                url('../assets/images/page_backgrounds/mobile/service_page.png') center/cover scroll !important;
+  }
+  
+  body:has(.join-header) {
+    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
+                url('../assets/images/page_backgrounds/mobile/join_us_page.png') center/cover scroll !important;
+  }
+  
   body:has(.contact-header) {
-    background-size: contain !important;
-    background-position: center top !important;
-    background-repeat: no-repeat !important;
-    background-attachment: scroll !important;
-    background-color: #1a1b26 !important;
+    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
+                url('../assets/images/page_backgrounds/mobile/contact_page.png') center/cover scroll !important;
   }
   
   /* Add a darker overlay on mobile for better text readability */
@@ -10625,6 +10672,66 @@ a.learn-more-btn {
   
   .social-links-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile footer fix - at the very end to override everything */
+@media (max-width: 768px) {
+  .site-footer {
+    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.65)), 
+                url('../assets/images/headers/mobile/footer.png') center/cover !important;
+    background-attachment: scroll !important;
+  }
+  
+  /* Mobile body backgrounds - use mobile-specific images */
+  body.home-page {
+    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
+                url('../assets/images/page_backgrounds/mobile/home_page.png') center/cover scroll !important;
+  }
+  
+  body:has(.research-header) {
+    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
+                url('../assets/images/page_backgrounds/mobile/research_page.png') center/cover scroll !important;
+  }
+  
+  body:has(.team-header) {
+    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
+                url('../assets/images/page_backgrounds/mobile/team_page.png') center/cover scroll !important;
+  }
+  
+  body:has(.publications-header) {
+    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
+                url('../assets/images/page_backgrounds/mobile/publications_page.png') center/cover scroll !important;
+  }
+  
+  body:has(.news-header) {
+    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
+                url('../assets/images/page_backgrounds/mobile/news_page.png') center/cover scroll !important;
+  }
+  
+  body:has(.grants-header) {
+    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
+                url('../assets/images/page_backgrounds/mobile/grants_page.png') center/cover scroll !important;
+  }
+  
+  body:has(.teaching-header) {
+    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
+                url('../assets/images/page_backgrounds/mobile/teaching_page.png') center/cover scroll !important;
+  }
+  
+  body:has(.service-header) {
+    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
+                url('../assets/images/page_backgrounds/mobile/service_page.png') center/cover scroll !important;
+  }
+  
+  body:has(.join-header) {
+    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
+                url('../assets/images/page_backgrounds/mobile/join_us_page.png') center/cover scroll !important;
+  }
+  
+  body:has(.contact-header) {
+    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
+                url('../assets/images/page_backgrounds/mobile/contact_page.png') center/cover scroll !important;
   }
 }
 
