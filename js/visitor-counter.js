@@ -67,6 +67,7 @@ class LabVisitorCounter {
                 font-weight: 600;
                 cursor: pointer;
                 transition: all 0.3s ease;
+                white-space: nowrap;
             " onmouseover="
                 this.style.background='linear-gradient(135deg, #bd93f9, rgba(189, 147, 249, 0.9))';
                 this.style.color='white';
