@@ -3617,55 +3617,52 @@ body:has(.contact-header) {
     line-height: 1.5 !important;
   }
   
-  /* Mobile background images - use mobile-specific versions */
+  /* Mobile background images - properly sized to fit mobile screens */
+  body {
+    background-size: auto 100vh !important;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    background-color: #1a1b26 !important;
+  }
+  
   body.home-page {
-    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
-                url('../assets/images/page_backgrounds/mobile/home_page.png') center/cover scroll !important;
+    background-image: url('../assets/images/page_backgrounds/mobile/home_page_compressed.png') !important;
   }
   
   body:has(.research-header) {
-    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
-                url('../assets/images/page_backgrounds/mobile/research_page.png') center/cover scroll !important;
+    background-image: url('../assets/images/page_backgrounds/mobile/research_page_small.png') !important;
   }
   
   body:has(.team-header) {
-    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
-                url('../assets/images/page_backgrounds/mobile/team_page.png') center/cover scroll !important;
+    background-image: url('../assets/images/page_backgrounds/mobile/team_page_small.png') !important;
   }
   
   body:has(.publications-header) {
-    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
-                url('../assets/images/page_backgrounds/mobile/publications_page.png') center/cover scroll !important;
+    background-image: url('../assets/images/page_backgrounds/mobile/publications_page_small.png') !important;
   }
   
   body:has(.news-header) {
-    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
-                url('../assets/images/page_backgrounds/mobile/news_page.png') center/cover scroll !important;
+    background-image: url('../assets/images/page_backgrounds/mobile/news_page_small.png') !important;
   }
   
   body:has(.grants-header) {
-    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
-                url('../assets/images/page_backgrounds/mobile/grants_page.png') center/cover scroll !important;
+    background-image: url('../assets/images/page_backgrounds/mobile/grants_page_small.png') !important;
   }
   
   body:has(.teaching-header) {
-    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
-                url('../assets/images/page_backgrounds/mobile/teaching_page.png') center/cover scroll !important;
+    background-image: url('../assets/images/page_backgrounds/mobile/teaching_page_small.png') !important;
   }
   
   body:has(.service-header) {
-    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
-                url('../assets/images/page_backgrounds/mobile/service_page.png') center/cover scroll !important;
+    background-image: url('../assets/images/page_backgrounds/mobile/service_page_small.png') !important;
   }
   
   body:has(.join-header) {
-    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
-                url('../assets/images/page_backgrounds/mobile/join_us_page.png') center/cover scroll !important;
+    background-image: url('../assets/images/page_backgrounds/mobile/join_us_page_small.png') !important;
   }
   
   body:has(.contact-header) {
-    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
-                url('../assets/images/page_backgrounds/mobile/contact_page.png') center/cover scroll !important;
+    background-image: url('../assets/images/page_backgrounds/mobile/contact_page_small.png') !important;
   }
   
   /* Add a darker overlay on mobile for better text readability */
@@ -10683,55 +10680,6 @@ a.learn-more-btn {
     background-attachment: scroll !important;
   }
   
-  /* Mobile body backgrounds - use mobile-specific images */
-  body.home-page {
-    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
-                url('../assets/images/page_backgrounds/mobile/home_page.png') center/cover scroll !important;
-  }
-  
-  body:has(.research-header) {
-    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
-                url('../assets/images/page_backgrounds/mobile/research_page.png') center/cover scroll !important;
-  }
-  
-  body:has(.team-header) {
-    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
-                url('../assets/images/page_backgrounds/mobile/team_page.png') center/cover scroll !important;
-  }
-  
-  body:has(.publications-header) {
-    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
-                url('../assets/images/page_backgrounds/mobile/publications_page.png') center/cover scroll !important;
-  }
-  
-  body:has(.news-header) {
-    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
-                url('../assets/images/page_backgrounds/mobile/news_page.png') center/cover scroll !important;
-  }
-  
-  body:has(.grants-header) {
-    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
-                url('../assets/images/page_backgrounds/mobile/grants_page.png') center/cover scroll !important;
-  }
-  
-  body:has(.teaching-header) {
-    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
-                url('../assets/images/page_backgrounds/mobile/teaching_page.png') center/cover scroll !important;
-  }
-  
-  body:has(.service-header) {
-    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
-                url('../assets/images/page_backgrounds/mobile/service_page.png') center/cover scroll !important;
-  }
-  
-  body:has(.join-header) {
-    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
-                url('../assets/images/page_backgrounds/mobile/join_us_page.png') center/cover scroll !important;
-  }
-  
-  body:has(.contact-header) {
-    background: linear-gradient(rgba(40, 42, 54, 0.7), rgba(40, 42, 54, 0.6)), 
-                url('../assets/images/page_backgrounds/mobile/contact_page.png') center/cover scroll !important;
-  }
+  /* Removed duplicate mobile background styles - consolidated below */
 }
 
