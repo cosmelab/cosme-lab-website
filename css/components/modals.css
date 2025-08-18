@@ -235,3 +235,24 @@
 .modal-body::-webkit-scrollbar-thumb:hover {
   background: #8b008b;
 }
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  /* Hide the separator line on mobile to save space */
+  .modal-header::after {
+    display: none;
+  }
+  
+  /* Tighter close button positioning */
+  .modal .close {
+    top: 0.5rem;
+    right: 1rem;
+    font-size: 28px;
+  }
+  
+  /* Optimize modal body padding */
+  .modal-body {
+    padding: 1rem !important;
+    max-height: 70vh;
+  }
+}

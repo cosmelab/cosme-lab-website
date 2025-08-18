@@ -3574,17 +3574,18 @@ body:has(.contact-header) {
   }
   
   .modal-header {
-    padding: 6px 10px 5px 10px !important;
+    padding: 10px 15px !important;
+    background: linear-gradient(135deg, rgba(189, 147, 249, 0.05), transparent) !important;
   }
   
   .modal-header h2,
   #modalTitle {
-    font-size: 0.65rem !important;
-    line-height: 1 !important;
+    font-size: 1rem !important;
+    line-height: 1.2 !important;
     padding: 0 !important;
     word-wrap: break-word !important;
     font-weight: 500 !important;
-    letter-spacing: 0.3px !important;
+    letter-spacing: 0.5px !important;
   }
   
   .modal-body {
@@ -10681,5 +10682,73 @@ a.learn-more-btn {
   }
   
   /* Removed duplicate mobile background styles - consolidated below */
+}
+
+/* CRITICAL MOBILE MODAL FIX - Must be at the very end to override all other modal styles */
+@media (max-width: 768px) {
+  .modal-header {
+    padding: 8px 12px !important;
+    background: rgba(189, 147, 249, 0.03) !important;
+    min-height: auto !important;
+  }
+  
+  .modal-header h2,
+  #modalTitle {
+    font-size: 1.25rem !important;
+    line-height: 1.2 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    word-wrap: break-word !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: none !important;
+    animation: none !important;
+    filter: none !important;
+  }
+  
+  /* Hide the decorative line completely on mobile */
+  .modal-header::after {
+    display: none !important;
+  }
+  
+  /* Tighter close button */
+  .modal .close {
+    top: 5px !important;
+    right: 10px !important;
+    font-size: 24px !important;
+    width: 30px !important;
+    height: 30px !important;
+  }
+  
+  /* More efficient modal content spacing */
+  .modal-content {
+    width: 95% !important;
+    margin: 3% auto !important;
+    max-height: 94vh !important;
+  }
+  
+  .modal-body {
+    padding: 15px !important;
+    max-height: calc(94vh - 50px) !important;
+  }
+  
+  /* Optimize all modal text sizes for mobile */
+  .modal-body h3 {
+    font-size: 1.05rem !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .modal-body h4 {
+    font-size: 0.95rem !important;
+    margin-top: 0.8rem !important;
+    margin-bottom: 0.4rem !important;
+  }
+  
+  .modal-body p,
+  .modal-body li {
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+  }
 }
 
