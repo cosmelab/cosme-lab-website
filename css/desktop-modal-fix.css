@@ -1,0 +1,40 @@
+/* Desktop-only styles for Learn More modal headers */
+/* Using ULTRA-SPECIFIC selectors to FORCE override */
+
+@media screen and (min-width: 769px) {
+  body .modal .modal-content .desktop-compact-modal-header.modal-header {
+    padding: 20px 30px !important;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    background: transparent !important;
+    min-height: auto !important;
+    max-height: none !important;
+  }
+  
+  body .modal .modal-content .desktop-compact-modal-header h2.desktop-compact-modal-title,
+  body .modal .modal-content .desktop-compact-modal-header h2#modalTitle.desktop-compact-modal-title {
+    font-size: 1.6rem !important;
+    line-height: 1.4 !important;
+    color: var(--purple) !important;
+    text-transform: none !important;
+    letter-spacing: 0.5px !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    animation: none !important;
+    background: none !important;
+    -webkit-text-fill-color: var(--purple) !important;
+    filter: none !important;
+  }
+}
+
+/* Mobile should remain untouched */
+@media screen and (max-width: 768px) {
+  .desktop-compact-modal-header,
+  .desktop-compact-modal-title {
+    /* These classes do nothing on mobile */
+    all: unset;
+  }
+}
+

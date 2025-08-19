@@ -1,0 +1,14 @@
+/* Species names in italics */
+/* This applies to ALL em tags which should contain species names */
+em {
+  font-style: italic !important;
+}
+
+/* Ensure italics work in all contexts */
+.modal-body em,
+.modal-header em,
+h1 em, h2 em, h3 em, h4 em, h5 em, h6 em,
+p em, li em, td em, th em,
+.card em, .publication-card em {
+  font-style: italic !important;
+}

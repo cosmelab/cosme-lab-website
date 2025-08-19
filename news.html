@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/components/purple-glow.css">
     <link rel="stylesheet" href="css/components/modals.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/desktop-modal-fix.css">
+    <link rel="stylesheet" href="css/species-italics.css">
     <style>
         /* News card styling with consistent colors */
         .news-card {
@@ -765,11 +767,11 @@
             // Create modal if it doesn't exist
             if (!document.getElementById('grantModal')) {
                 const modalHTML = `
-                    <div id="grantModal" class="modal">
+                    <div id="grantModal" class="modal learn-more-modal">
                         <div class="modal-content">
                             <span class="close">×</span>
-                            <div class="modal-header">
-                                <h2 id="modalTitle"></h2>
+                            <div class="modal-header desktop-compact-modal-header">
+                                <h2 id="modalTitle" class="desktop-compact-modal-title"></h2>
                             </div>
                             <div class="modal-body" id="modalBody">
                                 <!-- Content will be loaded here -->
@@ -790,6 +792,8 @@
                 const summary = summaries[id];
                 if (summary) {
                     modalTitle.innerHTML = summary.title;
+                    modalTitle.style.fontSize = '1.5rem';
+                    modalTitle.parentElement.style.padding = '10px 20px';
                     modalBody.innerHTML = summary.content;
                     modal.style.display = 'block';
                 }

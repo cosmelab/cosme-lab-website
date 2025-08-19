@@ -5771,7 +5771,7 @@ body:has(.contact-header) {
 
 .modal-header {
   background: transparent;
-  padding: 15px 20px 10px 20px;
+  padding: 10px 20px; /* Reduced vertical padding */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -5807,26 +5807,16 @@ body:has(.contact-header) {
 }
 
 
+/* Modal title styles - simplified for better control */
 .modal-header h2,
 #modalTitle {
-  color: transparent !important;
+  color: var(--purple) !important;
   margin: 0 !important;
-  font-size: clamp(0.9rem, 2.5vw, 1.2rem) !important;
+  font-size: 1.5rem !important;
   font-weight: 600 !important;
-  background: linear-gradient(45deg, var(--purple), var(--cyan), var(--pink), var(--purple)) !important;
-  background-size: 300% 100% !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
   padding: 0 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 1.5px !important;
   line-height: 1.2 !important;
-  position: relative !important;
-  display: inline-block !important;
-  text-shadow: none !important;
-  animation: gradientShift 4s ease-in-out infinite !important;
-  filter: drop-shadow(0 2px 4px rgba(189, 147, 249, 0.3));
+  text-transform: none !important; /* Explicitly disable uppercase */
 }
 
 @keyframes gradientShift {
@@ -10735,8 +10725,12 @@ a.learn-more-btn {
   /* Optimize all modal text sizes for mobile */
   .modal-body h3 {
     font-size: 1.05rem !important;
-    margin-top: 1rem !important;
+    margin-top: 0.5rem !important;
     margin-bottom: 0.5rem !important;
+  }
+  
+  .modal-body h3:first-child {
+    margin-top: 0 !important;
   }
   
   .modal-body h4 {
@@ -10749,6 +10743,29 @@ a.learn-more-btn {
   .modal-body li {
     font-size: 0.85rem !important;
     line-height: 1.4 !important;
+  }
+}
+
+/* Desktop/Tablet Modal Optimizations - ONLY font size and padding */
+/* MUST OVERRIDE LINE 5772-5830 */
+@media screen and (min-width: 769px) {
+  div.modal div.modal-content div.modal-header {
+    padding: 8px 20px !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+  
+  div.modal div.modal-content div.modal-header h2,
+  div.modal div.modal-content div.modal-header h2#modalTitle,
+  #publicationModal #modalTitle,
+  #grantModal #modalTitle,
+  #researchModal #modalTitle {
+    font-size: 1.5rem !important;
+    font-size: 1.5rem !important; /* Double to ensure override */
+  }
+  
+  div.modal div.modal-content div.modal-body {
+    padding: 1.5rem !important;
   }
 }
 

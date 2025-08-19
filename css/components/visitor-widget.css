@@ -173,6 +173,6 @@
     }
     
     .visitor-label {
-        display: none;
+        display: inline;
     }
 }

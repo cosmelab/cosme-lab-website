@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components/modals.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/desktop-modal-fix.css">
+    <link rel="stylesheet" href="css/species-italics.css">
     <style>
         /* Compact Publication Cards */
         .publications-container {
@@ -577,7 +579,7 @@
                     <!-- Science Paper -->
                     <div class="pub-card-compact" data-tags="recent preprint mosquito">
                         <div class="pub-card-content">
-                            <a href="https://doi.org/10.1101/2024.07.23.604830" target="_blank" class="journal-badge-compact science"><i class="fas fa-external-link-alt" style="font-size: 0.7rem; margin-right: 0.3rem;"></i> Science</a>
+                            <a href="https://doi.org/10.1101/2024.07.23.604830" target="_blank" class="journal-badge-compact science" style="display: flex; flex-direction: column; align-items: center; line-height: 0.9;"><span><i class="fas fa-external-link-alt" style="font-size: 0.7rem; margin-right: 0.3rem;"></i>Science</span><span style="font-size: 0.6rem; font-style: italic; opacity: 0.9;">In press</span></a>
                             <div class="pub-info">
                                 <h3 class="pub-title">1206 genomes reveal origin and movement of <em>Aedes aegypti</em> driving increased dengue risk</h3>
                                 <p class="pub-authors">Crawford JE, Balcazar D, Redmond S, Rose NH, Youd HA, Lucas ER, Sudirman Made Ali R, Alnazawi A, Badolo A, Chen C-H, <strong style="color: var(--pink)">Cosme LV</strong>, et al.</p>                                <p class="pub-abstract">An 8-year international collaboration involving 40+ researchers from 19 institutions analyzing 1,206 <em>Aedes aegypti</em> genomes. Led by Dr. Jacob Crawford (Verily/Alphabet), this community effort reveals how the Atlantic Slave Trade shaped modern mosquito populations and disease transmission patterns.</p>
@@ -631,7 +633,7 @@
                             <a href="https://doi.org/10.1186/s13071-024-06158-z" target="_blank" class="journal-badge-compact nature"><i class="fas fa-external-link-alt" style="font-size: 0.7rem; margin-right: 0.3rem;"></i> Par & Vectors</a>
                             <div class="pub-info">
                                 <h3 class="pub-title">A genotyping array for the globally invasive vector mosquito, <em>Aedes albopictus</em></h3>
-                                <p class="pub-authors"><strong style="color: var(--pink)">Cosme LV</strong>, Corley MK, Johnson T, Severson DW, Yen G-C, Caccone A</p>                                <p class="pub-abstract">Development and validation of the first comprehensive genotyping array for <em>Aedes albopictus</em> containing 175,396 SNPs, enabling population genomics studies at unprecedented scale with >10,000x cost reduction compared to whole-genome sequencing.</p>
+                                <p class="pub-authors"><strong style="color: var(--pink)">Cosme LV</strong>, Corley MK, Johnson T, Severson DW, Yen G-C, Caccone A</p>                                <p class="pub-abstract">Development and validation of the first comprehensive genotyping array for <em>Aedes albopictus</em> containing 175,396 SNPs, enabling large-scale population genomics studies for tracking invasions, gene flow, and insecticide resistance evolution.</p>
                             </div>
                         </div>
                         <button class="learn-more-compact" data-pub-id="cosme2024">
@@ -1026,11 +1028,11 @@
     </footer>
 
     <!-- Modal for publication details -->
-    <div id="publicationModal" class="modal">
+    <div id="publicationModal" class="modal learn-more-modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <div class="modal-header">
-                <h2 id="modalTitle">Publication Details</h2>
+            <div class="modal-header desktop-compact-modal-header">
+                <h2 id="modalTitle" class="desktop-compact-modal-title">Publication Details</h2>
             </div>
             <div class="modal-body" id="modalBody">
                 <!-- Content will be loaded here -->
@@ -1047,7 +1049,7 @@
         // Publication details data
         const publicationDetails = {
             'crawford2025': {
-                title: '1206 genomes reveal origin and movement of Aedes aegypti',
+                title: '1206 genomes reveal origin and movement of <em>Aedes aegypti</em>',
                 content: `
                     <h3>A Global Collaboration Reshaping Our Understanding of Mosquito Evolution</h3>
                     <p>This landmark study represents an 8-year international collaboration analyzing 1,206 <em>Aedes aegypti</em> genomes from around the world. Led by Dr. Jacob Crawford from Verily (Alphabet), this community effort involved over 40 researchers from 19 institutions.</p>
@@ -1102,14 +1104,14 @@
                 `
             },
             'cosme2024': {
-                title: 'Aealbo-chip: First SNP Array for Aedes albopictus',
+                title: 'Aealbo-chip: First SNP Array for <em>Aedes albopictus</em>',
                 content: `
                     <h3>A Cost-Effective Tool for Global Population Genomics</h3>
                     <p>We developed and validated the first genome-wide SNP array (Aealbo-chip) for the Asian tiger mosquito, <em>Aedes albopictus</em>, containing 175,396 high-quality SNPs.</p>
                     
                     <h4>Design and Development:</h4>
                     <ul>
-                        <li>Used 241 whole-genome sequences from 28 populations across the native range</li>
+                        <li>Used 819 whole-genome sequences to identify SNPs, tested on 237 samples from 28 populations</li>
                         <li>Applied strict filtering to ensure high-quality, informative SNPs</li>
                         <li>Achieved 78.6% average probe conversion rate</li>
                         <li>Validated with samples from native and invasive populations</li>
@@ -1117,7 +1119,6 @@
                     
                     <h4>Key Advantages:</h4>
                     <ul>
-                        <li>Cost reduction of >10,000-fold compared to whole-genome sequencing</li>
                         <li>Enables large-scale population genomic studies (hundreds to thousands of samples)</li>
                         <li>Successfully captures population structure and demographic patterns</li>
                         <li>Applicable for studying invasions, gene flow, and local adaptation</li>
@@ -1146,7 +1147,7 @@
                 `
             },
             'gloria2022': {
-                title: 'Origins of High Latitude Aedes aegypti Introductions',
+                title: 'Origins of High Latitude <em>Aedes aegypti</em> Introductions',
                 content: `
                     <h3>Tracking Unexpected Northern Invasions</h3>
                     <p>A population genetics study investigating the source of <em>Aedes aegypti</em> introductions to two unexpected northern US locations (York, Nebraska and Moab, Utah) in 2019.</p>
@@ -1220,7 +1221,7 @@
                 `
             },
             'palatini2020': {
-                title: 'Improved Aedes albopictus reference genome',
+                title: 'Improved <em>Aedes albopictus</em> reference genome',
                 content: `
                     <h3>Enabling Comparative Genomics Studies</h3>
                     <p>High-quality genome assembly and annotation for the Asian tiger mosquito enabling comparative genomics studies.</p>
@@ -1446,7 +1447,9 @@
         function openModal(pubId) {
             const details = publicationDetails[pubId];
             if (details) {
-                modalTitle.textContent = details.title;
+                modalTitle.innerHTML = details.title;
+                modalTitle.style.fontSize = '1.5rem';
+                modalTitle.parentElement.style.padding = '10px 20px';
                 modalBody.innerHTML = details.content;
                 modal.style.display = 'block';
             }

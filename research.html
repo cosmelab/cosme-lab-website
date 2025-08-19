@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research - Cosme Lab | UC Riverside</title>
     <meta name="description" content="Research areas of the Cosme Lab including insecticide resistance evolution, photoperiodic diapause, and mosquito population genomics.">
-    <link rel="stylesheet" href="css/main.css?v=6">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components/purple-glow.css">
     <link rel="stylesheet" href="css/components/modals.css">
     <link rel="stylesheet" href="css/pages/research-buttons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/desktop-modal-fix.css">
+    <link rel="stylesheet" href="css/species-italics.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R6YGBLPHSH"></script>
     <script>
@@ -489,11 +491,11 @@
             // Create modal if it doesn't exist
             if (!document.getElementById('researchModal')) {
                 const modalHTML = `
-                    <div id="researchModal" class="modal">
+                    <div id="researchModal" class="modal learn-more-modal">
                         <div class="modal-content">
                             <span class="close">&times;</span>
-                            <div class="modal-header">
-                                <h2 id="modalTitle">Research Summary</h2>
+                            <div class="modal-header desktop-compact-modal-header">
+                                <h2 id="modalTitle" class="desktop-compact-modal-title">Research Summary</h2>
                             </div>
                             <div class="modal-body" id="modalBody">
                                 <!-- Content will be loaded here -->
@@ -513,6 +515,11 @@
                 const summary = researchSummaries[id];
                 if (summary) {
                     modalTitle.innerHTML = summary.title;
+                    console.log('Setting modal styles...');
+                    modalTitle.style.cssText = 'font-size: 1.5rem !important;';
+                    modalTitle.parentElement.style.cssText = 'padding: 10px 20px !important;';
+                    console.log('Modal header padding:', modalTitle.parentElement.style.padding);
+                    console.log('Modal title font-size:', modalTitle.style.fontSize);
                     modalBody.innerHTML = summary.content;
                     modal.style.display = 'block';
                 }
@@ -541,6 +548,44 @@
                     // If no data-research-id, it's an external link - let it work normally
                 });
             });
+        });
+    </script>
+    <script>
+        // Force desktop modal styles after everything loads
+        window.addEventListener('load', function() {
+            // Check if desktop
+            if (window.innerWidth >= 769) {
+                // Create style element to override everything
+                const style = document.createElement('style');
+                style.innerHTML = `
+                    .modal-header {
+                        padding: 10px 20px !important;
+                    }
+                    .modal-header h2,
+                    #modalTitle {
+                        font-size: 1.5rem !important;
+                    }
+                `;
+                document.head.appendChild(style);
+                
+                // Also force it when modal opens
+                document.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('learn-more-btn') || e.target.parentElement?.classList.contains('learn-more-btn')) {
+                        setTimeout(function() {
+                            const header = document.querySelector('.modal-header');
+                            const title = document.querySelector('#modalTitle');
+                            if (header) {
+                                header.style.padding = '10px 20px';
+                                header.style.paddingTop = '10px';
+                                header.style.paddingBottom = '10px';
+                            }
+                            if (title) {
+                                title.style.fontSize = '1.5rem';
+                            }
+                        }, 100);
+                    }
+                });
+            }
         });
     </script>
 </body>

@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cosme Lab - Vector Biology & Mosquito Genomics | UC Riverside</title>
     <meta name="description" content="The Cosme Lab at UC Riverside investigates genetic mechanisms underlying insecticide resistance in disease-transmitting mosquitoes through genomics and computational approaches.">
-    <link rel="stylesheet" href="css/main.css?v=6">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components/purple-glow.css">
     <link rel="stylesheet" href="css/components/modals.css">
     <link rel="stylesheet" href="css/pages/home-buttons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/desktop-modal-fix.css">
+    <link rel="stylesheet" href="css/species-italics.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R6YGBLPHSH"></script>
     <script>
@@ -216,11 +218,11 @@
     </footer>
 
     <!-- Reproducibility Modal -->
-    <div id="reproducibilityModal" class="modal" style="display: none;">
+    <div id="reproducibilityModal" class="modal learn-more-modal" style="display: none;">
         <div class="modal-content">
             <span class="close" onclick="closeReproducibilityModal()">&times;</span>
-            <div class="modal-header">
-                <h2>Why We Use Containers</h2>
+            <div class="modal-header desktop-compact-modal-header">
+                <h2 class="desktop-compact-modal-title">Why We Use Containers</h2>
             </div>
             <div class="modal-body">
                 <h3>A Personal Journey to Reproducible Science</h3>

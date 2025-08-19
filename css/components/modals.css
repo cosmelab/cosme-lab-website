@@ -80,8 +80,8 @@
   left: 10%;
   right: 10%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(189, 147, 249, 0.5), transparent);
-  box-shadow: 0 0 10px rgba(189, 147, 249, 0.3);
+  background: linear-gradient(90deg, transparent, rgba(189, 147, 249, 0.3), transparent);
+  box-shadow: 0 0 5px rgba(189, 147, 249, 0.2);
 }
 
 .modal-header h2 {
@@ -253,6 +253,30 @@
   /* Optimize modal body padding */
   .modal-body {
     padding: 1rem !important;
+    padding-top: 0.5rem !important;
     max-height: 70vh;
+  }
+  
+  /* Remove top margin from first element in modal body */
+  .modal-body > *:first-child {
+    margin-top: 0 !important;
+  }
+}
+
+/* Desktop optimizations - ONLY for Learn More modals with specific class */
+@media screen and (min-width: 769px) {
+  .learn-more-modal .modal-header {
+    padding: 10px 20px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+  
+  .learn-more-modal .modal-header h2,
+  .learn-more-modal #modalTitle {
+    font-size: 1.5rem !important;
+  }
+  
+  .learn-more-modal .modal-body {
+    padding: 1.5rem !important;
   }
 }
