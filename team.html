@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/pages/team-cards.css">
     <link rel="stylesheet" href="css/components/purple-glow.css">
     <link rel="stylesheet" href="css/components/modals.css">
+    <link rel="stylesheet" href="css/desktop-modal-fix.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R6YGBLPHSH"></script>
@@ -77,6 +78,9 @@
                         <p class="member-position">Assistant Professor</p>
                         <p class="member-dates"><i class="fas fa-calendar-alt"></i> July 2024 - Present</p>
                         <p class="member-project">Population genomics of disease vectors, insecticide resistance evolution, vector competence, and sustainable protein production through robotic mealworm farming</p>
+                        <button class="team-page-button" onclick="openPIModal()" style="margin-top: 1rem;">
+                            <span class="mosquito-emoji">🦟</span> Learn More
+                        </button>
                     </div>
                 </div>
             </div>
@@ -223,11 +227,185 @@
         </div>
     </footer>
 
+    <!-- Modal for PI Details -->
+    <div id="piModal" class="modal learn-more-modal">
+        <div class="modal-content" style="max-width: 800px;">
+            <div class="modal-header desktop-compact-modal-header">
+                <h2 class="desktop-compact-modal-title">Education and Training</h2>
+                <span class="close" onclick="closePIModal()">&times;</span>
+            </div>
+            <div class="modal-body" style="padding: 2rem; text-align: center; color: var(--cyan) !important;">
+                <h3 style="color: var(--purple); margin-bottom: 1.5rem;">Education</h3>
+                <div style="margin-bottom: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; width: 100%; margin: 0 auto 2rem;">
+                    <div class="education-card" style="background: rgba(68, 71, 90, 0.3); border: 1px solid rgba(189, 147, 249, 0.2); border-radius: 8px; padding: 1rem; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 120px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;">
+                        <p style="margin: 0; color: var(--cyan) !important; font-weight: normal !important; text-align: center;">Ph.D. in Entomology<br>2015</p>
+                        <a href="https://www.tamu.edu" target="_blank" class="uni-logo-link" style="margin-top: 0.8rem;">
+                            <img src="assets/images/logos/texasam_logo.png" alt="Texas A&M" style="height: 60px; width: auto; filter: brightness(0.8); transition: all 0.3s ease;">
+                        </a>
+                    </div>
+                    
+                    <div class="education-card" style="background: rgba(68, 71, 90, 0.3); border: 1px solid rgba(189, 147, 249, 0.2); border-radius: 8px; padding: 1rem; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 120px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;">
+                        <p style="margin: 0; color: var(--cyan) !important; font-weight: normal !important; text-align: center;">M.Sc. in Entomology<br>2009</p>
+                        <a href="https://www.k-state.edu" target="_blank" class="uni-logo-link" style="margin-top: 0.8rem;">
+                            <img src="assets/images/logos/k-state_logo.png" alt="Kansas State" style="height: 50px; width: auto; filter: brightness(0.8); transition: all 0.3s ease;">
+                        </a>
+                    </div>
+                    
+                    <div class="education-card" style="background: rgba(68, 71, 90, 0.3); border: 1px solid rgba(189, 147, 249, 0.2); border-radius: 8px; padding: 1rem; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 120px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;">
+                        <p style="margin: 0; color: var(--cyan) !important; font-weight: normal !important; text-align: center;">M.Sc. in Entomology<br>2008</p>
+                        <a href="https://www.ufv.br" target="_blank" class="uni-logo-link" style="margin-top: 0.8rem;">
+                            <img src="assets/images/logos/ufv_logo.png" alt="UFV" style="height: 40px; width: auto; filter: brightness(0.8); transition: all 0.3s ease;">
+                        </a>
+                    </div>
+                    
+                    <div class="education-card" style="background: rgba(68, 71, 90, 0.3); border: 1px solid rgba(189, 147, 249, 0.2); border-radius: 8px; padding: 1rem; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 120px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;">
+                        <p style="margin: 0; color: var(--cyan) !important; font-weight: normal !important; text-align: center;">B.Sc. in Agronomy<br>2006</p>
+                        <a href="https://www.ufla.br" target="_blank" class="uni-logo-link" style="margin-top: 0.8rem;">
+                            <img src="assets/images/logos/UFLA_logo.png" alt="UFLA" style="height: 96px; width: auto; filter: brightness(0.8); transition: all 0.3s ease;">
+                        </a>
+                    </div>
+                </div>
+                
+                <h3 style="color: var(--purple); margin-bottom: 1.5rem;">Research Positions</h3>
+                <div style="margin-bottom: 2rem; display: flex; flex-direction: column; gap: 1rem; width: 100%; margin: 0 auto;">
+                    <!-- Associate Research Scientist -->
+                    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 0.5rem;">
+                        <div class="research-card" style="background: rgba(68, 71, 90, 0.3); border: 1px solid rgba(189, 147, 249, 0.2); border-radius: 8px; padding: 1rem; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;">
+                            <div style="color: var(--cyan) !important; font-weight: normal !important; text-align: center;">
+                                <div>Associate Research Scientist</div>
+                                <div>2021-2024</div>
+                            </div>
+                            <a href="https://www.yale.edu" target="_blank" class="uni-logo-link" style="margin-top: 0.8rem;">
+                                <img src="assets/images/logos/yale_logo.png" alt="Yale" style="height: 45px; width: auto; filter: brightness(0.8); transition: all 0.3s ease;">
+                            </a>
+                        </div>
+                        <div class="research-card" style="background: rgba(68, 71, 90, 0.3); border: 1px solid rgba(189, 147, 249, 0.2); border-radius: 8px; padding: 1rem; text-align: center; display: flex; align-items: center; justify-content: center; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;">
+                            <div style="color: var(--cyan) !important; font-weight: normal !important; text-align: center; font-size: 0.9rem;">
+                                <div>NIH grant R01AI132409</div>
+                                <div>"Population genomics of a globally distributed arbovirus vector, <em>Aedes albopictus</em>"</div>
+                                <div>PI: Dr. Gisella Caccone</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Postdoc 2019-2021 -->
+                    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 0.5rem;">
+                        <div class="research-card" style="background: rgba(68, 71, 90, 0.3); border: 1px solid rgba(189, 147, 249, 0.2); border-radius: 8px; padding: 1rem; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;">
+                            <div style="color: var(--cyan) !important; font-weight: normal !important; text-align: center;">
+                                <div>Postdoctoral Associate</div>
+                                <div>2019-2021</div>
+                            </div>
+                            <a href="https://www.yale.edu" target="_blank" class="uni-logo-link" style="margin-top: 0.8rem;">
+                                <img src="assets/images/logos/yale_logo.png" alt="Yale" style="height: 45px; width: auto; filter: brightness(0.8); transition: all 0.3s ease;">
+                            </a>
+                        </div>
+                        <div class="research-card" style="background: rgba(68, 71, 90, 0.3); border: 1px solid rgba(189, 147, 249, 0.2); border-radius: 8px; padding: 1rem; text-align: center; display: flex; align-items: center; justify-content: center; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;">
+                            <div style="color: var(--cyan) !important; font-weight: normal !important; text-align: center; font-size: 0.9rem;">
+                                <div>NIH grant R01AI132409</div>
+                                <div>"Population genomics of a globally distributed arbovirus vector, <em>Aedes albopictus</em>"</div>
+                                <div>PI: Dr. Gisella Caccone</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Postdoc 2015-2019 -->
+                    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 0.5rem;">
+                        <div class="research-card" style="background: rgba(68, 71, 90, 0.3); border: 1px solid rgba(189, 147, 249, 0.2); border-radius: 8px; padding: 1rem; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;">
+                            <div style="color: var(--cyan) !important; font-weight: normal !important; text-align: center;">
+                                <div>Postdoctoral Associate</div>
+                                <div>2015-2019</div>
+                            </div>
+                            <a href="https://www.yale.edu" target="_blank" class="uni-logo-link" style="margin-top: 0.8rem;">
+                                <img src="assets/images/logos/yale_logo.png" alt="Yale" style="height: 45px; width: auto; filter: brightness(0.8); transition: all 0.3s ease;">
+                            </a>
+                        </div>
+                        <div class="research-card" style="background: rgba(68, 71, 90, 0.3); border: 1px solid rgba(189, 147, 249, 0.2); border-radius: 8px; padding: 1rem; text-align: center; display: flex; align-items: center; justify-content: center; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;">
+                            <div style="color: var(--cyan) !important; font-weight: normal !important; text-align: center; font-size: 0.9rem;">
+                                <div>NIH grant U01 AI115595-01</div>
+                                <div>"Genetic Studies of Dengue Vectors in Brazil"</div>
+                                <div>PI: Dr. Jeffrey Powell</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="js/main.js"></script>
     
     <!-- Visitor Counter Widget -->
     <link rel="stylesheet" href="css/components/visitor-widget.css">
     <script src="js/visitor-counter.js"></script>
+    
+    <style>
+        .education-card:hover, .research-card:hover {
+            transform: translateY(-3px) scale(1.02) !important;
+            box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                        0 0 30px rgba(189, 147, 249, 0.4),
+                        0 0 40px rgba(139, 233, 253, 0.2) !important;
+            border-color: rgba(189, 147, 249, 0.5) !important;
+            background: rgba(36, 40, 59, 0.85) !important;
+        }
+        
+        .uni-logo-link img {
+            opacity: 0.9;
+            transition: all 0.3s ease !important;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 10px rgba(255, 255, 255, 0.4));
+        }
+        
+        .uni-logo-link:hover img {
+            opacity: 1;
+            filter: brightness(1.2) drop-shadow(0 0 10px rgba(189, 147, 249, 0.8)) drop-shadow(0 0 20px rgba(189, 147, 249, 0.4)) !important;
+            transform: scale(1.1) !important;
+        }
+        
+        /* Mobile responsive styles */
+        @media (max-width: 768px) {
+            #piModal .modal-content {
+                max-width: 95% !important;
+                margin: 2% auto !important;
+                height: auto !important;
+                max-height: 96vh !important;
+                overflow-y: auto !important;
+            }
+            
+            #piModal .modal-body {
+                padding: 1rem !important;
+                max-height: calc(96vh - 100px) !important;
+                overflow-y: auto !important;
+            }
+            
+            /* Adjust card heights for mobile */
+            .education-card {
+                min-height: 140px !important;
+            }
+            
+            /* Make research position cards stack vertically on mobile */
+            div[style*="grid-template-columns: 1fr 2fr"] {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+    
+    <script>
+        // PI Modal functionality
+        function openPIModal() {
+            document.getElementById('piModal').style.display = 'block';
+        }
+        
+        function closePIModal() {
+            document.getElementById('piModal').style.display = 'none';
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('piModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
 
 </body>
 </html>
