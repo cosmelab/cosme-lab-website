@@ -9,6 +9,40 @@
     <link rel="stylesheet" href="css/components/purple-glow.css">
     <link rel="stylesheet" href="css/pages/join-page.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Mobile Responsive Styles for New Position -->
+    <style>
+        /* Rotating icon on hover for IMMEDIATE OPENING */
+        .position-recruiting {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .position-recruiting i {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        
+        .position-recruiting:hover i {
+            transform: rotate(360deg);
+        }
+        
+        @media (max-width: 768px) {
+            .immediate-opening .phd-position-card > div[style*="grid"] {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+            
+            .immediate-opening h2 {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .immediate-opening .position-recruiting {
+                margin-right: 0 !important;
+            }
+        }
+    </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R6YGBLPHSH"></script>
     <script>
@@ -125,6 +159,77 @@
                             <li><strong>Formal Application:</strong> Successful candidates must apply through the <a href="https://entomology.ucr.edu/graduate-studies-program" target="_blank">UCR Entomology Graduate Program</a> and fulfill all departmental requirements</li>
                             <li><strong>Campus Interview:</strong> Selected candidates residing in the USA will be invited for an on-campus interview (typically held in February-March)</li>
                         </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IMMEDIATE OPENING - Undergraduate Research Assistant -->
+    <section class="immediate-opening fade-in">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 2rem;">
+                <span class="position-recruiting" style="margin-right: 1rem;"><i class="fas fa-bolt"></i> IMMEDIATE OPENING</span>
+                Undergraduate Research Assistant
+            </h2>
+            
+            <div class="phd-position-card dracula-card" style="border: 2px solid var(--purple);">
+                <div class="card-icon">
+                    <i class="fas fa-microscope"></i>
+                </div>
+                
+                <h3>Join Our Research Team</h3>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem; text-align: center;">
+                    Join the Cosme Lab to advance robotics-driven vertical insect farming and mosquito genomics through the CNAS Delfino Agriculture Innovation seed grant project.
+                </p>
+                
+                <div class="application-card dracula-card" style="margin-bottom: 1.5rem;">
+                    <h3 style="color: var(--purple);"><i class="fas fa-tasks"></i> Your Responsibilities</h3>
+                    <ol class="process-steps" style="padding-left: 0; margin-left: 0; text-align: left;">
+                        <li style="padding-left: 2.5rem; text-align: left;">Support CNAS Delfino seed grant: "Feeding the Future: Robotics-Driven Vertical Insect Farming"</li>
+                        <li style="padding-left: 2.5rem; text-align: left;">Maintain mosquito colonies in the UCR quarantine facility</li>
+                        <li style="padding-left: 2.5rem; text-align: left;">Perform HMW-DNA extractions and size selection using magnetic beads</li>
+                        <li style="padding-left: 2.5rem; text-align: left;">Linked-read WGS library prep <a href="https://doi.org/10.1073/pnas.2015005118" target="_blank" class="pub-link-inline" style="font-size: 0.75em; vertical-align: baseline;"><i class="fas fa-external-link-alt"></i> DOI: Meier et al. 2021</a></li>
+                        <li style="padding-left: 2.5rem; text-align: left;">(Optional) Learn to use the UCR HPCC for genomic analysis</li>
+                    </ol>
+                </div>
+                
+                <div class="application-card dracula-card" style="margin-bottom: 1.5rem;">
+                    <h3 style="color: var(--cyan);"><i class="fas fa-clipboard-check"></i> Requirements & Details</h3>
+                    <ol class="process-steps" style="padding-left: 0; margin-left: 0; text-align: left;">
+                        <li style="padding-left: 2.5rem; text-align: left; color: var(--cyan) !important;"><strong style="color: var(--cyan) !important;">No prior research experience required</strong> - we provide complete training!</li>
+                        <li style="padding-left: 2.5rem; text-align: left; color: var(--cyan) !important;">Commit up to 20 hours per week during experiment runs</li>
+                        <li style="padding-left: 2.5rem; text-align: left; color: var(--cyan) !important;">Flexible schedule accommodating your classes</li>
+                        <li style="padding-left: 2.5rem; text-align: left; color: var(--cyan) !important;"><strong style="color: var(--cyan) !important;">Paid position:</strong> ~$20/hour (UCR undergraduate pay scale)</li>
+                        <li style="padding-left: 2.5rem; text-align: left; color: var(--cyan) !important;"><strong style="color: var(--cyan) !important;">Interviews:</strong> August 25-29, Entomology Bldg Room 325</li>
+                    </ol>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem;">
+                    <div class="opportunity-card dracula-card" style="padding: 1.5rem;">
+                        <h5 style="color: var(--purple); margin-bottom: 1rem; font-size: 1rem;">
+                            <i class="fas fa-exclamation-triangle"></i> Application Deadline
+                        </h5>
+                        <p style="color: var(--foreground); margin-bottom: 0.3rem; font-weight: bold;">August 24, 2025 at 11:59 PM PST</p>
+                        <p style="color: var(--comment); font-style: italic; font-size: 0.9rem; margin-bottom: 1rem;">Use your UCR email to access the form</p>
+                        
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfQa4a4uGi2M8yW4OcCk6Sk3gcq0LehtG4ArZri8mF4ZkseAQ/viewform" target="_blank" class="learn-more-btn" style="margin-bottom: 0.8rem; position: relative;">
+                            <i class="fas fa-paper-plane"></i> Apply Now
+                        </a>
+                        
+                        <a href="contact.html" class="learn-more-btn" style="position: relative;">
+                            <i class="fas fa-envelope"></i> Contact Us
+                        </a>
+                    </div>
+                    
+                    <div class="opportunity-card dracula-card" style="padding: 1.5rem; text-align: center;">
+                        <h5 style="color: var(--purple); margin-bottom: 1rem; font-size: 1rem;">
+                            <i class="fas fa-file-alt"></i> Position Flyer
+                        </h5>
+                        <p style="margin-bottom: 1rem; font-size: 0.9rem;">Full position details and requirements</p>
+                        <a href="assets/images/join_us/flyer.png" target="_blank" class="learn-more-btn" style="position: relative;">
+                            <i class="fas fa-image"></i> View Flyer
+                        </a>
                     </div>
                 </div>
             </div>
