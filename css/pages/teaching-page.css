@@ -350,7 +350,7 @@
     font-style: normal;
     font-size: 0.85rem;
     color: var(--purple) !important;
-    text-align: right;
+    text-align: center;
 }
 
 .philosophy-card ul li strong {
