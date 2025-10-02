@@ -12,18 +12,33 @@
     
     <!-- Mobile Responsive Styles for New Position -->
     <style>
-        /* Rotating icon on hover for IMMEDIATE OPENING */
-        .position-recruiting {
-            cursor: pointer;
-            transition: all 0.3s ease;
+        /* Filled status button animation */
+        .filled-status-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+            z-index: 1;
         }
-        
-        .position-recruiting i {
-            display: inline-block;
-            transition: transform 0.3s ease;
+
+        .filled-status-btn:hover::before {
+            left: 100%;
         }
-        
-        .position-recruiting:hover i {
+
+        .filled-status-btn:hover {
+            background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9)) !important;
+            color: white !important;
+            box-shadow: 0 0 15px rgba(189, 147, 249, 0.5),
+                        0 6px 8px rgba(0, 0, 0, 0.4),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+            transform: translateY(-2px) !important;
+        }
+
+        .filled-status-btn:hover i {
             transform: rotate(360deg);
         }
         
@@ -165,78 +180,7 @@
         </div>
     </section>
 
-    <!-- IMMEDIATE OPENING - Undergraduate Research Assistant -->
-    <section class="immediate-opening fade-in">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 2rem;">
-                <span class="position-recruiting" style="margin-right: 1rem;"><i class="fas fa-bolt"></i> IMMEDIATE OPENING</span>
-                Undergraduate Research Assistant
-            </h2>
-            
-            <div class="phd-position-card dracula-card" style="border: 2px solid var(--purple);">
-                <div class="card-icon">
-                    <i class="fas fa-microscope"></i>
-                </div>
-                
-                <h3>Join Our Research Team</h3>
-                <p style="font-size: 1.1rem; margin-bottom: 2rem; text-align: center;">
-                    Join the Cosme Lab to advance robotics-driven vertical insect farming and mosquito genomics through the CNAS Delfino Agriculture Innovation seed grant project.
-                </p>
-                
-                <div class="application-card dracula-card" style="margin-bottom: 1.5rem;">
-                    <h3 style="color: var(--purple);"><i class="fas fa-tasks"></i> Your Responsibilities</h3>
-                    <ol class="process-steps" style="padding-left: 0; margin-left: 0; text-align: left;">
-                        <li style="padding-left: 3rem; padding-top: 0.2rem; text-align: left;">Support CNAS Delfino seed grant: "Feeding the Future: Robotics-Driven Vertical Insect Farming"</li>
-                        <li style="padding-left: 3rem; padding-top: 0.2rem; text-align: left;">Maintain mosquito colonies in the UCR quarantine facility</li>
-                        <li style="padding-left: 3rem; padding-top: 0.2rem; text-align: left;">Perform HMW-DNA extractions and size selection using magnetic beads</li>
-                        <li style="padding-left: 3rem; padding-top: 0.2rem; text-align: left;">Linked-read WGS library prep <a href="https://doi.org/10.1073/pnas.2015005118" target="_blank" class="pub-link-inline" style="font-size: 0.75em; vertical-align: baseline;"><i class="fas fa-external-link-alt"></i> DOI: Meier et al. 2021</a></li>
-                        <li style="padding-left: 3rem; padding-top: 0.2rem; text-align: left;">(Optional) Learn to use the UCR HPCC for genomic analysis</li>
-                    </ol>
-                </div>
-                
-                <div class="application-card dracula-card" style="margin-bottom: 1.5rem;">
-                    <h3 style="color: var(--cyan);"><i class="fas fa-clipboard-check"></i> Requirements & Details</h3>
-                    <ol class="process-steps" style="padding-left: 0; margin-left: 0; text-align: left;">
-                        <li style="padding-left: 3rem; padding-top: 0.2rem; text-align: left; color: var(--cyan) !important;"><strong style="color: var(--cyan) !important;">No prior research experience required</strong> - we provide complete training!</li>
-                        <li style="padding-left: 3rem; padding-top: 0.2rem; text-align: left; color: var(--cyan) !important;">Commit up to 20 hours per week during experiment runs</li>
-                        <li style="padding-left: 3rem; padding-top: 0.2rem; text-align: left; color: var(--cyan) !important;">Flexible schedule accommodating your classes</li>
-                        <li style="padding-left: 3rem; padding-top: 0.2rem; text-align: left; color: var(--cyan) !important;"><strong style="color: var(--cyan) !important;">Paid position:</strong> ~$20/hour (UCR undergraduate pay scale)</li>
-                        <li style="padding-left: 3rem; padding-top: 0.2rem; text-align: left; color: var(--cyan) !important;"><strong style="color: var(--cyan) !important;">Interviews:</strong> August 25-29, Entomology Bldg Room 325</li>
-                    </ol>
-                </div>
-                
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem;">
-                    <div class="opportunity-card dracula-card" style="padding: 1.5rem;">
-                        <h5 style="color: var(--purple); margin-bottom: 1rem; font-size: 1rem;">
-                            <i class="fas fa-exclamation-triangle"></i> Application Deadline
-                        </h5>
-                        <p style="color: var(--foreground); margin-bottom: 0.3rem; font-weight: bold;">August 24, 2025 at 11:59 PM PST</p>
-                        <p style="color: var(--comment); font-style: italic; font-size: 0.9rem; margin-bottom: 1rem;">Use your UCR email to access the form</p>
-                        
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfQa4a4uGi2M8yW4OcCk6Sk3gcq0LehtG4ArZri8mF4ZkseAQ/viewform" target="_blank" class="learn-more-btn" style="margin-bottom: 0.8rem; position: relative;">
-                            <i class="fas fa-paper-plane"></i> Apply Now
-                        </a>
-                        
-                        <a href="contact.html" class="learn-more-btn" style="position: relative;">
-                            <i class="fas fa-envelope"></i> Contact Us
-                        </a>
-                    </div>
-                    
-                    <div class="opportunity-card dracula-card" style="padding: 1.5rem; text-align: center;">
-                        <h5 style="color: var(--purple); margin-bottom: 1rem; font-size: 1rem;">
-                            <i class="fas fa-file-alt"></i> Position Flyer
-                        </h5>
-                        <p style="margin-bottom: 1rem; font-size: 0.9rem;">Full position details and requirements</p>
-                        <a href="assets/images/join_us/flyer.png" target="_blank" class="learn-more-btn" style="position: relative;">
-                            <i class="fas fa-image"></i> View Flyer
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Other Opportunities -->
+<!-- Other Opportunities -->
     <section class="other-opportunities">
         <div class="container">
             <h2>Other Positions</h2>
@@ -312,6 +256,35 @@
                     <h4>Funding Support</h4>
                     <p>Actively seeking funding through competitive grants for student support</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recently Filled Positions -->
+    <section class="recently-filled fade-in" style="padding: 3rem 0; background: rgba(40, 42, 54, 0.3);">
+        <div class="container">
+            <h2 style="text-align: center; color: var(--purple); margin-bottom: 2rem;">Recently Filled Positions</h2>
+            <p style="text-align: center; color: var(--comment); margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                These positions have been successfully filled. We thank all applicants for their interest.
+            </p>
+
+            <!-- Filled Position Card -->
+            <div class="filled-position-card dracula-card" style="max-width: 800px; margin: 0 auto 2rem; padding: 2rem; border: 1px solid rgba(189, 147, 249, 0.2);">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                    <h3 style="color: var(--purple); margin: 0;">Undergraduate Research Assistant</h3>
+                    <button class="learn-more-btn filled-status-btn" style="cursor: default; background: linear-gradient(135deg, #44475a, #282a36); padding: 0.4rem 1rem; color: var(--purple); border: 1px solid rgba(189, 147, 249, 0.3); border-radius: 6px; font-size: 0.7rem; font-weight: 600; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); text-transform: uppercase; letter-spacing: 0.8px; display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05); height: 32px; min-width: 100px; position: relative; overflow: hidden;">
+                        <i class="fas fa-check-circle" style="display: inline-block; transition: transform 0.3s ease;"></i> FILLED
+                    </button>
+                </div>
+                <p style="color: var(--cyan); margin-bottom: 1rem;">
+                    <strong style="color: var(--purple);">Position:</strong> Support for CNAS Delfino seed grant "Feeding the Future: Robotics-Driven Vertical Insect Farming"
+                </p>
+                <p style="color: var(--cyan); font-size: 0.9rem; margin-bottom: 0.5rem;">
+                    <i class="fas fa-calendar" style="color: var(--purple);"></i> <strong style="color: var(--purple);">Posted:</strong> August 2025 | <strong style="color: var(--purple);">Filled:</strong> September 2025
+                </p>
+                <p style="color: var(--cyan); font-size: 0.9rem;">
+                    <i class="fas fa-users" style="color: var(--purple);"></i> <strong style="color: var(--purple);">Filled by:</strong> 3 undergraduate researchers joined the team (Ajeja Anderson, Sanjana Rao, and Mathew Shan)
+                </p>
             </div>
         </div>
     </section>

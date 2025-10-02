@@ -87,20 +87,29 @@
 
 /* Staff - 2 cards side by side */
 .staff-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  max-width: 600px;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
   gap: 2rem;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+/* Alumni - same layout as staff */
+.alumni-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0 auto;
+  flex-wrap: wrap;
 }
 
 /* Undergrads - 3 cards side by side */
 .members-grid:has(.member-card:nth-child(3)) {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  max-width: 900px;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
   gap: 2rem;
+  margin: 0 auto;
+  flex-wrap: wrap;
 }
 
 /* Vertical Member Cards */
@@ -109,7 +118,9 @@
   border: 1px solid rgba(189, 147, 249, 0.2);
   border-radius: 12px;
   padding: 1.5rem;
-  width: 100%;
+  width: 280px !important;
+  max-width: 280px !important;
+  min-width: 280px !important;
   min-height: 350px;
   display: flex;
   flex-direction: column;
@@ -187,6 +198,30 @@
   border-color: rgba(158, 176, 255, 0.8);
   box-shadow: 0 0 15px rgba(158, 176, 255, 0.6),
               0 0 25px rgba(158, 176, 255, 0.4),
+              0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Ajeja - Full pink glow #FFB3D9 */
+.member-card[data-member="ajeja"] .member-photo {
+  border-color: rgba(255, 179, 217, 0.8);
+  box-shadow: 0 0 15px rgba(255, 179, 217, 0.6),
+              0 0 25px rgba(255, 179, 217, 0.4),
+              0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Sanjana - Full lavender glow #E6B3FF */
+.member-card[data-member="sanjana"] .member-photo {
+  border-color: rgba(230, 179, 255, 0.8);
+  box-shadow: 0 0 15px rgba(230, 179, 255, 0.6),
+              0 0 25px rgba(230, 179, 255, 0.4),
+              0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Mathew - Full teal glow #4DD0E1 */
+.member-card[data-member="mathew"] .member-photo {
+  border-color: rgba(77, 208, 225, 0.8);
+  box-shadow: 0 0 15px rgba(77, 208, 225, 0.6),
+              0 0 25px rgba(77, 208, 225, 0.4),
               0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -354,6 +389,33 @@
               0 6px 20px rgba(0, 0, 0, 0.25) !important;
 }
 
+/* Ajeja - Enhanced pink glow #FFB3D9 */
+.member-card[data-member="ajeja"]:hover .member-photo {
+  border-color: #FFB3D9 !important;
+  box-shadow: 0 0 30px rgba(255, 179, 217, 1),
+              0 0 50px rgba(255, 179, 217, 0.7),
+              0 0 70px rgba(255, 179, 217, 0.4),
+              0 6px 20px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Sanjana - Enhanced lavender glow #E6B3FF */
+.member-card[data-member="sanjana"]:hover .member-photo {
+  border-color: #E6B3FF !important;
+  box-shadow: 0 0 30px rgba(230, 179, 255, 1),
+              0 0 50px rgba(230, 179, 255, 0.7),
+              0 0 70px rgba(230, 179, 255, 0.4),
+              0 6px 20px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Mathew - Enhanced teal glow #4DD0E1 */
+.member-card[data-member="mathew"]:hover .member-photo {
+  border-color: #4DD0E1 !important;
+  box-shadow: 0 0 30px rgba(77, 208, 225, 1),
+              0 0 50px rgba(77, 208, 225, 0.7),
+              0 0 70px rgba(77, 208, 225, 0.4),
+              0 6px 20px rgba(0, 0, 0, 0.25) !important;
+}
+
 /* Position button sophisticated pop effect on hover */
 .member-card:hover .member-position {
   background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9));
@@ -503,6 +565,20 @@
 .team-page-button:hover .mosquito-emoji {
   filter: hue-rotate(0deg) saturate(1);
   transform: rotate(360deg);
+}
+
+/* Alumni location button hover effect */
+.alumni-location-btn:hover {
+  background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9)) !important;
+  color: white !important;
+  box-shadow: 0 0 15px rgba(189, 147, 249, 0.5),
+              0 6px 8px rgba(0, 0, 0, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  transform: translateY(-2px) !important;
+}
+
+.alumni-location-btn:hover span {
+  transform: rotate(360deg) !important;
 }
 
 /* Responsive Design */
