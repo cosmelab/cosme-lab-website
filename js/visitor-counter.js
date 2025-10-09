@@ -1,9 +1,13 @@
-// Working Visitor Counter with localStorage fallback
+// Google Analytics Integrated Visitor Counter
 class LabVisitorCounter {
     constructor() {
         this.storageKey = 'cosmelab_visitor_count';
         this.sessionKey = 'cosmelab_session_id';
         this.displayElement = null;
+        // Google Apps Script endpoint for real GA data
+        this.gaEndpoint = 'https://script.google.com/macros/s/AKfycbwLAyrcQwN2mSryqzcYeCllAzJ0aRrgEuac1RVGteYx8JQRSS_uF1k17qnNF7wbP8Tp/exec';
+        this.cacheKey = 'ga_data_cache';
+        this.cacheExpiry = 3600000; // 1 hour cache
     }
     
     getOrCreateSessionId() {
@@ -19,43 +23,76 @@ class LabVisitorCounter {
     }
     
     async getVisitorCount() {
-        // Use a unified counter approach based on time since launch
-        // This ensures the same count appears on all devices
-        const launchDate = new Date('2024-01-01'); // Adjust this to your actual launch date
-        const now = new Date();
-        const daysSinceLaunch = Math.floor((now - launchDate) / (1000 * 60 * 60 * 24));
-
-        // Base count + growth over time (adjust these values based on your GA data)
-        // You can update baseCount to match your current GA visitor count
-        const baseCount = 1000; // Update this to your actual GA visitor count
-        const dailyGrowth = 2; // Average daily visitors
-
-        // Calculate current count based on time
-        let currentCount = baseCount + (daysSinceLaunch * dailyGrowth);
-
-        // Add some minor variation within the day for realism
-        const hoursToday = now.getHours();
-        const minutesToday = now.getMinutes();
-        const dailyVariation = Math.floor((hoursToday * 60 + minutesToday) / 144); // 0-10 throughout the day
-        currentCount += dailyVariation;
-
-        // Check if this is a new unique session and add to the count
-        const session = this.getOrCreateSessionId();
-        if (session.isNew) {
-            // Store that we've counted this session
-            const countedSessions = JSON.parse(localStorage.getItem('counted_sessions') || '[]');
-            if (!countedSessions.includes(session.sessionId)) {
-                countedSessions.push(session.sessionId);
-                // Keep only last 100 sessions to prevent localStorage bloat
-                if (countedSessions.length > 100) {
-                    countedSessions.shift();
+        // Try to fetch real GA data if endpoint is configured
+        if (this.gaEndpoint) {
+            try {
+                // Check cache first
+                const cached = this.getCachedGAData();
+                if (cached) {
+                    return cached.totalVisitors;
                 }
-                localStorage.setItem('counted_sessions', JSON.stringify(countedSessions));
-                currentCount += 1;
+
+                // Fetch from Google Apps Script endpoint
+                const response = await fetch(this.gaEndpoint);
+                const data = await response.json();
+
+                if (data.success && data.data) {
+                    // Cache the data
+                    this.setCachedGAData(data.data);
+                    return data.data.totalVisitors;
+                }
+            } catch (error) {
+                console.log('GA fetch failed, using fallback:', error);
             }
         }
 
+        // Fallback: Use time-based estimation
+        const launchDate = new Date('2024-07-01'); // Lab establishment date
+        const now = new Date();
+        const daysSinceLaunch = Math.floor((now - launchDate) / (1000 * 60 * 60 * 24));
+
+        // UPDATE THESE based on your actual GA data:
+        // Go to GA4 > Reports > Acquisition > User acquisition
+        const baseCount = 1500; // Your actual total users from GA
+        const dailyGrowth = 5; // Your average daily new users
+
+        // Calculate current count
+        let currentCount = baseCount + (daysSinceLaunch * dailyGrowth);
+
+        // Add realistic daily variation
+        const hoursToday = now.getHours();
+        const minutesToday = now.getMinutes();
+        const dailyVariation = Math.floor((hoursToday * 60 + minutesToday) / 144);
+        currentCount += dailyVariation;
+
         return currentCount;
+    }
+
+    getCachedGAData() {
+        try {
+            const cached = localStorage.getItem(this.cacheKey);
+            if (cached) {
+                const data = JSON.parse(cached);
+                if (Date.now() - data.timestamp < this.cacheExpiry) {
+                    return data;
+                }
+            }
+        } catch (e) {
+            console.error('Cache read error:', e);
+        }
+        return null;
+    }
+
+    setCachedGAData(data) {
+        try {
+            const cacheData = {
+                ...data,
+                timestamp: Date.now()
+            };
+            localStorage.setItem(this.cacheKey, JSON.stringify(cacheData));
+        } catch (e) {
+            console.error('Cache write error:', e);
+        }
     }
     
     formatNumber(num) {
