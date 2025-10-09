@@ -225,6 +225,14 @@
               0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Gustavo Alumni - Full yellow-green glow #C4E538 */
+.member-card[data-member="gustavo-alumni"] .member-photo {
+  border-color: rgba(196, 229, 56, 0.8);
+  box-shadow: 0 0 15px rgba(196, 229, 56, 0.6),
+              0 0 25px rgba(196, 229, 56, 0.4),
+              0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
 /* Photo styling */
 .member-photo img {
   width: 100%;
@@ -413,6 +421,15 @@
   box-shadow: 0 0 30px rgba(77, 208, 225, 1),
               0 0 50px rgba(77, 208, 225, 0.7),
               0 0 70px rgba(77, 208, 225, 0.4),
+              0 6px 20px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Gustavo Alumni - Enhanced yellow-green glow #C4E538 */
+.member-card[data-member="gustavo-alumni"]:hover .member-photo {
+  border-color: #C4E538 !important;
+  box-shadow: 0 0 30px rgba(196, 229, 56, 1),
+              0 0 50px rgba(196, 229, 56, 0.7),
+              0 0 70px rgba(196, 229, 56, 0.4),
               0 6px 20px rgba(0, 0, 0, 0.25) !important;
 }
 
