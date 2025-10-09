@@ -185,6 +185,13 @@
                             <li><strong>Campus Interview (Feb-Mar):</strong> UCR-admitted candidates residing in the USA invited for on-campus interview weekend</li>
                         </ol>
                     </div>
+
+                    <!-- Troubleshooting Button -->
+                    <div style="text-align: center; margin-top: 1.5rem;">
+                        <button class="learn-more-btn" onclick="showTroubleshootingModal()">
+                            <i class="fas fa-exclamation-triangle"></i> Browser Compatibility & Troubleshooting
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -351,10 +358,121 @@
     </footer>
 
     <script src="js/main.js"></script>
-    
+
     <!-- Visitor Counter Widget -->
     <link rel="stylesheet" href="css/components/visitor-widget.css">
     <script src="js/visitor-counter.js"></script>
+
+    <!-- Troubleshooting Modal -->
+    <div id="troubleshootingModal" class="modal" style="display: none;">
+        <div class="modal-content dracula-card" style="max-width: 800px;">
+            <span class="close" onclick="closeTroubleshootingModal()">&times;</span>
+            <h3 style="color: var(--purple); margin-bottom: 1.5rem; font-size: 2.1rem;">
+                <i class="fas fa-tools"></i> Troubleshooting Application Form
+            </h3>
+
+            <div style="color: var(--cyan);">
+                <h3 style="color: var(--pink); margin-top: 1.5rem;">Browser Compatibility</h3>
+                <p>For the best experience, we recommend using:</p>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li style="padding: 0.5rem 0;"><i class="fas fa-check-circle" style="color: var(--green);"></i> Google Chrome (latest version)</li>
+                    <li style="padding: 0.5rem 0;"><i class="fas fa-check-circle" style="color: var(--green);"></i> Mozilla Firefox (latest version)</li>
+                    <li style="padding: 0.5rem 0;"><i class="fas fa-check-circle" style="color: var(--green);"></i> Microsoft Edge (latest version)</li>
+                    <li style="padding: 0.5rem 0;"><i class="fas fa-exclamation-triangle" style="color: var(--yellow);"></i> Safari (may have file upload issues)</li>
+                </ul>
+
+                <h3 style="color: var(--pink); margin-top: 1.5rem;">Common Issues & Solutions</h3>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <h4 style="color: var(--orange);"><i class="fas fa-upload"></i> File Upload Not Working</h4>
+                    <ul>
+                        <li>Ensure your files are in PDF format</li>
+                        <li>Check that each file is under 10MB</li>
+                        <li>Try using Google Chrome or Firefox</li>
+                        <li>Disable browser extensions that might block uploads</li>
+                    </ul>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <h4 style="color: var(--orange);"><i class="fas fa-spinner"></i> Form Stuck on "Submitting..."</h4>
+                    <ul>
+                        <li>Check your internet connection</li>
+                        <li>Disable ad blockers and privacy extensions</li>
+                        <li>Clear browser cache and cookies</li>
+                        <li>Try submitting from an incognito/private window</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Troubleshooting Modal Functions
+        function showTroubleshootingModal() {
+            document.getElementById('troubleshootingModal').style.display = 'block';
+        }
+
+        function closeTroubleshootingModal() {
+            document.getElementById('troubleshootingModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside of it
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('troubleshootingModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+
+    <style>
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+            background: var(--dracula-bg);
+            margin: 5% auto;
+            padding: 2rem;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-content .close {
+            color: var(--comment);
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-content .close:hover,
+        .modal-content .close:focus {
+            color: var(--purple);
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                margin: 10% auto;
+                width: 95%;
+                padding: 1.5rem;
+            }
+        }
+    </style>
 
 </body>
 </html>

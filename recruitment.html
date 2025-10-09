@@ -38,13 +38,24 @@
             --highlight: var(--cyan);
         }
 
+        html {
+            overflow-x: hidden;
+            overflow-y: auto;
+            height: auto;
+        }
+
         body {
             font-family: 'Open Sans', sans-serif;
             background: linear-gradient(rgba(40, 42, 54, 0.95), rgba(40, 42, 54, 0.95)), var(--bg-dark);
             color: var(--fg-light);
             margin: 0;
             padding: 0;
+            padding-bottom: 100px; /* Add padding at bottom to ensure submit button is accessible */
             line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            overflow-y: visible;
+            position: relative;
         }
 
 
@@ -52,7 +63,9 @@
         .form-container {
             max-width: 900px;
             margin: 2rem auto;
-            padding: 0 2rem;
+            padding: 0 2rem 4rem 2rem; /* Extra padding at bottom */
+            min-height: 100vh;
+            position: relative;
         }
 
         .contact-button:hover {
@@ -663,6 +676,82 @@
 </head>
 <body>
 
+    <!-- Floating Progress Circle -->
+    <div id="progressCircle" style="
+        position: fixed;
+        right: 30px;
+        bottom: 100px;
+        width: 80px;
+        height: 80px;
+        background: var(--bg-dark);
+        border-radius: 50%;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.5), 0 0 0 3px rgba(189, 147, 249, 0.3);
+        z-index: 100;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    " onmouseover="
+        this.style.transform='scale(1.1)';
+        this.style.boxShadow='0 6px 25px rgba(189, 147, 249, 0.6), 0 0 0 3px var(--purple)';
+    " onmouseout="
+        this.style.transform='scale(1)';
+        this.style.boxShadow='0 4px 20px rgba(0,0,0,0.5), 0 0 0 3px rgba(189, 147, 249, 0.3)';
+    " onclick="toggleProgressDetails()">
+        <svg width="80" height="80" style="position: absolute; transform: rotate(-90deg);">
+            <circle cx="40" cy="40" r="35" stroke="rgba(68, 71, 90, 0.5)" stroke-width="6" fill="none"/>
+            <circle id="progressRing" cx="40" cy="40" r="35"
+                stroke="url(#progressGradient)"
+                stroke-width="6"
+                fill="none"
+                stroke-dasharray="220"
+                stroke-dashoffset="220"
+                stroke-linecap="round"
+                style="transition: stroke-dashoffset 0.3s ease;"/>
+            <defs>
+                <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:var(--purple);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:var(--pink);stop-opacity:1" />
+                </linearGradient>
+            </defs>
+        </svg>
+        <span id="progressPercent" style="
+            color: var(--purple);
+            font-size: 1.2rem;
+            font-weight: bold;
+            z-index: 1;
+        ">0%</span>
+        <span style="
+            color: var(--comment);
+            font-size: 0.65rem;
+            z-index: 1;
+        ">Progress</span>
+    </div>
+
+    <!-- Progress Details Popup -->
+    <div id="progressDetails" style="
+        position: fixed;
+        right: 120px;
+        bottom: 100px;
+        width: 250px;
+        background: var(--bg-light);
+        border-radius: 12px;
+        box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+        border: 1px solid rgba(189, 147, 249, 0.3);
+        padding: 1.5rem;
+        z-index: 99;
+        display: none;
+        max-height: 400px;
+        overflow-y: auto;
+    ">
+        <h4 style="color: var(--purple); margin: 0 0 1rem 0; font-size: 1rem;">Application Progress</h4>
+        <div id="sectionsList" style="color: var(--cyan); font-size: 0.85rem;"></div>
+        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(189, 147, 249, 0.2);">
+            <p id="currentSectionDetail" style="color: var(--comment); font-size: 0.8rem; margin: 0;"></p>
+        </div>
+    </div>
 
     <!-- Form Container -->
     <div class="form-container">
@@ -693,11 +782,44 @@
             </div>
         </div>
 
-        <!-- Success/Error Messages -->
-        <div class="message success" id="successMessage">
+        <!-- Success Page (Hidden initially) -->
+        <div id="successPage" style="display: none;">
+            <div class="form-section" style="text-align: center; padding: 3rem;">
+                <i class="fas fa-check-circle" style="color: var(--green); font-size: 4rem; margin-bottom: 1.5rem;"></i>
+                <h2 style="color: var(--purple); margin-bottom: 1.5rem;">Application Received!</h2>
+                <p style="color: var(--cyan); font-size: 1.1rem; margin-bottom: 2rem;">
+                    Thank you for applying to the Cosme Lab PhD program.
+                </p>
+
+                <div style="background: var(--bg-dark); padding: 2rem; border-radius: 8px; margin: 2rem 0; text-align: left;">
+                    <h3 style="color: var(--purple); margin-bottom: 1rem;">
+                        <i class="fas fa-calendar-alt"></i> What Happens Next:
+                    </h3>
+                    <ul style="color: var(--cyan); list-style: none; padding: 0;">
+                        <li style="margin: 0.5rem 0;"><strong>Nov 1-3:</strong> We review all applications</li>
+                        <li style="margin: 0.5rem 0;"><strong>Nov 5:</strong> If selected, your references will receive evaluation forms</li>
+                        <li style="margin: 0.5rem 0;"><strong>Nov 11-14:</strong> Top candidates invited for Zoom interviews</li>
+                        <li style="margin: 0.5rem 0;"><strong>Nov 17:</strong> Final admission decisions communicated</li>
+                    </ul>
+                </div>
+
+                <p style="color: var(--comment); font-style: italic; margin: 1.5rem 0;">
+                    <i class="fas fa-info-circle"></i> Only shortlisted candidates will be contacted for the next stage.
+                </p>
+
+                <div style="margin-top: 2rem;">
+                    <a href="join.html" class="submit-btn" style="display: inline-block; text-decoration: none; margin: 0.5rem;">
+                        <i class="fas fa-arrow-left"></i> Return to Join Page
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success/Error Messages (for partial display) -->
+        <div class="message success" id="successMessage" style="display: none;">
             <i class="fas fa-check-circle"></i>
             <h3>Application Submitted Successfully!</h3>
-            <p>Thank you for your interest in the Cosme Lab. We will review your application and contact you soon.</p>
+            <p>Thank you for applying to the Cosme Lab PhD program.</p>
         </div>
 
         <div class="message error" id="errorMessage">
@@ -1734,8 +1856,93 @@
         </form>
     </div>
 
+    <!-- Troubleshooting Modal -->
+    <div id="troubleshootingModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000;">
+        <div style="position: relative; max-width: 700px; margin: 50px auto; padding: 2rem;">
+            <div class="form-section" style="background: var(--bg-light); max-height: 80vh; overflow-y: auto;">
+                <button onclick="closeTroubleshootingModal()" style="float: right; background: none; border: none; color: var(--red); font-size: 1.5rem; cursor: pointer;">×</button>
+
+                <h3 style="color: var(--purple); margin-bottom: 1.5rem;">
+                    <i class="fas fa-tools"></i> Application Troubleshooting Guide
+                </h3>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--cyan); margin-bottom: 1rem;">✅ Recommended Browsers</h4>
+                    <ul style="color: var(--fg-light); margin-left: 1.5rem;">
+                        <li><strong>Chrome</strong> (latest version) - Use Incognito mode for best results</li>
+                        <li><strong>Firefox</strong> (latest version) - Use Private browsing mode</li>
+                        <li><strong>Safari</strong> (latest version) - Use Private browsing mode</li>
+                        <li style="color: var(--red);">⚠️ Avoid: Internet Explorer, old browser versions</li>
+                    </ul>
+                </div>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--cyan); margin-bottom: 1rem;">🔧 Quick Fixes (Try These First)</h4>
+                    <ol style="color: var(--fg-light); margin-left: 1.5rem;">
+                        <li>Open the form in <strong>Incognito/Private mode</strong></li>
+                        <li><strong>Disable ad blockers</strong> and privacy extensions temporarily</li>
+                        <li><strong>Clear browser cache</strong> (Ctrl+Shift+Delete on PC, Cmd+Shift+Delete on Mac)</li>
+                        <li>Ensure files are <strong>under 10MB</strong> and in <strong>PDF format</strong></li>
+                        <li>Check your <strong>internet connection</strong> is stable</li>
+                    </ol>
+                </div>
+
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--cyan); margin-bottom: 1rem;">❓ Common Issues & Solutions</h4>
+                    <div style="color: var(--fg-light);">
+                        <p><strong>Form doesn't load:</strong><br>
+                        → Try a different browser or Incognito mode</p>
+
+                        <p><strong>Can't upload files:</strong><br>
+                        → Check file format (PDF only) and size (max 10MB)</p>
+
+                        <p><strong>Submit button not working:</strong><br>
+                        → Ensure all required fields are filled<br>
+                        → Disable browser extensions</p>
+
+                        <p><strong>"Submission Error" message:</strong><br>
+                        → Try Chrome Incognito mode<br>
+                        → Check internet connection</p>
+                    </div>
+                </div>
+
+                <div style="background: var(--bg-dark); padding: 1.5rem; border-radius: 8px;">
+                    <h4 style="color: var(--cyan); margin-bottom: 1rem;">📧 Still Need Help?</h4>
+                    <p style="color: var(--fg-light);">
+                        Email <strong style="color: var(--purple);">cosmelab.ucr@gmail.com</strong> with:
+                    </p>
+                    <ul style="color: var(--fg-light); margin-left: 1.5rem;">
+                        <li>Your browser and version</li>
+                        <li>Screenshot of any error message</li>
+                        <li>Which section is causing the problem</li>
+                    </ul>
+                    <p style="color: var(--comment); font-style: italic; margin-top: 1rem;">
+                        We'll respond within 24 hours during weekdays.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript for form submission -->
     <script>
+        // Troubleshooting Modal Functions
+        function openTroubleshootingModal() {
+            document.getElementById('troubleshootingModal').style.display = 'block';
+        }
+
+        function closeTroubleshootingModal() {
+            document.getElementById('troubleshootingModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('troubleshootingModal');
+            if (event.target === modal) {
+                closeTroubleshootingModal();
+            }
+        });
+
         // Check if past deadline
         function isPastDeadline() {
             const deadline = new Date('2025-11-01T06:59:59Z'); // Oct 31, 2025 11:59 PM PDT (UTC-7)
@@ -2027,15 +2234,13 @@
                     body: JSON.stringify(data)
                 });
 
-                // Show success message
-                document.getElementById('successMessage').classList.add('show');
-                document.getElementById('errorMessage').classList.remove('show');
+                // Hide form and show success page
+                document.getElementById('applicationForm').style.display = 'none';
+                document.querySelector('.form-section').style.display = 'none'; // Hide instructions
+                document.getElementById('successPage').style.display = 'block';
 
-                // Reset form
-                e.target.reset();
-
-                // Scroll to success message
-                document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+                // Scroll to top of success page
+                window.scrollTo({ top: 0, behavior: 'smooth' });
 
             } catch (error) {
                 // Show error message
@@ -2046,6 +2251,143 @@
                 submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Application';
             }
         });
+
+        // Progress Circle Functionality
+        function updateProgressCircle() {
+            const formSections = document.querySelectorAll('.form-section');
+            const sectionStatus = [];
+            let completedSections = 0;
+            let totalRequiredSections = 0;
+            let currentSectionName = '';
+
+            formSections.forEach((section) => {
+                const h3 = section.querySelector('h3');
+                if (!h3) return;
+
+                const sectionTitle = h3.textContent.trim();
+                // Skip instruction and success sections
+                if (sectionTitle.includes('PhD Application') || sectionTitle.includes('Application Received')) return;
+
+                const inputs = section.querySelectorAll('input[required], select[required], textarea[required]');
+                if (inputs.length === 0) return; // Skip sections without required fields
+
+                totalRequiredSections++;
+
+                const filledInputs = Array.from(inputs).filter(input => {
+                    if (input.type === 'checkbox' || input.type === 'radio') {
+                        return section.querySelector(`input[name="${input.name}"]:checked`);
+                    }
+                    if (input.type === 'file') {
+                        return input.files && input.files.length > 0;
+                    }
+                    return input.value && input.value.trim() !== '';
+                });
+
+                const isComplete = filledInputs.length === inputs.length;
+                const isPartial = filledInputs.length > 0 && filledInputs.length < inputs.length;
+
+                if (isComplete) {
+                    completedSections++;
+                    sectionStatus.push({title: sectionTitle, status: 'complete'});
+                } else if (isPartial) {
+                    currentSectionName = sectionTitle;
+                    sectionStatus.push({title: sectionTitle, status: 'partial'});
+                } else {
+                    sectionStatus.push({title: sectionTitle, status: 'empty'});
+                }
+            });
+
+            // Calculate percentage
+            const progressPercentage = totalRequiredSections > 0 ?
+                Math.round((completedSections / totalRequiredSections) * 100) : 0;
+
+            // Update circle progress
+            const circumference = 2 * Math.PI * 35; // radius = 35
+            const offset = circumference - (progressPercentage / 100) * circumference;
+            document.getElementById('progressRing').style.strokeDashoffset = offset;
+            document.getElementById('progressPercent').textContent = progressPercentage + '%';
+
+            // Update color based on progress
+            const circle = document.getElementById('progressCircle');
+            if (progressPercentage === 100) {
+                circle.style.boxShadow = '0 4px 20px rgba(80, 250, 123, 0.5), 0 0 0 3px var(--green)';
+            }
+
+            // Update details popup
+            updateProgressDetails(sectionStatus, currentSectionName, completedSections, totalRequiredSections);
+        }
+
+        function updateProgressDetails(sectionStatus, currentSection, completed, total) {
+            const sectionsList = document.getElementById('sectionsList');
+            const currentDetail = document.getElementById('currentSectionDetail');
+
+            // Build sections list
+            let html = '';
+            sectionStatus.forEach(section => {
+                const icon = section.status === 'complete' ? '✓' :
+                            section.status === 'partial' ? '◐' : '○';
+                const color = section.status === 'complete' ? 'var(--green)' :
+                             section.status === 'partial' ? 'var(--yellow)' : 'var(--comment)';
+                html += `<div style="margin: 0.5rem 0; color: ${color};">
+                    ${icon} ${section.title}
+                </div>`;
+            });
+            sectionsList.innerHTML = html;
+
+            // Update current section info
+            if (currentSection) {
+                currentDetail.textContent = `Working on: ${currentSection}`;
+            } else if (completed === 0) {
+                currentDetail.textContent = 'Start filling out the form';
+            } else if (completed === total) {
+                currentDetail.textContent = '✓ Ready to submit!';
+                currentDetail.style.color = 'var(--green)';
+            }
+        }
+
+        function toggleProgressDetails() {
+            const details = document.getElementById('progressDetails');
+            details.style.display = details.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Initialize progress circle
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('applicationForm');
+            if (form) {
+                // Initial progress check
+                setTimeout(updateProgressCircle, 100);
+
+                // Update on any input change
+                form.addEventListener('input', updateProgressCircle);
+                form.addEventListener('change', updateProgressCircle);
+
+                // Close details popup when clicking outside
+                document.addEventListener('click', function(e) {
+                    const circle = document.getElementById('progressCircle');
+                    const details = document.getElementById('progressDetails');
+                    if (!circle.contains(e.target) && !details.contains(e.target)) {
+                        details.style.display = 'none';
+                    }
+                });
+            }
+        });
+
+        // Hide progress circle on success page
+        const observeSuccess = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                const successPage = document.getElementById('successPage');
+                if (successPage && successPage.style.display === 'block') {
+                    document.getElementById('progressCircle').style.display = 'none';
+                    document.getElementById('progressDetails').style.display = 'none';
+                }
+            });
+        });
+        if (document.getElementById('successPage')) {
+            observeSuccess.observe(document.getElementById('successPage'), {
+                attributes: true,
+                attributeFilter: ['style']
+            });
+        }
     </script>
 </body>
 </html>
