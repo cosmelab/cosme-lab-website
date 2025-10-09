@@ -1,0 +1,2051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhD Application Form - Cosme Lab | UC Riverside</title>
+    <meta name="description" content="Apply for PhD position in mosquito genomics at the Cosme Lab, UC Riverside">
+
+    <!-- Website CSS Files - Update paths when moving to website -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Maven+Pro:400">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Embed the CSS directly for now -->
+    <style>
+        /* Import from main.css variables */
+        :root {
+            --bg-dark: #1a1b26;
+            --bg-light: #24283b;
+            --bg-darker: #16161e;
+            --ucr-blue: #003DA5;
+            --ucr-gold: #FFB81C;
+            --ucr-blue-light: #0066CC;
+            --ucr-gold-dark: #CC9400;
+            --fg-light: #f8f8f2;
+            --fg-dark: #8be1e9;
+            --comment: #7c8db0;
+            --cyan: #8be9fd;
+            --green: #50fa7b;
+            --orange: #ffb86c;
+            --pink: #ff79c6;
+            --purple: #bd93f9;
+            --red: #ff5555;
+            --yellow: #f1fa8c;
+            --selection: #44475a;
+            --primary: var(--ucr-blue-light);
+            --accent: var(--ucr-gold);
+            --highlight: var(--cyan);
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(rgba(40, 42, 54, 0.95), rgba(40, 42, 54, 0.95)), var(--bg-dark);
+            color: var(--fg-light);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+
+        /* Form Container */
+        .form-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .contact-button:hover {
+            background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9)) !important;
+            color: white !important;
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(189, 147, 249, 0.6);
+        }
+
+
+        /* Form Sections */
+        .form-section {
+            background: var(--bg-light);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border: 1px solid rgba(189, 147, 249, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .form-section:hover {
+            border-color: var(--purple);
+            box-shadow: 0 0 30px rgba(189, 147, 249, 0.5);
+        }
+
+        .form-section h3 {
+            color: var(--purple);
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid rgba(189, 147, 249, 0.3);
+            font-family: 'Maven Pro', sans-serif;
+        }
+
+        /* Form Groups */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--cyan);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* Question numbers in cyan */
+        .form-group label .q-num {
+            color: var(--cyan);
+            font-weight: 700;
+        }
+
+        .form-group label.required::after {
+            content: " *";
+            color: var(--red);
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--bg-dark);
+            border: 1px solid rgba(139, 233, 253, 0.2);
+            border-radius: 6px;
+            color: var(--fg-light);
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            font-family: 'Open Sans', sans-serif;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--purple);
+            box-shadow: 0 0 10px rgba(189, 147, 249, 0.3);
+        }
+
+        /* KILL ALL WHITE TEXT IN DROPDOWNS - FORCE CYAN */
+        select {
+            color: #8be9fd !important;
+            -webkit-text-fill-color: #8be9fd !important;
+        }
+
+        select option {
+            background: #282a36 !important;
+            color: #8be9fd !important;
+            -webkit-text-fill-color: #8be9fd !important;
+        }
+
+        /* NO WHITE TEXT ANYWHERE IN DROPDOWNS */
+        select option:checked {
+            background: #bd93f9 !important;
+            color: #8be9fd !important;
+            -webkit-text-fill-color: #8be9fd !important;
+        }
+
+        select option:hover {
+            background: #bd93f9 !important;
+            color: #8be9fd !important;
+            -webkit-text-fill-color: #8be9fd !important;
+        }
+
+        /* Force on ALL select elements */
+        .form-group select,
+        .entry-box select,
+        #references-section select,
+        select:focus,
+        select:active,
+        select:hover {
+            color: #8be9fd !important;
+            -webkit-text-fill-color: #8be9fd !important;
+        }
+
+        /* Force on ALL option elements */
+        .form-group select option,
+        .entry-box select option,
+        #references-section select option,
+        option {
+            color: #8be9fd !important;
+            -webkit-text-fill-color: #8be9fd !important;
+            background: #282a36 !important;
+        }
+
+        /* Override browser agent styles */
+        select:-internal-list-box option:checked {
+            color: #8be9fd !important;
+            -webkit-text-fill-color: #8be9fd !important;
+        }
+
+        /* Firefox override */
+        @-moz-document url-prefix() {
+            select, option {
+                color: #8be9fd !important;
+            }
+        }
+
+        /* All input text cyan - FORCE EVERYTHING */
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group input[type="number"],
+        .form-group textarea,
+        input, textarea, select {
+            color: var(--cyan) !important;
+            -webkit-text-fill-color: var(--cyan) !important;
+        }
+
+        /* Placeholder text - make it gray/faded */
+        input::placeholder,
+        textarea::placeholder {
+            color: #6272a4 !important;
+            -webkit-text-fill-color: #6272a4 !important;
+            opacity: 0.7;
+        }
+
+        input::-webkit-input-placeholder,
+        textarea::-webkit-input-placeholder {
+            color: #6272a4 !important;
+            -webkit-text-fill-color: #6272a4 !important;
+            opacity: 0.7;
+        }
+
+        input::-moz-placeholder,
+        textarea::-moz-placeholder {
+            color: #6272a4 !important;
+            opacity: 0.7;
+        }
+
+        input:-ms-input-placeholder,
+        textarea:-ms-input-placeholder {
+            color: #6272a4 !important;
+            opacity: 0.7;
+        }
+
+        input::-ms-input-placeholder,
+        textarea::-ms-input-placeholder {
+            color: #6272a4 !important;
+            opacity: 0.7;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Large textarea for 500 word responses */
+        .form-group textarea.large {
+            min-height: 250px;
+        }
+
+        /* Help text below labels */
+        .field-help {
+            font-size: 0.85rem;
+            color: var(--comment);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* Checkbox and Radio Groups */
+        .checkbox-group,
+        .radio-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .checkbox-item,
+        .radio-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .checkbox-item input[type="checkbox"],
+        .radio-item input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+            cursor: pointer;
+            -webkit-appearance: none;
+            appearance: none;
+            background: var(--bg-dark);
+            border: 2px solid var(--purple);
+            border-radius: 3px;
+            position: relative;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .radio-item input[type="radio"] {
+            border-radius: 50% !important;
+            width: 18px !important;
+            height: 18px !important;
+            min-width: 18px !important;
+            min-height: 18px !important;
+            max-width: 18px !important;
+            max-height: 18px !important;
+        }
+
+        /* Force all radio buttons to be circles */
+        input[type="radio"] {
+            -webkit-appearance: none !important;
+            -moz-appearance: none !important;
+            appearance: none !important;
+            border-radius: 50% !important;
+            width: 18px !important;
+            height: 18px !important;
+        }
+
+        .checkbox-item input[type="checkbox"]:checked,
+        .radio-item input[type="radio"]:checked {
+            background: var(--purple);
+            border-color: var(--purple);
+        }
+
+        .checkbox-item input[type="checkbox"]:checked::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .radio-item input[type="radio"]:checked::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .checkbox-item input[type="checkbox"]:hover,
+        .radio-item input[type="radio"]:hover {
+            border-color: var(--purple);
+            box-shadow: 0 0 10px rgba(189, 147, 249, 0.3);
+        }
+
+        .checkbox-item input[type="checkbox"]:focus,
+        .radio-item input[type="radio"]:focus {
+            outline: none;
+            border-color: var(--purple);
+            box-shadow: 0 0 10px rgba(189, 147, 249, 0.3);
+        }
+
+        .checkbox-item label,
+        .radio-item label {
+            cursor: pointer;
+            color: var(--cyan);
+            font-size: 0.9rem;
+        }
+
+        /* File Upload Button Styling - SMALL FIXED WIDTH */
+        .file-upload-btn {
+            background: linear-gradient(135deg, #44475a, #282a36);
+            color: var(--purple);
+            border: 1px solid rgba(189, 147, 249, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block !important;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+            width: 130px !important;
+            max-width: 130px !important;
+            box-sizing: border-box;
+        }
+
+        .file-upload-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .file-upload-btn:hover {
+            background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9));
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(189, 147, 249, 0.6);
+        }
+
+        .file-upload-btn:hover::before {
+            left: 100%;
+        }
+
+        .file-upload-btn i {
+            transition: transform 0.5s;
+        }
+
+        .file-upload-btn:hover i {
+            transform: rotate(360deg);
+        }
+
+        /* File name display */
+        .file-name {
+            display: inline-block;
+            margin-left: 1rem;
+            color: var(--green);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .file-name:empty {
+            display: none;
+        }
+
+        /* Submit Button with Animation */
+        .submit-btn {
+            background: linear-gradient(135deg, #44475a, #282a36);
+            color: var(--purple);
+            border: 1px solid rgba(189, 147, 249, 0.3);
+            padding: 0.75rem 2rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin: 3rem auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9));
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(189, 147, 249, 0.6);
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .submit-btn i {
+            margin-right: 0.5rem;
+            transition: transform 0.5s;
+        }
+
+        .submit-btn:hover i {
+            transform: rotate(360deg);
+        }
+
+        .submit-btn:disabled {
+            background: linear-gradient(135deg, #44475a, #282a36);
+            color: var(--comment);
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        /* Messages */
+        .message {
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: center;
+            display: none;
+        }
+
+        .message.success {
+            background: rgba(80, 250, 123, 0.1);
+            border: 2px solid var(--green);
+            color: var(--green);
+        }
+
+        .message.error {
+            background: rgba(255, 85, 85, 0.1);
+            border: 2px solid var(--red);
+            color: var(--red);
+        }
+
+        .message.show {
+            display: block;
+        }
+
+        /* Help Text */
+        .help-text {
+            font-size: 0.85rem;
+            color: var(--comment);
+            margin-top: 0.25rem;
+            font-style: italic;
+        }
+
+        .optional-indicator {
+            color: var(--comment);
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        /* Entry Boxes */
+        .entry-box {
+            background: var(--bg-dark);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(139, 233, 253, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .entry-box:hover {
+            border-color: var(--purple);
+            box-shadow: 0 0 20px rgba(189, 147, 249, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Make reference boxes fit within section */
+        #references-section .entry-box {
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            width: calc(100% - 2rem);
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        #references-section .entry-box input[type="text"],
+        #references-section .entry-box input[type="email"],
+        #references-section .entry-box select {
+            width: 100%;
+            padding: 0.75rem;
+            font-size: 0.95rem;
+            box-sizing: border-box;
+        }
+
+        .entry-box input[type="text"],
+        .entry-box input[type="email"],
+        .entry-box input[type="tel"],
+        .entry-box select,
+        .entry-box textarea {
+            background: var(--bg-dark) !important;
+            border: 1px solid rgba(139, 233, 253, 0.2);
+            color: var(--cyan) !important;
+        }
+
+        .entry-box input[type="text"]:focus,
+        .entry-box input[type="email"]:focus,
+        .entry-box input[type="tel"]:focus,
+        .entry-box select:focus,
+        .entry-box textarea:focus {
+            outline: none !important;
+            border-color: var(--purple) !important;
+            box-shadow: 0 0 10px rgba(189, 147, 249, 0.3) !important;
+        }
+
+        .entry-header {
+            color: var(--cyan);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Add More Button - matches website style */
+        .add-more-btn {
+            background: linear-gradient(135deg, #44475a, #282a36);
+            color: var(--purple);
+            border: 1px solid rgba(189, 147, 249, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .add-more-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .add-more-btn:hover {
+            background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9));
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(189, 147, 249, 0.6);
+        }
+
+        .add-more-btn:hover::before {
+            left: 100%;
+        }
+
+        .add-more-btn i {
+            transition: transform 0.5s;
+        }
+
+        .add-more-btn:hover i {
+            transform: rotate(360deg);
+        }
+
+        /* Add Button */
+        .add-btn {
+            background: linear-gradient(135deg, #44475a, #282a36);
+            color: var(--purple);
+            border: 1px solid rgba(189, 147, 249, 0.3);
+            padding: 0.5rem 1.25rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .add-btn:hover {
+            background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9));
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 0 1rem;
+            }
+            .form-section {
+                padding: 1.5rem;
+            }
+            .checkbox-group,
+            .radio-group {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    <!-- Form Container -->
+    <div class="form-container">
+
+        <!-- Instructions Card - matches form sections -->
+        <div class="form-section">
+            <h1 style="color: var(--purple); margin-bottom: 1rem; text-align: center;">
+                PhD Application Form
+            </h1>
+            <p style="color: var(--cyan); font-size: 1.1rem; margin-bottom: 2rem; text-align: center;">
+                Fall 2026 Admission - Mosquito Population Genomics<br>
+                <strong style="color: var(--yellow);">Deadline: October 31st, 2025 at 11:59 PM PST</strong>
+            </p>
+
+            <div class="form-section">
+                <h3><i class="fas fa-info-circle"></i> Before You Begin</h3>
+                <div class="form-group">
+                    <ul style="color: var(--cyan); margin: 0; padding-left: 1.5rem;">
+                        <li><strong>Review First:</strong> Please scroll through the entire form before starting to ensure you have all required information</li>
+                        <li><strong>Time:</strong> 30-45 minutes (form does NOT save progress)</li>
+                        <li><strong>Required Documents:</strong> CV/Resume & Transcripts (PDF, max 10MB)</li>
+                        <li><strong>References:</strong> Contact info for 3 people (name, email, institution)</li>
+                        <li><strong>Research Statement:</strong> 500-word description of your interests</li>
+                        <li><strong>Academic History:</strong> List of relevant coursework and research experiences</li>
+                        <li><strong>Publications/Presentations:</strong> Details if applicable</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success/Error Messages -->
+        <div class="message success" id="successMessage">
+            <i class="fas fa-check-circle"></i>
+            <h3>Application Submitted Successfully!</h3>
+            <p>Thank you for your interest in the Cosme Lab. We will review your application and contact you soon.</p>
+        </div>
+
+        <div class="message error" id="errorMessage">
+            <i class="fas fa-exclamation-circle"></i>
+            <h3>Submission Error</h3>
+            <p>There was an error submitting your application. Please try again or email us directly at lcosme@ucr.edu</p>
+        </div>
+
+        <!-- Application Form -->
+        <form id="applicationForm">
+
+            <!-- Section 1: Personal Information (Questions 1-5) -->
+            <div class="form-section">
+                <h3><i class="fas fa-user"></i> Section 1: Personal Information</h3>
+
+                <div class="form-group">
+                    <label for="name" class="required"><span class="q-num">1.</span> Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="required"><span class="q-num">2.</span> Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone"><span class="q-num">3.</span> Phone Number <span class="optional-indicator">(Optional)</span></label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+
+                <div class="form-group">
+                    <label for="citizenship" class="required">4. Citizenship Status</label>
+                    <select id="citizenship" name="citizenship" required onchange="toggleCountryField()">
+                        <option value="">-- Select --</option>
+                        <option value="US Citizen">US Citizen</option>
+                        <option value="Permanent Resident">Permanent Resident</option>
+                        <option value="International">International Student</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="country_div" style="display: none;">
+                    <label for="country" class="required">Country of Citizenship</label>
+                    <span class="field-help">Please specify your country of citizenship</span>
+                    <input type="text" id="country" name="country" placeholder="e.g., China, India, Brazil">
+                </div>
+
+                <div class="form-group">
+                    <label for="current_status" class="required">5. Current Academic/Professional Status</label>
+                    <select id="current_status" name="current_status" required onchange="toggleStatusOther()">
+                        <option value="">-- Select --</option>
+                        <option value="Undergraduate student">Undergraduate student</option>
+                        <option value="Master's student">Master's student</option>
+                        <option value="Recent graduate (unemployed)">Recent graduate (unemployed)</option>
+                        <option value="Working in research">Working in research</option>
+                        <option value="Working in industry">Working in industry</option>
+                        <option value="Gap year">Gap year</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="status_other_div" style="display: none;">
+                    <label for="status_other" class="required">Please specify your current status</label>
+                    <input type="text" id="status_other" name="status_other" placeholder="e.g., Research technician, Teaching, Military service">
+                </div>
+            </div>
+
+            <!-- Section 2: Academic Background (Questions 6-12) -->
+            <div class="form-section">
+                <h3><i class="fas fa-graduation-cap"></i> Section 2: Academic Background</h3>
+
+                <div class="form-group">
+                    <label for="institution" class="required">6. Undergraduate Institution</label>
+                    <input type="text" id="institution" name="institution" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="degree" class="required">7. Undergraduate Degree and Major</label>
+                    <input type="text" id="degree" name="degree" placeholder="Example: BS Biology, BA Chemistry" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="undergrad_gpa" class="required">8. Undergraduate GPA</label>
+                    <input type="text" id="undergrad_gpa" name="undergrad_gpa" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="graduation" class="required">9. Undergraduate Graduation Date</label>
+                    <input type="text" id="graduation" name="graduation" placeholder="MM/YYYY or expected MM/YYYY" required>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="q-num">10.</span> Master's Degree <span class="optional-indicator">(if applicable)</span></label>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div>
+                            <span class="field-help">Institution</span>
+                            <input type="text" name="masters_institution">
+                        </div>
+                        <div>
+                            <span class="field-help">Degree and Field</span>
+                            <input type="text" name="masters_degree">
+                        </div>
+                        <div>
+                            <span class="field-help">GPA</span>
+                            <input type="text" name="masters_gpa">
+                        </div>
+                        <div>
+                            <span class="field-help">Graduation Date</span>
+                            <input type="text" name="masters_graduation">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="required">11. Relevant Coursework (Select all that apply)</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="course1" name="coursework" value="Molecular Biology/Biochemistry">
+                            <label for="course1">Molecular Biology/Biochemistry</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="course2" name="coursework" value="Genetics/Genomics">
+                            <label for="course2">Genetics/Genomics</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="course3" name="coursework" value="Cell Biology">
+                            <label for="course3">Cell Biology</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="course4" name="coursework" value="Bioinformatics/Computational Biology">
+                            <label for="course4">Bioinformatics/Computational Biology</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="course5" name="coursework" value="Statistics/Biostatistics">
+                            <label for="course5">Statistics/Biostatistics</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="course6" name="coursework" value="Entomology/Insect Biology">
+                            <label for="course6">Entomology/Insect Biology</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="course7" name="coursework" value="Ecology/Evolution">
+                            <label for="course7">Ecology/Evolution</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="course8" name="coursework" value="Microbiology/Virology">
+                            <label for="course8">Microbiology/Virology</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="course9" name="coursework" value="Immunology">
+                            <label for="course9">Immunology</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="course10" name="coursework" value="Programming/Computer Science">
+                            <label for="course10">Programming/Computer Science</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="course11" name="coursework" value="Mathematics/Calculus">
+                            <label for="course11">Mathematics/Calculus</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="course12" name="coursework" value="Chemistry (Organic/Analytical)">
+                            <label for="course12">Chemistry (Organic/Analytical)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="course13" name="coursework" value="Physics">
+                            <label for="course13">Physics</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="awards">12. Academic Awards or Honors <span class="optional-indicator">(Optional)</span></label>
+                    <textarea id="awards" name="awards"></textarea>
+                </div>
+            </div>
+
+            <!-- Section 3: Research Experience (Questions 13-17) -->
+            <div class="form-section">
+                <h3><i class="fas fa-flask"></i> Section 3: Research Experience</h3>
+
+                <div class="form-group">
+                    <label><span class="q-num">13.</span> Research Experience <span class="optional-indicator">(List up to 3 experiences)</span></label>
+
+                    <div class="entry-box">
+                        <div class="entry-header">Research Experience 1</div>
+                        <div style="display: grid; gap: 0.75rem;">
+                            <div>
+                                <span class="field-help">Institution</span>
+                                <input type="text" name="research1_institution">
+                            </div>
+                            <div>
+                                <span class="field-help">PI/Supervisor Name</span>
+                                <input type="text" name="research1_supervisor">
+                            </div>
+                            <div>
+                                <span class="field-help">Duration (e.g., 6 months, 2 years)</span>
+                                <input type="text" name="research1_duration">
+                            </div>
+                            <div>
+                                <span class="field-help">Research Topic</span>
+                                <input type="text" name="research1_topic">
+                            </div>
+                            <div>
+                                <span class="field-help">Your Role and Contributions</span>
+                                <textarea name="research1_role"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="entry-box">
+                        <div class="entry-header">Research Experience 2 (Optional)</div>
+                        <div style="display: grid; gap: 0.75rem;">
+                            <div>
+                                <span class="field-help">Institution</span>
+                                <input type="text" name="research2_institution">
+                            </div>
+                            <div>
+                                <span class="field-help">PI/Supervisor Name</span>
+                                <input type="text" name="research2_supervisor">
+                            </div>
+                            <div>
+                                <span class="field-help">Duration</span>
+                                <input type="text" name="research2_duration">
+                            </div>
+                            <div>
+                                <span class="field-help">Research Topic</span>
+                                <input type="text" name="research2_topic">
+                            </div>
+                            <div>
+                                <span class="field-help">Your Role and Contributions</span>
+                                <textarea name="research2_role"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="entry-box">
+                        <div class="entry-header">Research Experience 3 (Optional)</div>
+                        <div style="display: grid; gap: 0.75rem;">
+                            <div>
+                                <span class="field-help">Institution</span>
+                                <input type="text" name="research3_institution">
+                            </div>
+                            <div>
+                                <span class="field-help">PI/Supervisor Name</span>
+                                <input type="text" name="research3_supervisor">
+                            </div>
+                            <div>
+                                <span class="field-help">Duration</span>
+                                <input type="text" name="research3_duration">
+                            </div>
+                            <div>
+                                <span class="field-help">Research Topic</span>
+                                <input type="text" name="research3_topic">
+                            </div>
+                            <div>
+                                <span class="field-help">Your Role and Contributions</span>
+                                <textarea name="research3_role"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="required">14. Technical Skills (Select all that apply)</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="technical_skills" value="Molecular biology">
+                            <label>Molecular biology (PCR, cloning, sequencing)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="technical_skills" value="Next-generation sequencing">
+                            <label>Next-generation sequencing</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="technical_skills" value="Bioinformatics">
+                            <label>Bioinformatics</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="technical_skills" value="Insect rearing">
+                            <label>Insect rearing and maintenance</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="technical_skills" value="Virus/pathogen work">
+                            <label>Virus/pathogen work</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="technical_skills" value="Microscopy">
+                            <label>Microscopy techniques</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="technical_skills" value="Population genetics">
+                            <label>Population genetics analysis</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="technical_skills" value="Statistical analysis">
+                            <label>Statistical analysis</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="technical_skills" value="Field sampling">
+                            <label>Field sampling/collection</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="required">15. Computational Experience (Select all that apply)</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="computational_skills" value="R programming">
+                            <label>R programming</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="computational_skills" value="Python programming">
+                            <label>Python programming</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="computational_skills" value="Perl/Bash scripting">
+                            <label>Perl/Bash scripting</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="computational_skills" value="Command line/Unix">
+                            <label>Command line/Unix</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="computational_skills" value="HPC/cluster computing">
+                            <label>HPC/cluster computing</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="computational_skills" value="Genomic data analysis">
+                            <label>Genomic data analysis pipelines</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="computational_skills" value="RNA-seq analysis">
+                            <label>RNA-seq analysis</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="computational_skills" value="Population genetics software">
+                            <label>Population genetics software</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="computational_skills" value="Machine learning">
+                            <label>Machine learning</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="computational_skills" value="No computational experience">
+                            <label>No computational experience</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="q-num">16.</span> Publications <span class="optional-indicator">(Optional)</span></label>
+                    <div id="publicationsContainer">
+                        <div class="entry-box">
+                            <div class="entry-header">Publication 1</div>
+                            <div style="display: grid; gap: 0.75rem;">
+                                <div>
+                                    <span class="field-help">Title</span>
+                                    <input type="text" name="pub1_title">
+                                </div>
+                                <div>
+                                    <span class="field-help">DOI</span>
+                                    <input type="text" name="pub1_doi">
+                                </div>
+                                <div>
+                                    <span class="field-help">Main finding (1-2 sentences)</span>
+                                    <textarea name="pub1_finding"></textarea>
+                                </div>
+                                <div>
+                                    <span class="field-help">Your contribution</span>
+                                    <textarea name="pub1_contribution"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="entry-box">
+                            <div class="entry-header">Publication 2 (Optional)</div>
+                            <div style="display: grid; gap: 0.75rem;">
+                                <div>
+                                    <span class="field-help">Title</span>
+                                    <input type="text" name="pub2_title">
+                                </div>
+                                <div>
+                                    <span class="field-help">DOI</span>
+                                    <input type="text" name="pub2_doi">
+                                </div>
+                                <div>
+                                    <span class="field-help">Main finding</span>
+                                    <textarea name="pub2_finding"></textarea>
+                                </div>
+                                <div>
+                                    <span class="field-help">Your contribution</span>
+                                    <textarea name="pub2_contribution"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="add-more-btn" onclick="addPublication()">
+                        <i class="fas fa-plus"></i> Add More Publications
+                    </button>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="q-num">17.</span> Presentations <span class="optional-indicator">(Optional)</span></label>
+                    <div id="presentationsContainer">
+                        <div class="entry-box">
+                            <div class="entry-header">Presentation 1</div>
+                            <div style="display: grid; gap: 0.75rem;">
+                                <div>
+                                    <span class="field-help">Conference name and year</span>
+                                    <input type="text" name="pres1_conference">
+                                </div>
+                                <div>
+                                    <span class="field-help">Presentation title</span>
+                                    <input type="text" name="pres1_title">
+                                </div>
+                                <div>
+                                    <span class="field-help">Type</span>
+                                    <select name="pres1_type">
+                                        <option value="">-- Select --</option>
+                                        <option value="Oral">Oral presentation</option>
+                                        <option value="Poster">Poster presentation</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <span class="field-help">Your role</span>
+                                    <select name="pres1_role">
+                                        <option value="">-- Select --</option>
+                                        <option value="Presenter">Presenter</option>
+                                        <option value="Co-author">Co-author</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="entry-box">
+                            <div class="entry-header">Presentation 2 (Optional)</div>
+                            <div style="display: grid; gap: 0.75rem;">
+                                <div>
+                                    <span class="field-help">Conference name and year</span>
+                                    <input type="text" name="pres2_conference">
+                                </div>
+                                <div>
+                                    <span class="field-help">Presentation title</span>
+                                    <input type="text" name="pres2_title">
+                                </div>
+                                <div>
+                                    <span class="field-help">Type</span>
+                                    <select name="pres2_type">
+                                        <option value="">-- Select --</option>
+                                        <option value="Oral">Oral presentation</option>
+                                        <option value="Poster">Poster presentation</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <span class="field-help">Your role</span>
+                                    <select name="pres2_role">
+                                        <option value="">-- Select --</option>
+                                        <option value="Presenter">Presenter</option>
+                                        <option value="Co-author">Co-author</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="add-more-btn" onclick="addPresentation()">
+                        <i class="fas fa-plus"></i> Add More Presentations
+                    </button>
+                </div>
+            </div>
+
+            <!-- Section 4: Research Interests (Questions 18-21) -->
+            <div class="form-section">
+                <h3><i class="fas fa-lightbulb"></i> Section 4: Research Interests</h3>
+
+                <div class="form-group">
+                    <label for="primary_interest" class="required"><span class="q-num">18.</span> Primary Research Interest</label>
+                    <select id="primary_interest" name="primary_interest" required onchange="toggleOtherField(this, 'primary_interest_other')">
+                        <option value="">-- Select --</option>
+                        <option value="Vector competence">Vector competence and pathogen-mosquito interactions</option>
+                        <option value="Insecticide resistance">Insecticide resistance evolution and monitoring</option>
+                        <option value="Climate adaptation">Climate adaptation and photoperiodic diapause</option>
+                        <option value="Population genomics">Population genomics and invasion biology</option>
+                        <option value="Single-cell genomics">Single-cell genomics approaches</option>
+                        <option value="Sustainable protein">Sustainable protein production systems</option>
+                        <option value="Other">Something else</option>
+                    </select>
+                    <div id="primary_interest_other_div" style="display:none; margin-top:0.5rem;">
+                        <span class="field-help">Please specify your research interest:</span>
+                        <input type="text" id="primary_interest_other" name="primary_interest_other">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="why_lab" class="required"><span class="q-num">19.</span> Research Motivation</label>
+                    <span class="field-help">Explain your interest in mosquito biology and vector genomics (500 words max)</span>
+                    <textarea id="why_lab" name="why_lab" class="large" placeholder="Example: During my research on Aedes behavior, I became fascinated by how genomics reveals mechanisms of vector competence..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="proposed_research" class="required"><span class="q-num">20.</span> Proposed Research Direction</label>
+                    <span class="field-help">Describe a potential research question and your proposed approach (500 words max)</span>
+                    <textarea id="proposed_research" name="proposed_research" class="large" placeholder="Example: I'd investigate temperature effects on insecticide resistance using RNA-seq to compare gene expression across thermal gradients..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="required"><span class="q-num">21.</span> Literature Familiarity</label>
+                    <span class="field-help">List 3 relevant papers you've read (or indicate if you haven't read any yet)</span>
+
+                    <div class="entry-box">
+                        <div class="entry-header">Paper 1</div>
+                        <div style="display: grid; gap: 0.75rem;">
+                            <div>
+                                <span class="field-help">Title or DOI</span>
+                                <input type="text" name="lit1_doi">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="entry-box">
+                        <div class="entry-header">Paper 2</div>
+                        <div style="display: grid; gap: 0.75rem;">
+                            <div>
+                                <span class="field-help">Title or DOI</span>
+                                <input type="text" name="lit2_doi">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="entry-box">
+                        <div class="entry-header">Paper 3</div>
+                        <div style="display: grid; gap: 0.75rem;">
+                            <div>
+                                <span class="field-help">Title or DOI</span>
+                                <input type="text" name="lit3_doi">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 1rem;">
+                        <span class="field-help">Why do these papers interest you? (one paragraph)</span>
+                        <textarea name="lit_interest" required></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5: Professional Development (Questions 22-24) -->
+            <div class="form-section">
+                <h3><i class="fas fa-chart-line"></i> Section 5: Professional Development</h3>
+
+                <div class="form-group">
+                    <label for="career_goals" class="required"><span class="q-num">22.</span> Career Goals</label>
+                    <span class="field-help">Describe your long-term career objectives and how a PhD will help achieve them (300 words max)</span>
+                    <textarea id="career_goals" name="career_goals" placeholder="Example: I aim to lead a research group developing genomic solutions for vector control..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="required">23. Fellowship Applications (Select all that apply)</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="fellowships" value="NSF GRFP">
+                            <label>NSF GRFP</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="fellowships" value="NIH F31">
+                            <label>NIH F31</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="fellowships" value="USDA NIFA">
+                            <label>USDA NIFA</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="fellowships" value="Ford Foundation">
+                            <label>Ford Foundation</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="fellowships" value="Not eligible">
+                            <label>Not eligible for these fellowships</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="fellowships" value="Need more information">
+                            <label>Need more information about fellowships</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="grant_experience"><span class="q-num">24.</span> Grant Writing Experience <span class="optional-indicator">(Optional)</span></label>
+                    <span class="field-help">Describe any experience writing grant proposals or fellowship applications</span>
+                    <textarea id="grant_experience" name="grant_experience"></textarea>
+                </div>
+            </div>
+
+            <!-- Section 6: Teaching and Mentoring (Questions 25-27) -->
+            <div class="form-section">
+                <h3><i class="fas fa-chalkboard-teacher"></i> Section 6: Teaching and Mentoring</h3>
+
+                <div class="form-group">
+                    <label class="required">25. Teaching Assistant Willingness</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="ta_yes" name="ta_willing" value="Yes" required>
+                            <label for="ta_yes">Yes</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="ta_no" name="ta_willing" value="No" required>
+                            <label for="ta_no">No</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="ta_depends" name="ta_willing" value="Depends" required>
+                            <label for="ta_depends">Depends on the course/workload</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="required"><span class="q-num">26.</span> Teaching Experience</label>
+                    <div class="radio-group" style="margin-bottom: 1rem;">
+                        <div class="radio-item">
+                            <input type="radio" id="has_teaching" name="has_teaching_exp" value="yes" required>
+                            <label for="has_teaching">I have teaching experience</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="no_teaching" name="has_teaching_exp" value="no" required>
+                            <label for="no_teaching">No teaching experience</label>
+                        </div>
+                    </div>
+                    <span class="field-help">If yes, describe your teaching or tutoring experience</span>
+                    <textarea id="teaching_experience" name="teaching_experience"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="required"><span class="q-num">27.</span> Mentoring Experience</label>
+                    <div class="radio-group" style="margin-bottom: 1rem;">
+                        <div class="radio-item">
+                            <input type="radio" id="has_mentoring" name="has_mentoring_exp" value="yes" required>
+                            <label for="has_mentoring">I have mentoring experience</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="no_mentoring" name="has_mentoring_exp" value="no" required>
+                            <label for="no_mentoring">No mentoring experience</label>
+                        </div>
+                    </div>
+                    <span class="field-help">If yes, describe your experience mentoring junior students</span>
+                    <textarea id="mentoring_experience" name="mentoring_experience"></textarea>
+                </div>
+            </div>
+
+            <!-- Section 7: Motivation and Learning (Questions 28-30) -->
+            <div class="form-section">
+                <h3><i class="fas fa-brain"></i> Section 7: Motivation and Learning</h3>
+
+                <div class="form-group">
+                    <label for="interest_genomics" class="required"><span class="q-num">28.</span> Interest in Genomics</label>
+                    <span class="field-help">What drew you to genomics as an approach to studying insects?</span>
+                    <textarea id="interest_genomics" name="interest_genomics" placeholder="Example: Seeing how genomics revealed cryptic species boundaries made me realize its power for understanding insect evolution..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="self_learning" class="required"><span class="q-num">29.</span> Self-Learning</label>
+                    <span class="field-help">Describe a time you taught yourself something complex</span>
+                    <textarea id="self_learning" name="self_learning" placeholder="Example: I taught myself R to analyze RNA-seq data using online tutorials and Coursera courses..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="science_communication" class="required"><span class="q-num">30.</span> Science Communication</label>
+                    <span class="field-help">How would you explain your research interests to your grandmother?</span>
+                    <textarea id="science_communication" name="science_communication" placeholder="Example: I study mosquito DNA to understand why some survive pesticides, helping us control disease spread..." required></textarea>
+                </div>
+            </div>
+
+            <!-- Section 8: Work Style and Personality (Questions 31-39) -->
+            <div class="form-section">
+                <h3><i class="fas fa-users-cog"></i> Section 8: Work Style and Personality</h3>
+
+                <div class="form-group">
+                    <label for="self_initiative" class="required"><span class="q-num">31.</span> Self-Initiative</label>
+                    <span class="field-help">Describe a project you started on your own without being asked</span>
+                    <textarea id="self_initiative" name="self_initiative" placeholder="Example: I created a Python script to automate mosquito egg counting, saving 10+ hours weekly..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="problem_solving" class="required"><span class="q-num">32.</span> Problem-Solving Independence</label>
+                    <span class="field-help">When you encounter a problem, what are your first three steps before asking for help?</span>
+                    <textarea id="problem_solving" name="problem_solving" placeholder="Example: 1) Check protocols, 2) Search documentation/forums, 3) Try alternative approaches..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="time_management" class="required"><span class="q-num">33.</span> Time Management</label>
+                    <span class="field-help">How would you balance classes, lab work, and TA responsibilities?</span>
+                    <textarea id="time_management" name="time_management" placeholder="Example: Calendar blocking, morning lab work, afternoon classes, batched tasks..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="work_environment" class="required"><span class="q-num">34.</span> Work Environment Preference</label>
+                    <span class="field-help">Do you work better independently or with frequent check-ins? Explain your ideal mentoring style.</span>
+                    <textarea id="work_environment" name="work_environment" placeholder="Example: Weekly check-ins, clear milestones, independent daily work, constructive feedback..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="resilience" class="required"><span class="q-num">35.</span> Resilience</label>
+                    <span class="field-help">Describe a long-term goal you achieved despite setbacks</span>
+                    <textarea id="resilience" name="resilience" placeholder="Example: Failed experiment, redesigned study, persisted through rejections, eventually published..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="hobbies"><span class="q-num">36.</span> Hobbies and Interests <span class="optional-indicator">(Optional)</span></label>
+                    <span class="field-help">What activities outside of science help you maintain balance? (or write 'Prefer not to answer')</span>
+                    <textarea id="hobbies" name="hobbies"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>37. AI Tool Usage <span class="optional-indicator">(Optional)</span></label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="ai_tools" value="ChatGPT/Claude for writing">
+                            <label>ChatGPT/Claude for writing assistance</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="ai_tools" value="ChatGPT/Claude for code">
+                            <label>ChatGPT/Claude for code debugging</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="ai_tools" value="GitHub Copilot">
+                            <label>GitHub Copilot for programming</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="ai_tools" value="Grammarly">
+                            <label>Grammarly for writing improvement</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="ai_tools" value="AI for literature review">
+                            <label>AI for literature review/summary</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="ai_tools" value="AI for data analysis">
+                            <label>AI for data analysis</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="ai_tools" value="Have not used AI tools">
+                            <label>Have not used AI tools yet</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="ai_tools" value="Prefer not to answer">
+                            <label>Prefer not to answer</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="ai_philosophy"><span class="q-num">38.</span> AI in Research Philosophy <span class="optional-indicator">(Optional)</span></label>
+                    <span class="field-help">How do you view the appropriate use of AI tools in scientific research? (100 words max)</span>
+                    <textarea id="ai_philosophy" name="ai_philosophy"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="required">39. Technical Methods Interest</label>
+                    <p class="help-text">Our lab uses innovative haplotype tagging and linkage network analysis for mosquito genomics research.</p>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="technical_methods_interest" value="Very interested" required>
+                            <label>Yes, very interested</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="technical_methods_interest" value="Somewhat interested" required>
+                            <label>Somewhat interested</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="technical_methods_interest" value="Not sure yet" required>
+                            <label>Not sure yet</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="technical_methods_interest" value="Prefer other methods" required>
+                            <label>Prefer other methods</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 9: References (Questions 40-42) -->
+            <div class="form-section" id="references-section">
+                <h3><i class="fas fa-user-friends"></i> Section 9: References</h3>
+
+                <div class="entry-box">
+                    <div class="entry-header"><span class="q-num">40.</span> Reference 1 (Required)</div>
+                    <div style="display: grid; gap: 1.25rem;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                            <div>
+                                <span class="field-help">Name and Title</span>
+                                <input type="text" name="ref1_name" required>
+                            </div>
+                            <div>
+                                <span class="field-help">Institution</span>
+                                <input type="text" name="ref1_institution" required>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="field-help">Email</span>
+                            <input type="email" name="ref1_email" required>
+                        </div>
+                        <div>
+                            <span class="field-help">Relationship to you</span>
+                            <input type="text" name="ref1_relationship" placeholder="e.g., Research advisor, Professor, Supervisor" required>
+                        </div>
+                        <div>
+                            <span class="field-help">How long have they known you?</span>
+                            <select name="ref1_duration" required>
+                                <option value="">-- Select --</option>
+                                <option value="Less than 1 year">Less than 1 year</option>
+                                <option value="1-2 years">1-2 years</option>
+                                <option value="2-4 years">2-4 years</option>
+                                <option value="More than 4 years">More than 4 years</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="entry-box">
+                    <div class="entry-header"><span class="q-num">41.</span> Reference 2 (Required)</div>
+                    <div style="display: grid; gap: 1.25rem;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                            <div>
+                                <span class="field-help">Name and Title</span>
+                                <input type="text" name="ref2_name" required>
+                            </div>
+                            <div>
+                                <span class="field-help">Institution</span>
+                                <input type="text" name="ref2_institution" required>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="field-help">Email</span>
+                            <input type="email" name="ref2_email" required>
+                        </div>
+                        <div>
+                            <span class="field-help">Relationship to you</span>
+                            <input type="text" name="ref2_relationship" placeholder="e.g., Research advisor, Professor, Supervisor" required>
+                        </div>
+                        <div>
+                            <span class="field-help">How long have they known you?</span>
+                            <select name="ref2_duration" required>
+                                <option value="">-- Select --</option>
+                                <option value="Less than 1 year">Less than 1 year</option>
+                                <option value="1-2 years">1-2 years</option>
+                                <option value="2-4 years">2-4 years</option>
+                                <option value="More than 4 years">More than 4 years</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="entry-box">
+                    <div class="entry-header"><span class="q-num">42.</span> Reference 3 (Required)</div>
+                    <div style="display: grid; gap: 1.25rem;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                            <div>
+                                <span class="field-help">Name and Title</span>
+                                <input type="text" name="ref3_name" required>
+                            </div>
+                            <div>
+                                <span class="field-help">Institution</span>
+                                <input type="text" name="ref3_institution" required>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="field-help">Email</span>
+                            <input type="email" name="ref3_email" required>
+                        </div>
+                        <div>
+                            <span class="field-help">Relationship to you</span>
+                            <input type="text" name="ref3_relationship" placeholder="e.g., Research advisor, Professor, Supervisor" required>
+                        </div>
+                        <div>
+                            <span class="field-help">How long have they known you?</span>
+                            <select name="ref3_duration" required>
+                                <option value="">-- Select --</option>
+                                <option value="Less than 1 year">Less than 1 year</option>
+                                <option value="1-2 years">1-2 years</option>
+                                <option value="2-4 years">2-4 years</option>
+                                <option value="More than 4 years">More than 4 years</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 10: Documents -->
+            <div class="form-section">
+                <h3><i class="fas fa-file-alt"></i> Section 10: Required Documents</h3>
+
+                <div class="form-group">
+                    <label for="cv_upload" class="required"><span class="q-num">43.</span> CV/Resume Upload</label>
+                    <span class="field-help">Please upload your CV or Resume (PDF format preferred, max 10MB)</span>
+                    <input type="file" id="cv_upload" name="cv_upload" accept=".pdf,.doc,.docx" required style="display: none;" onchange="updateFileLabel('cv_upload', 'cv_label')">
+                    <label for="cv_upload" class="file-upload-btn">
+                        <i class="fas fa-file-upload"></i>
+                        <span id="cv_label">Select File</span>
+                    </label>
+                    <span id="cv_upload_filename" class="file-name"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="transcript_upload" class="required"><span class="q-num">44.</span> Transcripts Upload</label>
+                    <span class="field-help">Upload unofficial transcripts (PDF format, max 10MB)</span>
+                    <input type="file" id="transcript_upload" name="transcript_upload" accept=".pdf" required style="display: none;" onchange="updateFileLabel('transcript_upload', 'transcript_label')">
+                    <label for="transcript_upload" class="file-upload-btn">
+                        <i class="fas fa-file-upload"></i>
+                        <span id="transcript_label">Select File</span>
+                    </label>
+                    <span id="transcript_upload_filename" class="file-name"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="writing_sample"><span class="q-num">45.</span> Writing Sample <span class="optional-indicator">(Required if no publications)</span></label>
+                    <span class="field-help">If you have publications listed above, skip this. Otherwise upload a writing sample (PDF, max 10MB)</span>
+                    <input type="file" id="writing_sample" name="writing_sample" accept=".pdf,.doc,.docx" style="display: none;" onchange="updateFileLabel('writing_sample', 'writing_label')">
+                    <label for="writing_sample" class="file-upload-btn">
+                        <i class="fas fa-file-upload"></i>
+                        <span id="writing_label">Select File</span>
+                    </label>
+                    <span id="writing_sample_filename" class="file-name"></span>
+                </div>
+            </div>
+
+            <!-- Section 11: Additional Information (Questions 46-49, renumbered) -->
+            <div class="form-section">
+                <h3><i class="fas fa-info-circle"></i> Section 11: Additional Information</h3>
+
+                <div class="form-group">
+                    <label for="visa_status"><span class="q-num">46.</span> Visa Status <span class="optional-indicator">(Required for international applicants)</span></label>
+                    <div class="radio-group" style="margin-bottom: 1rem;">
+                        <div class="radio-item">
+                            <input type="radio" name="visa_required" value="Will require F-1 visa">
+                            <label>Will require F-1 visa sponsorship</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="visa_required" value="Already have visa">
+                            <label>Already have valid visa</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="visa_required" value="US Citizen/PR">
+                            <label>US Citizen/Permanent Resident (no visa needed)</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="visa_required" value="Other">
+                            <label>Other situation</label>
+                        </div>
+                    </div>
+                    <span class="field-help">Additional visa information or requirements (optional)</span>
+                    <textarea id="visa_status" name="visa_status"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="questions_for_lab"><span class="q-num">47.</span> Questions for the Lab <span class="optional-indicator">(Optional)</span></label>
+                    <span class="field-help">What questions do you have about the research program, lab environment, or graduate program?</span>
+                    <textarea id="questions_for_lab" name="questions_for_lab"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="additional_comments"><span class="q-num">48.</span> Additional Comments <span class="optional-indicator">(Optional)</span></label>
+                    <span class="field-help">Any other information you would like to share</span>
+                    <textarea id="additional_comments" name="additional_comments"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="required"><span class="q-num">49.</span> Success Factor: If you could have only ONE to ensure success in your PhD, which would you choose?</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="final_question_choice" value="Unlimited funding/resources" required>
+                            <label>Unlimited funding/resources</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="final_question_choice" value="Complete knowledge/expertise" required>
+                            <label>Complete knowledge/expertise in your field</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="final_question_choice" value="Strong network/connections" required>
+                            <label>Power from strong network/connections in science</label>
+                        </div>
+                    </div>
+                    <span class="field-help" style="margin-top: 1rem; display: block;">Explain your choice (2-3 sentences)</span>
+                    <textarea name="final_question_explanation" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="required"><span class="q-num">50.</span> How did you hear about our PhD program/lab?</label>
+                    <select id="referral_source" name="referral_source" required onchange="toggleReferralOther()">
+                        <option value="">-- Select --</option>
+                        <option value="Lab website">Lab website</option>
+                        <option value="University website">University website</option>
+                        <option value="Current/former lab member">Current/former lab member</option>
+                        <option value="Conference/presentation">Conference/presentation</option>
+                        <option value="Research paper/publication">Research paper/publication</option>
+                        <option value="Faculty recommendation">Faculty recommendation</option>
+                        <option value="Social media">Social media (Twitter/LinkedIn)</option>
+                        <option value="Search engine">Search engine (Google, etc.)</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="referral_other_div" style="display: none;">
+                    <label for="referral_other" class="required">Please specify how you heard about us</label>
+                    <input type="text" id="referral_other" name="referral_other" placeholder="e.g., Friend, Graduate school fair, etc.">
+                </div>
+            </div>
+
+            <!-- Selection Process Timeline -->
+            <div class="form-section">
+                <h3><i class="fas fa-calendar-check"></i> What Happens Next?</h3>
+                <div class="form-group">
+                    <ul style="color: var(--cyan); margin: 0; padding-left: 1.5rem;">
+                        <li><strong>Nov 1-2 (Weekend):</strong> Applications reviewed</li>
+                        <li><strong>Nov 3:</strong> Top 8-10 candidates selected, reference letters requested via email</li>
+                        <li><strong>Nov 3-8:</strong> References submit feedback (6 days)</li>
+                        <li><strong>Nov 9:</strong> Top 5 finalists selected and invited to schedule interviews</li>
+                        <li><strong>Nov 11-14:</strong> Zoom interviews (1 hour each with lab group)</li>
+                        <li><strong>Nov 17:</strong> Final decisions communicated - 2-3 students selected</li>
+                        <li><strong>Nov 17-20:</strong> Selected students must submit official UCR application</li>
+                        <li><strong style="color: var(--yellow);">CRITICAL:</strong> UCR applications must be complete by November 20 for departmental funding eligibility</li>
+                    </ul>
+                    <div style="margin-top: 1.5rem; text-align: center;">
+                        <a href="https://entomology.ucr.edu/graduate-studies-program#admissions" target="_blank" class="add-more-btn" style="width: auto; text-decoration: none;">
+                            <i class="fas fa-external-link-alt"></i> UCR Entomology PhD Admissions Info
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn" id="submitBtn">
+                <i class="fas fa-paper-plane"></i> Submit Application
+            </button>
+
+        </form>
+    </div>
+
+    <!-- JavaScript for form submission -->
+    <script>
+        // Check if past deadline
+        function isPastDeadline() {
+            const deadline = new Date('2025-11-01T06:59:59Z'); // Oct 31, 2025 11:59 PM PDT (UTC-7)
+            const now = new Date();
+            return now > deadline;
+        }
+
+        // Check deadline on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            if (isPastDeadline()) {
+                // Replace entire form with deadline message
+                document.querySelector('.form-container').innerHTML = `
+                    <div class="form-section" style="text-align: center; padding: 4rem;">
+                        <h1 style="color: var(--red); margin-bottom: 2rem;">
+                            <i class="fas fa-times-circle"></i> Application Period Closed
+                        </h1>
+                        <p style="color: var(--cyan); font-size: 1.2rem;">
+                            The application deadline was October 31st, 2025 at 11:59 PM PDT.
+                        </p>
+                        <p style="color: var(--fg-light); margin-top: 2rem;">
+                            Applications for Fall 2026 admission are no longer being accepted.<br>
+                            Please check back next year for Fall 2027 opportunities.
+                        </p>
+                    </div>
+                `;
+            }
+        });
+
+        // File handling functions
+        function updateFileLabel(inputId, labelId) {
+            const input = document.getElementById(inputId);
+            const label = document.getElementById(labelId);
+            const filenameSpan = document.getElementById(inputId + '_filename');
+
+            if (input.files && input.files.length > 0) {
+                const fileName = input.files[0].name;
+                label.textContent = 'File Selected ✓';
+                filenameSpan.textContent = fileName;
+            } else {
+                label.textContent = 'Select File';
+                filenameSpan.textContent = '';
+            }
+        }
+
+        // Toggle country field for international students
+        function toggleCountryField() {
+            const citizenship = document.getElementById('citizenship');
+            const countryDiv = document.getElementById('country_div');
+            const countryInput = document.getElementById('country');
+
+            if (citizenship.value === 'International') {
+                countryDiv.style.display = 'block';
+                countryInput.required = true;
+            } else {
+                countryDiv.style.display = 'none';
+                countryInput.required = false;
+                countryInput.value = '';
+            }
+        }
+
+        // Toggle other field for status
+        function toggleStatusOther() {
+            const status = document.getElementById('current_status');
+            const otherDiv = document.getElementById('status_other_div');
+            const otherInput = document.getElementById('status_other');
+
+            if (status.value === 'Other') {
+                otherDiv.style.display = 'block';
+                otherInput.required = true;
+            } else {
+                otherDiv.style.display = 'none';
+                otherInput.required = false;
+                otherInput.value = '';
+            }
+        }
+
+        // Toggle other field for referral source
+        function toggleReferralOther() {
+            const referral = document.getElementById('referral_source');
+            const otherDiv = document.getElementById('referral_other_div');
+            const otherInput = document.getElementById('referral_other');
+
+            if (referral.value === 'Other') {
+                otherDiv.style.display = 'block';
+                otherInput.required = true;
+            } else {
+                otherDiv.style.display = 'none';
+                otherInput.required = false;
+                otherInput.value = '';
+            }
+        }
+        const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxJshcyoR_0w1MR1xnCx5EPlQcwkrGiUSn2aUp-9uECsYNtHvh7-LTxCKhzDz32YQ9G/exec';
+
+        // Counter for dynamic fields
+        let pubCount = 2;
+        let presCount = 2;
+
+        // Toggle "Other" field visibility
+        function toggleOtherField(selectElement, otherFieldId) {
+            const otherDiv = document.getElementById(otherFieldId + '_div');
+            const otherInput = document.getElementById(otherFieldId);
+
+            if (selectElement.value === 'Other') {
+                otherDiv.style.display = 'block';
+                otherInput.required = true;
+            } else {
+                otherDiv.style.display = 'none';
+                otherInput.required = false;
+                otherInput.value = '';
+            }
+        }
+
+        // Add more publications
+        function addPublication() {
+            pubCount++;
+            const container = document.getElementById('publicationsContainer');
+            const newPub = document.createElement('div');
+            newPub.className = 'entry-box';
+            newPub.innerHTML = `
+                <div class="entry-header">Publication ${pubCount} (Optional)</div>
+                <div style="display: grid; gap: 0.75rem;">
+                    <div>
+                        <span class="field-help">Title</span>
+                        <input type="text" name="pub${pubCount}_title">
+                    </div>
+                    <div>
+                        <span class="field-help">DOI</span>
+                        <input type="text" name="pub${pubCount}_doi">
+                    </div>
+                    <div>
+                        <span class="field-help">Main finding (1-2 sentences)</span>
+                        <textarea name="pub${pubCount}_finding"></textarea>
+                    </div>
+                    <div>
+                        <span class="field-help">Your contribution</span>
+                        <textarea name="pub${pubCount}_contribution"></textarea>
+                    </div>
+                </div>
+            `;
+            container.appendChild(newPub);
+        }
+
+        // Add more presentations
+        function addPresentation() {
+            presCount++;
+            const container = document.getElementById('presentationsContainer');
+            const newPres = document.createElement('div');
+            newPres.className = 'entry-box';
+            newPres.innerHTML = `
+                <div class="entry-header">Presentation ${presCount} (Optional)</div>
+                <div style="display: grid; gap: 0.75rem;">
+                    <div>
+                        <span class="field-help">Conference name and year</span>
+                        <input type="text" name="pres${presCount}_conference">
+                    </div>
+                    <div>
+                        <span class="field-help">Presentation title</span>
+                        <input type="text" name="pres${presCount}_title">
+                    </div>
+                    <div>
+                        <span class="field-help">Type</span>
+                        <select name="pres${presCount}_type">
+                            <option value="">-- Select --</option>
+                            <option value="Oral">Oral presentation</option>
+                            <option value="Poster">Poster presentation</option>
+                        </select>
+                    </div>
+                    <div>
+                        <span class="field-help">Your role</span>
+                        <select name="pres${presCount}_role">
+                            <option value="">-- Select --</option>
+                            <option value="Presenter">Presenter</option>
+                            <option value="Co-author">Co-author</option>
+                        </select>
+                    </div>
+                </div>
+            `;
+            container.appendChild(newPres);
+        }
+
+        // Helper function to convert file to base64
+        function fileToBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = () => {
+                    // Extract base64 without the data URL prefix
+                    const base64 = reader.result.split(',')[1];
+                    resolve(base64);
+                };
+                reader.onerror = error => reject(error);
+            });
+        }
+
+        document.getElementById('applicationForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Uploading files and submitting...';
+
+            // Collect form data
+            const formData = new FormData(e.target);
+            const data = {};
+
+            // Handle file uploads
+            try {
+                // CV Upload
+                const cvFile = document.getElementById('cv_upload').files[0];
+                if (cvFile) {
+                    data['cv_upload_base64'] = await fileToBase64(cvFile);
+                    data['cv_upload_type'] = cvFile.type;
+                    data['cv_upload_name'] = cvFile.name;
+                }
+
+                // Transcript Upload
+                const transcriptFile = document.getElementById('transcript_upload').files[0];
+                if (transcriptFile) {
+                    data['transcript_upload_base64'] = await fileToBase64(transcriptFile);
+                    data['transcript_upload_type'] = transcriptFile.type;
+                    data['transcript_upload_name'] = transcriptFile.name;
+                }
+
+                // Writing Sample Upload (optional)
+                const writingFile = document.getElementById('writing_sample').files[0];
+                if (writingFile) {
+                    data['writing_sample_base64'] = await fileToBase64(writingFile);
+                    data['writing_sample_type'] = writingFile.type;
+                    data['writing_sample_name'] = writingFile.name;
+                }
+            } catch (fileError) {
+                console.error('Error processing files:', fileError);
+                alert('Error processing files. Please try again.');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Application';
+                return;
+            }
+
+            // Process form fields
+            formData.forEach((value, key) => {
+                if (data[key]) {
+                    // Handle multiple values (checkboxes)
+                    if (Array.isArray(data[key])) {
+                        data[key].push(value);
+                    } else {
+                        data[key] = [data[key], value];
+                    }
+                } else {
+                    data[key] = value;
+                }
+            });
+
+            // Convert arrays to strings
+            Object.keys(data).forEach(key => {
+                if (Array.isArray(data[key])) {
+                    data[key] = data[key].join(', ');
+                }
+            });
+
+            // Collect additional publications (3+)
+            let additionalPubs = [];
+            for (let i = 3; i <= pubCount; i++) {
+                const title = formData.get(`pub${i}_title`);
+                if (title) {
+                    additionalPubs.push(`Pub ${i}: ${title}, ${formData.get(`pub${i}_doi`) || 'no DOI'}`);
+                }
+            }
+            if (additionalPubs.length > 0) {
+                data['additional_publications'] = additionalPubs.join('; ');
+            }
+
+            // Collect additional presentations (3+)
+            let additionalPres = [];
+            for (let i = 3; i <= presCount; i++) {
+                const conf = formData.get(`pres${i}_conference`);
+                if (conf) {
+                    additionalPres.push(`Pres ${i}: ${conf}, ${formData.get(`pres${i}_title`) || 'no title'}`);
+                }
+            }
+            if (additionalPres.length > 0) {
+                data['additional_presentations'] = additionalPres.join('; ');
+            }
+
+            try {
+                // Send to Google Apps Script
+                const response = await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: JSON.stringify(data)
+                });
+
+                // Show success message
+                document.getElementById('successMessage').classList.add('show');
+                document.getElementById('errorMessage').classList.remove('show');
+
+                // Reset form
+                e.target.reset();
+
+                // Scroll to success message
+                document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+
+            } catch (error) {
+                // Show error message
+                document.getElementById('errorMessage').classList.add('show');
+                document.getElementById('successMessage').classList.remove('show');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Application';
+            }
+        });
+    </script>
+</body>
+</html>

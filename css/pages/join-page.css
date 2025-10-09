@@ -487,6 +487,68 @@
     text-shadow: 0 0 10px rgba(189, 147, 249, 0.3);
 }
 
+/* Button styling for application card */
+.application-card .learn-more-btn {
+    background: linear-gradient(135deg, #44475a, #282a36) !important;
+    padding: 0.4rem 1rem !important;
+    color: var(--purple) !important;
+    border: 1px solid rgba(189, 147, 249, 0.3) !important;
+    border-radius: 6px !important;
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.4rem !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3),
+                0 1px 3px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+    overflow: hidden !important;
+    position: relative !important;
+    height: 32px !important;
+    min-width: 140px !important;
+}
+
+.application-card .learn-more-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+    z-index: 1;
+}
+
+.application-card .learn-more-btn:hover::before {
+    left: 100%;
+}
+
+.application-card .learn-more-btn:hover {
+    background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9)) !important;
+    color: white !important;
+    box-shadow: 0 0 15px rgba(189, 147, 249, 0.5),
+                0 6px 8px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    transform: translateY(-2px) !important;
+}
+
+.application-card .learn-more-btn i {
+    z-index: 2;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.application-card .learn-more-btn:hover i {
+    transform: rotate(360deg);
+}
+
 /* Ensure consistent headings */
 .graduate-opportunities h2,
 .other-opportunities h2,
