@@ -1,0 +1,425 @@
+/* Lab Schedule Heatmap - Cosme Lab Dracula Theme */
+
+:root {
+    /* Dracula Dark Backgrounds */
+    --bg-dark: #1a1b26;
+    --bg-light: #24283b;
+    --bg-darker: #16161e;
+
+    /* UCR Brand Colors */
+    --ucr-gold: #FFB81C;
+
+    /* Dracula Colors */
+    --fg-light: #f8f8f2;
+    --cyan: #8be9fd;
+    --green: #50fa7b;
+    --purple: #bd93f9;
+    --red: #ff5555;
+    --comment: #7c8db0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: var(--bg-dark);
+    color: var(--cyan);
+    padding: 2rem;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: var(--bg-light);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border: 1px solid rgba(189, 147, 249, 0.2);
+    transition: all 0.3s ease;
+}
+
+header:hover {
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 0 30px rgba(189, 147, 249, 0.4);
+    border-color: rgba(189, 147, 249, 0.5);
+}
+
+header h1 {
+    font-family: 'Maven Pro', sans-serif;
+    color: var(--purple);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 5px rgba(189, 147, 249, 0.3);
+}
+
+.subtitle {
+    color: var(--cyan);
+    font-size: 1.1rem;
+    text-shadow: 0 0 5px rgba(139, 233, 253, 0.3);
+    margin-bottom: 0.5rem;
+}
+
+.week-info {
+    color: var(--ucr-gold);
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+.week-info span {
+    font-weight: 600;
+}
+
+/* Instructions */
+.instructions {
+    background: rgba(139, 233, 253, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--cyan);
+    margin-bottom: 2rem;
+    box-shadow: 0 0 10px rgba(139, 233, 253, 0.2);
+}
+
+.instructions i {
+    margin-right: 0.5rem;
+}
+
+/* Heatmap Container */
+.heatmap-container {
+    background: var(--bg-light);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border: 1px solid rgba(189, 147, 249, 0.2);
+    transition: all 0.3s ease;
+}
+
+.heatmap-container:hover {
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 0 30px rgba(189, 147, 249, 0.4);
+    border-color: rgba(189, 147, 249, 0.5);
+}
+
+/* Legend */
+.legend {
+    margin-bottom: 1.5rem;
+}
+
+.legend h4 {
+    color: var(--purple);
+    font-family: 'Maven Pro', sans-serif;
+    text-shadow: 0 0 5px rgba(189, 147, 249, 0.3);
+    margin-bottom: 0.75rem;
+}
+
+.legend-scale {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.legend-color {
+    width: 40px;
+    height: 30px;
+    border-radius: 4px;
+    border: 1px solid rgba(189, 147, 249, 0.3);
+}
+
+.legend-item span {
+    color: var(--cyan);
+    font-size: 0.9rem;
+}
+
+/* Loading & Error */
+.loading, .error-message {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.1rem;
+}
+
+.loading {
+    color: var(--purple);
+}
+
+.loading i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.error-message {
+    color: var(--red);
+    background: rgba(255, 85, 85, 0.1);
+    border: 1px solid var(--red);
+    border-radius: 8px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Grid */
+.grid-wrapper {
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+}
+
+#heatmap-grid {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 4px;
+    background: var(--bg-dark);
+    border-radius: 8px;
+}
+
+#heatmap-grid thead th {
+    background: var(--bg-darker);
+    color: var(--ucr-gold);
+    padding: 1rem;
+    font-family: 'Maven Pro', sans-serif;
+    font-weight: 600;
+    border: 1px solid rgba(255, 184, 28, 0.3);
+    text-shadow: 0 0 5px rgba(255, 184, 28, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+#heatmap-grid tbody td {
+    padding: 1rem;
+    text-align: center;
+    background: var(--bg-darker);
+    border: 1px solid rgba(189, 147, 249, 0.2);
+    transition: all 0.3s ease;
+    min-width: 100px;
+    position: relative;
+    cursor: pointer;
+}
+
+#heatmap-grid tbody td:first-child {
+    background: var(--bg-light);
+    color: var(--cyan);
+    font-weight: 600;
+    text-align: left;
+    padding-left: 1rem;
+    cursor: default;
+}
+
+#heatmap-grid tbody td:not(:first-child):hover {
+    transform: scale(1.05);
+    z-index: 1000;
+    box-shadow: 0 0 15px rgba(189, 147, 249, 0.5);
+}
+
+/* Heatmap cell colors based on count */
+#heatmap-grid tbody td.count-0 {
+    background: var(--bg-darker);
+}
+
+#heatmap-grid tbody td.count-1,
+#heatmap-grid tbody td.count-2 {
+    background: rgba(189, 147, 249, 0.3);
+    box-shadow: 0 0 10px rgba(189, 147, 249, 0.2);
+}
+
+#heatmap-grid tbody td.count-3,
+#heatmap-grid tbody td.count-4 {
+    background: rgba(189, 147, 249, 0.6);
+    box-shadow: 0 0 15px rgba(189, 147, 249, 0.3);
+}
+
+#heatmap-grid tbody td.count-5plus {
+    background: rgba(189, 147, 249, 0.9);
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.4);
+    font-weight: 600;
+}
+
+/* Tooltip for names */
+.tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-dark);
+    color: var(--cyan);
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    border: 1px solid var(--purple);
+    font-size: 0.85rem;
+    white-space: nowrap;
+    z-index: 9999;
+    box-shadow: 0 0 15px rgba(189, 147, 249, 0.5);
+    margin-bottom: 0.5rem;
+    pointer-events: none;
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--purple);
+}
+
+/* Refresh Section */
+.refresh-section {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(189, 147, 249, 0.2);
+}
+
+.refresh-btn {
+    background: linear-gradient(135deg, #44475a, #282a36);
+    border: 1px solid rgba(189, 147, 249, 0.3);
+    color: var(--purple);
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(189, 147, 249, 0.4);
+    margin-bottom: 0.75rem;
+}
+
+.refresh-btn:hover {
+    background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9));
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6);
+}
+
+.refresh-btn i {
+    margin-right: 0.5rem;
+    transition: transform 0.5s;
+}
+
+.refresh-btn:hover i {
+    transform: rotate(360deg);
+}
+
+.last-updated {
+    color: var(--comment);
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+.last-updated span {
+    color: var(--cyan);
+}
+
+/* Submit Poll Section */
+.submit-poll-section {
+    text-align: center;
+    padding: 2rem;
+    background: var(--bg-light);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border: 1px solid rgba(189, 147, 249, 0.2);
+    transition: all 0.3s ease;
+}
+
+.submit-poll-section:hover {
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 0 30px rgba(189, 147, 249, 0.4);
+    border-color: rgba(189, 147, 249, 0.5);
+}
+
+.submit-poll-section p {
+    color: var(--cyan);
+    margin-bottom: 1rem;
+}
+
+.submit-poll-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #44475a, #282a36);
+    border: 1px solid rgba(189, 147, 249, 0.3);
+    color: var(--purple);
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(189, 147, 249, 0.4);
+}
+
+.submit-poll-btn:hover {
+    background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9));
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6);
+}
+
+.submit-poll-btn i {
+    margin-right: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        padding: 0.5rem;
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    header {
+        padding: 1.5rem 1rem;
+    }
+
+    header h1 {
+        font-size: 1.75rem;
+    }
+
+    .heatmap-container {
+        padding: 1rem;
+    }
+
+    #heatmap-grid {
+        font-size: 0.75rem;
+    }
+
+    #heatmap-grid thead th {
+        padding: 0.5rem 0.25rem;
+        font-size: 0.85rem;
+    }
+
+    #heatmap-grid tbody td {
+        min-width: 60px;
+        padding: 0.5rem 0.25rem;
+    }
+
+    #heatmap-grid tbody td:first-child {
+        font-size: 0.8rem;
+        padding-left: 0.5rem;
+    }
+
+    .legend-scale {
+        gap: 0.75rem;
+    }
+
+    .submit-poll-btn,
+    .refresh-btn {
+        width: 100%;
+        padding: 0.875rem 1.5rem;
+    }
+}

@@ -1,0 +1,516 @@
+/* Mentoring Preferences Survey Styles - Cosme Lab Dracula Theme */
+/* Matching website purple glow, cyan accents, and golden highlights */
+
+:root {
+    /* Dracula Dark Backgrounds - Darker variant */
+    --bg-dark: #1a1b26;
+    --bg-light: #24283b;
+    --bg-darker: #16161e;
+
+    /* UCR Brand Colors */
+    --ucr-blue: #003DA5;
+    --ucr-gold: #FFB81C;
+    --ucr-blue-light: #0066CC;
+    --ucr-gold-dark: #CC9400;
+
+    /* Dracula Colors */
+    --fg-light: #f8f8f2;
+    --fg-dark: #8be1e9;
+    --comment: #7c8db0;
+    --cyan: #8be9fd;
+    --green: #50fa7b;
+    --orange: #ffb86c;
+    --pink: #ff79c6;
+    --purple: #bd93f9;
+    --red: #ff5555;
+    --yellow: #f1fa8c;
+    --selection: #44475a;
+
+    /* Neon glow effects */
+    --neon-pink-glow: 0 0 5px #ff79c6, 0 0 10px #ff79c6, 0 0 15px #ff79c6, 0 0 20px #ff79c6;
+    --neon-cyan-glow: 0 0 5px #8be9fd, 0 0 10px #8be9fd, 0 0 15px #8be9fd, 0 0 20px #8be9fd;
+    --neon-gold-glow: 0 0 5px #FFB81C, 0 0 10px #FFB81C, 0 0 15px #FFB81C, 0 0 20px #FFB81C;
+    --neon-purple-glow: 0 0 5px #bd93f9, 0 0 10px #bd93f9, 0 0 15px #bd93f9, 0 0 20px #bd93f9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: var(--bg-dark);
+    color: var(--cyan);
+    padding: 2rem;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: var(--bg-light);
+    border-radius: 12px;
+    /* Purple glow effect */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border: 1px solid rgba(189, 147, 249, 0.2);
+    transition: all 0.3s ease;
+}
+
+header:hover {
+    /* Enhanced purple neon glow on hover */
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 0 30px rgba(189, 147, 249, 0.4),
+                0 0 40px rgba(139, 233, 253, 0.2);
+    border-color: rgba(189, 147, 249, 0.5);
+    background: rgba(36, 40, 59, 0.85);
+}
+
+header h1 {
+    font-family: 'Maven Pro', sans-serif;
+    color: var(--purple);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    /* Subtle glow - reduced */
+    text-shadow: 0 0 5px rgba(189, 147, 249, 0.3);
+}
+
+.subtitle {
+    color: var(--cyan);
+    font-size: 1.1rem;
+    /* Subtle glow - reduced */
+    text-shadow: 0 0 5px rgba(139, 233, 253, 0.3);
+}
+
+/* Intro */
+.intro {
+    background: var(--bg-light);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border: 1px solid rgba(189, 147, 249, 0.2);
+    transition: all 0.3s ease;
+}
+
+.intro:hover {
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 0 30px rgba(189, 147, 249, 0.4);
+    border-color: rgba(189, 147, 249, 0.5);
+}
+
+.intro p {
+    margin-bottom: 0.5rem;
+}
+
+.intro strong {
+    color: var(--ucr-gold);
+    /* Subtle glow - reduced */
+    text-shadow: 0 0 5px rgba(255, 184, 28, 0.3);
+}
+
+/* Form Sections */
+.form-section {
+    background: var(--bg-light);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    /* Purple glow effect */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border: 1px solid rgba(189, 147, 249, 0.2);
+    transition: all 0.3s ease;
+}
+
+.form-section:hover {
+    /* Enhanced purple neon glow on hover */
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 0 30px rgba(189, 147, 249, 0.4);
+    border-color: rgba(189, 147, 249, 0.5);
+}
+
+.form-section h3 {
+    color: var(--purple);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid rgba(189, 147, 249, 0.3);
+    font-family: 'Maven Pro', sans-serif;
+    /* Subtle glow - reduced */
+    text-shadow: 0 0 5px rgba(189, 147, 249, 0.3);
+}
+
+.section-note {
+    color: var(--cyan);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    padding: 0.75rem;
+    background: rgba(139, 233, 253, 0.05);
+    border-radius: 6px;
+    border-left: 3px solid var(--cyan);
+    box-shadow: 0 0 10px rgba(139, 233, 253, 0.2);
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    color: var(--cyan);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group label.required::after {
+    content: " *";
+    color: var(--red);
+}
+
+.help-text {
+    font-size: 0.85rem;
+    color: var(--comment);
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
+/* Input Fields */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    max-width: 600px;
+    padding: 0.75rem;
+    background: var(--bg-dark);
+    border: 1px solid rgba(189, 147, 249, 0.2);
+    border-radius: 6px;
+    color: var(--cyan);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--purple);
+    /* Purple glow on focus */
+    box-shadow: 0 0 10px rgba(189, 147, 249, 0.3),
+                0 0 20px rgba(189, 147, 249, 0.2);
+    background: rgba(26, 27, 38, 0.9);
+}
+
+/* Email validation visual feedback */
+.form-group input[type="email"]:invalid:not(:placeholder-shown) {
+    border-color: var(--red);
+}
+
+.form-group input[type="email"]:valid {
+    border-color: var(--green);
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Radio Buttons - PURPLE GLOW when selected! */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.radio-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: var(--bg-dark);
+    border-radius: 6px;
+    border: 1px solid rgba(189, 147, 249, 0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.radio-item:hover {
+    background: rgba(189, 147, 249, 0.05);
+    border-color: rgba(189, 147, 249, 0.3);
+    box-shadow: 0 0 10px rgba(189, 147, 249, 0.2);
+}
+
+.radio-item:has(input[type="radio"]:checked) {
+    background: rgba(189, 147, 249, 0.1);
+    border-color: var(--purple);
+    /* Purple glow for selected */
+    box-shadow: 0 0 15px rgba(189, 147, 249, 0.5),
+                0 0 25px rgba(189, 147, 249, 0.3);
+}
+
+.radio-item input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    accent-color: var(--purple);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.radio-item label {
+    cursor: pointer;
+    color: var(--cyan);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0;
+    font-weight: normal;
+}
+
+.radio-item input[type="radio"]:checked + label {
+    color: var(--purple);
+    font-weight: 600;
+    text-shadow: 0 0 5px rgba(189, 147, 249, 0.3);
+}
+
+/* Checkboxes - PURPLE GLOW when selected! */
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: var(--bg-dark);
+    border-radius: 6px;
+    border: 1px solid rgba(189, 147, 249, 0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.checkbox-item:hover {
+    background: rgba(189, 147, 249, 0.05);
+    border-color: rgba(189, 147, 249, 0.3);
+    box-shadow: 0 0 10px rgba(189, 147, 249, 0.2);
+}
+
+.checkbox-item:has(input[type="checkbox"]:checked) {
+    background: rgba(189, 147, 249, 0.1);
+    border-color: var(--purple);
+    /* Purple glow for selected */
+    box-shadow: 0 0 15px rgba(189, 147, 249, 0.5),
+                0 0 25px rgba(189, 147, 249, 0.3);
+}
+
+.checkbox-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    accent-color: var(--purple);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.checkbox-item label {
+    cursor: pointer;
+    color: var(--cyan);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0;
+    font-weight: normal;
+}
+
+.checkbox-item input[type="checkbox"]:checked + label {
+    color: var(--purple);
+    font-weight: 600;
+    text-shadow: 0 0 5px rgba(189, 147, 249, 0.3);
+}
+
+/* Submit Section */
+.submit-section {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.submit-btn {
+    display: block;
+    margin: 0 auto;
+    padding: 1rem 3rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    /* DARK background initially - like recruitment form */
+    background: linear-gradient(135deg, #44475a, #282a36);
+    border: 1px solid rgba(189, 147, 249, 0.3);
+    /* PURPLE text initially */
+    color: var(--purple);
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(189, 147, 249, 0.4),
+                inset 0 0 10px rgba(189, 147, 249, 0.05);
+}
+
+.submit-btn:hover {
+    /* PURPLE background on hover with WHITE text */
+    background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9));
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Shine effect on hover */
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s ease;
+}
+
+.submit-btn:hover::before {
+    left: 100%;
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(189, 147, 249, 0.4),
+                0 0 20px rgba(189, 147, 249, 0.2);
+}
+
+.submit-btn:disabled {
+    background: linear-gradient(135deg, #44475a, #282a36);
+    color: var(--comment);
+    cursor: not-allowed;
+    opacity: 0.6;
+    box-shadow: none;
+}
+
+/* Icon animation on hover - rotation like recruitment form */
+.submit-btn i {
+    margin-right: 0.5rem;
+    transition: transform 0.5s;
+}
+
+.submit-btn:hover i {
+    transform: rotate(360deg);
+}
+
+/* Messages */
+#submit-message {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+#submit-message.success {
+    background: rgba(139, 233, 253, 0.1);
+    border: 2px solid var(--cyan);
+    color: var(--cyan);
+    /* Cyan glow for success */
+    box-shadow: 0 0 15px rgba(139, 233, 253, 0.3),
+                0 0 25px rgba(139, 233, 253, 0.2);
+}
+
+#submit-message.error {
+    background: rgba(255, 85, 85, 0.1);
+    border: 2px solid var(--red);
+    color: var(--red);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        padding: 0.5rem;
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    header {
+        padding: 1.5rem 1rem;
+    }
+
+    header h1 {
+        font-size: 1.75rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .intro,
+    .form-section {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-section h3 {
+        font-size: 1.2rem;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea {
+        max-width: 100%;
+        font-size: 0.9rem;
+    }
+
+    .radio-item,
+    .checkbox-item {
+        padding: 0.6rem;
+    }
+
+    .radio-item label,
+    .checkbox-item label {
+        font-size: 0.85rem;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    #submit-message {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Tablet responsive */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .container {
+        max-width: 700px;
+    }
+
+    .form-section {
+        padding: 1.75rem;
+    }
+}

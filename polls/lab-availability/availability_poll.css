@@ -1,0 +1,651 @@
+/* Lab Availability Poll Styles - Cosme Lab Dracula Theme */
+/* Matching website purple glow, cyan accents, and golden highlights */
+
+:root {
+    /* Dracula Dark Backgrounds - Darker variant */
+    --bg-dark: #1a1b26;
+    --bg-light: #24283b;
+    --bg-darker: #16161e;
+
+    /* UCR Brand Colors */
+    --ucr-blue: #003DA5;
+    --ucr-gold: #FFB81C;
+    --ucr-blue-light: #0066CC;
+    --ucr-gold-dark: #CC9400;
+
+    /* Dracula Colors */
+    --fg-light: #f8f8f2;
+    --fg-dark: #8be1e9;
+    --comment: #7c8db0;
+    --cyan: #8be9fd;
+    --green: #50fa7b;
+    --orange: #ffb86c;
+    --pink: #ff79c6;
+    --purple: #bd93f9;
+    --red: #ff5555;
+    --yellow: #f1fa8c;
+    --selection: #44475a;
+
+    /* Neon glow effects */
+    --neon-pink-glow: 0 0 5px #ff79c6, 0 0 10px #ff79c6, 0 0 15px #ff79c6, 0 0 20px #ff79c6;
+    --neon-cyan-glow: 0 0 5px #8be9fd, 0 0 10px #8be9fd, 0 0 15px #8be9fd, 0 0 20px #8be9fd;
+    --neon-gold-glow: 0 0 5px #FFB81C, 0 0 10px #FFB81C, 0 0 15px #FFB81C, 0 0 20px #FFB81C;
+    --neon-purple-glow: 0 0 5px #bd93f9, 0 0 10px #bd93f9, 0 0 15px #bd93f9, 0 0 20px #bd93f9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: var(--bg-dark);
+    color: var(--cyan);
+    padding: 2rem;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: var(--bg-light);
+    border-radius: 12px;
+    /* Purple glow effect */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border: 1px solid rgba(189, 147, 249, 0.2);
+    transition: all 0.3s ease;
+}
+
+header:hover {
+    /* Enhanced purple neon glow on hover */
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 0 30px rgba(189, 147, 249, 0.4),
+                0 0 40px rgba(139, 233, 253, 0.2);
+    border-color: rgba(189, 147, 249, 0.5);
+    background: rgba(36, 40, 59, 0.85);
+}
+
+header h1 {
+    font-family: 'Maven Pro', sans-serif;
+    color: var(--purple);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    /* Subtle glow - reduced */
+    text-shadow: 0 0 5px rgba(189, 147, 249, 0.3);
+}
+
+.subtitle {
+    color: var(--cyan);
+    font-size: 1.1rem;
+    /* Subtle glow - reduced */
+    text-shadow: 0 0 5px rgba(139, 233, 253, 0.3);
+}
+
+/* Instructions */
+.instructions {
+    background: var(--bg-light);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border: 1px solid rgba(189, 147, 249, 0.2);
+    transition: all 0.3s ease;
+}
+
+.instructions:hover {
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 0 30px rgba(189, 147, 249, 0.4);
+    border-color: rgba(189, 147, 249, 0.5);
+}
+
+.instructions h3 {
+    color: var(--ucr-gold);
+    font-family: 'Maven Pro', sans-serif;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    /* Subtle glow - reduced */
+    text-shadow: 0 0 5px rgba(255, 184, 28, 0.3);
+}
+
+.instructions ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.instructions li {
+    margin-bottom: 0.5rem;
+    color: var(--cyan);
+}
+
+.note {
+    background: rgba(139, 233, 253, 0.1);
+    padding: 1rem;
+    border-radius: 6px;
+    border-left: 3px solid var(--cyan);
+    color: var(--cyan);
+    font-style: italic;
+    margin-top: 1rem;
+    box-shadow: 0 0 10px rgba(139, 233, 253, 0.2);
+}
+
+/* Name Input */
+.name-input-section {
+    background: var(--bg-light);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border: 1px solid rgba(189, 147, 249, 0.2);
+    transition: all 0.3s ease;
+}
+
+.name-input-section:hover {
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 0 30px rgba(189, 147, 249, 0.4);
+    border-color: rgba(189, 147, 249, 0.5);
+}
+
+.name-input-section label {
+    display: block;
+    color: var(--cyan);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+#student-name,
+#first-name,
+#last-name,
+#student-email {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.75rem;
+    background: var(--bg-dark);
+    border: 1px solid rgba(189, 147, 249, 0.3);
+    border-radius: 6px;
+    color: var(--cyan);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.help-text {
+    color: var(--comment);
+    font-size: 0.85rem;
+    font-style: italic;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+}
+
+#student-name:focus,
+#first-name:focus,
+#last-name:focus,
+#student-email:focus {
+    outline: none;
+    border-color: var(--purple);
+    /* Purple glow on focus */
+    box-shadow: 0 0 10px rgba(189, 147, 249, 0.3),
+                0 0 20px rgba(189, 147, 249, 0.2);
+}
+
+#student-email:invalid:not(:placeholder-shown) {
+    border-color: var(--red);
+}
+
+#student-email:valid {
+    border-color: var(--green);
+}
+
+/* Grid Container */
+.grid-container {
+    background: var(--bg-light);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border: 1px solid rgba(189, 147, 249, 0.2);
+    transition: all 0.3s ease;
+}
+
+.grid-container:hover {
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 0 30px rgba(189, 147, 249, 0.4);
+    border-color: rgba(189, 147, 249, 0.5);
+}
+
+.legend {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.legend h4 {
+    color: var(--purple);
+    font-family: 'Maven Pro', sans-serif;
+    /* Subtle glow - reduced */
+    text-shadow: 0 0 5px rgba(189, 147, 249, 0.3);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.legend-color {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    border: 1px solid rgba(189, 147, 249, 0.3);
+}
+
+.legend-color.available {
+    background: var(--purple);
+    box-shadow: 0 0 10px rgba(189, 147, 249, 0.5);
+}
+
+.legend-color.unavailable {
+    background: var(--bg-darker);
+}
+
+/* Grid */
+.grid-wrapper {
+    overflow-x: auto;
+}
+
+#availability-grid {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 4px;
+    background: var(--bg-dark);
+    border-radius: 8px;
+}
+
+#availability-grid thead th {
+    background: var(--bg-darker);
+    color: var(--ucr-gold);
+    padding: 1rem;
+    font-family: 'Maven Pro', sans-serif;
+    font-weight: 600;
+    border: 1px solid rgba(255, 184, 28, 0.3);
+    /* Subtle glow - reduced */
+    text-shadow: 0 0 5px rgba(255, 184, 28, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+#availability-grid tbody td {
+    padding: 0.75rem;
+    text-align: center;
+    background: var(--bg-darker);
+    border: 1px solid rgba(189, 147, 249, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    user-select: none;
+    min-width: 100px;
+}
+
+#availability-grid tbody td:first-child {
+    background: var(--bg-light);
+    color: var(--cyan);
+    font-weight: 600;
+    cursor: default;
+    text-align: left;
+    padding-left: 1rem;
+    /* No glow on time labels */
+}
+
+#availability-grid tbody td:not(:first-child):hover {
+    border-color: var(--purple);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(189, 147, 249, 0.5);
+}
+
+/* PURPLE GLOW for selected cells! */
+#availability-grid tbody td.selected {
+    background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9));
+    color: white;
+    font-weight: 700;
+    border-color: var(--purple);
+    /* Enhanced purple neon glow */
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 0 35px rgba(189, 147, 249, 0.4),
+                0 0 50px rgba(189, 147, 249, 0.2);
+    transform: scale(1.02);
+}
+
+#availability-grid tbody td.selected::after {
+    content: "✓";
+    font-size: 1.2rem;
+}
+
+/* Selection Summary */
+.selection-summary {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: var(--bg-dark);
+    border-radius: 8px;
+    border: 1px solid rgba(139, 233, 253, 0.2);
+}
+
+.selection-summary h4 {
+    color: var(--cyan);
+    font-family: 'Maven Pro', sans-serif;
+    /* Subtle glow - reduced */
+    text-shadow: 0 0 5px rgba(139, 233, 253, 0.3);
+}
+
+.selection-summary h4 span {
+    color: var(--ucr-gold);
+    font-size: 1.3rem;
+    /* Subtle glow - reduced */
+    text-shadow: 0 0 5px rgba(255, 184, 28, 0.3);
+}
+
+.warning {
+    color: var(--ucr-gold);
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background: rgba(255, 184, 28, 0.1);
+    border-radius: 6px;
+    border-left: 3px solid var(--ucr-gold);
+    box-shadow: 0 0 10px rgba(255, 184, 28, 0.2);
+}
+
+.warning.hidden {
+    display: none;
+}
+
+/* Submit Section */
+.submit-section {
+    text-align: center;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.submit-btn {
+    display: block;
+    margin: 0 auto;
+    padding: 1rem 3rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    /* DARK background initially - like recruitment form */
+    background: linear-gradient(135deg, #44475a, #282a36);
+    border: 1px solid rgba(189, 147, 249, 0.3);
+    /* PURPLE text initially */
+    color: var(--purple);
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(189, 147, 249, 0.4),
+                inset 0 0 10px rgba(189, 147, 249, 0.05);
+}
+
+.submit-btn:hover {
+    /* PURPLE background on hover with WHITE text */
+    background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9));
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Shine effect on hover */
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s ease;
+}
+
+.submit-btn:hover::before {
+    left: 100%;
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(189, 147, 249, 0.4),
+                0 0 20px rgba(189, 147, 249, 0.2);
+}
+
+.submit-btn:disabled {
+    background: linear-gradient(135deg, #44475a, #282a36);
+    color: var(--comment);
+    cursor: not-allowed;
+    opacity: 0.6;
+    box-shadow: none;
+}
+
+/* Icon animation on hover - rotation like recruitment form */
+.submit-btn i {
+    margin-right: 0.5rem;
+    transition: transform 0.5s;
+}
+
+.submit-btn:hover i {
+    transform: rotate(360deg);
+}
+
+.clear-btn {
+    background: transparent;
+    color: var(--ucr-gold);
+    border: 2px solid var(--ucr-gold);
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.clear-btn:hover {
+    background: var(--ucr-gold);
+    color: var(--bg-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--neon-gold-glow);
+}
+
+#submit-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    min-width: 300px;
+}
+
+#submit-message.success {
+    background: rgba(139, 233, 253, 0.1);
+    border: 2px solid var(--cyan);
+    color: var(--cyan);
+    box-shadow: 0 0 15px rgba(139, 233, 253, 0.3);
+}
+
+#submit-message.error {
+    background: rgba(255, 85, 85, 0.1);
+    border: 2px solid var(--red);
+    color: var(--red);
+}
+
+/* View Results */
+.view-results-section {
+    text-align: center;
+    padding: 2rem;
+    background: var(--bg-light);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border: 1px solid rgba(189, 147, 249, 0.2);
+    transition: all 0.3s ease;
+}
+
+.view-results-section:hover {
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 0 30px rgba(189, 147, 249, 0.4);
+    border-color: rgba(189, 147, 249, 0.5);
+}
+
+.view-results-section p {
+    color: var(--cyan);
+    margin-bottom: 1rem;
+}
+
+.view-results-btn {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    /* DARK background initially - like recruitment form */
+    background: linear-gradient(135deg, #44475a, #282a36);
+    border: 1px solid rgba(189, 147, 249, 0.3);
+    /* PURPLE text initially */
+    color: var(--purple);
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(189, 147, 249, 0.4),
+                inset 0 0 10px rgba(189, 147, 249, 0.05);
+}
+
+.view-results-btn:hover {
+    /* PURPLE background on hover with WHITE text */
+    background: linear-gradient(135deg, var(--purple), rgba(189, 147, 249, 0.9));
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6),
+                0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Shine effect on hover */
+.view-results-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s ease;
+}
+
+.view-results-btn:hover::before {
+    left: 100%;
+}
+
+/* Icon animation on hover - rotation like other buttons */
+.view-results-btn i {
+    margin-right: 0.5rem;
+    transition: transform 0.5s;
+}
+
+.view-results-btn:hover i {
+    transform: rotate(360deg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        padding: 0.5rem;
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    header {
+        padding: 1.5rem 1rem;
+    }
+
+    header h1 {
+        font-size: 1.75rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .instructions,
+    .name-input-section,
+    .grid-container {
+        padding: 1rem;
+    }
+
+    .legend {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    #availability-grid {
+        font-size: 0.75rem;
+    }
+
+    #availability-grid thead th {
+        padding: 0.5rem 0.25rem;
+        font-size: 0.85rem;
+    }
+
+    #availability-grid tbody td {
+        min-width: 50px;
+        padding: 0.5rem 0.25rem;
+    }
+
+    #availability-grid tbody td:first-child {
+        font-size: 0.8rem;
+        padding-left: 0.5rem;
+    }
+
+    .submit-btn,
+    .clear-btn {
+        width: 100%;
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    #student-name,
+    #first-name,
+    #last-name,
+    #student-email {
+        max-width: 100%;
+    }
+}
+
+/* Tablet responsive */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .container {
+        max-width: 750px;
+    }
+
+    #availability-grid {
+        font-size: 0.9rem;
+    }
+
+    #availability-grid tbody td {
+        min-width: 80px;
+    }
+}

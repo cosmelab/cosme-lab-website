@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentoring Preferences Survey - Cosme Lab</title>
+    <link rel="stylesheet" href="mentoring_poll.css">
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mentoring Preferences Survey</h1>
+            <p class="subtitle">Help us customize your research mentoring experience</p>
+        </header>
+
+        <div class="intro">
+            <p>This survey helps me understand your preferred mentoring style and meeting frequency. There are no wrong answers - your honest preferences will help create the best research experience for you!</p>
+            <p><strong>Time to complete:</strong> 5-7 minutes</p>
+        </div>
+
+        <form id="mentoring-form">
+            <!-- Basic Info -->
+            <div class="form-section">
+                <h3>Basic Information</h3>
+
+                <div class="form-group">
+                    <label class="required">Your Name</label>
+                    <input type="text" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="required">Email</label>
+                    <input type="email" name="email" placeholder="yourname@ucr.edu" pattern=".*@ucr\.edu$" required>
+                    <p class="help-text">Must use your @ucr.edu email address</p>
+                </div>
+
+                <div class="form-group">
+                    <label class="required">Your research experience level</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="exp1" name="experience_level" value="First time in research lab" required>
+                            <label for="exp1">First time in a research lab</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="exp2" name="experience_level" value="Some experience (1 semester)">
+                            <label for="exp2">Some experience (1 semester)</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="exp3" name="experience_level" value="Experienced (2+ semesters)">
+                            <label for="exp3">Experienced (2+ semesters)</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="exp4" name="experience_level" value="Very experienced (published/presented)">
+                            <label for="exp4">Very experienced (published/presented)</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Individual Meeting Preferences -->
+            <div class="form-section">
+                <h3>Individual Meetings</h3>
+                <p class="section-note">Research shows regular check-ins improve student success in STEM research. Let us know what works best for you.</p>
+
+                <div class="form-group">
+                    <label class="required">Preferred meeting frequency</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="freq1" name="meeting_frequency" value="Weekly (15 minutes)" required>
+                            <label for="freq1">Weekly (15 minutes) - Quick check-ins</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="freq2" name="meeting_frequency" value="Weekly (30 minutes)">
+                            <label for="freq2">Weekly (30 minutes) - Standard</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="freq3" name="meeting_frequency" value="Bi-weekly (30 minutes)">
+                            <label for="freq3">Bi-weekly (30 minutes) - Regular updates</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="freq4" name="meeting_frequency" value="Bi-weekly (1 hour)">
+                            <label for="freq4">Bi-weekly (1 hour) - In-depth</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="freq5" name="meeting_frequency" value="Monthly (1 hour)">
+                            <label for="freq5">Monthly (1 hour) - Deep dives</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="freq6" name="meeting_frequency" value="As-needed only">
+                            <label for="freq6">As-needed only - Very independent</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="required">Preferred meeting format</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="format1" name="meeting_format" value="In-person (office)" required>
+                            <label for="format1">In-person (office)</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="format2" name="meeting_format" value="In-person (lab)">
+                            <label for="format2">In-person (lab/while working)</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="format3" name="meeting_format" value="Zoom">
+                            <label for="format3">Zoom/virtual</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="format4" name="meeting_format" value="Flexible/no preference">
+                            <label for="format4">Flexible - no preference</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="required">Best days for meetings</label>
+                    <p class="help-text">Select all that work for you</p>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="day1" name="meeting_days" value="Monday">
+                            <label for="day1">Monday</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="day2" name="meeting_days" value="Tuesday">
+                            <label for="day2">Tuesday</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="day3" name="meeting_days" value="Wednesday">
+                            <label for="day3">Wednesday</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="day4" name="meeting_days" value="Thursday">
+                            <label for="day4">Thursday</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="day5" name="meeting_days" value="Friday">
+                            <label for="day5">Friday</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="required">Best time of day</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="time1" name="meeting_time" value="Morning (8-11 AM)" required>
+                            <label for="time1">Morning (8-11 AM)</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="time2" name="meeting_time" value="Midday (11 AM - 2 PM)">
+                            <label for="time2">Midday (11 AM - 2 PM)</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="time3" name="meeting_time" value="Afternoon (2-5 PM)">
+                            <label for="time3">Afternoon (2-5 PM)</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="time4" name="meeting_time" value="Flexible">
+                            <label for="time4">Flexible - any time works</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lab Meetings -->
+            <div class="form-section">
+                <h3>Group Lab Meetings</h3>
+                <p class="section-note">All-hands lab meetings allow the team to share progress, discuss papers, and learn together.</p>
+
+                <div class="form-group">
+                    <label class="required">Would you attend a weekly all-hands lab meeting?</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="lab1" name="lab_meeting_interest" value="Yes, definitely" required>
+                            <label for="lab1">Yes, definitely</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="lab2" name="lab_meeting_interest" value="Yes, if scheduled at a time I can attend">
+                            <label for="lab2">Yes, if scheduled at a time I can attend</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="lab3" name="lab_meeting_interest" value="Prefer bi-weekly">
+                            <label for="lab3">Prefer bi-weekly</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="lab4" name="lab_meeting_interest" value="Prefer monthly">
+                            <label for="lab4">Prefer monthly</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="lab5" name="lab_meeting_interest" value="Not interested">
+                            <label for="lab5">Not interested</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="required">Preferred lab meeting day/time (if applicable)</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="labtime1" name="lab_meeting_time" value="Monday morning" required>
+                            <label for="labtime1">Monday morning</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="labtime2" name="lab_meeting_time" value="Monday afternoon">
+                            <label for="labtime2">Monday afternoon</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="labtime3" name="lab_meeting_time" value="Wednesday morning">
+                            <label for="labtime3">Wednesday morning</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="labtime4" name="lab_meeting_time" value="Wednesday afternoon">
+                            <label for="labtime4">Wednesday afternoon</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="labtime5" name="lab_meeting_time" value="Friday afternoon">
+                            <label for="labtime5">Friday afternoon</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="labtime6" name="lab_meeting_time" value="Flexible">
+                            <label for="labtime6">Flexible - any works</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="required">What would you like to do in lab meetings?</label>
+                    <p class="help-text">Select all that interest you</p>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="activity1" name="lab_meeting_activities" value="Present my research progress">
+                            <label for="activity1">Present my research progress</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="activity2" name="lab_meeting_activities" value="Discuss journal articles">
+                            <label for="activity2">Discuss journal articles</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="activity3" name="lab_meeting_activities" value="Learn new techniques">
+                            <label for="activity3">Learn new techniques</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="activity4" name="lab_meeting_activities" value="Practice presentations">
+                            <label for="activity4">Practice presentations</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="activity5" name="lab_meeting_activities" value="Troubleshoot experiments together">
+                            <label for="activity5">Troubleshoot experiments together</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="activity6" name="lab_meeting_activities" value="Career/grad school discussions">
+                            <label for="activity6">Career/grad school discussions</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Communication Preferences -->
+            <div class="form-section">
+                <h3>Communication Preferences</h3>
+
+                <div class="form-group">
+                    <label class="required">Best way to reach you for quick questions</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="comm1" name="communication_method" value="Email" required>
+                            <label for="comm1">Email</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="comm2" name="communication_method" value="Slack">
+                            <label for="comm2">Slack</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="comm3" name="communication_method" value="Text message">
+                            <label for="comm3">Text message</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="comm4" name="communication_method" value="In-person in lab">
+                            <label for="comm4">In-person in lab</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="comm5" name="communication_method" value="No preference">
+                            <label for="comm5">No preference</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="required">Response time expectation from me</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="resp1" name="response_time" value="Within hours (urgent matters)" required>
+                            <label for="resp1">Within hours (for urgent matters)</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="resp2" name="response_time" value="Within 24 hours">
+                            <label for="resp2">Within 24 hours</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="resp3" name="response_time" value="Within 2-3 days">
+                            <label for="resp3">Within 2-3 days</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="resp4" name="response_time" value="Flexible">
+                            <label for="resp4">Flexible - no rush</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Working Style -->
+            <div class="form-section">
+                <h3>Your Working Style</h3>
+
+                <div class="form-group">
+                    <label class="required">Which best describes your preferred working style?</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="style1" name="working_style" value="Need structured guidance and frequent check-ins" required>
+                            <label for="style1">I need structured guidance and frequent check-ins</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="style2" name="working_style" value="Like clear goals but work independently">
+                            <label for="style2">I like clear goals but work independently</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="style3" name="working_style" value="Highly independent with occasional guidance">
+                            <label for="style3">I'm highly independent, need occasional guidance</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="style4" name="working_style" value="Mix depending on task">
+                            <label for="style4">Mix of both depending on the task</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="required">Interest in informal lab interactions</label>
+                    <p class="help-text">e.g., lab lunches, coffee chats, journal clubs, social events</p>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="informal1" name="informal_interest" value="Very interested" required>
+                            <label for="informal1">Very interested - I love building lab community</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="informal2" name="informal_interest" value="Somewhat interested">
+                            <label for="informal2">Somewhat interested - occasionally</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="informal3" name="informal_interest" value="Prefer formal meetings only">
+                            <label for="informal3">Prefer formal meetings only</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="informal4" name="informal_interest" value="No preference">
+                            <label for="informal4">No preference</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Open-Ended Questions -->
+            <div class="form-section">
+                <h3>Additional Information</h3>
+
+                <div class="form-group">
+                    <label>What are your goals for this research experience?</label>
+                    <p class="help-text">e.g., learn techniques, publish paper, prepare for grad school, build CV, explore career options</p>
+                    <textarea name="research_goals" rows="4"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What type of mentoring support would help you succeed?</label>
+                    <p class="help-text">Be specific - this helps me tailor mentoring to your needs</p>
+                    <textarea name="mentoring_needs" rows="4"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Any scheduling constraints we should know about?</label>
+                    <p class="help-text">Classes, work, athletics, etc. - helps with meeting scheduling</p>
+                    <textarea name="scheduling_constraints" rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Additional comments or questions</label>
+                    <textarea name="additional_comments" rows="3"></textarea>
+                </div>
+            </div>
+
+            <!-- Submit -->
+            <div class="submit-section">
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Submit Survey
+                </button>
+                <div id="submit-message"></div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Form submission handler
+        const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwQiwwcq2YdGX5HCkFjtepTNFGLJb0aKyku1pOGU8d66R60VpaVs0GBePWrP0zCeK7VAA/exec';
+
+        document.getElementById('mentoring-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const form = e.target;
+            const formData = new FormData(form);
+            const submitBtn = form.querySelector('.submit-btn');
+            const messageDiv = document.getElementById('submit-message');
+
+            // Collect checkbox values
+            const meetingDays = [];
+            form.querySelectorAll('input[name="meeting_days"]:checked').forEach(cb => {
+                meetingDays.push(cb.value);
+            });
+
+            const labActivities = [];
+            form.querySelectorAll('input[name="lab_meeting_activities"]:checked').forEach(cb => {
+                labActivities.push(cb.value);
+            });
+
+            // Build data object
+            const data = {};
+            formData.forEach((value, key) => {
+                if (key !== 'meeting_days' && key !== 'lab_meeting_activities') {
+                    data[key] = value;
+                }
+            });
+            data.meeting_days = meetingDays.join(', ');
+            data.lab_meeting_activities = labActivities.join(', ');
+            data.timestamp = new Date().toISOString();
+
+            // Show loading
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            messageDiv.textContent = '';
+            messageDiv.className = '';
+
+            try {
+                const response = await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                // Show success
+                messageDiv.innerHTML = `
+                    <strong>Thank you, ${data.name}!</strong><br>
+                    Your mentoring preferences have been submitted. I will use this to customize your research experience.
+                `;
+                messageDiv.className = 'success';
+                form.reset();
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> Submitted';
+
+                // Scroll to message
+                messageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            } catch (error) {
+                console.error('Submission error:', error);
+                messageDiv.innerHTML = `
+                    <strong>Error submitting survey.</strong><br>
+                    Please try again or email me directly.
+                `;
+                messageDiv.className = 'error';
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Survey';
+            }
+        });
+    </script>
+</body>
+</html>

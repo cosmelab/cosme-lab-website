@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Schedule - Cosme Lab</title>
+    <link rel="stylesheet" href="lab-schedule.css">
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Lab Availability This Week</h1>
+            <p class="subtitle">See who's available to work in the lab</p>
+            <p class="week-info">Week of: <span id="current-week"></span></p>
+        </header>
+
+        <div class="instructions">
+            <p><i class="fas fa-info-circle"></i> Darker colors mean more students are available at that time. Hover over cells to see names.</p>
+        </div>
+
+        <div class="heatmap-container">
+            <div class="legend">
+                <h4>Availability</h4>
+                <div class="legend-scale">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #16161e;"></div>
+                        <span>0</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: rgba(189, 147, 249, 0.3);"></div>
+                        <span>1-2</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: rgba(189, 147, 249, 0.6);"></div>
+                        <span>3-4</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: rgba(189, 147, 249, 0.9);"></div>
+                        <span>5+</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="loading" class="loading">
+                <i class="fas fa-spinner fa-spin"></i> Loading schedule...
+            </div>
+
+            <div id="error-message" class="error-message hidden"></div>
+
+            <div class="grid-wrapper">
+                <table id="heatmap-grid">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Monday</th>
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                        </tr>
+                    </thead>
+                    <tbody id="grid-body">
+                        <!-- Grid will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="refresh-section">
+                <button id="refresh-btn" class="refresh-btn">
+                    <i class="fas fa-sync-alt"></i> Refresh Data
+                </button>
+                <p class="last-updated">Last updated: <span id="last-updated-time">Never</span></p>
+            </div>
+        </div>
+
+        <div class="submit-poll-section">
+            <p>Haven't submitted your availability yet?</p>
+            <a href="polls/lab-availability/availability_poll.html" class="submit-poll-btn">
+                <i class="fas fa-calendar-check"></i> Submit Your Availability
+            </a>
+        </div>
+    </div>
+
+    <script src="lab-schedule.js"></script>
+</body>
+</html>

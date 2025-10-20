@@ -107,3 +107,12 @@ venv/
 test-*.html
 *-test.html
 *.draft.html
+
+# Email templates (contains credentials paths)
+email-templates/
+
+# Incomplete features (not ready for deployment)
+student-timesheet.*
+lab-attendance.*
+attendance-tracker-readme.md
+lab-scheduling-system.md
