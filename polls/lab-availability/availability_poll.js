@@ -188,8 +188,16 @@ function clearAll() {
     updateBlockCount();
 }
 
+// Submission flag to prevent double-submission
+let isSubmitting = false;
+
 // Submit availability
 async function submitAvailability() {
+    // Prevent double submission
+    if (isSubmitting) {
+        return;
+    }
+
     const studentName = document.getElementById('student-name').value.trim();
     const studentEmail = document.getElementById('student-email').value.trim();
     const submitBtn = document.getElementById('submit-btn');
@@ -221,6 +229,10 @@ async function submitAvailability() {
         return;
     }
 
+    // Set submission flag and disable button IMMEDIATELY
+    isSubmitting = true;
+    submitBtn.disabled = true;
+
     // Prepare data
     const selections = [];
     selectedCells.forEach(cellId => {
@@ -240,8 +252,7 @@ async function submitAvailability() {
         timestamp: new Date().toISOString()
     };
 
-    // Show loading
-    submitBtn.disabled = true;
+    // Show loading (button already disabled above)
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
     messageDiv.textContent = '';
     messageDiv.className = '';
@@ -272,6 +283,8 @@ async function submitAvailability() {
         console.error('Submission error:', error);
         messageDiv.textContent = 'Error submitting. Please try again or contact me.';
         messageDiv.className = 'error';
+        // Re-enable submission on error
+        isSubmitting = false;
         submitBtn.disabled = false;
         submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Availability';
     }
