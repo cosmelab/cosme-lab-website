@@ -55,30 +55,43 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="student-email">
-                        <i class="fas fa-envelope"></i> UCR Email
-                    </label>
-                    <input
-                        type="email"
-                        id="student-email"
-                        placeholder="yourname@ucr.edu"
-                        pattern=".*@ucr\\.edu$"
-                        required
-                        readonly
-                    >
-                    <span class="form-hint">Auto-filled from your UCR login</span>
-                </div>
-
-                <div class="form-group">
-                    <label for="student-name">
-                        <i class="fas fa-user"></i> Name
+                    <label for="netid">
+                        <i class="fas fa-id-card"></i> UCR NetID
                     </label>
                     <input
                         type="text"
-                        id="student-name"
-                        placeholder="First Last"
+                        id="netid"
+                        placeholder="lcosme"
                         required
+                        pattern="[a-z][a-z0-9.]*"
                     >
+                    <span class="form-hint">Your UCR NetID (we'll add @ucr.edu automatically)</span>
+                </div>
+
+                <div class="time-inputs">
+                    <div class="form-group">
+                        <label for="first-name">
+                            <i class="fas fa-user"></i> First Name
+                        </label>
+                        <input
+                            type="text"
+                            id="first-name"
+                            placeholder="Luciano"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="last-name">
+                            <i class="fas fa-user"></i> Last Name
+                        </label>
+                        <input
+                            type="text"
+                            id="last-name"
+                            placeholder="Cosme"
+                            required
+                        >
+                    </div>
                 </div>
 
                 <!-- Date and Time Section -->
@@ -141,17 +154,32 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="project">
-                        <i class="fas fa-project-diagram"></i> Project
+                    <label>
+                        <i class="fas fa-project-diagram"></i> Projects (select all that apply)
                     </label>
-                    <select id="project" required>
-                        <option value="">Select a project...</option>
-                        <option value="Mosquito Genomics">Mosquito Genomics</option>
-                        <option value="Mealworm Farming">Mealworm Farming</option>
-                        <option value="General Lab">General Lab Maintenance</option>
-                        <option value="Meeting">Meeting/Training</option>
-                        <option value="Other">Other</option>
-                    </select>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="projects" value="Mosquito Genomics">
+                            <span>Mosquito Genomics</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="projects" value="Mealworm Farming">
+                            <span>Mealworm Farming</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="projects" value="General Lab">
+                            <span>General Lab Maintenance</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="projects" value="Meeting">
+                            <span>Meeting/Training</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="projects" value="Other">
+                            <span>Other</span>
+                        </label>
+                    </div>
+                    <span class="form-hint">You can work on multiple projects in one session</span>
                 </div>
 
                 <div class="form-group">
@@ -168,6 +196,24 @@
                         <i class="fas fa-info-circle"></i>
                         Be specific! This helps with lab documentation.
                     </span>
+                </div>
+
+                <!-- File Upload Section -->
+                <div class="form-group">
+                    <label for="file-upload">
+                        <i class="fas fa-paperclip"></i> Upload Files (Optional)
+                    </label>
+                    <input
+                        type="file"
+                        id="file-upload"
+                        multiple
+                        accept=".png,.jpg,.jpeg,.pdf,.xlsx,.xls,.csv,.txt,.docx"
+                    >
+                    <span class="form-hint">
+                        <i class="fas fa-info-circle"></i>
+                        Gel images, data files, etc. (Max 10MB per file)
+                    </span>
+                    <div id="file-list" class="file-list"></div>
                 </div>
 
                 <!-- Submit Button -->
