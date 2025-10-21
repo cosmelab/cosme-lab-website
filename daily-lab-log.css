@@ -39,6 +39,8 @@ body {
 .header {
     text-align: center;
     margin-bottom: 2rem;
+    background: transparent !important;
+    height: auto !important;
 }
 
 .header h1 {
@@ -143,6 +145,7 @@ body {
     resize: vertical;
     min-height: 120px;
     font-family: inherit;
+    color: var(--cyan);
 }
 
 .form-hint {
@@ -364,4 +367,66 @@ select {
 select option {
     background: var(--bg-input);
     color: var(--white);
+}
+
+/* Time Input Styling - Dracula Theme */
+input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) hue-rotate(240deg) brightness(1.2);
+    cursor: pointer;
+}
+
+input[type="time"]::-webkit-datetime-edit-fields-wrapper {
+    color: var(--cyan);
+}
+
+input[type="time"]::-webkit-datetime-edit-text {
+    color: var(--comment);
+}
+
+input[type="time"]::-webkit-datetime-edit-hour-field,
+input[type="time"]::-webkit-datetime-edit-minute-field,
+input[type="time"]::-webkit-datetime-edit-ampm-field {
+    background: transparent;
+    color: var(--cyan);
+    padding: 2px;
+}
+
+input[type="time"]::-webkit-datetime-edit-hour-field:focus,
+input[type="time"]::-webkit-datetime-edit-minute-field:focus,
+input[type="time"]::-webkit-datetime-edit-ampm-field:focus {
+    background: var(--purple);
+    color: var(--white);
+    outline: none;
+    border-radius: 3px;
+}
+
+/* Date Input Styling - Dracula Theme */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) hue-rotate(240deg) brightness(1.2);
+    cursor: pointer;
+}
+
+input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+    color: var(--cyan);
+}
+
+input[type="date"]::-webkit-datetime-edit-text {
+    color: var(--comment);
+}
+
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field,
+input[type="date"]::-webkit-datetime-edit-year-field {
+    background: transparent;
+    color: var(--cyan);
+    padding: 2px;
+}
+
+input[type="date"]::-webkit-datetime-edit-month-field:focus,
+input[type="date"]::-webkit-datetime-edit-day-field:focus,
+input[type="date"]::-webkit-datetime-edit-year-field:focus {
+    background: var(--purple);
+    color: var(--white);
+    outline: none;
+    border-radius: 3px;
 }

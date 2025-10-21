@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Lab Logs - Cosme Lab</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="my-lab-logs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <span>Cosme Lab</span>
+                </a>
+                <span class="since-date">Established on July 1st, 2024</span>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="grants.html">Grants</a></li>
+                <li><a href="teaching.html">Teaching</a></li>
+                <li><a href="service.html">Service</a></li>
+                <li><a href="join.html">Join Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-top: 100px;">
+        <!-- Header -->
+        <header class="page-header">
+            <h1><i class="fas fa-chart-line"></i> My Lab Logs</h1>
+            <p class="subtitle">Track your research hours and progress</p>
+            <p class="user-email">Logged in as: <span id="user-email-display">Loading...</span></p>
+        </header>
+
+        <!-- Loading State -->
+        <div id="loading-state" class="loading-card">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Loading your lab logs...</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="error-state" class="error-card hidden">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h3>Unable to Load Data</h3>
+            <p id="error-message">Please try again later or contact the lab.</p>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div id="dashboard-content" class="hidden">
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="total-hours">0h</h3>
+                        <p>Total Hours</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="total-sessions">0</h3>
+                        <p>Lab Sessions</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="avg-hours">0h</h3>
+                        <p>Avg per Session</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-day"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="last-visit">Never</h3>
+                        <p>Last Visit</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Breakdown -->
+            <div class="section-card">
+                <h2><i class="fas fa-project-diagram"></i> Hours by Project</h2>
+                <div id="project-breakdown" class="project-list">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Recent Logs Table -->
+            <div class="section-card">
+                <h2><i class="fas fa-history"></i> Recent Lab Sessions</h2>
+                <div class="table-wrapper">
+                    <table id="logs-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Time In</th>
+                                <th>Time Out</th>
+                                <th>Hours</th>
+                                <th>Project</th>
+                                <th>Accomplishments</th>
+                            </tr>
+                        </thead>
+                        <tbody id="logs-table-body">
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="no-logs-message" class="no-data hidden">
+                    <i class="fas fa-clipboard"></i>
+                    <p>No lab sessions yet. <a href="daily-lab-log.html">Submit your first log!</a></p>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <a href="daily-lab-log.html" class="btn-primary">
+                    <i class="fas fa-plus"></i> Submit New Log
+                </a>
+                <button id="refresh-btn" class="btn-secondary">
+                    <i class="fas fa-sync-alt"></i> Refresh Data
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="my-lab-logs.js"></script>
+</body>
+</html>

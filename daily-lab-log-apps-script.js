@@ -30,6 +30,10 @@ function doGet(e) {
     return getUserEmailResponse();
   }
 
+  if (action === 'getMyLogs') {
+    return getMyLogsResponse();
+  }
+
   // Default: return HTML (if you want to serve the form from Apps Script)
   return ContentService.createTextOutput('Daily Lab Log API');
 }
@@ -100,6 +104,66 @@ function getUserEmailResponse() {
     email: userEmail || '',
     name: name || ''
   });
+}
+
+/**
+ * Get authenticated user's lab logs
+ * Returns only logs that match the user's email
+ */
+function getMyLogsResponse() {
+  try {
+    const userEmail = Session.getActiveUser().getEmail();
+
+    // Validate UCR email
+    if (!userEmail || !userEmail.endsWith('@ucr.edu')) {
+      return createJsonResponse({
+        success: false,
+        error: 'Authentication failed. Please log in with your UCR email.'
+      });
+    }
+
+    const sheet = SPREADSHEET.getSheetByName(SHEET_NAME);
+
+    if (!sheet) {
+      return createJsonResponse({
+        success: false,
+        error: 'Data not found. Please contact the lab.'
+      });
+    }
+
+    // Get all data (skip header row)
+    const allData = sheet.getDataRange().getValues();
+    const headers = allData[0];
+    const rows = allData.slice(1);
+
+    // Filter rows by user email
+    const userLogs = rows
+      .filter(row => row[1] === userEmail) // Column B (index 1) is email
+      .map(row => ({
+        timestamp: row[0],
+        email: row[1],
+        name: row[2],
+        date: row[3],
+        time_in: row[4],
+        time_out: row[5],
+        hours_worked: parseFloat(row[6]) || 0,
+        project: row[7],
+        accomplishments: row[8]
+      }));
+
+    return createJsonResponse({
+      success: true,
+      email: userEmail,
+      logs: userLogs
+    });
+
+  } catch (error) {
+    Logger.log('Error in getMyLogsResponse: ' + error.toString());
+    return createJsonResponse({
+      success: false,
+      error: 'Server error: ' + error.message
+    });
+  }
 }
 
 /**
