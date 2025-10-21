@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lab Availability Poll - Cosme Lab</title>
+    <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="availability_poll.css">
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap" rel="stylesheet">
@@ -11,7 +12,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="../../index.html">
+                    <span>Cosme Lab</span>
+                </a>
+                <span class="since-date">Established on July 1st, 2024</span>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../research.html">Research</a></li>
+                <li><a href="../../team.html">Team</a></li>
+                <li><a href="../../publications.html">Publications</a></li>
+                <li><a href="../../news.html">News</a></li>
+                <li><a href="../../grants.html">Grants</a></li>
+                <li><a href="../../teaching.html">Teaching</a></li>
+                <li><a href="../../service.html">Service</a></li>
+                <li><a href="../../join.html">Join Us</a></li>
+                <li><a href="../../contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-top: 100px;">
         <header>
             <h1>Lab Availability Poll</h1>
             <p class="subtitle">Select your available 3+ hour blocks for lab work</p>
@@ -95,6 +125,7 @@
         </div>
     </div>
 
+    <script src="../../js/main.js"></script>
     <script src="availability_poll.js"></script>
 </body>
 </html>
