@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Lab Log - Cosme Lab</title>
+    <link rel="stylesheet" href="daily-lab-log.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-clipboard-list"></i> Daily Lab Log</h1>
+            <p class="subtitle">Cosme Lab - UC Riverside</p>
+            <p class="instruction">Fill this out before leaving the lab each day</p>
+        </header>
+
+        <!-- Main Form -->
+        <div class="main-card">
+            <form id="lab-log-form">
+
+                <!-- Student Info Section -->
+                <div class="section-header">
+                    <h2><i class="fas fa-user"></i> Student Information</h2>
+                </div>
+
+                <div class="form-group">
+                    <label for="student-email">
+                        <i class="fas fa-envelope"></i> UCR Email
+                    </label>
+                    <input
+                        type="email"
+                        id="student-email"
+                        placeholder="yourname@ucr.edu"
+                        pattern=".*@ucr\\.edu$"
+                        required
+                        readonly
+                    >
+                    <span class="form-hint">Auto-filled from your UCR login</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="student-name">
+                        <i class="fas fa-user"></i> Full Name
+                    </label>
+                    <input
+                        type="text"
+                        id="student-name"
+                        placeholder="First Last"
+                        required
+                    >
+                </div>
+
+                <!-- Date and Time Section -->
+                <div class="section-header">
+                    <h2><i class="fas fa-calendar-clock"></i> Date & Time</h2>
+                </div>
+
+                <div class="form-group">
+                    <label for="work-date">
+                        <i class="fas fa-calendar"></i> Date
+                    </label>
+                    <input
+                        type="date"
+                        id="work-date"
+                        required
+                    >
+                    <button type="button" id="use-today" class="btn-link">
+                        <i class="fas fa-sync"></i> Use today's date
+                    </button>
+                </div>
+
+                <div class="time-inputs">
+                    <div class="form-group">
+                        <label for="time-in">
+                            <i class="fas fa-sign-in-alt"></i> Time In
+                        </label>
+                        <input
+                            type="time"
+                            id="time-in"
+                            required
+                        >
+                        <span class="form-hint">When you arrived</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time-out">
+                            <i class="fas fa-sign-out-alt"></i> Time Out
+                        </label>
+                        <input
+                            type="time"
+                            id="time-out"
+                            required
+                        >
+                        <button type="button" id="use-current-time" class="btn-link">
+                            <i class="fas fa-sync"></i> Use current time
+                        </button>
+                        <span class="form-hint">When you're leaving</span>
+                    </div>
+                </div>
+
+                <!-- Total Hours Display -->
+                <div class="hours-display">
+                    <i class="fas fa-clock"></i>
+                    <span>Total Hours: <strong id="total-hours">0h 0m</strong></span>
+                </div>
+
+                <!-- Work Details Section -->
+                <div class="section-header">
+                    <h2><i class="fas fa-tasks"></i> Work Details</h2>
+                </div>
+
+                <div class="form-group">
+                    <label for="project">
+                        <i class="fas fa-project-diagram"></i> Project
+                    </label>
+                    <select id="project" required>
+                        <option value="">Select a project...</option>
+                        <option value="Mosquito Genomics">Mosquito Genomics</option>
+                        <option value="Mealworm Farming">Mealworm Farming</option>
+                        <option value="General Lab">General Lab Maintenance</option>
+                        <option value="Meeting">Meeting/Training</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="accomplishments">
+                        <i class="fas fa-list-check"></i> What did you accomplish today?
+                    </label>
+                    <textarea
+                        id="accomplishments"
+                        rows="6"
+                        placeholder="Describe what you worked on today. Examples:&#10;• DNA extraction from 24 mosquito samples&#10;• PCR setup for insecticide resistance genes&#10;• Gel electrophoresis and documentation&#10;• Data entry and lab notebook updates&#10;• Equipment maintenance and cleaning"
+                        required
+                    ></textarea>
+                    <span class="form-hint">
+                        <i class="fas fa-info-circle"></i>
+                        Be specific! This helps with lab documentation.
+                    </span>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn-primary btn-large">
+                    <i class="fas fa-paper-plane"></i> Submit Daily Log
+                </button>
+            </form>
+        </div>
+
+        <!-- Success Message -->
+        <div id="success-message" class="success-card hidden">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Log Submitted!</h2>
+            <p id="success-details">Your daily lab log has been recorded.</p>
+            <div class="success-summary">
+                <div class="summary-item">
+                    <span class="label">Hours Logged:</span>
+                    <span class="value" id="success-hours">3h 30m</span>
+                </div>
+                <div class="summary-item">
+                    <span class="label">Project:</span>
+                    <span class="value" id="success-project">Mosquito Genomics</span>
+                </div>
+            </div>
+            <button id="new-log-btn" class="btn-primary">
+                <i class="fas fa-plus"></i> Submit Another Log
+            </button>
+        </div>
+
+        <!-- Error Message -->
+        <div id="error-message" class="error-banner hidden"></div>
+    </div>
+
+    <script src="daily-lab-log.js"></script>
+</body>
+</html>
