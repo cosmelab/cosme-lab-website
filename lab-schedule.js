@@ -33,6 +33,7 @@ function formatTime(time) {
 
 // Data structure to store availability
 let availabilityData = {};
+let studentColorMap = {};
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
@@ -43,7 +44,22 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('refresh-btn').addEventListener('click', () => {
         fetchAndDisplayData();
     });
+
+    // Randomize colors button
+    document.getElementById('randomize-colors-btn').addEventListener('click', () => {
+        assignStudentColors(true);  // Randomize = true
+        buildHeatmapGrid();
+        buildStudentStats();
+    });
 });
+
+// Extract first name only from full name
+function getFirstName(fullName) {
+    if (!fullName) return 'Unknown';
+    // Split by space and take first part
+    const parts = fullName.trim().split(/\s+/);
+    return parts[0];
+}
 
 // Display current week date
 function displayCurrentWeek() {
@@ -134,12 +150,46 @@ function processAvailabilityData(data) {
     data.forEach(row => {
         const day = row.day;
         const time = row.time;
-        const name = row.student_name || row.first_name || 'Unknown';
+        const fullName = row.student_name || row.first_name || 'Unknown';
+        const firstName = getFirstName(fullName);
 
         if (availabilityData[day] && availabilityData[day][time]) {
             availabilityData[day][time].count++;
-            availabilityData[day][time].names.push(name);
+            availabilityData[day][time].names.push(firstName);
         }
+    });
+}
+
+// Color palette for student pills
+const colors = ['purple', 'cyan', 'green', 'pink', 'orange', 'magenta', 'red', 'yellow'];
+
+// Shuffle array (Fisher-Yates algorithm)
+function shuffleArray(array) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+}
+
+// Assign colors to students
+function assignStudentColors(randomize = false) {
+    // Get all unique students
+    const allStudents = new Set();
+    weekdays.forEach(day => {
+        timeSlots.forEach(time => {
+            availabilityData[day][time].names.forEach(name => allStudents.add(name));
+        });
+    });
+
+    // Use shuffled or original colors
+    const colorPalette = randomize ? shuffleArray(colors) : colors;
+
+    // Assign colors
+    studentColorMap = {};
+    Array.from(allStudents).forEach((student, index) => {
+        studentColorMap[student] = colorPalette[index % colorPalette.length];
     });
 }
 
@@ -148,21 +198,10 @@ function buildHeatmapGrid() {
     const gridBody = document.getElementById('grid-body');
     gridBody.innerHTML = '';
 
-    // Color palette for student pills
-    const colors = ['purple', 'cyan', 'green', 'pink', 'orange', 'magenta', 'red', 'yellow'];
-
-    // Create a consistent color mapping for all students
-    const allStudents = new Set();
-    weekdays.forEach(day => {
-        timeSlots.forEach(time => {
-            availabilityData[day][time].names.forEach(name => allStudents.add(name));
-        });
-    });
-
-    const studentColorMap = {};
-    Array.from(allStudents).forEach((student, index) => {
-        studentColorMap[student] = colors[index % colors.length];
-    });
+    // Assign colors if not already done
+    if (Object.keys(studentColorMap).length === 0) {
+        assignStudentColors(false);
+    }
 
     timeSlots.forEach(time => {
         const row = document.createElement('tr');
