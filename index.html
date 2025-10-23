@@ -26,6 +26,83 @@
     <!-- Additional SEO -->
     <meta name="robots" content="index, follow">
     <meta name="language" content="English">
+
+    <!-- Structured Data - Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ResearchOrganization",
+      "name": "Cosme Lab",
+      "alternateName": "Cosme Laboratory",
+      "url": "https://cosmelab.github.io/cosme-lab-website/",
+      "logo": "https://cosmelab.github.io/cosme-lab-website/images/logo.png",
+      "description": "Research laboratory at UC Riverside investigating genetic mechanisms underlying insecticide resistance in disease-transmitting mosquitoes through genomics and computational approaches",
+      "foundingDate": "2024-07-01",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Department of Entomology",
+        "addressLocality": "Riverside",
+        "addressRegion": "CA",
+        "postalCode": "92521",
+        "addressCountry": "US"
+      },
+      "parentOrganization": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of California, Riverside",
+        "url": "https://www.ucr.edu/"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Dr. Luciano Cosme",
+        "jobTitle": "Principal Investigator",
+        "url": "https://cosmelab.github.io/cosme-lab-website/team.html",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "University of California, Riverside"
+        }
+      },
+      "sameAs": [
+        "https://profiles.ucr.edu/app/home/profile/lucianoc"
+      ],
+      "knowsAbout": [
+        "Vector Biology",
+        "Mosquito Genomics",
+        "Insecticide Resistance",
+        "Computational Biology",
+        "Disease Vectors",
+        "Dengue",
+        "Malaria",
+        "Aedes aegypti",
+        "Single-cell RNA-seq",
+        "Haplotype Sequencing"
+      ],
+      "areaServed": {
+        "@type": "Place",
+        "name": "California"
+      }
+    }
+    </script>
+
+    <!-- Structured Data - Website Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Cosme Lab",
+      "url": "https://cosmelab.github.io/cosme-lab-website/",
+      "description": "Vector Biology & Mosquito Genomics Research at UC Riverside",
+      "publisher": {
+        "@type": "ResearchOrganization",
+        "name": "Cosme Lab"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://cosmelab.github.io/cosme-lab-website/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components/purple-glow.css">
     <link rel="stylesheet" href="css/components/modals.css">
