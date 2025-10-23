@@ -279,22 +279,33 @@ function buildStudentStats() {
     // Calculate max for percentage
     const maxSlots = studentArray[0].count;
 
-    // Color palette - Dracula + Magenta
-    const colors = ['purple', 'cyan', 'green', 'pink', 'orange', 'magenta', 'red', 'yellow'];
-
-    // Create bars for each student
-    studentArray.forEach((student, index) => {
+    // Create bars for each student using the same color mapping as the grid
+    studentArray.forEach((student) => {
         const barDiv = document.createElement('div');
         barDiv.className = 'student-bar';
 
         // Calculate percentage
         const percentage = (student.count / maxSlots) * 100;
 
-        // Assign color (cycle through palette)
-        const colorClass = colors[index % colors.length];
+        // Get color from the global color map (same as cells)
+        const colorClass = studentColorMap[student.name] || 'lavender';
+
+        // Define color values for the circle
+        const colorValues = {
+            'lavender': 'rgba(200, 162, 255, 1)',
+            'sky': 'rgba(135, 206, 250, 1)',
+            'mint': 'rgba(152, 251, 152, 1)',
+            'rose': 'rgba(255, 182, 193, 1)',
+            'peach': 'rgba(255, 218, 185, 1)',
+            'coral': 'rgba(255, 160, 122, 1)',
+            'lemon': 'rgba(255, 250, 205, 1)',
+            'lilac': 'rgba(221, 160, 221, 1)'
+        };
+
+        const circleColor = colorValues[colorClass] || colorValues['lavender'];
 
         barDiv.innerHTML = `
-            <div class="student-count-circle" style="color: var(--${colorClass})">
+            <div class="student-count-circle" style="color: ${circleColor}">
                 ${student.count}
             </div>
             <div class="student-bar-container">
