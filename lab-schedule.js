@@ -464,4 +464,97 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('close-details').addEventListener('click', () => {
         clearSelection();
     });
+
+    // Download calendar button
+    document.getElementById('download-calendar-btn').addEventListener('click', () => {
+        if (selectedStudent) {
+            downloadCalendar(selectedStudent);
+        }
+    });
 });
+
+// Generate and download .ics calendar file
+function downloadCalendar(studentName) {
+    // Get next Monday to start the week
+    const today = new Date();
+    const monday = getMonday(today);
+
+    // Build calendar events
+    let icsContent = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//Cosme Lab//Lab Schedule//EN',
+        'CALSCALE:GREGORIAN',
+        'METHOD:PUBLISH',
+        'X-WR-CALNAME:' + studentName + ' Lab Schedule',
+        'X-WR-TIMEZONE:America/Los_Angeles'
+    ];
+
+    // Add events for each time slot
+    weekdays.forEach((day, dayIndex) => {
+        timeSlots.forEach(time => {
+            const data = availabilityData[day][time];
+            if (data.names.includes(studentName)) {
+                // Calculate date for this day
+                const eventDate = new Date(monday);
+                eventDate.setDate(monday.getDate() + dayIndex);
+
+                // Parse time to get hour
+                const startHour = parseInt(time.split(':')[0]);
+                const isPM = time.includes('PM');
+                let hour24 = startHour;
+
+                if (isPM && startHour !== 12) {
+                    hour24 = startHour + 12;
+                } else if (!isPM && startHour === 12) {
+                    hour24 = 0;
+                }
+
+                // Create start and end times
+                const startDate = new Date(eventDate);
+                startDate.setHours(hour24, 0, 0);
+
+                const endDate = new Date(startDate);
+                endDate.setHours(hour24 + 1, 0, 0); // 1 hour duration
+
+                // Format dates for ICS (YYYYMMDDTHHmmss)
+                const formatICSDate = (date) => {
+                    const year = date.getFullYear();
+                    const month = String(date.getMonth() + 1).padStart(2, '0');
+                    const day = String(date.getDate()).padStart(2, '0');
+                    const hours = String(date.getHours()).padStart(2, '0');
+                    const minutes = String(date.getMinutes()).padStart(2, '0');
+                    const seconds = String(date.getSeconds()).padStart(2, '0');
+                    return `${year}${month}${day}T${hours}${minutes}${seconds}`;
+                };
+
+                // Add event
+                icsContent.push('BEGIN:VEVENT');
+                icsContent.push('UID:' + Date.now() + '-' + dayIndex + '-' + hour24 + '@cosmelab.com');
+                icsContent.push('DTSTAMP:' + formatICSDate(new Date()));
+                icsContent.push('DTSTART:' + formatICSDate(startDate));
+                icsContent.push('DTEND:' + formatICSDate(endDate));
+                icsContent.push('SUMMARY:Lab Time - ' + studentName);
+                icsContent.push('DESCRIPTION:Scheduled lab availability for ' + studentName);
+                icsContent.push('LOCATION:Cosme Lab, UC Riverside');
+                icsContent.push('STATUS:CONFIRMED');
+                icsContent.push('END:VEVENT');
+            }
+        });
+    });
+
+    icsContent.push('END:VCALENDAR');
+
+    // Create blob and download
+    const blob = new Blob([icsContent.join('\r\n')], { type: 'text/calendar;charset=utf-8' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = studentName.replace(/\s+/g, '_') + '_Lab_Schedule.ics';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(link.href);
+
+    // Show success message (you could make this fancier)
+    alert('Calendar file downloaded! Import it into Google Calendar, Outlook, or Apple Calendar.');
+}
