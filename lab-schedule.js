@@ -13,6 +13,24 @@ const timeSlots = [
 
 const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
+// Simplified time format for display
+function formatTime(time) {
+    // Show just the hour for most times
+    const hour = parseInt(time.split(':')[0]);
+    const isPM = time.includes('PM');
+
+    if (hour === 12) return '12p';  // Noon
+    if (hour === 8) return '8a';    // 8 AM
+    if (hour === 6 && isPM) return '6p';  // 6 PM
+
+    // For others, just show the number with a/p
+    if (isPM) {
+        return hour === 12 ? '12p' : `${hour}p`;
+    } else {
+        return `${hour}a`;
+    }
+}
+
 // Data structure to store availability
 let availabilityData = {};
 
@@ -125,49 +143,59 @@ function processAvailabilityData(data) {
     });
 }
 
-// Build the heatmap grid HTML
+// Build the heatmap grid HTML with student name pills
 function buildHeatmapGrid() {
     const gridBody = document.getElementById('grid-body');
     gridBody.innerHTML = '';
 
+    // Color palette for student pills
+    const colors = ['purple', 'cyan', 'green', 'pink', 'orange', 'magenta', 'red', 'yellow'];
+
+    // Create a consistent color mapping for all students
+    const allStudents = new Set();
+    weekdays.forEach(day => {
+        timeSlots.forEach(time => {
+            availabilityData[day][time].names.forEach(name => allStudents.add(name));
+        });
+    });
+
+    const studentColorMap = {};
+    Array.from(allStudents).forEach((student, index) => {
+        studentColorMap[student] = colors[index % colors.length];
+    });
+
     timeSlots.forEach(time => {
         const row = document.createElement('tr');
 
-        // Time column
+        // Time column (simplified format)
         const timeCell = document.createElement('td');
-        timeCell.textContent = time;
+        timeCell.textContent = formatTime(time);
+        timeCell.classList.add('time-cell');
         row.appendChild(timeCell);
 
         // Day columns
         weekdays.forEach(day => {
             const cell = document.createElement('td');
             const data = availabilityData[day][time];
-            const count = data.count;
             const names = data.names;
 
-            // Set cell content (count)
-            cell.textContent = count > 0 ? count : '';
+            cell.classList.add('schedule-cell');
 
-            // Set color class based on count
-            if (count === 0) {
-                cell.classList.add('count-0');
-            } else if (count <= 2) {
-                cell.classList.add('count-1');
-            } else if (count <= 4) {
-                cell.classList.add('count-3');
+            // Create pills for each student
+            if (names.length > 0) {
+                const pillContainer = document.createElement('div');
+                pillContainer.classList.add('student-pills');
+
+                names.forEach(name => {
+                    const pill = document.createElement('div');
+                    pill.classList.add('student-pill', `pill-${studentColorMap[name]}`);
+                    pill.textContent = name;
+                    pillContainer.appendChild(pill);
+                });
+
+                cell.appendChild(pillContainer);
             } else {
-                cell.classList.add('count-5plus');
-            }
-
-            // Add tooltip with names on hover
-            if (count > 0) {
-                cell.addEventListener('mouseenter', (e) => {
-                    showTooltip(e.target, names);
-                });
-
-                cell.addEventListener('mouseleave', (e) => {
-                    hideTooltip(e.target);
-                });
+                cell.classList.add('empty-cell');
             }
 
             row.appendChild(cell);
@@ -175,28 +203,6 @@ function buildHeatmapGrid() {
 
         gridBody.appendChild(row);
     });
-}
-
-// Show tooltip with student names
-function showTooltip(cell, names) {
-    const tooltip = document.createElement('div');
-    tooltip.className = 'tooltip';
-
-    if (names.length === 1) {
-        tooltip.textContent = names[0];
-    } else {
-        tooltip.textContent = names.join(', ');
-    }
-
-    cell.appendChild(tooltip);
-}
-
-// Hide tooltip
-function hideTooltip(cell) {
-    const tooltip = cell.querySelector('.tooltip');
-    if (tooltip) {
-        tooltip.remove();
-    }
 }
 
 // Build WoW-style student stats bars
