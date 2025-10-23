@@ -112,6 +112,246 @@ header h1 {
     border-color: rgba(189, 147, 249, 0.5);
 }
 
+/* Stats Panel - WoW Style */
+.stats-panel {
+    margin-bottom: 2rem;
+    background: rgba(22, 22, 30, 0.6);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid rgba(189, 147, 249, 0.3);
+}
+
+.stats-panel h4 {
+    color: var(--purple);
+    font-family: 'Maven Pro', sans-serif;
+    text-shadow: 0 0 10px rgba(189, 147, 249, 0.5);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.stats-panel h4 i {
+    margin-right: 0.5rem;
+}
+
+.student-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* WoW-Style Damage Meter Bars */
+.student-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.student-bar:hover {
+    transform: translateX(5px);
+}
+
+/* 3D Circular Counter */
+.student-count-circle {
+    min-width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    background: linear-gradient(145deg, #2a2d3a, #1a1d2a);
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.5),
+        inset 0 2px 5px rgba(255, 255, 255, 0.1),
+        inset 0 -2px 5px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(189, 147, 249, 0.4);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+    position: relative;
+}
+
+.student-count-circle::before {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    width: 40%;
+    height: 30%;
+    background: radial-gradient(ellipse, rgba(255, 255, 255, 0.3), transparent);
+    border-radius: 50%;
+    filter: blur(2px);
+}
+
+.student-count-circle:hover {
+    transform: scale(1.15);
+    box-shadow:
+        0 0 25px rgba(189, 147, 249, 0.8),
+        0 0 35px rgba(189, 147, 249, 0.6),
+        0 0 45px rgba(189, 147, 249, 0.4),
+        inset 0 2px 8px rgba(255, 255, 255, 0.2);
+    border-color: var(--purple);
+    background: linear-gradient(145deg, var(--purple), rgba(189, 147, 249, 0.6));
+}
+
+/* Bar Container */
+.student-bar-container {
+    flex: 1;
+    position: relative;
+}
+
+/* Progress Bar Background */
+.student-bar-bg {
+    width: 100%;
+    height: 35px;
+    background: rgba(22, 22, 30, 0.8);
+    border-radius: 6px;
+    border: 1px solid rgba(139, 233, 253, 0.2);
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Progress Bar Fill - Different colors per student */
+.student-bar-fill {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.75rem;
+    border-radius: 6px;
+    transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.3s ease,
+                background 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated shimmer effect */
+.student-bar-fill::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
+}
+
+/* Color variations - Dracula + Magenta */
+.student-bar-fill.color-purple {
+    background: linear-gradient(90deg, rgba(189, 147, 249, 0.8), rgba(189, 147, 249, 0.5));
+    border: 1px solid rgba(189, 147, 249, 0.6);
+}
+
+.student-bar-fill.color-cyan {
+    background: linear-gradient(90deg, rgba(139, 233, 253, 0.8), rgba(139, 233, 253, 0.5));
+    border: 1px solid rgba(139, 233, 253, 0.6);
+}
+
+.student-bar-fill.color-green {
+    background: linear-gradient(90deg, rgba(80, 250, 123, 0.8), rgba(80, 250, 123, 0.5));
+    border: 1px solid rgba(80, 250, 123, 0.6);
+}
+
+.student-bar-fill.color-pink {
+    background: linear-gradient(90deg, rgba(255, 121, 198, 0.8), rgba(255, 121, 198, 0.5));
+    border: 1px solid rgba(255, 121, 198, 0.6);
+}
+
+.student-bar-fill.color-orange {
+    background: linear-gradient(90deg, rgba(255, 184, 108, 0.8), rgba(255, 184, 108, 0.5));
+    border: 1px solid rgba(255, 184, 108, 0.6);
+}
+
+.student-bar-fill.color-red {
+    background: linear-gradient(90deg, rgba(255, 85, 85, 0.8), rgba(255, 85, 85, 0.5));
+    border: 1px solid rgba(255, 85, 85, 0.6);
+}
+
+.student-bar-fill.color-yellow {
+    background: linear-gradient(90deg, rgba(241, 250, 140, 0.8), rgba(241, 250, 140, 0.5));
+    border: 1px solid rgba(241, 250, 140, 0.6);
+}
+
+.student-bar-fill.color-magenta {
+    background: linear-gradient(90deg, rgba(255, 0, 255, 0.8), rgba(255, 0, 255, 0.5));
+    border: 1px solid rgba(255, 0, 255, 0.6);
+}
+
+/* Hover effects for bars */
+.student-bar:hover .student-bar-fill.color-purple {
+    box-shadow: 0 0 20px rgba(189, 147, 249, 0.8);
+    background: linear-gradient(90deg, rgba(189, 147, 249, 0.95), rgba(189, 147, 249, 0.7));
+}
+
+.student-bar:hover .student-bar-fill.color-cyan {
+    box-shadow: 0 0 20px rgba(139, 233, 253, 0.8);
+    background: linear-gradient(90deg, rgba(139, 233, 253, 0.95), rgba(139, 233, 253, 0.7));
+}
+
+.student-bar:hover .student-bar-fill.color-green {
+    box-shadow: 0 0 20px rgba(80, 250, 123, 0.8);
+    background: linear-gradient(90deg, rgba(80, 250, 123, 0.95), rgba(80, 250, 123, 0.7));
+}
+
+.student-bar:hover .student-bar-fill.color-pink {
+    box-shadow: 0 0 20px rgba(255, 121, 198, 0.8);
+    background: linear-gradient(90deg, rgba(255, 121, 198, 0.95), rgba(255, 121, 198, 0.7));
+}
+
+.student-bar:hover .student-bar-fill.color-orange {
+    box-shadow: 0 0 20px rgba(255, 184, 108, 0.8);
+    background: linear-gradient(90deg, rgba(255, 184, 108, 0.95), rgba(255, 184, 108, 0.7));
+}
+
+.student-bar:hover .student-bar-fill.color-red {
+    box-shadow: 0 0 20px rgba(255, 85, 85, 0.8);
+    background: linear-gradient(90deg, rgba(255, 85, 85, 0.95), rgba(255, 85, 85, 0.7));
+}
+
+.student-bar:hover .student-bar-fill.color-yellow {
+    box-shadow: 0 0 20px rgba(241, 250, 140, 0.8);
+    background: linear-gradient(90deg, rgba(241, 250, 140, 0.95), rgba(241, 250, 140, 0.7));
+}
+
+.student-bar:hover .student-bar-fill.color-magenta {
+    box-shadow: 0 0 25px rgba(255, 0, 255, 0.9),
+                0 0 35px rgba(189, 147, 249, 0.6);
+    background: linear-gradient(90deg, rgba(255, 0, 255, 0.95), rgba(255, 0, 255, 0.7));
+}
+
+/* Student name and slot count in bar */
+.student-bar-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    color: white;
+    z-index: 1;
+}
+
+.student-bar-slots {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    z-index: 1;
+}
+
 /* Legend */
 .legend {
     margin-bottom: 1.5rem;
@@ -392,6 +632,28 @@ header h1 {
 
     .heatmap-container {
         padding: 1rem;
+    }
+
+    .stats-panel {
+        padding: 1rem;
+    }
+
+    .student-count-circle {
+        min-width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .student-bar-name {
+        font-size: 0.8rem;
+    }
+
+    .student-bar-slots {
+        font-size: 0.75rem;
+    }
+
+    .student-bar-bg {
+        height: 30px;
     }
 
     #heatmap-grid {

@@ -82,6 +82,9 @@ async function fetchAndDisplayData() {
         // Build the heatmap grid
         buildHeatmapGrid();
 
+        // Build student stats bars (WoW style)
+        buildStudentStats();
+
         // Update last updated time
         document.getElementById('last-updated-time').textContent = new Date().toLocaleTimeString();
 
@@ -194,4 +197,71 @@ function hideTooltip(cell) {
     if (tooltip) {
         tooltip.remove();
     }
+}
+
+// Build WoW-style student stats bars
+function buildStudentStats() {
+    const statsContainer = document.getElementById('student-stats');
+    statsContainer.innerHTML = '';
+
+    // Aggregate total slots per student
+    const studentSlots = {};
+
+    // Count all slots for each student across all days/times
+    weekdays.forEach(day => {
+        timeSlots.forEach(time => {
+            const data = availabilityData[day][time];
+            data.names.forEach(name => {
+                if (!studentSlots[name]) {
+                    studentSlots[name] = 0;
+                }
+                studentSlots[name]++;
+            });
+        });
+    });
+
+    // Convert to array and sort by slot count (descending)
+    const studentArray = Object.entries(studentSlots)
+        .map(([name, count]) => ({ name, count }))
+        .sort((a, b) => b.count - a.count);
+
+    // No students available
+    if (studentArray.length === 0) {
+        statsContainer.innerHTML = '<p style="color: var(--comment); text-align: center;">No availability data yet</p>';
+        return;
+    }
+
+    // Calculate max for percentage
+    const maxSlots = studentArray[0].count;
+
+    // Color palette - Dracula + Magenta
+    const colors = ['purple', 'cyan', 'green', 'pink', 'orange', 'magenta', 'red', 'yellow'];
+
+    // Create bars for each student
+    studentArray.forEach((student, index) => {
+        const barDiv = document.createElement('div');
+        barDiv.className = 'student-bar';
+
+        // Calculate percentage
+        const percentage = (student.count / maxSlots) * 100;
+
+        // Assign color (cycle through palette)
+        const colorClass = colors[index % colors.length];
+
+        barDiv.innerHTML = `
+            <div class="student-count-circle" style="color: var(--${colorClass})">
+                ${student.count}
+            </div>
+            <div class="student-bar-container">
+                <div class="student-bar-bg">
+                    <div class="student-bar-fill color-${colorClass}" style="width: ${percentage}%">
+                        <span class="student-bar-name">${student.name}</span>
+                        <span class="student-bar-slots">${student.count} slot${student.count !== 1 ? 's' : ''}</span>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        statsContainer.appendChild(barDiv);
+    });
 }
