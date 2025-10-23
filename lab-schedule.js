@@ -35,23 +35,6 @@ function formatTime(time) {
 let availabilityData = {};
 let studentColorMap = {};
 
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', () => {
-    displayCurrentWeek();
-    fetchAndDisplayData();
-
-    // Refresh button
-    document.getElementById('refresh-btn').addEventListener('click', () => {
-        fetchAndDisplayData();
-    });
-
-    // Randomize colors button
-    document.getElementById('randomize-colors-btn').addEventListener('click', () => {
-        assignStudentColors(true);  // Randomize = true
-        buildHeatmapGrid();
-        buildStudentStats();
-    });
-});
 
 // Extract first name only from full name
 function getFirstName(fullName) {
@@ -318,6 +301,167 @@ function buildStudentStats() {
             </div>
         `;
 
+        // Add click event to student bar for highlighting
+        barDiv.addEventListener('click', () => {
+            selectStudent(student.name);
+        });
+
         statsContainer.appendChild(barDiv);
     });
 }
+
+// Track selected student
+let selectedStudent = null;
+
+// Select and highlight a student's schedule
+function selectStudent(studentName) {
+    selectedStudent = studentName;
+
+    // Show details card
+    const detailsCard = document.getElementById('student-details-card');
+    detailsCard.classList.remove('hidden');
+
+    // Update student name in card
+    document.getElementById('selected-student-name').textContent = studentName;
+
+    // Calculate and display schedule breakdown
+    displayScheduleBreakdown(studentName);
+
+    // Highlight pills in grid
+    highlightStudentInGrid(studentName);
+
+    // Scroll to details card smoothly
+    detailsCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// Display schedule breakdown with day/time ranges and total hours
+function displayScheduleBreakdown(studentName) {
+    const breakdownContainer = document.getElementById('student-schedule-breakdown');
+    breakdownContainer.innerHTML = '';
+
+    // Group time slots by day
+    const schedule = {};
+    let totalSlots = 0;
+
+    weekdays.forEach(day => {
+        timeSlots.forEach(time => {
+            const data = availabilityData[day][time];
+            if (data.names.includes(studentName)) {
+                if (!schedule[day]) {
+                    schedule[day] = [];
+                }
+                schedule[day].push(time);
+                totalSlots++;
+            }
+        });
+    });
+
+    // Create breakdown items for each day
+    Object.entries(schedule).forEach(([day, times]) => {
+        if (times.length === 0) return;
+
+        const firstTime = times[0];
+        const lastTime = times[times.length - 1];
+
+        const item = document.createElement('div');
+        item.className = 'breakdown-item';
+        item.style.borderLeftColor = getStudentColor(studentName);
+
+        item.innerHTML = `
+            <span class="breakdown-day">${day}</span>
+            <span class="breakdown-time">${firstTime} - ${lastTime}</span>
+        `;
+
+        breakdownContainer.appendChild(item);
+    });
+
+    // Calculate total hours (each slot is 1 hour)
+    document.getElementById('total-hours').textContent = `${totalSlots} hours`;
+}
+
+// Get student's color from color map
+function getStudentColor(studentName) {
+    const colorClass = studentColorMap[studentName] || 'lavender';
+    const colorValues = {
+        'lavender': 'rgba(200, 162, 255, 1)',
+        'sky': 'rgba(135, 206, 250, 1)',
+        'mint': 'rgba(152, 251, 152, 1)',
+        'rose': 'rgba(255, 182, 193, 1)',
+        'peach': 'rgba(255, 218, 185, 1)',
+        'coral': 'rgba(255, 160, 122, 1)',
+        'lemon': 'rgba(255, 250, 205, 1)',
+        'lilac': 'rgba(221, 160, 221, 1)'
+    };
+    return colorValues[colorClass];
+}
+
+// Highlight student pills in grid and fade others
+function highlightStudentInGrid(studentName) {
+    // Get all pills
+    const allPills = document.querySelectorAll('.student-pill');
+    const allCells = document.querySelectorAll('.schedule-cell');
+
+    // Reset all cells
+    allCells.forEach(cell => {
+        cell.classList.remove('highlighted-cell');
+    });
+
+    // Process each pill
+    allPills.forEach(pill => {
+        if (pill.textContent === studentName) {
+            // Highlight matching pills
+            pill.classList.add('highlighted');
+            pill.classList.remove('faded');
+
+            // Highlight parent cell
+            const parentCell = pill.closest('.schedule-cell');
+            if (parentCell) {
+                parentCell.classList.add('highlighted-cell');
+            }
+        } else {
+            // Fade non-matching pills
+            pill.classList.remove('highlighted');
+            pill.classList.add('faded');
+        }
+    });
+}
+
+// Clear selection
+function clearSelection() {
+    selectedStudent = null;
+
+    // Hide details card
+    document.getElementById('student-details-card').classList.add('hidden');
+
+    // Remove all highlights and fades
+    document.querySelectorAll('.student-pill').forEach(pill => {
+        pill.classList.remove('highlighted', 'faded');
+    });
+
+    document.querySelectorAll('.schedule-cell').forEach(cell => {
+        cell.classList.remove('highlighted-cell');
+    });
+}
+
+// Add close button event listener when DOM loads
+document.addEventListener('DOMContentLoaded', () => {
+    displayCurrentWeek();
+    fetchAndDisplayData();
+
+    // Refresh button
+    document.getElementById('refresh-btn').addEventListener('click', () => {
+        fetchAndDisplayData();
+    });
+
+    // Randomize colors button
+    document.getElementById('randomize-colors-btn').addEventListener('click', () => {
+        assignStudentColors(true);  // Randomize = true
+        buildHeatmapGrid();
+        buildStudentStats();
+    });
+
+    // Close details button
+    document.getElementById('close-details').addEventListener('click', () => {
+        clearSelection();
+    });
+});

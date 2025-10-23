@@ -92,6 +92,22 @@
                 </div>
             </div>
 
+            <!-- Selected Student Availability Card -->
+            <div id="student-details-card" class="student-details-card hidden">
+                <div class="details-header">
+                    <h4><i class="fas fa-user-clock"></i> <span id="selected-student-name"></span>'s Availability</h4>
+                    <button id="close-details" class="close-details-btn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div id="student-schedule-breakdown" class="schedule-breakdown">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+                <div class="total-hours">
+                    Total Hours: <span id="total-hours">0</span>
+                </div>
+            </div>
+
             <div id="loading" class="loading">
                 <i class="fas fa-spinner fa-spin"></i> Loading schedule...
             </div>
