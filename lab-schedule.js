@@ -160,8 +160,8 @@ function processAvailabilityData(data) {
     });
 }
 
-// Color palette for student pills
-const colors = ['purple', 'cyan', 'green', 'pink', 'orange', 'magenta', 'red', 'yellow'];
+// Color palette for student pills - Pastel
+const colors = ['lavender', 'sky', 'mint', 'rose', 'peach', 'coral', 'lemon', 'lilac'];
 
 // Shuffle array (Fisher-Yates algorithm)
 function shuffleArray(array) {

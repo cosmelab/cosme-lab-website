@@ -252,87 +252,86 @@ header h1 {
     100% { left: 100%; }
 }
 
-/* Color variations - Dracula + Magenta */
-.student-bar-fill.color-purple {
-    background: linear-gradient(90deg, rgba(189, 147, 249, 0.8), rgba(189, 147, 249, 0.5));
-    border: 1px solid rgba(189, 147, 249, 0.6);
+/* Color variations - Pastel Palette */
+.student-bar-fill.color-lavender {
+    background: linear-gradient(90deg, rgba(200, 162, 255, 0.8), rgba(200, 162, 255, 0.5));
+    border: 1px solid rgba(200, 162, 255, 0.6);
 }
 
-.student-bar-fill.color-cyan {
-    background: linear-gradient(90deg, rgba(139, 233, 253, 0.8), rgba(139, 233, 253, 0.5));
-    border: 1px solid rgba(139, 233, 253, 0.6);
+.student-bar-fill.color-sky {
+    background: linear-gradient(90deg, rgba(135, 206, 250, 0.8), rgba(135, 206, 250, 0.5));
+    border: 1px solid rgba(135, 206, 250, 0.6);
 }
 
-.student-bar-fill.color-green {
-    background: linear-gradient(90deg, rgba(80, 250, 123, 0.8), rgba(80, 250, 123, 0.5));
-    border: 1px solid rgba(80, 250, 123, 0.6);
+.student-bar-fill.color-mint {
+    background: linear-gradient(90deg, rgba(152, 251, 152, 0.8), rgba(152, 251, 152, 0.5));
+    border: 1px solid rgba(152, 251, 152, 0.6);
 }
 
-.student-bar-fill.color-pink {
-    background: linear-gradient(90deg, rgba(255, 121, 198, 0.8), rgba(255, 121, 198, 0.5));
-    border: 1px solid rgba(255, 121, 198, 0.6);
+.student-bar-fill.color-rose {
+    background: linear-gradient(90deg, rgba(255, 182, 193, 0.8), rgba(255, 182, 193, 0.5));
+    border: 1px solid rgba(255, 182, 193, 0.6);
 }
 
-.student-bar-fill.color-orange {
-    background: linear-gradient(90deg, rgba(255, 184, 108, 0.8), rgba(255, 184, 108, 0.5));
-    border: 1px solid rgba(255, 184, 108, 0.6);
+.student-bar-fill.color-peach {
+    background: linear-gradient(90deg, rgba(255, 218, 185, 0.8), rgba(255, 218, 185, 0.5));
+    border: 1px solid rgba(255, 218, 185, 0.6);
 }
 
-.student-bar-fill.color-red {
-    background: linear-gradient(90deg, rgba(255, 85, 85, 0.8), rgba(255, 85, 85, 0.5));
-    border: 1px solid rgba(255, 85, 85, 0.6);
+.student-bar-fill.color-coral {
+    background: linear-gradient(90deg, rgba(255, 160, 122, 0.8), rgba(255, 160, 122, 0.5));
+    border: 1px solid rgba(255, 160, 122, 0.6);
 }
 
-.student-bar-fill.color-yellow {
-    background: linear-gradient(90deg, rgba(241, 250, 140, 0.8), rgba(241, 250, 140, 0.5));
-    border: 1px solid rgba(241, 250, 140, 0.6);
+.student-bar-fill.color-lemon {
+    background: linear-gradient(90deg, rgba(255, 250, 205, 0.8), rgba(255, 250, 205, 0.5));
+    border: 1px solid rgba(255, 250, 205, 0.6);
 }
 
-.student-bar-fill.color-magenta {
-    background: linear-gradient(90deg, rgba(255, 0, 255, 0.8), rgba(255, 0, 255, 0.5));
-    border: 1px solid rgba(255, 0, 255, 0.6);
+.student-bar-fill.color-lilac {
+    background: linear-gradient(90deg, rgba(221, 160, 221, 0.8), rgba(221, 160, 221, 0.5));
+    border: 1px solid rgba(221, 160, 221, 0.6);
 }
 
-/* Hover effects for bars */
-.student-bar:hover .student-bar-fill.color-purple {
-    box-shadow: 0 0 20px rgba(189, 147, 249, 0.8);
-    background: linear-gradient(90deg, rgba(189, 147, 249, 0.95), rgba(189, 147, 249, 0.7));
+/* Hover effects for bars - Pastel */
+.student-bar:hover .student-bar-fill.color-lavender {
+    box-shadow: 0 0 20px rgba(200, 162, 255, 0.8);
+    background: linear-gradient(90deg, rgba(200, 162, 255, 0.95), rgba(200, 162, 255, 0.7));
 }
 
-.student-bar:hover .student-bar-fill.color-cyan {
-    box-shadow: 0 0 20px rgba(139, 233, 253, 0.8);
-    background: linear-gradient(90deg, rgba(139, 233, 253, 0.95), rgba(139, 233, 253, 0.7));
+.student-bar:hover .student-bar-fill.color-sky {
+    box-shadow: 0 0 20px rgba(135, 206, 250, 0.8);
+    background: linear-gradient(90deg, rgba(135, 206, 250, 0.95), rgba(135, 206, 250, 0.7));
 }
 
-.student-bar:hover .student-bar-fill.color-green {
-    box-shadow: 0 0 20px rgba(80, 250, 123, 0.8);
-    background: linear-gradient(90deg, rgba(80, 250, 123, 0.95), rgba(80, 250, 123, 0.7));
+.student-bar:hover .student-bar-fill.color-mint {
+    box-shadow: 0 0 20px rgba(152, 251, 152, 0.8);
+    background: linear-gradient(90deg, rgba(152, 251, 152, 0.95), rgba(152, 251, 152, 0.7));
 }
 
-.student-bar:hover .student-bar-fill.color-pink {
-    box-shadow: 0 0 20px rgba(255, 121, 198, 0.8);
-    background: linear-gradient(90deg, rgba(255, 121, 198, 0.95), rgba(255, 121, 198, 0.7));
+.student-bar:hover .student-bar-fill.color-rose {
+    box-shadow: 0 0 20px rgba(255, 182, 193, 0.8);
+    background: linear-gradient(90deg, rgba(255, 182, 193, 0.95), rgba(255, 182, 193, 0.7));
 }
 
-.student-bar:hover .student-bar-fill.color-orange {
-    box-shadow: 0 0 20px rgba(255, 184, 108, 0.8);
-    background: linear-gradient(90deg, rgba(255, 184, 108, 0.95), rgba(255, 184, 108, 0.7));
+.student-bar:hover .student-bar-fill.color-peach {
+    box-shadow: 0 0 20px rgba(255, 218, 185, 0.8);
+    background: linear-gradient(90deg, rgba(255, 218, 185, 0.95), rgba(255, 218, 185, 0.7));
 }
 
-.student-bar:hover .student-bar-fill.color-red {
-    box-shadow: 0 0 20px rgba(255, 85, 85, 0.8);
-    background: linear-gradient(90deg, rgba(255, 85, 85, 0.95), rgba(255, 85, 85, 0.7));
+.student-bar:hover .student-bar-fill.color-coral {
+    box-shadow: 0 0 20px rgba(255, 160, 122, 0.8);
+    background: linear-gradient(90deg, rgba(255, 160, 122, 0.95), rgba(255, 160, 122, 0.7));
 }
 
-.student-bar:hover .student-bar-fill.color-yellow {
-    box-shadow: 0 0 20px rgba(241, 250, 140, 0.8);
-    background: linear-gradient(90deg, rgba(241, 250, 140, 0.95), rgba(241, 250, 140, 0.7));
+.student-bar:hover .student-bar-fill.color-lemon {
+    box-shadow: 0 0 20px rgba(255, 250, 205, 0.8);
+    background: linear-gradient(90deg, rgba(255, 250, 205, 0.95), rgba(255, 250, 205, 0.7));
 }
 
-.student-bar:hover .student-bar-fill.color-magenta {
-    box-shadow: 0 0 25px rgba(255, 0, 255, 0.9),
-                0 0 35px rgba(189, 147, 249, 0.6);
-    background: linear-gradient(90deg, rgba(255, 0, 255, 0.95), rgba(255, 0, 255, 0.7));
+.student-bar:hover .student-bar-fill.color-lilac {
+    box-shadow: 0 0 20px rgba(221, 160, 221, 0.8);
+    background: linear-gradient(90deg, rgba(221, 160, 221, 0.95), rgba(221, 160, 221, 0.7));
 }
 
 /* Student name and slot count in bar */
@@ -506,98 +505,96 @@ header h1 {
     100% { left: 100%; }
 }
 
-/* Pill Colors - Dracula + Magenta */
-.student-pill.pill-purple {
-    background: linear-gradient(135deg, rgba(189, 147, 249, 0.9), rgba(189, 147, 249, 0.7));
-    border-color: rgba(189, 147, 249, 0.8);
+/* Pill Colors - Pastel Palette */
+.student-pill.pill-lavender {
+    background: linear-gradient(135deg, rgba(200, 162, 255, 0.9), rgba(200, 162, 255, 0.7));
+    border-color: rgba(200, 162, 255, 0.8);
 }
 
-.student-pill.pill-cyan {
-    background: linear-gradient(135deg, rgba(139, 233, 253, 0.9), rgba(139, 233, 253, 0.7));
-    border-color: rgba(139, 233, 253, 0.8);
+.student-pill.pill-sky {
+    background: linear-gradient(135deg, rgba(135, 206, 250, 0.9), rgba(135, 206, 250, 0.7));
+    border-color: rgba(135, 206, 250, 0.8);
 }
 
-.student-pill.pill-green {
-    background: linear-gradient(135deg, rgba(80, 250, 123, 0.9), rgba(80, 250, 123, 0.7));
-    border-color: rgba(80, 250, 123, 0.8);
+.student-pill.pill-mint {
+    background: linear-gradient(135deg, rgba(152, 251, 152, 0.9), rgba(152, 251, 152, 0.7));
+    border-color: rgba(152, 251, 152, 0.8);
 }
 
-.student-pill.pill-pink {
-    background: linear-gradient(135deg, rgba(255, 121, 198, 0.9), rgba(255, 121, 198, 0.7));
-    border-color: rgba(255, 121, 198, 0.8);
+.student-pill.pill-rose {
+    background: linear-gradient(135deg, rgba(255, 182, 193, 0.9), rgba(255, 182, 193, 0.7));
+    border-color: rgba(255, 182, 193, 0.8);
 }
 
-.student-pill.pill-orange {
-    background: linear-gradient(135deg, rgba(255, 184, 108, 0.9), rgba(255, 184, 108, 0.7));
-    border-color: rgba(255, 184, 108, 0.8);
+.student-pill.pill-peach {
+    background: linear-gradient(135deg, rgba(255, 218, 185, 0.9), rgba(255, 218, 185, 0.7));
+    border-color: rgba(255, 218, 185, 0.8);
 }
 
-.student-pill.pill-red {
-    background: linear-gradient(135deg, rgba(255, 85, 85, 0.9), rgba(255, 85, 85, 0.7));
-    border-color: rgba(255, 85, 85, 0.8);
+.student-pill.pill-coral {
+    background: linear-gradient(135deg, rgba(255, 160, 122, 0.9), rgba(255, 160, 122, 0.7));
+    border-color: rgba(255, 160, 122, 0.8);
 }
 
-.student-pill.pill-yellow {
-    background: linear-gradient(135deg, rgba(241, 250, 140, 0.9), rgba(241, 250, 140, 0.7));
-    border-color: rgba(241, 250, 140, 0.8);
+.student-pill.pill-lemon {
+    background: linear-gradient(135deg, rgba(255, 250, 205, 0.9), rgba(255, 250, 205, 0.7));
+    border-color: rgba(255, 250, 205, 0.8);
     color: #1a1b26;
-    text-shadow: none;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.student-pill.pill-magenta {
-    background: linear-gradient(135deg, rgba(255, 0, 255, 0.9), rgba(255, 0, 255, 0.7));
-    border-color: rgba(255, 0, 255, 0.8);
+.student-pill.pill-lilac {
+    background: linear-gradient(135deg, rgba(221, 160, 221, 0.9), rgba(221, 160, 221, 0.7));
+    border-color: rgba(221, 160, 221, 0.8);
 }
 
-/* Pill Hover Effects */
-.student-pill.pill-purple:hover {
+/* Pill Hover Effects - Pastel */
+.student-pill.pill-lavender:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(189, 147, 249, 0.9);
-    background: linear-gradient(135deg, rgba(189, 147, 249, 1), rgba(189, 147, 249, 0.85));
+    box-shadow: 0 0 15px rgba(200, 162, 255, 1);
+    background: linear-gradient(135deg, rgba(200, 162, 255, 1), rgba(200, 162, 255, 0.85));
 }
 
-.student-pill.pill-cyan:hover {
+.student-pill.pill-sky:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(139, 233, 253, 0.9);
-    background: linear-gradient(135deg, rgba(139, 233, 253, 1), rgba(139, 233, 253, 0.85));
+    box-shadow: 0 0 15px rgba(135, 206, 250, 1);
+    background: linear-gradient(135deg, rgba(135, 206, 250, 1), rgba(135, 206, 250, 0.85));
 }
 
-.student-pill.pill-green:hover {
+.student-pill.pill-mint:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(80, 250, 123, 0.9);
-    background: linear-gradient(135deg, rgba(80, 250, 123, 1), rgba(80, 250, 123, 0.85));
+    box-shadow: 0 0 15px rgba(152, 251, 152, 1);
+    background: linear-gradient(135deg, rgba(152, 251, 152, 1), rgba(152, 251, 152, 0.85));
 }
 
-.student-pill.pill-pink:hover {
+.student-pill.pill-rose:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255, 121, 198, 0.9);
-    background: linear-gradient(135deg, rgba(255, 121, 198, 1), rgba(255, 121, 198, 0.85));
+    box-shadow: 0 0 15px rgba(255, 182, 193, 1);
+    background: linear-gradient(135deg, rgba(255, 182, 193, 1), rgba(255, 182, 193, 0.85));
 }
 
-.student-pill.pill-orange:hover {
+.student-pill.pill-peach:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255, 184, 108, 0.9);
-    background: linear-gradient(135deg, rgba(255, 184, 108, 1), rgba(255, 184, 108, 0.85));
+    box-shadow: 0 0 15px rgba(255, 218, 185, 1);
+    background: linear-gradient(135deg, rgba(255, 218, 185, 1), rgba(255, 218, 185, 0.85));
 }
 
-.student-pill.pill-red:hover {
+.student-pill.pill-coral:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255, 85, 85, 0.9);
-    background: linear-gradient(135deg, rgba(255, 85, 85, 1), rgba(255, 85, 85, 0.85));
+    box-shadow: 0 0 15px rgba(255, 160, 122, 1);
+    background: linear-gradient(135deg, rgba(255, 160, 122, 1), rgba(255, 160, 122, 0.85));
 }
 
-.student-pill.pill-yellow:hover {
+.student-pill.pill-lemon:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(241, 250, 140, 0.9);
-    background: linear-gradient(135deg, rgba(241, 250, 140, 1), rgba(241, 250, 140, 0.85));
+    box-shadow: 0 0 15px rgba(255, 250, 205, 1);
+    background: linear-gradient(135deg, rgba(255, 250, 205, 1), rgba(255, 250, 205, 0.85));
 }
 
-.student-pill.pill-magenta:hover {
+.student-pill.pill-lilac:hover {
     transform: scale(1.05);
-    box-shadow:
-        0 0 20px rgba(255, 0, 255, 1),
-        0 0 30px rgba(189, 147, 249, 0.7);
-    background: linear-gradient(135deg, rgba(255, 0, 255, 1), rgba(255, 0, 255, 0.85));
+    box-shadow: 0 0 15px rgba(221, 160, 221, 1);
+    background: linear-gradient(135deg, rgba(221, 160, 221, 1), rgba(221, 160, 221, 0.85));
 }
 
 /* Refresh Section */
