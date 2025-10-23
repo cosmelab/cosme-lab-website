@@ -571,9 +571,12 @@ header h1 {
 }
 
 .schedule-cell.highlighted-cell {
-    background: rgba(189, 147, 249, 0.15);
-    border-color: var(--purple);
-    box-shadow: 0 0 15px rgba(189, 147, 249, 0.6);
+    background: rgba(189, 147, 249, 0.2) !important;
+    box-shadow:
+        0 0 20px rgba(189, 147, 249, 0.8),
+        inset 0 0 15px rgba(189, 147, 249, 0.3) !important;
+    border-left: 2px solid var(--purple) !important;
+    border-bottom: 2px solid var(--purple) !important;
 }
 
 /* Loading & Error */
@@ -607,48 +610,70 @@ header h1 {
 .grid-wrapper {
     overflow-x: auto;
     margin-bottom: 1.5rem;
+    background: var(--bg-dark);
+    border-radius: 12px;
+    padding: 0.5rem;
 }
 
 #heatmap-grid {
     width: 100%;
     border-collapse: separate;
-    border-spacing: 4px;
-    background: var(--bg-dark);
-    border-radius: 8px;
+    border-spacing: 0;
+    background: transparent;
 }
 
 #heatmap-grid thead th {
-    background: var(--bg-darker);
+    background: linear-gradient(135deg, rgba(255, 184, 28, 0.15), rgba(255, 184, 28, 0.05));
     color: var(--ucr-gold);
-    padding: 0.75rem;
+    padding: 1rem 0.75rem;
     font-family: 'Maven Pro', sans-serif;
-    font-weight: 600;
-    border: 1px solid rgba(255, 184, 28, 0.3);
-    text-shadow: 0 0 5px rgba(255, 184, 28, 0.3);
+    font-weight: 700;
+    border: none;
+    text-shadow: 0 0 10px rgba(255, 184, 28, 0.5);
     position: sticky;
     top: 0;
     z-index: 10;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+#heatmap-grid thead th:first-child {
+    border-radius: 10px 0 0 0;
+}
+
+#heatmap-grid thead th:last-child {
+    border-radius: 0 10px 0 0;
 }
 
 /* Time column cells */
 #heatmap-grid tbody td.time-cell {
-    background: var(--bg-light);
+    background: linear-gradient(135deg, rgba(139, 233, 253, 0.15), rgba(139, 233, 253, 0.05));
     color: var(--cyan);
-    font-weight: 600;
+    font-weight: 700;
     text-align: center;
-    padding: 0.75rem;
+    padding: 0.9rem 0.5rem;
     cursor: default;
-    min-width: 50px;
+    min-width: 60px;
     font-size: 0.85rem;
+    border: none;
+    text-shadow: 0 0 8px rgba(139, 233, 253, 0.4);
+    letter-spacing: 0.3px;
+}
+
+#heatmap-grid tbody tr:last-child td.time-cell {
+    border-radius: 0 0 0 10px;
 }
 
 /* Schedule cells */
 #heatmap-grid tbody td.schedule-cell {
-    padding: 0.35rem;
-    background: var(--bg-darker);
-    border: 1px solid rgba(189, 147, 249, 0.2);
+    padding: 0.4rem;
+    background: rgba(40, 42, 54, 0.6);
+    border: none;
+    border-left: 1px solid rgba(68, 71, 90, 0.5);
+    border-bottom: 1px solid rgba(68, 71, 90, 0.5);
     transition: all 0.3s ease;
     min-width: 120px;
     max-width: 200px;
@@ -657,27 +682,26 @@ header h1 {
 }
 
 #heatmap-grid tbody td.schedule-cell.empty-cell {
-    background: rgba(22, 22, 30, 0.5);
-    border-color: rgba(124, 141, 176, 0.1);
+    background: rgba(22, 22, 30, 0.4);
+}
+
+#heatmap-grid tbody tr:last-child td.schedule-cell:last-child {
+    border-radius: 0 0 10px 0;
 }
 
 /* Dracula hover animation for cells */
 #heatmap-grid tbody td.schedule-cell:hover {
-    transform: scale(1.02);
+    transform: translateY(-2px);
     z-index: 100;
-    background: rgba(68, 71, 90, 0.4);
-    border-color: var(--purple);
+    background: rgba(68, 71, 90, 0.6);
     box-shadow:
-        0 0 20px rgba(189, 147, 249, 0.6),
-        0 0 30px rgba(189, 147, 249, 0.4),
-        inset 0 0 15px rgba(189, 147, 249, 0.2);
+        0 4px 15px rgba(189, 147, 249, 0.4),
+        0 0 20px rgba(189, 147, 249, 0.2);
 }
 
 #heatmap-grid tbody td.schedule-cell.empty-cell:hover {
-    box-shadow:
-        0 0 15px rgba(124, 141, 176, 0.4),
-        inset 0 0 10px rgba(124, 141, 176, 0.1);
-    border-color: var(--comment);
+    background: rgba(40, 42, 54, 0.8);
+    box-shadow: 0 2px 10px rgba(124, 141, 176, 0.2);
 }
 
 /* Student Pills Container */
