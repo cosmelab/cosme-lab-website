@@ -488,7 +488,7 @@ header h1 {
 }
 
 .breakdown-time {
-    color: var(--fg-light);
+    color: var(--cyan);
     font-size: 0.85rem;
 }
 
