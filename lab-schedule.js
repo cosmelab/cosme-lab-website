@@ -248,10 +248,10 @@ function buildStudentStats() {
         });
     });
 
-    // Convert to array and sort by slot count (descending)
+    // Convert to array and sort alphabetically (no competition!)
     const studentArray = Object.entries(studentSlots)
         .map(([name, count]) => ({ name, count }))
-        .sort((a, b) => b.count - a.count);
+        .sort((a, b) => a.name.localeCompare(b.name));
 
     // No students available
     if (studentArray.length === 0) {
@@ -259,21 +259,15 @@ function buildStudentStats() {
         return;
     }
 
-    // Calculate max for percentage
-    const maxSlots = studentArray[0].count;
-
-    // Create bars for each student using the same color mapping as the grid
+    // Create floating bubbles for each student
     studentArray.forEach((student) => {
-        const barDiv = document.createElement('div');
-        barDiv.className = 'student-bar';
-
-        // Calculate percentage
-        const percentage = (student.count / maxSlots) * 100;
+        const bubbleDiv = document.createElement('div');
+        bubbleDiv.className = 'student-bubble';
 
         // Get color from the global color map (same as cells)
         const colorClass = studentColorMap[student.name] || 'lavender';
 
-        // Define color values for the circle
+        // Define color values for the bubble border
         const colorValues = {
             'lavender': 'rgba(200, 162, 255, 1)',
             'sky': 'rgba(135, 206, 250, 1)',
@@ -285,28 +279,21 @@ function buildStudentStats() {
             'lilac': 'rgba(221, 160, 221, 1)'
         };
 
-        const circleColor = colorValues[colorClass] || colorValues['lavender'];
+        const borderColor = colorValues[colorClass] || colorValues['lavender'];
 
-        barDiv.innerHTML = `
-            <div class="student-count-circle" style="color: ${circleColor}">
-                ${student.count}
+        bubbleDiv.innerHTML = `
+            <div class="student-bubble-circle" style="border-color: ${borderColor}">
+                <span style="color: ${borderColor}">${student.name.charAt(0)}</span>
             </div>
-            <div class="student-bar-container">
-                <div class="student-bar-bg">
-                    <div class="student-bar-fill color-${colorClass}" style="width: ${percentage}%">
-                        <span class="student-bar-name">${student.name}</span>
-                        <span class="student-bar-slots">${student.count} slot${student.count !== 1 ? 's' : ''}</span>
-                    </div>
-                </div>
-            </div>
+            <div class="student-bubble-name">${student.name}</div>
         `;
 
-        // Add click event to student bar for highlighting
-        barDiv.addEventListener('click', () => {
+        // Add click event to bubble for highlighting
+        bubbleDiv.addEventListener('click', () => {
             selectStudent(student.name);
         });
 
-        statsContainer.appendChild(barDiv);
+        statsContainer.appendChild(bubbleDiv);
     });
 }
 

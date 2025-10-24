@@ -180,237 +180,79 @@ header h1 {
 
 .student-stats {
     display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-/* WoW-Style Damage Meter Bars */
-.student-bar {
-    display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     gap: 1rem;
-    position: relative;
-    transition: all 0.3s ease;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+/* Floating Bubble Design */
+.student-bubble {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
     cursor: pointer;
+    transition: all 0.3s ease;
     padding: 0.5rem;
-    border-radius: 8px;
+    border-radius: 12px;
 }
 
-.student-bar:hover {
-    transform: translateX(5px);
+.student-bubble:hover {
+    transform: translateY(-5px);
+    background: rgba(68, 71, 90, 0.3);
 }
 
-.student-bar:hover .student-count-circle {
-    transform: scale(1.15);
-    box-shadow:
-        0 0 25px rgba(189, 147, 249, 0.8),
-        0 0 35px rgba(189, 147, 249, 0.6),
-        0 0 45px rgba(189, 147, 249, 0.4),
-        inset 0 2px 8px rgba(255, 255, 255, 0.2);
-    border-color: var(--purple);
-}
-
-.student-bar:hover .student-bar-bg {
-    box-shadow: 0 0 20px rgba(189, 147, 249, 0.6);
-}
-
-/* 3D Circular Counter */
-.student-count-circle {
-    min-width: 50px;
-    height: 50px;
+/* Bubble Circle */
+.student-bubble-circle {
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
-    font-size: 1.2rem;
+    font-weight: 600;
+    font-size: 0.85rem;
     background: linear-gradient(145deg, #2a2d3a, #1a1d2a);
     box-shadow:
-        0 4px 10px rgba(0, 0, 0, 0.5),
-        inset 0 2px 5px rgba(255, 255, 255, 0.1),
-        inset 0 -2px 5px rgba(0, 0, 0, 0.3);
-    border: 2px solid rgba(189, 147, 249, 0.4);
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    cursor: pointer;
+        0 4px 10px rgba(0, 0, 0, 0.4),
+        inset 0 2px 5px rgba(255, 255, 255, 0.1);
+    border: 3px solid;
+    transition: all 0.3s ease;
     position: relative;
+    overflow: hidden;
 }
 
-.student-count-circle::before {
+.student-bubble-circle::before {
     content: '';
     position: absolute;
-    top: 15%;
-    left: 20%;
+    top: 10%;
+    left: 15%;
     width: 40%;
-    height: 30%;
-    background: radial-gradient(ellipse, rgba(255, 255, 255, 0.3), transparent);
+    height: 35%;
+    background: radial-gradient(ellipse, rgba(255, 255, 255, 0.25), transparent);
     border-radius: 50%;
-    filter: blur(2px);
+    filter: blur(3px);
 }
 
-.student-count-circle:hover {
-    transform: scale(1.15);
+.student-bubble:hover .student-bubble-circle {
+    transform: scale(1.1);
     box-shadow:
-        0 0 25px rgba(189, 147, 249, 0.8),
-        0 0 35px rgba(189, 147, 249, 0.6),
-        0 0 45px rgba(189, 147, 249, 0.4),
-        inset 0 2px 8px rgba(255, 255, 255, 0.2);
-    border-color: var(--purple);
-    background: linear-gradient(145deg, var(--purple), rgba(189, 147, 249, 0.6));
+        0 6px 20px rgba(0, 0, 0, 0.6),
+        0 0 20px rgba(189, 147, 249, 0.4);
 }
 
-/* Bar Container */
-.student-bar-container {
-    flex: 1;
-    position: relative;
-}
-
-/* Progress Bar Background */
-.student-bar-bg {
-    width: 100%;
-    height: 35px;
-    background: rgba(22, 22, 30, 0.8);
-    border-radius: 6px;
-    border: 1px solid rgba(139, 233, 253, 0.2);
-    position: relative;
-    overflow: hidden;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
-}
-
-/* Progress Bar Fill - Different colors per student */
-.student-bar-fill {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 0.75rem;
-    border-radius: 6px;
-    transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
-                box-shadow 0.3s ease,
-                background 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Animated shimmer effect */
-.student-bar-fill::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.2),
-        transparent
-    );
-    animation: shimmer 3s infinite;
-}
-
-@keyframes shimmer {
-    0% { left: -100%; }
-    50% { left: 100%; }
-    100% { left: 100%; }
-}
-
-/* Color variations - Pastel Palette */
-.student-bar-fill.color-lavender {
-    background: linear-gradient(90deg, rgba(200, 162, 255, 0.8), rgba(200, 162, 255, 0.5));
-    border: 1px solid rgba(200, 162, 255, 0.6);
-}
-
-.student-bar-fill.color-sky {
-    background: linear-gradient(90deg, rgba(135, 206, 250, 0.8), rgba(135, 206, 250, 0.5));
-    border: 1px solid rgba(135, 206, 250, 0.6);
-}
-
-.student-bar-fill.color-mint {
-    background: linear-gradient(90deg, rgba(152, 251, 152, 0.8), rgba(152, 251, 152, 0.5));
-    border: 1px solid rgba(152, 251, 152, 0.6);
-}
-
-.student-bar-fill.color-rose {
-    background: linear-gradient(90deg, rgba(255, 182, 193, 0.8), rgba(255, 182, 193, 0.5));
-    border: 1px solid rgba(255, 182, 193, 0.6);
-}
-
-.student-bar-fill.color-peach {
-    background: linear-gradient(90deg, rgba(255, 218, 185, 0.8), rgba(255, 218, 185, 0.5));
-    border: 1px solid rgba(255, 218, 185, 0.6);
-}
-
-.student-bar-fill.color-coral {
-    background: linear-gradient(90deg, rgba(255, 160, 122, 0.8), rgba(255, 160, 122, 0.5));
-    border: 1px solid rgba(255, 160, 122, 0.6);
-}
-
-.student-bar-fill.color-lemon {
-    background: linear-gradient(90deg, rgba(255, 250, 205, 0.8), rgba(255, 250, 205, 0.5));
-    border: 1px solid rgba(255, 250, 205, 0.6);
-}
-
-.student-bar-fill.color-lilac {
-    background: linear-gradient(90deg, rgba(221, 160, 221, 0.8), rgba(221, 160, 221, 0.5));
-    border: 1px solid rgba(221, 160, 221, 0.6);
-}
-
-/* Hover effects for bars - Pastel */
-.student-bar:hover .student-bar-fill.color-lavender {
-    box-shadow: 0 0 20px rgba(200, 162, 255, 0.8);
-    background: linear-gradient(90deg, rgba(200, 162, 255, 0.95), rgba(200, 162, 255, 0.7));
-}
-
-.student-bar:hover .student-bar-fill.color-sky {
-    box-shadow: 0 0 20px rgba(135, 206, 250, 0.8);
-    background: linear-gradient(90deg, rgba(135, 206, 250, 0.95), rgba(135, 206, 250, 0.7));
-}
-
-.student-bar:hover .student-bar-fill.color-mint {
-    box-shadow: 0 0 20px rgba(152, 251, 152, 0.8);
-    background: linear-gradient(90deg, rgba(152, 251, 152, 0.95), rgba(152, 251, 152, 0.7));
-}
-
-.student-bar:hover .student-bar-fill.color-rose {
-    box-shadow: 0 0 20px rgba(255, 182, 193, 0.8);
-    background: linear-gradient(90deg, rgba(255, 182, 193, 0.95), rgba(255, 182, 193, 0.7));
-}
-
-.student-bar:hover .student-bar-fill.color-peach {
-    box-shadow: 0 0 20px rgba(255, 218, 185, 0.8);
-    background: linear-gradient(90deg, rgba(255, 218, 185, 0.95), rgba(255, 218, 185, 0.7));
-}
-
-.student-bar:hover .student-bar-fill.color-coral {
-    box-shadow: 0 0 20px rgba(255, 160, 122, 0.8);
-    background: linear-gradient(90deg, rgba(255, 160, 122, 0.95), rgba(255, 160, 122, 0.7));
-}
-
-.student-bar:hover .student-bar-fill.color-lemon {
-    box-shadow: 0 0 20px rgba(255, 250, 205, 0.8);
-    background: linear-gradient(90deg, rgba(255, 250, 205, 0.95), rgba(255, 250, 205, 0.7));
-}
-
-.student-bar:hover .student-bar-fill.color-lilac {
-    box-shadow: 0 0 20px rgba(221, 160, 221, 0.8);
-    background: linear-gradient(90deg, rgba(221, 160, 221, 0.95), rgba(221, 160, 221, 0.7));
-}
-
-/* Student name and slot count in bar */
-.student-bar-name {
-    font-weight: 600;
-    font-size: 0.95rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-    color: white;
-    z-index: 1;
-}
-
-.student-bar-slots {
+/* Bubble Name Label */
+.student-bubble-name {
     font-size: 0.85rem;
     font-weight: 600;
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-    z-index: 1;
+    color: var(--cyan);
+    text-align: center;
+    max-width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 
@@ -732,138 +574,68 @@ header h1 {
     align-items: stretch;
 }
 
-/* Student Name Pills - Damage Bar Style */
+/* Student Name Pills - Clean, Subtle Design */
 .student-pill {
-    padding: 0.2rem 0.4rem;
+    padding: 0.15rem 0.35rem;
     border-radius: 3px;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 600;
     text-align: center;
     color: white;
-    text-shadow:
-        1px 1px 2px rgba(0, 0, 0, 0.8),
-        0 0 8px rgba(189, 147, 249, 0.6),
-        0 0 12px rgba(189, 147, 249, 0.4);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
     position: relative;
-    overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: all 0.2s ease;
     cursor: pointer;
     border: 1px solid;
 }
 
-/* Shimmer effect on pills */
-.student-pill::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.3),
-        transparent
-    );
-    animation: pill-shimmer 4s infinite;
-}
-
-@keyframes pill-shimmer {
-    0% { left: -100%; }
-    50% { left: 100%; }
-    100% { left: 100%; }
-}
-
-/* Pill Colors - Pastel Palette */
+/* Pill Colors - Muted Pastel Palette (Reduced Opacity) */
 .student-pill.pill-lavender {
-    background: linear-gradient(135deg, rgba(200, 162, 255, 0.9), rgba(200, 162, 255, 0.7));
-    border-color: rgba(200, 162, 255, 0.8);
+    background: rgba(200, 162, 255, 0.5);
+    border-color: rgba(200, 162, 255, 0.6);
 }
 
 .student-pill.pill-sky {
-    background: linear-gradient(135deg, rgba(135, 206, 250, 0.9), rgba(135, 206, 250, 0.7));
-    border-color: rgba(135, 206, 250, 0.8);
+    background: rgba(135, 206, 250, 0.5);
+    border-color: rgba(135, 206, 250, 0.6);
 }
 
 .student-pill.pill-mint {
-    background: linear-gradient(135deg, rgba(152, 251, 152, 0.9), rgba(152, 251, 152, 0.7));
-    border-color: rgba(152, 251, 152, 0.8);
+    background: rgba(152, 251, 152, 0.5);
+    border-color: rgba(152, 251, 152, 0.6);
 }
 
 .student-pill.pill-rose {
-    background: linear-gradient(135deg, rgba(255, 182, 193, 0.9), rgba(255, 182, 193, 0.7));
-    border-color: rgba(255, 182, 193, 0.8);
+    background: rgba(255, 182, 193, 0.5);
+    border-color: rgba(255, 182, 193, 0.6);
 }
 
 .student-pill.pill-peach {
-    background: linear-gradient(135deg, rgba(255, 218, 185, 0.9), rgba(255, 218, 185, 0.7));
-    border-color: rgba(255, 218, 185, 0.8);
+    background: rgba(255, 218, 185, 0.5);
+    border-color: rgba(255, 218, 185, 0.6);
 }
 
 .student-pill.pill-coral {
-    background: linear-gradient(135deg, rgba(255, 160, 122, 0.9), rgba(255, 160, 122, 0.7));
-    border-color: rgba(255, 160, 122, 0.8);
+    background: rgba(255, 160, 122, 0.5);
+    border-color: rgba(255, 160, 122, 0.6);
 }
 
 .student-pill.pill-lemon {
-    background: linear-gradient(135deg, rgba(255, 250, 205, 0.9), rgba(255, 250, 205, 0.7));
-    border-color: rgba(255, 250, 205, 0.8);
-    color: #1a1b26;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 250, 205, 0.5);
+    border-color: rgba(255, 250, 205, 0.6);
+    color: #e0e0e0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .student-pill.pill-lilac {
-    background: linear-gradient(135deg, rgba(221, 160, 221, 0.9), rgba(221, 160, 221, 0.7));
-    border-color: rgba(221, 160, 221, 0.8);
+    background: rgba(221, 160, 221, 0.5);
+    border-color: rgba(221, 160, 221, 0.6);
 }
 
-/* Pill Hover Effects - Pastel */
-.student-pill.pill-lavender:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(200, 162, 255, 1);
-    background: linear-gradient(135deg, rgba(200, 162, 255, 1), rgba(200, 162, 255, 0.85));
-}
-
-.student-pill.pill-sky:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(135, 206, 250, 1);
-    background: linear-gradient(135deg, rgba(135, 206, 250, 1), rgba(135, 206, 250, 0.85));
-}
-
-.student-pill.pill-mint:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(152, 251, 152, 1);
-    background: linear-gradient(135deg, rgba(152, 251, 152, 1), rgba(152, 251, 152, 0.85));
-}
-
-.student-pill.pill-rose:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255, 182, 193, 1);
-    background: linear-gradient(135deg, rgba(255, 182, 193, 1), rgba(255, 182, 193, 0.85));
-}
-
-.student-pill.pill-peach:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255, 218, 185, 1);
-    background: linear-gradient(135deg, rgba(255, 218, 185, 1), rgba(255, 218, 185, 0.85));
-}
-
-.student-pill.pill-coral:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255, 160, 122, 1);
-    background: linear-gradient(135deg, rgba(255, 160, 122, 1), rgba(255, 160, 122, 0.85));
-}
-
-.student-pill.pill-lemon:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255, 250, 205, 1);
-    background: linear-gradient(135deg, rgba(255, 250, 205, 1), rgba(255, 250, 205, 0.85));
-}
-
-.student-pill.pill-lilac:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(221, 160, 221, 1);
-    background: linear-gradient(135deg, rgba(221, 160, 221, 1), rgba(221, 160, 221, 0.85));
+/* Pill Hover Effects - Subtle */
+.student-pill:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
 }
 
 /* Refresh Section */
