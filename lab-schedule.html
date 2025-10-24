@@ -89,15 +89,15 @@
             <div class="stats-panel">
                 <h4><i class="fas fa-users"></i> Lab Members This Week</h4>
                 <p class="stats-hint">
-                    <i class="fas fa-hand-pointer"></i> Click on any team member below to highlight their schedule
+                    <i class="fas fa-hand-pointer"></i> Click on any team member below to view their detailed schedule, total hours, and download a Google Calendar invite
                 </p>
                 <div id="student-stats" class="student-stats">
                     <!-- Will be populated by JavaScript -->
                 </div>
             </div>
 
-            <!-- Selected Student Availability Card (DISABLED - simplified to just highlight) -->
-            <!-- <div id="student-details-card" class="student-details-card hidden">
+            <!-- Selected Student Availability Card -->
+            <div id="student-details-card" class="student-details-card hidden">
                 <div class="details-header">
                     <h4><i class="fas fa-user-clock"></i> <span id="selected-student-name"></span>'s Availability</h4>
                     <button id="close-details" class="close-details-btn">
@@ -105,6 +105,7 @@
                     </button>
                 </div>
                 <div id="student-schedule-breakdown" class="schedule-breakdown">
+                    <!-- Will be populated by JavaScript -->
                 </div>
                 <div class="total-hours">
                     Total Hours: <span id="total-hours">0</span>
@@ -115,7 +116,7 @@
                 <p class="calendar-note">
                     <i class="fas fa-info-circle"></i> Download this schedule and import it into your personal calendar
                 </p>
-            </div> -->
+            </div>
 
             <div id="loading" class="loading">
                 <i class="fas fa-spinner fa-spin"></i> Loading schedule...

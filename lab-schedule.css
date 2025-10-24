@@ -196,12 +196,10 @@ header h1 {
     cursor: pointer;
     transition: all 0.3s ease;
     padding: 0.5rem;
-    border-radius: 12px;
 }
 
 .student-bubble:hover {
     transform: translateY(-3px);
-    background: rgba(68, 71, 90, 0.4);
 }
 
 /* Bubble Circle */
