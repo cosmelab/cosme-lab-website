@@ -200,8 +200,8 @@ header h1 {
 }
 
 .student-bubble:hover {
-    transform: translateY(-5px);
-    background: rgba(68, 71, 90, 0.3);
+    transform: translateY(-3px);
+    background: rgba(68, 71, 90, 0.4);
 }
 
 /* Bubble Circle */
@@ -237,10 +237,12 @@ header h1 {
 }
 
 .student-bubble:hover .student-bubble-circle {
-    transform: scale(1.1);
+    transform: scale(1.05);
     box-shadow:
         0 6px 20px rgba(0, 0, 0, 0.6),
-        0 0 20px rgba(189, 147, 249, 0.4);
+        0 0 25px rgba(189, 147, 249, 0.8),
+        0 0 35px rgba(189, 147, 249, 0.5);
+    background: linear-gradient(145deg, rgba(189, 147, 249, 0.3), rgba(189, 147, 249, 0.1));
 }
 
 /* Bubble Name Label */
@@ -531,12 +533,12 @@ header h1 {
 
 /* Schedule cells */
 #heatmap-grid tbody td.schedule-cell {
-    padding: 0.4rem;
-    background: rgba(40, 42, 54, 0.6);
+    padding: 0.3rem;
+    background: rgba(40, 42, 54, 0.5);
     border: none;
-    border-left: 1px solid rgba(68, 71, 90, 0.5);
-    border-bottom: 1px solid rgba(68, 71, 90, 0.5);
-    transition: all 0.3s ease;
+    border-left: 1px solid rgba(68, 71, 90, 0.3);
+    border-bottom: 1px solid rgba(68, 71, 90, 0.3);
+    transition: all 0.2s ease;
     min-width: 120px;
     max-width: 200px;
     position: relative;
@@ -544,26 +546,20 @@ header h1 {
 }
 
 #heatmap-grid tbody td.schedule-cell.empty-cell {
-    background: rgba(22, 22, 30, 0.4);
+    background: rgba(22, 22, 30, 0.3);
 }
 
 #heatmap-grid tbody tr:last-child td.schedule-cell:last-child {
     border-radius: 0 0 10px 0;
 }
 
-/* Dracula hover animation for cells */
+/* Subtle hover for cells */
 #heatmap-grid tbody td.schedule-cell:hover {
-    transform: translateY(-2px);
-    z-index: 100;
-    background: rgba(68, 71, 90, 0.6);
-    box-shadow:
-        0 4px 15px rgba(189, 147, 249, 0.4),
-        0 0 20px rgba(189, 147, 249, 0.2);
+    background: rgba(68, 71, 90, 0.5);
 }
 
 #heatmap-grid tbody td.schedule-cell.empty-cell:hover {
-    background: rgba(40, 42, 54, 0.8);
-    box-shadow: 0 2px 10px rgba(124, 141, 176, 0.2);
+    background: rgba(40, 42, 54, 0.6);
 }
 
 /* Student Pills Container */

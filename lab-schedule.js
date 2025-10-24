@@ -304,21 +304,8 @@ let selectedStudent = null;
 function selectStudent(studentName) {
     selectedStudent = studentName;
 
-    // Show details card
-    const detailsCard = document.getElementById('student-details-card');
-    detailsCard.classList.remove('hidden');
-
-    // Update student name in card
-    document.getElementById('selected-student-name').textContent = studentName;
-
-    // Calculate and display schedule breakdown
-    displayScheduleBreakdown(studentName);
-
-    // Highlight pills in grid
+    // Just highlight pills in grid (details card disabled for simplicity)
     highlightStudentInGrid(studentName);
-
-    // Scroll to details card smoothly
-    detailsCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 // Display schedule breakdown with day/time ranges and total hours
