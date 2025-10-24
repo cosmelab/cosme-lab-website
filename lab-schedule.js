@@ -211,7 +211,8 @@ function buildHeatmapGrid() {
                 names.forEach(name => {
                     const pill = document.createElement('div');
                     pill.classList.add('student-pill', `pill-${studentColorMap[name]}`);
-                    pill.textContent = name;
+                    pill.textContent = name.charAt(0); // Just first letter
+                    pill.title = name; // Show full name on hover
                     pillContainer.appendChild(pill);
                 });
 

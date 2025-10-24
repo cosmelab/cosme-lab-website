@@ -563,24 +563,28 @@ header h1 {
 /* Student Pills Container */
 .student-pills {
     display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Student Name Pills - Clean, Subtle Design */
+/* Student Name Pills - Compact Circle Design */
 .student-pill {
-    padding: 0.15rem 0.35rem;
-    border-radius: 3px;
-    font-size: 0.65rem;
-    font-weight: 600;
-    text-align: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
     position: relative;
     transition: all 0.2s ease;
     cursor: pointer;
-    border: 1px solid;
+    border: 2px solid;
 }
 
 /* Pill Colors - Muted Pastel Palette (Reduced Opacity) */
