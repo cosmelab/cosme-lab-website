@@ -396,7 +396,8 @@ function highlightStudentInGrid(studentName) {
 
     // Process each pill
     allPills.forEach(pill => {
-        if (pill.textContent === studentName) {
+        // Compare using title attribute (full name) not textContent (just first letter)
+        if (pill.title === studentName) {
             // Highlight matching pills
             pill.classList.add('highlighted');
             pill.classList.remove('faded');
