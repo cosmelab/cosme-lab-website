@@ -842,8 +842,8 @@ header h1 {
     }
 
     #heatmap-grid tbody td.schedule-cell {
-        min-width: 60px;
-        padding: 0.3rem;
+        min-width: 70px;
+        padding: 0.4rem 0.25rem;
         font-size: 0.7rem;
     }
 
@@ -858,13 +858,13 @@ header h1 {
     }
 
     .student-pill {
-        width: 24px;
-        height: 24px;
-        font-size: 0.65rem;
+        width: 20px;
+        height: 20px;
+        font-size: 0.6rem;
     }
 
     .student-pills {
-        gap: 0.15rem;
+        gap: 0.2rem;
     }
 
     .submit-poll-btn,
