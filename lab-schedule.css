@@ -779,6 +779,7 @@ header h1 {
 
     .container {
         padding: 0;
+        max-width: 100%;
     }
 
     header {
@@ -815,29 +816,51 @@ header h1 {
         height: 30px;
     }
 
+    /* Mobile-optimized grid - show full week */
+    .grid-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        background: linear-gradient(90deg,
+            var(--bg-light) 0%,
+            transparent 10%,
+            transparent 90%,
+            var(--bg-light) 100%);
+        border-radius: 8px;
+        padding: 0.5rem 0;
+    }
+
     #heatmap-grid {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
+        min-width: 100%;
+        width: max-content;
     }
 
     #heatmap-grid thead th {
-        padding: 0.5rem 0.25rem;
-        font-size: 0.85rem;
+        padding: 0.6rem 0.4rem;
+        font-size: 0.75rem;
+        min-width: 55px;
     }
 
     #heatmap-grid tbody td.schedule-cell {
-        min-width: 90px;
-        padding: 0.35rem;
+        min-width: 60px;
+        padding: 0.3rem;
+        font-size: 0.7rem;
     }
 
     #heatmap-grid tbody td.time-cell {
-        font-size: 0.75rem;
-        padding: 0.5rem 0.25rem;
-        min-width: 40px;
+        font-size: 0.7rem;
+        padding: 0.7rem 0.3rem;
+        min-width: 55px;
+        position: sticky;
+        left: 0;
+        z-index: 5;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
     }
 
     .student-pill {
+        width: 24px;
+        height: 24px;
         font-size: 0.65rem;
-        padding: 0.2rem 0.35rem;
     }
 
     .student-pills {
