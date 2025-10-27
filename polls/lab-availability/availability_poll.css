@@ -164,10 +164,10 @@ header h1 {
     font-size: 1.1rem;
 }
 
-#student-name,
+#member-name,
 #first-name,
 #last-name,
-#student-email {
+#member-email {
     width: 100%;
     max-width: 400px;
     padding: 0.75rem;
@@ -188,10 +188,10 @@ header h1 {
     margin-bottom: 1rem;
 }
 
-#student-name:focus,
+#member-name:focus,
 #first-name:focus,
 #last-name:focus,
-#student-email:focus {
+#member-email:focus {
     outline: none;
     border-color: var(--purple);
     /* Purple glow on focus */
@@ -199,11 +199,11 @@ header h1 {
                 0 0 20px rgba(189, 147, 249, 0.2);
 }
 
-#student-email:invalid:not(:placeholder-shown) {
+#member-email:invalid:not(:placeholder-shown) {
     border-color: var(--red);
 }
 
-#student-email:valid {
+#member-email:valid {
     border-color: var(--green);
 }
 
@@ -678,10 +678,10 @@ header h1 {
         font-size: 1rem;
     }
 
-    #student-name,
+    #member-name,
     #first-name,
     #last-name,
-    #student-email {
+    #member-email {
         max-width: 100%;
     }
 

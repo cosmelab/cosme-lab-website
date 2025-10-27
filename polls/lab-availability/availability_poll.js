@@ -198,26 +198,26 @@ async function submitAvailability() {
         return;
     }
 
-    const studentName = document.getElementById('student-name').value.trim();
-    const studentEmail = document.getElementById('student-email').value.trim();
+    const memberName = document.getElementById('member-name').value.trim();
+    const memberEmail = document.getElementById('member-email').value.trim();
     const submitBtn = document.getElementById('submit-btn');
     const messageDiv = document.getElementById('submit-message');
 
     // Validation
-    if (!studentName) {
+    if (!memberName) {
         messageDiv.textContent = 'Please enter your name';
         messageDiv.className = 'error';
         return;
     }
 
-    if (!studentEmail) {
+    if (!memberEmail) {
         messageDiv.textContent = 'Please enter your UCR email';
         messageDiv.className = 'error';
         return;
     }
 
     // Validate @ucr.edu email
-    if (!studentEmail.endsWith('@ucr.edu')) {
+    if (!memberEmail.endsWith('@ucr.edu')) {
         messageDiv.textContent = 'Please use your @ucr.edu email address';
         messageDiv.className = 'error';
         return;
@@ -246,8 +246,8 @@ async function submitAvailability() {
     });
 
     const data = {
-        studentName: studentName,
-        studentEmail: studentEmail,
+        memberName: memberName,
+        memberEmail: memberEmail,
         selections: selections,
         timestamp: new Date().toISOString()
     };
@@ -268,13 +268,13 @@ async function submitAvailability() {
         });
 
         // Show success message
-        messageDiv.textContent = `Thank you, ${studentName}! Your availability has been submitted.`;
+        messageDiv.textContent = `Thank you, ${memberName}! Your availability has been submitted.`;
         messageDiv.className = 'success';
 
         // Disable further submissions
         submitBtn.innerHTML = '<i class="fas fa-check"></i> Submitted';
-        document.getElementById('student-name').disabled = true;
-        document.getElementById('student-email').disabled = true;
+        document.getElementById('member-name').disabled = true;
+        document.getElementById('member-email').disabled = true;
         document.querySelectorAll('#availability-grid td').forEach(cell => {
             cell.style.pointerEvents = 'none';
         });
